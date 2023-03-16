@@ -2,11 +2,26 @@ import Head from 'next/head';
 import styles from '@/styles/Home.module.css';
 import Layout from '@/components/Layout/Layout';
 import Image from 'next/image';
-import FeatureCard from '@/components/FeatureCard/FeatureCard';
+import FeatureCard from '@/components/Layout/FeatureCard/FeatureCard';
 import Link from 'next/link';
 import ProjectCard from '@/components/ProjectCard/ProjectCard';
+import { GetStaticProps } from 'next';
+import { getShowcaseInfo } from '@/lib/get-project-info';
 
-export default function Home() {
+interface HomeProps {
+  showcaseInformation: ShowcaseProjectInfo[];
+}
+
+export const getStaticProps: GetStaticProps = () => {
+  const showcaseInformation = getShowcaseInfo();
+  return {
+    props: {
+      showcaseInformation,
+    },
+  };
+};
+
+export default function Home({ showcaseInformation }: HomeProps) {
   return (
     <Layout>
       <Head>
@@ -214,9 +229,9 @@ export default function Home() {
           <section id="project-showcase">
             <h2>Project Showcase</h2>
             <div>
-              {/* <FeatureCard />
-              <FeatureCard />
-              <FeatureCard /> */}
+              {showcaseInformation.map((showcase) => (
+                <FeatureCard key={showcase.id} project={showcase} />
+              ))}
             </div>
           </section>
         </div>

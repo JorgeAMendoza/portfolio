@@ -2,6 +2,9 @@ import Head from 'next/head';
 import styles from '@/styles/Home.module.css';
 import Layout from '@/components/Layout/Layout';
 import Image from 'next/image';
+import FeatureCard from '@/components/FeatureCard/FeatureCard';
+import Link from 'next/link';
+import ProjectCard from '@/components/ProjectCard/ProjectCard';
 
 export default function Home() {
   return (
@@ -17,11 +20,14 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <section id="home-header">
-          <div>{/* image of me */}</div>
           <div>
-            <h1>Jorge A. Mendoza II</h1>
-            <p>Front End Developer</p>
+            <p>Hey 🙋🏽‍♂️, my name is</p>
+            <h1>
+              Jorge A. Mendoza II, <br />I create things for the web.
+            </h1>
           </div>
+
+          <div>{/* image of me */}</div>
 
           <div>
             <div>
@@ -201,6 +207,109 @@ export default function Home() {
               </ul>
             </div>
           </section>
+        </div>
+
+        <div>
+          {/* dark background */}
+          <section id="project-showcase">
+            <h2>Project Showcase</h2>
+            <div>
+              {/* <FeatureCard />
+              <FeatureCard />
+              <FeatureCard /> */}
+            </div>
+          </section>
+        </div>
+
+        <div>
+          {/* light section */}
+          <section id="other-projects">
+            <h2>Other Projects</h2>
+            <Link href="/projects">See Full List</Link>
+
+            <div>
+              {/* <ProjectCard />
+              <ProjectCard />
+              <ProjectCard />
+              <ProjectCard />
+              <ProjectCard />
+              <ProjectCard /> */}
+            </div>
+          </section>
+        </div>
+
+        <div>
+          {/* dark section */}
+          <footer>
+            <div>
+              <p>Interested?</p>
+              <h2>Let&#39s Collaborate</h2>
+              <p>
+                Want to get in touch? Please feel free to contact me. Make sure
+                to check out my various online profiles as well.{' '}
+                <strong>Happy coding!</strong>
+              </p>
+            </div>
+
+            <div>
+              <ul>
+                <li>
+                  <a
+                    href="https://github.com/JorgeAMendoza"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Image
+                      src="/icons/github.svg"
+                      alt="github icon"
+                      width={30}
+                      height={30}
+                    />{' '}
+                    Github Profile
+                  </a>
+                  <a
+                    href="mailto: jorgemendozadevii@gmail.com"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Image
+                      src="/icons/email.svg"
+                      alt="email icon"
+                      width={30}
+                      height={30}
+                    />{' '}
+                    Send Email
+                  </a>
+                  <a href="/resume.pdf" target="_blank" rel="noreferrer">
+                    <Image
+                      src="/icons/resume.svg"
+                      alt="resume icon"
+                      width={30}
+                      height={30}
+                    />{' '}
+                    View my resume
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/jorge-mendoza-a06b45264/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Image
+                      src="/icons/linkedin.svg"
+                      alt="linkedin icon"
+                      width={30}
+                      height={30}
+                    />{' '}
+                    Linkedin
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <p>Designed and built by Jorge A. Mendoza II</p>
+            </div>
+          </footer>
         </div>
       </main>
     </Layout>

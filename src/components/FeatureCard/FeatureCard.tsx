@@ -3,7 +3,12 @@ import Image from 'next/image';
 const FeatureCard = () => {
   return (
     <figure>
-      <Image src="project.gif" alt="gif displaying project in action" />
+      <Image
+        src="project.gif"
+        alt="gif displaying project in action"
+        width={30}
+        height={30}
+      />
       <h3>Project Title</h3>
       <p>project description</p>
       <div>

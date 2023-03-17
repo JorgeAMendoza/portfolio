@@ -7,3 +7,5 @@ interface ShowcaseProjectInfo {
   demoLink: string;
   tools: string[];
 }
+
+type ProjectInfo = Omit<ShowcaseProjectInfo, 'image'>;

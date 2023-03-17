@@ -278,7 +278,7 @@ export default function Home({
                     rel="noreferrer"
                   >
                     <Image
-                      src="/icons/github.svg"
+                      src="/icons/github-icon.svg"
                       alt="github icon"
                       width={30}
                       height={30}
@@ -291,7 +291,7 @@ export default function Home({
                     rel="noreferrer"
                   >
                     <Image
-                      src="/icons/email.svg"
+                      src="/icons/email-icon.svg"
                       alt="email icon"
                       width={30}
                       height={30}
@@ -300,7 +300,7 @@ export default function Home({
                   </a>
                   <a href="/resume.pdf" target="_blank" rel="noreferrer">
                     <Image
-                      src="/icons/resume.svg"
+                      src="/icons/resume-icon.svg"
                       alt="resume icon"
                       width={30}
                       height={30}
@@ -313,7 +313,7 @@ export default function Home({
                     rel="noreferrer"
                   >
                     <Image
-                      src="/icons/linkedin.svg"
+                      src="/icons/linkedin-icon.svg"
                       alt="linkedin icon"
                       width={30}
                       height={30}

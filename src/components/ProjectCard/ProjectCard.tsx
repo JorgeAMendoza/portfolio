@@ -1,19 +1,23 @@
 import Image from 'next/image';
 
-const ProjectCard = () => {
+interface ProjectCardProps {
+  project: ProjectInfo;
+}
+
+const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
     <figure>
       <div>
-        <h3>Project Name</h3>
+        <h3>{project.name}</h3>
         <div>
           <span>
             <a
-              href="repo.com"
+              href={project.repoLink}
               target="_blank"
-              aria-label="link to github repository for project name"
+              aria-label={`link to github repository for ${project.name}`}
             >
               <Image
-                src={'image source'}
+                src="/icons/github-icon.svg"
                 alt="github icon"
                 width={30}
                 height={30}
@@ -22,12 +26,12 @@ const ProjectCard = () => {
           </span>
           <span>
             <a
-              href="repo.com"
+              href={project.demoLink}
               target="_blank"
-              aria-label="link to project preview for project name"
+              aria-label={`link to project preview for ${project.name}`}
             >
               <Image
-                src={'image source'}
+                src="/icons/link-icon.svg"
                 alt="link icon"
                 width={30}
                 height={30}
@@ -37,13 +41,13 @@ const ProjectCard = () => {
         </div>
       </div>
 
-      <p>project description</p>
+      <p>{project.description}</p>
 
       <footer>
         <ul>
-          <li>example</li>
-          <li>of</li>
-          <li>tech used</li>
+          {project.tools.map((tool) => (
+            <li key={tool}>{tool}</li>
+          ))}
         </ul>
       </footer>
     </figure>

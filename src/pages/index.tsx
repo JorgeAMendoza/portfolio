@@ -2,11 +2,32 @@ import Head from 'next/head';
 import styles from '@/styles/Home.module.css';
 import Layout from '@/components/Layout/Layout';
 import Image from 'next/image';
-import FeatureCard from '@/components/FeatureCard/FeatureCard';
+import FeatureCard from '@/components/Layout/FeatureCard/FeatureCard';
 import Link from 'next/link';
 import ProjectCard from '@/components/ProjectCard/ProjectCard';
+import { GetStaticProps } from 'next';
+import { getProjectInfo, getShowcaseInfo } from '@/lib/get-project-info';
 
-export default function Home() {
+interface HomeProps {
+  showcaseInformation: ShowcaseProjectInfo[];
+  projectsInformation: ProjectInfo[];
+}
+
+export const getStaticProps: GetStaticProps = () => {
+  const showcaseInformation = getShowcaseInfo();
+  const projectsInformation = getProjectInfo();
+  return {
+    props: {
+      showcaseInformation,
+      projectsInformation,
+    },
+  };
+};
+
+export default function Home({
+  showcaseInformation,
+  projectsInformation,
+}: HomeProps) {
   return (
     <Layout>
       <Head>
@@ -214,9 +235,9 @@ export default function Home() {
           <section id="project-showcase">
             <h2>Project Showcase</h2>
             <div>
-              {/* <FeatureCard />
-              <FeatureCard />
-              <FeatureCard /> */}
+              {showcaseInformation.map((showcase) => (
+                <FeatureCard key={showcase.id} project={showcase} />
+              ))}
             </div>
           </section>
         </div>
@@ -228,12 +249,9 @@ export default function Home() {
             <Link href="/projects">See Full List</Link>
 
             <div>
-              {/* <ProjectCard />
-              <ProjectCard />
-              <ProjectCard />
-              <ProjectCard />
-              <ProjectCard />
-              <ProjectCard /> */}
+              {projectsInformation.map((project) => (
+                <ProjectCard key={project.id} project={project} />
+              ))}
             </div>
           </section>
         </div>
@@ -260,7 +278,7 @@ export default function Home() {
                     rel="noreferrer"
                   >
                     <Image
-                      src="/icons/github.svg"
+                      src="/icons/github-icon.svg"
                       alt="github icon"
                       width={30}
                       height={30}
@@ -273,7 +291,7 @@ export default function Home() {
                     rel="noreferrer"
                   >
                     <Image
-                      src="/icons/email.svg"
+                      src="/icons/email-icon.svg"
                       alt="email icon"
                       width={30}
                       height={30}
@@ -282,7 +300,7 @@ export default function Home() {
                   </a>
                   <a href="/resume.pdf" target="_blank" rel="noreferrer">
                     <Image
-                      src="/icons/resume.svg"
+                      src="/icons/resume-icon.svg"
                       alt="resume icon"
                       width={30}
                       height={30}
@@ -295,7 +313,7 @@ export default function Home() {
                     rel="noreferrer"
                   >
                     <Image
-                      src="/icons/linkedin.svg"
+                      src="/icons/linkedin-icon.svg"
                       alt="linkedin icon"
                       width={30}
                       height={30}

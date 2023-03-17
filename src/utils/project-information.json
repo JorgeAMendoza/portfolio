@@ -1,0 +1,45 @@
+[
+  {
+    "name": "Planet Facts",
+    "description": "Website that displays various facts about the planets in our solor system",
+    "repoLink": "https://github.com/JorgeAMendoza/planet-facts",
+    "demoLink": "https://planet-facts-delta.vercel.app/planets/mercury",
+    "tools": ["next-js", "react", "typescript", "css-modules", "cypress"]
+  },
+  {
+    "name": "Memory Game",
+    "description": "Memory game that can be played with multiple players and different modes",
+    "repoLink": "https://github.com/JorgeAMendoza/memory-game",
+    "demoLink": "https://memory-game-three-lyart.vercel.app/",
+    "tools": ["react", "typescript", "redux", "styled-components", "cypress"]
+  },
+  {
+    "name": "Password Generator",
+    "description": "Generate passwords, with thea ability to adjust password length and the type of characters used in the password",
+    "repoLink": "https://github.com/JorgeAMendoza/password-gen-app",
+    "demoLink": "https://password-gen-app-three.vercel.app/",
+    "tools": ["react", "typescript", "css-modules", "cypress"]
+  },
+  {
+    "name": "Github User Search App",
+    "description": "Using the GitHub API, a user can be searched and their github profile information can be displayed, light/dark theme implemented",
+    "repoLink": "https://github.com/JorgeAMendoza/github-user-search-app",
+    "demoLink": "https://github-user-search-app-umber.vercel.app/",
+    "tools": ["react", "typescript", "axios", "styled-components", "cypress"]
+  },
+
+  {
+    "name": "Tic-Tac-Toe",
+    "description": "Tic-Tac-Toe game with score keeping and ability to play against \"CPU\" player",
+    "repoLink": "https://github.com/JorgeAMendoza/tic-tac-toe",
+    "demoLink": "https://tic-tac-toe-dusky-beta.vercel.app/",
+    "tools": ["react", "typescript", "styled-components", "cypress", "jest"]
+  },
+  {
+    "name": "To-do list",
+    "description": "Simple to-do application where users can create, delete, and update tasks. All tasks are stored in local storage",
+    "repoLink": "https://github.com/JorgeAMendoza/react-to-do",
+    "demoLink": "https://react-to-do-gules.vercel.app/",
+    "tools": ["react", "typescript", "styled-components"]
+  }
+]

@@ -6,22 +6,28 @@ import FeatureCard from '@/components/Layout/FeatureCard/FeatureCard';
 import Link from 'next/link';
 import ProjectCard from '@/components/ProjectCard/ProjectCard';
 import { GetStaticProps } from 'next';
-import { getShowcaseInfo } from '@/lib/get-project-info';
+import { getProjectInfo, getShowcaseInfo } from '@/lib/get-project-info';
 
 interface HomeProps {
   showcaseInformation: ShowcaseProjectInfo[];
+  projectsInformation: ProjectInfo[];
 }
 
 export const getStaticProps: GetStaticProps = () => {
   const showcaseInformation = getShowcaseInfo();
+  const projectsInformation = getProjectInfo();
   return {
     props: {
       showcaseInformation,
+      projectsInformation,
     },
   };
 };
 
-export default function Home({ showcaseInformation }: HomeProps) {
+export default function Home({
+  showcaseInformation,
+  projectsInformation,
+}: HomeProps) {
   return (
     <Layout>
       <Head>
@@ -243,12 +249,9 @@ export default function Home({ showcaseInformation }: HomeProps) {
             <Link href="/projects">See Full List</Link>
 
             <div>
-              {/* <ProjectCard />
-              <ProjectCard />
-              <ProjectCard />
-              <ProjectCard />
-              <ProjectCard />
-              <ProjectCard /> */}
+              {projectsInformation.map((project) => (
+                <ProjectCard key={project.id} project={project} />
+              ))}
             </div>
           </section>
         </div>

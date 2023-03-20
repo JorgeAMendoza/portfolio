@@ -1,12 +1,14 @@
 import Head from 'next/head';
-import styles from '@/styles/Home.module.css';
 import Layout from '@/components/Layout/Layout';
 import Image from 'next/image';
-import FeatureCard from '@/components/Layout/FeatureCard/FeatureCard';
+import FeatureCard from '@/components/FeatureCard/FeatureCard';
 import Link from 'next/link';
 import ProjectCard from '@/components/ProjectCard/ProjectCard';
 import { GetStaticProps } from 'next';
 import { getProjectInfo, getShowcaseInfo } from '@/lib/get-project-info';
+import { Source_Sans_Pro } from 'next/font/google';
+
+const SourceSansPro = Source_Sans_Pro({ subsets: ['latin'], weight: '600' });
 
 interface HomeProps {
   showcaseInformation: ShowcaseProjectInfo[];
@@ -39,9 +41,9 @@ export default function Home({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
+      <main>
         <section id="home-header">
-          <div>
+          <div className={SourceSansPro.className}>
             <p>Hey 🙋🏽‍♂️, my name is</p>
             <h1>
               Jorge A. Mendoza II, <br />I create things for the web.
@@ -88,9 +90,9 @@ export default function Home({
         <div>
           {/* lighter container,  */}
           <section id="about me">
-            <h2>About Me</h2>
+            <h2 className={SourceSansPro.className}>About Me</h2>
             <div>
-              <h3>My Story</h3>
+              <h3 className={SourceSansPro.className}>My Story</h3>
               <p>
                 An aspiring Front-end Developer looking for opportunities to
                 learn and grow. In my last year of college I took an
@@ -115,7 +117,7 @@ export default function Home({
               <a href="#contact-me">Contact me</a>
             </div>
             <div>
-              <h3>Skills & Tech</h3>
+              <h3 className={SourceSansPro.className}>Skills & Tech</h3>
               <ul>
                 <li>
                   <Image
@@ -233,7 +235,7 @@ export default function Home({
         <div>
           {/* dark background */}
           <section id="project-showcase">
-            <h2>Project Showcase</h2>
+            <h2 className={SourceSansPro.className}>Project Showcase</h2>
             <div>
               {showcaseInformation.map((showcase) => (
                 <FeatureCard key={showcase.id} project={showcase} />
@@ -245,8 +247,7 @@ export default function Home({
         <div>
           {/* light section */}
           <section id="other-projects">
-            <h2>Other Projects</h2>
-            <Link href="/projects">See Full List</Link>
+            <h2 className={SourceSansPro.className}>Other Projects</h2>
 
             <div>
               {projectsInformation.map((project) => (

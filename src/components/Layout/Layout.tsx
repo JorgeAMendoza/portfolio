@@ -1,6 +1,9 @@
 import Head from 'next/head';
 import { ReactNode } from 'react';
 import NavBar from '../NavBar/NavBar';
+import { Open_Sans } from 'next/font/google';
+
+const openSans = Open_Sans({ subsets: ['latin'] });
 
 interface LayoutProps {
   children: ReactNode;
@@ -8,7 +11,7 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div>
+    <div className={openSans.className}>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />

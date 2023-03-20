@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { ReactNode } from 'react';
 import NavBar from '../NavBar/NavBar';
 import { Open_Sans } from 'next/font/google';
+import styles from './Layout.module.css';
 
 const openSans = Open_Sans({ subsets: ['latin'] });
 
@@ -16,7 +17,7 @@ export default function Layout({ children }: LayoutProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header>
+      <header className={styles.navContainer}>
         <NavBar />
       </header>
       <div>{children}</div>

@@ -36,7 +36,8 @@ canvas {
 }
 a {
   text-decoration: none;
-  color: var(--white);
+  color: var(--light-text);
+  outline-color: transparent;
 }
 input,
 textarea,

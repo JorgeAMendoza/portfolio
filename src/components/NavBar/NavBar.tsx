@@ -17,7 +17,7 @@ const NavBar = () => {
           />
         </a>
         {/* mobile nav */}
-        <div>
+        <div className={styles.mobileNav}>
           <button
             className={styles.mobileNavButton}
             aria-label="open the navigation menu"
@@ -63,12 +63,28 @@ const NavBar = () => {
           </nav>
         </div>
         {/* desktop nav */}
-        <nav className={styles.nav}>
-          <ul>
-            <li>About</li>
-            <li>Showcase</li>
-            <li>Projects</li>
-            <li>Contact</li>
+        <nav className={styles.navDesktop}>
+          <ul className={styles.navDesktopMenu}>
+            <li className={styles.navDesktopItem}>
+              <a href="#about-me" onClick={() => setMenuOpen(false)}>
+                About
+              </a>
+            </li>
+            <li className={styles.navDesktopItem}>
+              <a href="#project-showcase" onClick={() => setMenuOpen(false)}>
+                Showcase
+              </a>
+            </li>
+            <li className={styles.navDesktopItem}>
+              <a href="#other-projects" onClick={() => setMenuOpen(false)}>
+                Projects
+              </a>
+            </li>
+            <li className={styles.navDesktopItem}>
+              <a href="#contact-me" onClick={() => setMenuOpen(false)}>
+                Contact
+              </a>
+            </li>
           </ul>
         </nav>
       </div>

@@ -53,6 +53,34 @@
   background: transparent;
 }
 
-.nav {
+.navDesktop {
+  color: var(--light-text);
   display: none;
+}
+
+.navDesktopMenu {
+  display: flex;
+}
+
+.navDesktopItem a:hover,
+.navDesktopItem a:focus {
+  text-decoration: underline;
+}
+
+.navDesktopItem:not(:last-of-type) {
+  margin-right: 1.6rem;
+}
+
+@media screen and (min-width: 768px) {
+  .mobileNavMenu {
+    display: none;
+  }
+
+  .mobileNav {
+    display: none;
+  }
+
+  .navDesktop {
+    display: block;
+  }
 }

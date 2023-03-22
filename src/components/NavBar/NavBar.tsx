@@ -18,7 +18,7 @@ const NavBar = () => {
           />
         </div>
         {/* mobile nav */}
-        <div className={styles.mobileNav}>
+        <div>
           <button
             className={styles.mobileNavButton}
             aria-label="open the navigation menu"
@@ -28,8 +28,8 @@ const NavBar = () => {
             <Image
               src="/icons/hamburger-menu.svg"
               alt="menu icon"
-              width={30}
-              height={30}
+              width={25}
+              height={25}
             />
           </button>
           <nav
@@ -37,13 +37,13 @@ const NavBar = () => {
             className={`${styles.mobileNavMenu} ${clsx(
               menuOpen && styles.showMenu
             )}`}
-            aria-hidden={menuOpen}
+            aria-hidden={!menuOpen}
           >
-            <ul>
-              <li>About</li>
-              <li>Showcase</li>
-              <li>Projects</li>
-              <li>Contact</li>
+            <ul className={styles.mobileNavList}>
+              <li className={styles.mobileNavItem}>About</li>
+              <li className={styles.mobileNavItem}>Showcase</li>
+              <li className={styles.mobileNavItem}>Projects</li>
+              <li className={styles.mobileNavItem}>Contact</li>
             </ul>
           </nav>
         </div>

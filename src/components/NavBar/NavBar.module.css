@@ -1,0 +1,46 @@
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  background-color: var(--primary);
+  position: relative;
+  width: 100%;
+}
+.navBarContainer {
+  composes: container from '../../styles/utils.module.css';
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mobileNav {
+  
+}
+
+.mobileNavMenu {
+  background-color: var(--primary);
+  position: absolute;
+  top: 4.4em;
+  left: 0;
+  width: 100%;
+  display: none;
+}
+
+.showMenu {
+  display: block;
+}
+
+.showMenuFixed {
+  display: fixed;
+  top: 0;
+  left: 0;
+}
+
+.mobileNavButton {
+  background: transparent;
+}
+
+.nav {
+  display: none;
+}

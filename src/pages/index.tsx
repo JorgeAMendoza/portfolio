@@ -2,7 +2,6 @@ import Head from 'next/head';
 import Layout from '@/components/Layout/Layout';
 import Image from 'next/image';
 import FeatureCard from '@/components/FeatureCard/FeatureCard';
-import Link from 'next/link';
 import ProjectCard from '@/components/ProjectCard/ProjectCard';
 import { GetStaticProps } from 'next';
 import { getProjectInfo, getShowcaseInfo } from '@/lib/get-project-info';
@@ -89,7 +88,7 @@ export default function Home({
 
         <div>
           {/* lighter container,  */}
-          <section id="about me">
+          <section id="about-me">
             <h2 className={SourceSansPro.className}>About Me</h2>
             <div>
               <h3 className={SourceSansPro.className}>My Story</h3>
@@ -259,7 +258,7 @@ export default function Home({
 
         <div>
           {/* dark section */}
-          <footer>
+          <footer id="contact-me">
             <div>
               <p>Interested?</p>
               <h2>Let&#39s Collaborate</h2>

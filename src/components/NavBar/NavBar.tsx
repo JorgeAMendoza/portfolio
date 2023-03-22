@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import utilStyles from '../../styles/utils.module.css';
 import styles from './navbar.module.css';
 import { useState } from 'react';
 import clsx from 'clsx';
@@ -9,14 +8,14 @@ const NavBar = () => {
   return (
     <div className={styles.navBar}>
       <div className={styles.navBarContainer}>
-        <div>
+        <a href="#home-header">
           <Image
             src="/logo.svg"
             alt="jorge mendoza logo"
             width={148}
             height={40}
           />
-        </div>
+        </a>
         {/* mobile nav */}
         <div>
           <button
@@ -40,10 +39,26 @@ const NavBar = () => {
             aria-hidden={!menuOpen}
           >
             <ul className={styles.mobileNavList}>
-              <li className={styles.mobileNavItem}>About</li>
-              <li className={styles.mobileNavItem}>Showcase</li>
-              <li className={styles.mobileNavItem}>Projects</li>
-              <li className={styles.mobileNavItem}>Contact</li>
+              <li className={styles.mobileNavItem}>
+                <a href="#about-me" onClick={() => setMenuOpen(false)}>
+                  About
+                </a>
+              </li>
+              <li className={styles.mobileNavItem}>
+                <a href="#project-showcase" onClick={() => setMenuOpen(false)}>
+                  Showcase
+                </a>
+              </li>
+              <li className={styles.mobileNavItem}>
+                <a href="#other-projects" onClick={() => setMenuOpen(false)}>
+                  Projects
+                </a>
+              </li>
+              <li className={styles.mobileNavItem}>
+                <a href="#contact-me" onClick={() => setMenuOpen(false)}>
+                  Contact
+                </a>
+              </li>
             </ul>
           </nav>
         </div>

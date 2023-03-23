@@ -6,8 +6,12 @@ import ProjectCard from '@/components/ProjectCard/ProjectCard';
 import { GetStaticProps } from 'next';
 import { getProjectInfo, getShowcaseInfo } from '@/lib/get-project-info';
 import { Source_Sans_Pro } from 'next/font/google';
+import styles from '../styles/index.module.css';
 
-const SourceSansPro = Source_Sans_Pro({ subsets: ['latin'], weight: '600' });
+const SourceSansPro = Source_Sans_Pro({
+  subsets: ['latin'],
+  weight: ['600', '400'],
+});
 
 interface HomeProps {
   showcaseInformation: ShowcaseProjectInfo[];
@@ -41,49 +45,60 @@ export default function Home({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <section id="home-header">
-          <div className={SourceSansPro.className}>
-            <p>Hey 🙋🏽‍♂️, my name is</p>
-            <h1>
-              Jorge A. Mendoza II, <br />I create things for the web.
-            </h1>
-          </div>
-
-          <div>{/* image of me */}</div>
-
-          <div>
-            <div>
-              <p>
-                <span>
-                  <Image
-                    src="/icons/location-icon.svg"
-                    alt="location icon"
-                    width={30}
-                    height={30}
-                  />
-                </span>
-                Dallas, TX
-              </p>
-              <p>
-                <span>
-                  <Image
-                    src="/icons/school-icon.svg"
-                    alt="school icon"
-                    width={30}
-                    height={30}
-                  />
-                </span>
-                University of North Texas at Dallas <br />
-                BA in Information Technology
-              </p>
+        <section id="home-header" className={styles.homeHeader}>
+          <div className={styles.homeHeaderContainer}>
+            <div className={styles.headerImage}>
+              <Image
+                src="/placeholder.jpg"
+                alt="image of jorge mendoza"
+                width={286}
+                height={205}
+              />
             </div>
-          </div>
+            <div className={SourceSansPro.className}>
+              <p className={styles.headerSubtitle}>Hey 🙋🏽‍♂️, my name is</p>
+              <h1>
+                Jorge A. Mendoza II <br />
+                <span className={styles.headerSubtitle}>
+                  I create things for the web
+                </span>
+              </h1>
+            </div>
 
-          <p>
-            A Front-End Developer from Dallas, TX. I am currently working with
-            the Dallas Independent School District as a campus-based technician,
-            looking to launch my career web development career.
-          </p>
+            <div>
+              <div>
+                <p className={styles.iconInfo}>
+                  <span>
+                    <Image
+                      src="/icons/location-icon.svg"
+                      alt="location icon"
+                      width={30}
+                      height={30}
+                    />
+                  </span>
+                  Dallas, TX
+                </p>
+                <p className={styles.iconInfo}>
+                  <span>
+                    <Image
+                      src="/icons/school-icon.svg"
+                      alt="school icon"
+                      width={30}
+                      height={30}
+                    />
+                  </span>
+                  University of North Texas at Dallas <br />
+                  BA in Information Technology
+                </p>
+              </div>
+            </div>
+
+            <p>
+              A Front-End Developer from Dallas, TX. I am currently working with
+              the Dallas Independent School District as a campus-based
+              technician, looking to launch my web development career.
+            </p>
+          </div>
         </section>
 
         <div>

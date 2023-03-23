@@ -1,0 +1,55 @@
+.homeHeader {
+  background-color: var(--primary);
+  color: var(--light-text);
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+.homeHeaderContainer {
+  composes: container from '../styles/utils.module.css';
+}
+
+.homeHeaderContainer > *:not(:last-child) {
+  margin-block-end: 2rem;
+}
+
+.headerImage {
+  position: relative;
+  margin-block-end: 6rem !important;
+  isolation: isolate;
+  z-index: 0;
+}
+
+.headerImage::before {
+  content: '';
+  height: 61vw;
+  width: 96%;
+  transform: translate(1rem, 3rem);
+  background-color: black;
+  position: absolute;
+  z-index: -1;
+  border-radius: 20px;
+}
+
+.headerImage img {
+  border-radius: 20px;
+  object-fit: cover;
+  width: 90%;
+  height: 60vw;
+}
+
+.headerSubtitle {
+  font-weight: 400;
+}
+
+.iconInfo {
+  display: flex;
+  gap: 1rem;
+}
+
+.iconInfo:first-of-type {
+  margin-bottom: 1rem;
+}
+
+.headerDescription {
+}

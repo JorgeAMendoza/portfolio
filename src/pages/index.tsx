@@ -10,7 +10,7 @@ import styles from '../styles/index.module.css';
 
 const SourceSansPro = Source_Sans_Pro({
   subsets: ['latin'],
-  weight: ['600', '400'],
+  weight: ['600', '400', '300'],
 });
 
 interface HomeProps {
@@ -56,9 +56,9 @@ export default function Home({
               />
             </div>
             <div className={SourceSansPro.className}>
-              <p className={styles.headerSubtitle}>Hey 🙋🏽‍♂️, my name is</p>
-              <h1>
-                Jorge A. Mendoza II <br />
+              <p className={styles.headerIntro}>Hey 🙋🏽‍♂️, my name is</p>
+              <h1 className={styles.headerTitle}>
+                Jorge A. Mendoza II
                 <span className={styles.headerSubtitle}>
                   I create things for the web
                 </span>
@@ -93,7 +93,7 @@ export default function Home({
               </div>
             </div>
 
-            <p>
+            <p className={styles.headerDescription}>
               A Front-End Developer from Dallas, TX. I am currently working with
               the Dallas Independent School District as a campus-based
               technician, looking to launch my web development career.

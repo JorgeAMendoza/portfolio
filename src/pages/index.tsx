@@ -46,70 +46,77 @@ export default function Home({
       </Head>
       <main>
         <section id="home-header" className={styles.homeHeader}>
-          <div className={styles.homeHeaderContainer}>
-            <div className={styles.headerImage}>
-              <Image
-                src="/placeholder.jpg"
-                alt="image of jorge mendoza"
-                width={286}
-                height={205}
-              />
-            </div>
-            <div className={styles.headerInformation}>
-              <div
-                className={`${SourceSansPro.className} ${styles.headerTitle}`}
-              >
-                <p className={styles.headerIntro}>Hey 🙋🏽‍♂️, my name is</p>
-                <h1 className={styles.headerTitleText}>
-                  Jorge A. Mendoza II
-                  <span className={styles.headerSubtitle}>
-                    I create things for the web
-                  </span>
-                </h1>
+          <div className={styles.sectionContainer}>
+            <div className={styles.homeHeaderContainer}>
+              <div className={styles.headerImage}>
+                <Image
+                  src="/placeholder.jpg"
+                  alt="image of jorge mendoza"
+                  width={286}
+                  height={205}
+                />
               </div>
-
-              <div className={styles.info}>
-                <div>
-                  <p className={styles.iconInfo}>
-                    <span>
-                      <Image
-                        src="/icons/location-icon.svg"
-                        alt="location icon"
-                        width={30}
-                        height={30}
-                      />
+              <div className={styles.headerInformation}>
+                <div
+                  className={`${SourceSansPro.className} ${styles.headerTitle}`}
+                >
+                  <p className={styles.headerIntro}>Hey 🙋🏽‍♂️, my name is</p>
+                  <h1 className={styles.headerTitleText}>
+                    Jorge A. Mendoza II
+                    <span className={styles.headerSubtitle}>
+                      I create things for the web
                     </span>
-                    Dallas, TX
-                  </p>
-                  <p className={styles.iconInfo}>
-                    <span>
-                      <Image
-                        src="/icons/school-icon.svg"
-                        alt="school icon"
-                        width={30}
-                        height={30}
-                      />
-                    </span>
-                    University of North Texas at Dallas <br />
-                    BA in Information Technology
-                  </p>
+                  </h1>
                 </div>
-              </div>
 
-              <p className={styles.headerDescription}>
-                A Front-End Developer from Dallas, TX. I am currently working
-                with the Dallas Independent School District as a campus-based
-                technician, looking to launch my web development career.
-              </p>
+                <div className={styles.info}>
+                  <div>
+                    <p className={styles.iconInfo}>
+                      <span>
+                        <Image
+                          src="/icons/location-icon.svg"
+                          alt="location icon"
+                          width={30}
+                          height={30}
+                        />
+                      </span>
+                      Dallas, TX
+                    </p>
+                    <p className={styles.iconInfo}>
+                      <span>
+                        <Image
+                          src="/icons/school-icon.svg"
+                          alt="school icon"
+                          width={30}
+                          height={30}
+                        />
+                      </span>
+                      University of North Texas at Dallas <br />
+                      BA in Information Technology
+                    </p>
+                  </div>
+                </div>
+
+                <p className={styles.headerDescription}>
+                  A Front-End Developer from Dallas, TX. I am currently working
+                  with the Dallas Independent School District as a campus-based
+                  technician, looking to launch my web development career.
+                </p>
+              </div>
             </div>
           </div>
         </section>
 
-        <div>
+        <div className={styles.about}>
           {/* lighter container,  */}
-          <section id="about-me">
-            <h2 className={SourceSansPro.className}>About Me</h2>
-            <div>
+          <section id="about-me" className={styles.sectionContainer}>
+            <div className={styles.titleContainer}>
+              <h2 className={`${SourceSansPro.className} ${styles.aboutTitle}`}>
+                About Me
+              </h2>
+            </div>
+
+            <div className={styles.aboutText}>
               <h3 className={SourceSansPro.className}>My Story</h3>
               <p>
                 An aspiring Front-end Developer looking for opportunities to
@@ -136,8 +143,8 @@ export default function Home({
             </div>
             <div>
               <h3 className={SourceSansPro.className}>Skills & Tech</h3>
-              <ul>
-                <li>
+              <ul className={styles.skillsList}>
+                <li className={styles.skillsTab}>
                   <Image
                     src="/icons/html5-icon.svg"
                     alt="HTML5 icon"
@@ -146,7 +153,7 @@ export default function Home({
                   />
                   HTML5
                 </li>
-                <li>
+                <li className={styles.skillsTab}>
                   <Image
                     src="/icons/css-icon.svg"
                     alt="CSS Icon"
@@ -155,7 +162,7 @@ export default function Home({
                   />
                   CSS
                 </li>
-                <li>
+                <li className={styles.skillsTab}>
                   <Image
                     src="/icons/javascript-icon.svg"
                     alt="javascript icon"
@@ -164,7 +171,7 @@ export default function Home({
                   />
                   JavaScript
                 </li>
-                <li>
+                <li className={styles.skillsTab}>
                   <Image
                     src="/icons/typescript-icon.svg"
                     alt="typescript icon"
@@ -173,7 +180,7 @@ export default function Home({
                   />
                   TypeScript
                 </li>
-                <li>
+                <li className={styles.skillsTab}>
                   <Image
                     src="/icons/react-icon.svg"
                     alt="react icon"
@@ -182,7 +189,7 @@ export default function Home({
                   />
                   React
                 </li>
-                <li>
+                <li className={styles.skillsTab}>
                   <Image
                     src="/icons/redux-icon.svg"
                     alt="redux icon"
@@ -191,7 +198,7 @@ export default function Home({
                   />
                   Redux
                 </li>
-                <li>
+                <li className={styles.skillsTab}>
                   <Image
                     src="/icons/nextjs-icon.svg"
                     alt="next js icon"
@@ -200,7 +207,7 @@ export default function Home({
                   />
                   NextJS
                 </li>
-                <li>
+                <li className={styles.skillsTab}>
                   <Image
                     src="/icons/nodejs-icon.svg"
                     alt="node js icon"
@@ -209,7 +216,7 @@ export default function Home({
                   />
                   NodeJS
                 </li>
-                <li>
+                <li className={styles.skillsTab}>
                   <Image
                     src="/icons/graphql-icon.svg"
                     alt="graphql icon"
@@ -218,7 +225,7 @@ export default function Home({
                   />
                   GraphQL
                 </li>
-                <li>
+                <li className={styles.skillsTab}>
                   <Image
                     src="/icons/docker-icon.svg"
                     alt="docker icon"
@@ -227,7 +234,7 @@ export default function Home({
                   />
                   Docker
                 </li>
-                <li>
+                <li className={styles.skillsTab}>
                   <Image
                     src="/icons/mongodb-icon.svg"
                     alt="mongodb icon"
@@ -236,7 +243,7 @@ export default function Home({
                   />
                   MongoDB
                 </li>
-                <li>
+                <li className={styles.skillsTab}>
                   <Image
                     src="/icons/git-icon.svg"
                     alt="git icon"

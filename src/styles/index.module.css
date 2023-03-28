@@ -1,6 +1,7 @@
 /* Utils */
 .titleContainer {
   composes: sectionTitleContainer from '../styles/utils.module.css';
+  margin-bottom: 2.5rem;
 }
 
 .sectionContainer {
@@ -116,7 +117,6 @@
 .aboutTitle {
   --titleUnderline: #d9d9d9;
   composes: sectionTitle from '../styles/utils.module.css';
-  margin-bottom: 2.5rem;
 }
 
 .aboutText {
@@ -151,6 +151,12 @@
   font-weight: 400;
   font-size: clamp(1.6rem, 3.5vw, 1.8rem);
   box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease-in;
+}
+
+.skillsTab:focus,
+.skillsTab:hover {
+  transform: translateY(-5%);
 }
 
 @media screen and (min-width: 768px) {
@@ -169,5 +175,20 @@
 
   .headerInformation > *:not(:last-child) {
     margin-block-end: 2rem;
+  }
+
+  /* About Section */
+  .aboutContent {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .skillsList {
+    gap: 1.5rem;
+  }
+
+  .titleContainer {
+    margin-bottom: 3.5rem;
   }
 }

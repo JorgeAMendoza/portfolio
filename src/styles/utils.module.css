@@ -1,4 +1,31 @@
 .container {
-  width: min(88%, 102.4rem);
+  width: min(88%, 144rem);
   margin: 0 auto;
+}
+
+.sectionTitleContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sectionTitle {
+  --titleUnderline: #fff;
+  font-size: clamp(2.4rem, 5vw, 3.2rem);
+  position: relative;
+  text-align: center;
+  width: fit-content;
+}
+
+.sectionTitle::before {
+  content: '';
+  position: absolute;
+  bottom: -.8rem;
+  left: 0;
+  right: 0;
+  width: 90%;
+  height: 5px;
+  transform: translateX(5%);
+  background-color: var(--titleUnderline);
+  border-radius: 10px;
 }

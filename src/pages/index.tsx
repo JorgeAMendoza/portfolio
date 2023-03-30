@@ -259,11 +259,17 @@ export default function Home({
           </section>
         </div>
 
-        <div>
-          {/* dark background */}
-          <section id="project-showcase">
-            <h2 className={SourceSansPro.className}>Project Showcase</h2>
-            <div>
+        <div className={styles.showcase}>
+          <section id="project-showcase" className={styles.sectionContainer}>
+            <div className={styles.titleContainer}>
+              <h2
+                className={`${SourceSansPro.className} ${styles.showcaseTitle}`}
+              >
+                Project Showcase
+              </h2>
+            </div>
+
+            <div className={styles.showcaseProjects}>
               {showcaseInformation.map((showcase) => (
                 <FeatureCard key={showcase.id} project={showcase} />
               ))}

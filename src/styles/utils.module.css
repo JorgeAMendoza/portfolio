@@ -20,12 +20,12 @@
 .sectionTitle::before {
   content: '';
   position: absolute;
-  bottom: -.8rem;
+  bottom: -1rem;
   left: 0;
   right: 0;
-  width: 90%;
+  width: 85%;
   height: 5px;
-  transform: translateX(5%);
+  transform: translateX(8%);
   background-color: var(--titleUnderline);
   border-radius: 10px;
 }

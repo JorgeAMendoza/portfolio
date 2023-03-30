@@ -131,9 +131,6 @@
   margin-bottom: 1rem;
 }
 
-.aboutSkills {
-}
-
 .skillsList {
   display: flex;
   flex-wrap: wrap;
@@ -157,6 +154,23 @@
 .skillsTab:focus,
 .skillsTab:hover {
   transform: translateY(-5%);
+}
+
+/* showcase */
+.showcase {
+  background-color: var(--primary);
+  color: var(--light-text);
+}
+
+.showcaseTitle {
+  --titleUnderline: var(--secondary);
+  composes: sectionTitle from '../styles/utils.module.css';
+}
+
+.showcaseProjects {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
 }
 
 @media screen and (min-width: 768px) {

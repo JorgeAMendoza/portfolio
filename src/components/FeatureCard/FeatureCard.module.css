@@ -4,10 +4,10 @@
 }
 
 .cardImage {
-  width: 100%;
-  height: calc(25vw + 22rem);
-  aspect-ratio: 1/1;
   object-fit: cover;
+  width: 100%;
+  aspect-ratio: 1/1;
+  height: 100%;
 }
 
 .cardContent {
@@ -19,8 +19,8 @@
   z-index: 1;
   background-color: rgba(0, 0, 0, 0.85);
   text-align: center;
-  padding: 0.8em 1.2em;
-  font-size: clamp(1.4rem, 2.5vw, 1.6rem);
+  padding: 0.6em 1em;
+  font-size: clamp(1.4rem, 2vw, 1.6rem);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,7 +39,7 @@
 }
 
 .cardTitle {
-  font-size: clamp(2rem, 5vw, 2.4rem);
+  font-size: clamp(2rem, 3vw, 2.4rem);
   font-weight: 400;
 }
 

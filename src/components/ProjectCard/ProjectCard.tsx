@@ -1,4 +1,11 @@
 import Image from 'next/image';
+import styles from './ProjectCard.module.css';
+import { Space_Mono } from 'next/font/google';
+
+const SpaceMono = Space_Mono({
+  subsets: ['latin'],
+  weight: ['400'],
+});
 
 interface ProjectCardProps {
   project: ProjectInfo;
@@ -6,10 +13,10 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
-    <figure>
-      <div>
+    <figure className={styles.projectCard}>
+      <div className={styles.projectTitle}>
         <h3>{project.name}</h3>
-        <div>
+        <div className={styles.projectLinks}>
           <span>
             <a
               href={project.repoLink}
@@ -43,8 +50,8 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
 
       <p>{project.description}</p>
 
-      <footer>
-        <ul>
+      <footer className={styles.projectFooter}>
+        <ul className={`${styles.projectTools} ${SpaceMono.className}`}>
           {project.tools.map((tool) => (
             <li key={tool}>{tool}</li>
           ))}

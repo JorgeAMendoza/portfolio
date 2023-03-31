@@ -1,0 +1,45 @@
+.projectCard {
+  background-color: var(--primary);
+  color: var(--light-text);
+  padding: 1.2em;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border-radius: 5px;
+  transition: transform 0.25s cubic-bezier(0, 0, 0.5, 1.24);
+}
+
+.projectCard:hover,
+.projectCard:focus,
+.projectCard:focus-within {
+  transform: translateY(-5%);
+}
+
+.projectTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.projectLinks {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.projectFooter {
+  margin-top: auto;
+}
+
+.projectTools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Extras */
+@media (prefers-reduced-motion) {
+  .projectCard {
+    transition: none;
+  }
+}

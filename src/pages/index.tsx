@@ -277,12 +277,17 @@ export default function Home({
           </section>
         </div>
 
-        <div>
-          {/* light section */}
-          <section id="other-projects">
-            <h2 className={SourceSansPro.className}>Other Projects</h2>
+        <div className={styles.projectsSection}>
+          <section id="other-projects" className={styles.sectionContainer}>
+            <div className={styles.titleContainer}>
+              <h2
+                className={`${SourceSansPro.className} ${styles.projectsTitle}`}
+              >
+                Other Projects
+              </h2>
+            </div>
 
-            <div>
+            <div className={styles.projects}>
               {projectsInformation.map((project) => (
                 <ProjectCard key={project.id} project={project} />
               ))}

@@ -295,75 +295,95 @@ export default function Home({
           </section>
         </div>
 
-        <div>
-          {/* dark section */}
-          <footer id="contact-me">
-            <div>
-              <p>Interested?</p>
-              <h2>Let&#39s Collaborate</h2>
-              <p>
-                Want to get in touch? Please feel free to contact me. Make sure
-                to check out my various online profiles as well.{' '}
-                <strong>Happy coding!</strong>
-              </p>
+        <div className={styles.footerSection}>
+          <footer id="contact-me" className={styles.sectionContainer}>
+            <div className={styles.footerContent}>
+              <div>
+                <div
+                  className={`${styles.footerTitle} ${SourceSansPro.className}`}
+                >
+                  <p>Interested?</p>
+                  <h2>Let&#39;s Collaborate</h2>
+                </div>
+
+                <p>
+                  Want to get in touch? Please feel free to contact me with any
+                  of the links below and be sure to check out my resume.{' '}
+                  <strong>Happy coding!</strong>
+                </p>
+              </div>
+
+              <div>
+                <ul className={styles.footerSocialList}>
+                  <li>
+                    <a
+                      href="https://github.com/JorgeAMendoza"
+                      target="_blank"
+                      rel="noreferrer"
+                      className={styles.footerSocialItem}
+                    >
+                      <Image
+                        src="/icons/github-icon.svg"
+                        alt="github icon"
+                        width={30}
+                        height={30}
+                      />{' '}
+                      Github Profile
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="mailto: jorgemendozadevii@gmail.com"
+                      target="_blank"
+                      rel="noreferrer"
+                      className={styles.footerSocialItem}
+                    >
+                      <Image
+                        src="/icons/email-icon.svg"
+                        alt="email icon"
+                        width={30}
+                        height={30}
+                      />{' '}
+                      Send Email
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/resume.pdf"
+                      target="_blank"
+                      rel="noreferrer"
+                      className={styles.footerSocialItem}
+                    >
+                      <Image
+                        src="/icons/resume-icon.svg"
+                        alt="resume icon"
+                        width={30}
+                        height={30}
+                      />{' '}
+                      View my resume
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.linkedin.com/in/jorge-mendoza-a06b45264/"
+                      target="_blank"
+                      rel="noreferrer"
+                      className={styles.footerSocialItem}
+                    >
+                      <Image
+                        src="/icons/linkedin-icon.svg"
+                        alt="linkedin icon"
+                        width={30}
+                        height={30}
+                      />{' '}
+                      Linkedin
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
 
-            <div>
-              <ul>
-                <li>
-                  <a
-                    href="https://github.com/JorgeAMendoza"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <Image
-                      src="/icons/github-icon.svg"
-                      alt="github icon"
-                      width={30}
-                      height={30}
-                    />{' '}
-                    Github Profile
-                  </a>
-                  <a
-                    href="mailto: jorgemendozadevii@gmail.com"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <Image
-                      src="/icons/email-icon.svg"
-                      alt="email icon"
-                      width={30}
-                      height={30}
-                    />{' '}
-                    Send Email
-                  </a>
-                  <a href="/resume.pdf" target="_blank" rel="noreferrer">
-                    <Image
-                      src="/icons/resume-icon.svg"
-                      alt="resume icon"
-                      width={30}
-                      height={30}
-                    />{' '}
-                    View my resume
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/jorge-mendoza-a06b45264/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <Image
-                      src="/icons/linkedin-icon.svg"
-                      alt="linkedin icon"
-                      width={30}
-                      height={30}
-                    />{' '}
-                    Linkedin
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
+            <div className={styles.footerName}>
               <p>Designed and built by Jorge A. Mendoza II</p>
             </div>
           </footer>

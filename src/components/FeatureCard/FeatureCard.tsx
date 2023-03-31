@@ -1,4 +1,11 @@
 import Image from 'next/image';
+import styles from './FeatureCard.module.css';
+import { Space_Mono } from 'next/font/google';
+
+const SpaceMono = Space_Mono({
+  subsets: ['latin'],
+  weight: ['400'],
+});
 
 interface FeatureCardProps {
   project: ShowcaseProjectInfo;
@@ -6,40 +13,34 @@ interface FeatureCardProps {
 
 const FeatureCard = ({ project }: FeatureCardProps) => {
   return (
-    <figure>
+    <figure className={styles.card}>
       <Image
         src={project.image}
         alt="gif displaying project in action"
-        width={100}
-        height={100}
+        width={200}
+        height={200}
+        className={styles.cardImage}
       />
-      <h3>{project.name}</h3>
-      <p>{project.description}</p>
-      <ul>
-        {project.tools.map((tool) => (
-          <p key={tool}>{tool}</p>
-        ))}
-      </ul>
-      <footer>
-        <p>
-          <a
-            href={project.repoLink}
-            target="_blank"
-            aria-label={`link to project repository for ${project.name}`}
-          >
-            Code
-          </a>
-        </p>
-        <p>
-          <a
-            href={project.demoLink}
-            target="_blank"
-            aria-label={`link to live demo for ${project.name}`}
-          >
-            Preview
-          </a>
-        </p>
-      </footer>
+      <div className={styles.cardContent}>
+        <h3 className={styles.cardTitle}>{project.name}</h3>
+        <p className={styles.cardDescription}>{project.description}</p>
+        <ul className={`${SpaceMono.className} ${styles.cardTools}`}>
+          {project.tools.map((tool) => (
+            <p key={tool}>{tool}</p>
+          ))}
+        </ul>
+        <footer className={styles.cardFooter}>
+          <p>
+            <a
+              href={project.repoLink}
+              target="_blank"
+              aria-label={`link to project repository for ${project.name}`}
+            >
+              View Project
+            </a>
+          </p>
+        </footer>
+      </div>
     </figure>
   );
 };

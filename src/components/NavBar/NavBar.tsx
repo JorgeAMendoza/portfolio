@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import useIsMobile from '@/hooks/useMedia';
 import { Space_Mono } from 'next/font/google';
+import Link from 'next/link';
 
 const SpaceMono = Space_Mono({
   subsets: ['latin'],
@@ -21,14 +22,14 @@ const NavBar = () => {
   return (
     <div className={styles.navBar}>
       <div className={styles.navBarContainer}>
-        <a href="#home-header">
+        <Link href="/">
           <Image
             src="/logo.svg"
             alt="jorge mendoza logo"
             width={148}
             height={40}
           />
-        </a>
+        </Link>
         {/* mobile nav */}
         <div className={styles.mobileNav}>
           <button
@@ -85,7 +86,13 @@ const NavBar = () => {
               </li>
               <li className={styles.mobileNavItem}>
                 <div className={styles.mobileNavItemContainer}>
-                  <a href="/resume.pdf" className={SpaceMono.className}>
+                  <a
+                    href="/resume.pdf"
+                    target="__blank"
+                    rel="nonreferrer"
+                    className={SpaceMono.className}
+                    onClick={() => setMenuOpen(false)}
+                  >
                     Resume
                   </a>
                 </div>
@@ -97,23 +104,37 @@ const NavBar = () => {
         <nav className={styles.navDesktop}>
           <ul className={styles.navDesktopMenu}>
             <li className={styles.navDesktopItem}>
-              <a href="#about-me" onClick={() => setMenuOpen(false)}>
+              <Link href="/#about-me" onClick={() => setMenuOpen(false)}>
                 About
-              </a>
+              </Link>
             </li>
             <li className={styles.navDesktopItem}>
-              <a href="#project-showcase" onClick={() => setMenuOpen(false)}>
+              <Link
+                href="/#project-showcase"
+                onClick={() => setMenuOpen(false)}
+              >
                 Showcase
-              </a>
+              </Link>
             </li>
             <li className={styles.navDesktopItem}>
-              <a href="#other-projects" onClick={() => setMenuOpen(false)}>
+              <Link href="/#other-projects" onClick={() => setMenuOpen(false)}>
                 Projects
-              </a>
+              </Link>
             </li>
             <li className={styles.navDesktopItem}>
-              <a href="#contact-me" onClick={() => setMenuOpen(false)}>
+              <Link href="/#contact-me" onClick={() => setMenuOpen(false)}>
                 Contact
+              </Link>
+            </li>
+            <li className={styles.navDesktopItem}>
+              <a
+                href="/resume.pdf"
+                className={SpaceMono.className}
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => setMenuOpen(false)}
+              >
+                Resume
               </a>
             </li>
           </ul>

@@ -83,6 +83,13 @@
   color: var(--light-text);
 }
 
+.navDesktopItem:last-of-type a {
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+  padding: 0.35em;
+}
+
 .navDesktopItem a:hover,
 .navDesktopItem a:focus,
 .navDesktopItem a:active {

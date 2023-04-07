@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import styles from './navbar.module.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import clsx from 'clsx';
+import useIsMobile from '@/hooks/useMedia';
 import { Space_Mono } from 'next/font/google';
 
 const SpaceMono = Space_Mono({
@@ -11,6 +12,12 @@ const SpaceMono = Space_Mono({
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const mobile = useIsMobile();
+
+  useEffect(() => {
+    if (!mobile) setMenuOpen(false);
+  }, [mobile]);
+
   return (
     <div className={styles.navBar}>
       <div className={styles.navBarContainer}>

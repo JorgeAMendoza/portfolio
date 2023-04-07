@@ -1,10 +1,8 @@
 :root {
-  --primary: #111111;
-  --secondary: #d9d9d9;
-  --background: #e7ecef;
-  --background-light: #e7ecef;
-  --light-text: #e7ecef;
-  --dark-text: #000000;
+  --primary: #feb712;
+  --secondary: #232323;
+  --background: #141414;
+  --light-text: #ffffff;
 }
 html {
   font-size: 62.5%;
@@ -38,7 +36,7 @@ canvas {
 }
 a {
   text-decoration: none;
-  color: var(--light-text);
+  color: var(--primary);
   outline-color: transparent;
 }
 input,

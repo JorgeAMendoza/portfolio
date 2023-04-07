@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 0;
-  background-color: var(--primary);
+  background-color: transparent;
   position: relative;
   width: 100%;
 }
@@ -16,7 +16,7 @@
 
 .mobileNavMenu {
   --borderColor: rgba(228, 228, 228, 0.3);
-  background-color: var(--primary);
+  background-color: var(--background);
   position: absolute;
   top: 3.6em;
   left: 0;
@@ -38,9 +38,26 @@
   font-size: 1.4rem;
   font-family: inherit;
   text-align: right;
-  padding-right: 1.5rem;
   padding: 1em;
+  padding-right: 0;
   border-bottom: 1px solid var(--borderColor);
+}
+
+.mobileNavItemContainer {
+  composes: container from '../../styles/utils.module.css';
+}
+
+.mobileNavItem a {
+  color: var(--light-text);
+}
+
+.mobileNavItem:last-of-type a {
+  color: var(--primary);
+}
+
+.mobileNavItem a:focus,
+.mobileNavItem a:active {
+  color: var(--primary);
 }
 
 .showMenuFixed {
@@ -62,9 +79,15 @@
   display: flex;
 }
 
+.navDesktopItem a {
+  color: var(--light-text);
+}
+
 .navDesktopItem a:hover,
-.navDesktopItem a:focus {
+.navDesktopItem a:focus,
+.navDesktopItem a:active {
   text-decoration: underline;
+  color: var(--primary);
 }
 
 .navDesktopItem:not(:last-of-type) {

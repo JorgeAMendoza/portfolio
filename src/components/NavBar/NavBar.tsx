@@ -2,6 +2,12 @@ import Image from 'next/image';
 import styles from './navbar.module.css';
 import { useState } from 'react';
 import clsx from 'clsx';
+import { Space_Mono } from 'next/font/google';
+
+const SpaceMono = Space_Mono({
+  subsets: ['latin'],
+  weight: ['400'],
+});
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -40,24 +46,42 @@ const NavBar = () => {
           >
             <ul className={styles.mobileNavList}>
               <li className={styles.mobileNavItem}>
-                <a href="#about-me" onClick={() => setMenuOpen(false)}>
-                  About
-                </a>
+                <div className={styles.mobileNavItemContainer}>
+                  <a href="#about-me" onClick={() => setMenuOpen(false)}>
+                    About
+                  </a>
+                </div>
               </li>
               <li className={styles.mobileNavItem}>
-                <a href="#project-showcase" onClick={() => setMenuOpen(false)}>
-                  Showcase
-                </a>
+                <div className={styles.mobileNavItemContainer}>
+                  <a
+                    href="#project-showcase"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    Showcase
+                  </a>
+                </div>
               </li>
               <li className={styles.mobileNavItem}>
-                <a href="#other-projects" onClick={() => setMenuOpen(false)}>
-                  Projects
-                </a>
+                <div className={styles.mobileNavItemContainer}>
+                  <a href="#other-projects" onClick={() => setMenuOpen(false)}>
+                    Projects
+                  </a>
+                </div>
               </li>
               <li className={styles.mobileNavItem}>
-                <a href="#contact-me" onClick={() => setMenuOpen(false)}>
-                  Contact
-                </a>
+                <div className={styles.mobileNavItemContainer}>
+                  <a href="#contact-me" onClick={() => setMenuOpen(false)}>
+                    Contact
+                  </a>
+                </div>
+              </li>
+              <li className={styles.mobileNavItem}>
+                <div className={styles.mobileNavItemContainer}>
+                  <a href="/resume.pdf" className={SpaceMono.className}>
+                    Resume
+                  </a>
+                </div>
               </li>
             </ul>
           </nav>

@@ -51,7 +51,7 @@ export default function Home({
       </Head>
       <main>
         <section id="home-header" className={styles.homeHeader}>
-          <div className={styles.sectionContainer}>
+          <div className={styles.sectionContainer} data-bar="left">
             <div className={styles.homeHeaderContainer}>
               <div className={styles.headerImage}>
                 <Image
@@ -115,7 +115,11 @@ export default function Home({
 
         <div className={styles.about}>
           {/* lighter container,  */}
-          <section id="about-me" className={styles.sectionContainer}>
+          <section
+            id="about-me"
+            className={styles.sectionContainer}
+            data-bar="right"
+          >
             <div className={styles.titleContainer}>
               <h2 className={`${SourceSansPro.className} ${styles.aboutTitle}`}>
                 About Me

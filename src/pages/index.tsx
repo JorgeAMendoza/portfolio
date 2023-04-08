@@ -56,7 +56,7 @@ export default function Home({
                   height={205}
                 />
               </div>
-              <div className={styles.headerInformation}>
+              <div className={styles.headerContent}>
                 <div
                   className={`${SourceSansPro.className} ${styles.headerTitle}`}
                 >
@@ -64,44 +64,45 @@ export default function Home({
                   <h1 className={styles.headerTitleText}>
                     Jorge A. Mendoza II
                     <span className={styles.headerSubtitle}>
-                      I create things for the web
+                      Front End Developer
                     </span>
                   </h1>
                 </div>
-
-                <div className={styles.info}>
-                  <div>
-                    <p className={styles.iconInfo}>
-                      <span>
-                        <Image
-                          src="/icons/location-icon.svg"
-                          alt="location icon"
-                          width={30}
-                          height={30}
-                        />
-                      </span>
-                      Dallas, TX
-                    </p>
-                    <p className={styles.iconInfo}>
-                      <span>
-                        <Image
-                          src="/icons/school-icon.svg"
-                          alt="school icon"
-                          width={30}
-                          height={30}
-                        />
-                      </span>
-                      University of North Texas at Dallas <br />
-                      BA in Information Technology
-                    </p>
+                <div className={styles.headerInformation}>
+                  <div className={styles.info}>
+                    <div>
+                      <p className={styles.iconInfo}>
+                        <span>
+                          <Image
+                            src="/icons/location-icon.svg"
+                            alt="location icon"
+                            width={30}
+                            height={30}
+                          />
+                        </span>
+                        Dallas, TX
+                      </p>
+                      <p className={styles.iconInfo}>
+                        <span>
+                          <Image
+                            src="/icons/school-icon.svg"
+                            alt="school icon"
+                            width={30}
+                            height={30}
+                          />
+                        </span>
+                        BA in Information Technology
+                      </p>
+                    </div>
                   </div>
-                </div>
 
-                <p className={styles.headerDescription}>
-                  A Front-End Developer from Dallas, TX. I am currently working
-                  with the Dallas Independent School District as a campus-based
-                  technician, looking to launch my web development career.
-                </p>
+                  <p className={styles.headerDescription}>
+                    A Front-End Developer from Dallas, TX. I am currently
+                    working with the Dallas Independent School District as a
+                    campus-based technician, looking to launch my web
+                    development career.
+                  </p>
+                </div>
               </div>
             </div>
           </div>

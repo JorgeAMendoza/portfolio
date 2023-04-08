@@ -26,6 +26,10 @@ body {
   position: relative;
 }
 
+p {
+  line-height: 1.6;
+}
+
 img,
 svg,
 picture,

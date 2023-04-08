@@ -5,8 +5,22 @@
 }
 
 .sectionContainer {
-  padding: 2.25rem 0;
+  padding: 3rem 0;
+  position: relative;
   composes: container from '../styles/utils.module.css';
+}
+
+.sectionContainer::after {
+  content: '';
+  width: 130%;
+  height: 6px;
+  position: absolute;
+  bottom: 0;
+  /* left: min(-140vw);
+  left: -260rem; */
+  left: -100%;
+  border-radius: 5px;
+  background-color: var(--primary);
 }
 
 /* Header */
@@ -106,22 +120,21 @@
 /* About Me Styling */
 .about {
   background-color: transparent;
-  color: var(--dark-text);
+  color: var(--light-text);
 }
 
 .about h3 {
   font-size: clamp(2rem, 4.5vw, 2.4rem);
   font-weight: 600;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
 }
 
 .aboutTitle {
-  --titleUnderline: #d9d9d9;
   composes: sectionTitle from '../styles/utils.module.css';
 }
 
 .aboutText {
-  margin-bottom: 0.75rem;
+  margin-bottom: 2rem;
 }
 
 .aboutText p {
@@ -135,20 +148,16 @@
 .skillsList {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.7rem;
+  gap: 1.5rem;
 }
 
 .skillsTab {
   display: flex;
   align-items: center;
   gap: 1.1rem;
-  background-color: var(--secondary);
   color: var(--dark-text);
-  padding: 0.7em;
-  border-radius: 5px;
   font-weight: 400;
   font-size: clamp(1.6rem, 3.5vw, 1.8rem);
-  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.3);
   transition: transform 0.2s ease-in;
 }
 
@@ -257,9 +266,13 @@
   .homeHeaderContainer {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto 1fr;
     grid-template-areas: 'image info';
     gap: clamp(1.5rem, 6vmax, 10rem);
+    padding-bottom: 3rem;
+  }
+
+  .sectionContainer {
+    padding: 6rem 0;
   }
 
   .headerContent {

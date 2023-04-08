@@ -5,12 +5,17 @@ import FeatureCard from '@/components/FeatureCard/FeatureCard';
 import ProjectCard from '@/components/ProjectCard/ProjectCard';
 import { GetStaticProps } from 'next';
 import { getProjectInfo, getShowcaseInfo } from '@/lib/get-project-info';
-import { Source_Sans_Pro } from 'next/font/google';
+import { Source_Sans_Pro, Space_Mono } from 'next/font/google';
 import styles from '../styles/index.module.css';
 
 const SourceSansPro = Source_Sans_Pro({
   subsets: ['latin'],
   weight: ['600', '400', '300'],
+});
+
+const SpaceMono = Space_Mono({
+  subsets: ['latin'],
+  weight: ['400'],
 });
 
 interface HomeProps {
@@ -141,118 +146,117 @@ export default function Home({
                   person. If you believe that I am a developer that will mesh
                   will with your team and goals, please feel free to contact me.
                 </p>
-                <a href="#contact-me">Contact me</a>
               </div>
               <div>
                 <h3 className={SourceSansPro.className}>Skills & Tech</h3>
-                <ul className={styles.skillsList}>
+                <ul className={`${SpaceMono.className} ${styles.skillsList}`}>
                   <li className={styles.skillsTab}>
+                    HTML5
                     <Image
                       src="/icons/html5-icon.svg"
                       alt="HTML5 icon"
                       width={22}
                       height={22}
                     />
-                    HTML5
                   </li>
                   <li className={styles.skillsTab}>
+                    CSS
                     <Image
                       src="/icons/css-icon.svg"
                       alt="CSS Icon"
                       width={22}
                       height={22}
                     />
-                    CSS
                   </li>
                   <li className={styles.skillsTab}>
+                    JavaScript
                     <Image
                       src="/icons/javascript-icon.svg"
                       alt="javascript icon"
                       width={22}
                       height={22}
                     />
-                    JavaScript
                   </li>
                   <li className={styles.skillsTab}>
+                    TypeScript
                     <Image
                       src="/icons/typescript-icon.svg"
                       alt="typescript icon"
                       width={22}
                       height={22}
                     />
-                    TypeScript
                   </li>
                   <li className={styles.skillsTab}>
+                    React
                     <Image
                       src="/icons/react-icon.svg"
                       alt="react icon"
                       width={22}
                       height={22}
                     />
-                    React
                   </li>
                   <li className={styles.skillsTab}>
+                    Redux
                     <Image
                       src="/icons/redux-icon.svg"
                       alt="redux icon"
                       width={22}
                       height={22}
                     />
-                    Redux
                   </li>
                   <li className={styles.skillsTab}>
+                    NextJS
                     <Image
                       src="/icons/nextjs-icon.svg"
                       alt="next js icon"
                       width={22}
                       height={22}
                     />
-                    NextJS
                   </li>
                   <li className={styles.skillsTab}>
+                    NodeJS
                     <Image
                       src="/icons/nodejs-icon.svg"
                       alt="node js icon"
                       width={22}
                       height={22}
                     />
-                    NodeJS
                   </li>
                   <li className={styles.skillsTab}>
+                    GraphQL
                     <Image
                       src="/icons/graphql-icon.svg"
                       alt="graphql icon"
                       width={22}
                       height={22}
                     />
-                    GraphQL
                   </li>
                   <li className={styles.skillsTab}>
+                    Docker
                     <Image
                       src="/icons/docker-icon.svg"
                       alt="docker icon"
                       width={22}
                       height={22}
                     />
-                    Docker
                   </li>
                   <li className={styles.skillsTab}>
+                    MongoDB
                     <Image
                       src="/icons/mongodb-icon.svg"
                       alt="mongodb icon"
                       width={22}
                       height={22}
                     />
-                    MongoDB
                   </li>
                   <li className={styles.skillsTab}>
+                    Git
                     <Image
                       src="/icons/git-icon.svg"
                       alt="git icon"
                       width={22}
                       height={22}
                     />
-                    Git
                   </li>
                 </ul>
               </div>

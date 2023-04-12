@@ -5,7 +5,7 @@
 }
 
 .sectionContainer {
-  padding: 3rem 0;
+  padding: 1.2rem 0;
   position: relative;
   composes: container from '../styles/utils.module.css';
 }
@@ -38,31 +38,54 @@
   grid-area: image;
 }
 
+.headerImage img {
+  border-radius: 5px;
+  object-fit: cover;
+  width: 88%;
+  height: calc(29vw + 10rem);
+  max-height: 45rem;
+  position: relative;
+}
+
 .headerImage::before {
   content: '';
-  height: calc(40vw + 11rem);
+  height: calc(29vw + 10rem);
   max-height: 45rem;
-  width: 98%;
-  transform: translate(1rem, 1.8rem);
+  width: 88%;
+  transform: translate(2.1rem, 2rem);
   background-color: #141414;
   position: absolute;
   z-index: -1;
   border-radius: 5px;
-  transition: 0.25s transform ease;
+  transition: transform 1s ease;
   border: 1px solid var(--primary);
 }
 
-.headerImage img {
-  border-radius: 5px;
-  object-fit: cover;
-  width: 95%;
-  height: calc(40vw + 10rem);
-  max-height: 45rem;
-  border: 1px solid var(--primary);
-}
-
-.headerImage:hover::before {
+.headerImage:hover::before,
+.headerImage:focus-visible::before {
   transform: translate(0.5rem, 0.5rem);
+
+  transition: 0.25s transform ease;
+}
+
+.headerImage::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--primary);
+  width: 88%;
+  height: 100%;
+  z-index: 5;
+  opacity: 0.5;
+  border-radius: 5px;
+  transition: opacity 1s ease;
+}
+
+.headerImage:hover::after,
+.headerImage:focus-visible::after {
+  opacity: 0;
+  transition: opacity 0.25s ease;
 }
 
 .headerTitle {

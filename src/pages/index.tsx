@@ -57,8 +57,8 @@ export default function Home({
                 <Image
                   src="/placeholder.jpg"
                   alt="image of jorge mendoza"
-                  width={286}
-                  height={205}
+                  width={288}
+                  height={211}
                 />
               </div>
               <div className={styles.headerContent}>

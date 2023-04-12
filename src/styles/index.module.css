@@ -17,20 +17,6 @@
   border-bottom: 1px solid var(--primary);
 }
 
-.headerContent {
-  margin-top: 5.5rem;
-  grid-area: info;
-}
-
-.headerInformation {
-  margin-top: 3rem;
-  grid-area: info;
-}
-
-.headerInformation > *:not(:last-child) {
-  margin-block-end: 2rem;
-}
-
 .headerImage {
   position: relative;
   isolation: isolate;
@@ -88,6 +74,20 @@
   transition: opacity 0.25s ease;
 }
 
+.headerContent {
+  margin-top: 4.1rem;
+  grid-area: info;
+}
+
+.headerInformation {
+  margin-top: 2.1rem;
+  grid-area: info;
+}
+
+.headerInformation > *:not(:last-child) {
+  margin-block-end: 1rem;
+}
+
 .headerTitle {
   grid-area: 'title';
 }
@@ -95,6 +95,7 @@
 .headerTitleText {
   font-size: clamp(3.2rem, 5.6vw, 4.8rem);
   color: var(--primary);
+  line-height: 32px;
 }
 
 .headerSubtitle {
@@ -105,7 +106,7 @@
 }
 
 .headerIntro {
-  font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+  font-size: clamp(1.6rem, 2.5vw, 2.4rem);
   font-weight: 600;
 }
 

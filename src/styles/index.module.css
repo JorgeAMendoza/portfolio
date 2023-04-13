@@ -15,6 +15,8 @@
 .homeHeader {
   color: var(--light-text);
   border-bottom: 1px solid var(--primary);
+  height: 100vh;
+  height: 100svh;
 }
 
 .headerImage {
@@ -75,12 +77,12 @@
 }
 
 .headerContent {
-  margin-top: 4.1rem;
+  margin-top: 7.2rem;
   grid-area: info;
 }
 
 .headerInformation {
-  margin-top: 2.1rem;
+  margin-top: 2.5rem;
   grid-area: info;
 }
 
@@ -93,14 +95,14 @@
 }
 
 .headerTitleText {
-  font-size: clamp(3.2rem, 5.6vw, 4.8rem);
+  font-size: clamp(4rem, 5.6vw, 5.6rem);
   color: var(--primary);
-  line-height: clamp(3.2rem, 7vw, 7rem);
+  line-height: clamp(3.8rem, 7vw, 7rem);
 }
 
 .headerSubtitle {
-  font-size: clamp(2.4rem, 4vw, 3.2rem);
-  font-weight: 400;
+  font-size: clamp(3.2rem, 4vw, 4rem);
+  font-weight: 600;
   display: block;
   color: var(--light-text);
 }
@@ -127,6 +129,16 @@
 .headerDescription {
   font-size: clamp(1.6rem, 3.5vw, 1.8rem);
   grid-area: text;
+}
+
+.headerProjectLink {
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+  padding: 0.7em;
+  display: block;
+  margin-top: 3.2rem;
+  width: fit-content;
 }
 
 /* About Me Styling */

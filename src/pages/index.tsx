@@ -53,21 +53,13 @@ export default function Home({
         <section id="home-header" className={styles.homeHeader}>
           <div className={styles.sectionContainer} data-bar="left">
             <div className={styles.homeHeaderContainer}>
-              <div className={styles.headerImage}>
-                <Image
-                  src="/placeholder.jpg"
-                  alt="image of jorge mendoza"
-                  width={288}
-                  height={211}
-                />
-              </div>
               <div className={styles.headerContent}>
                 <div
                   className={`${SourceSansPro.className} ${styles.headerTitle}`}
                 >
                   <p className={styles.headerIntro}>Hey 🙋🏽‍♂️, my name is</p>
                   <h1 className={styles.headerTitleText}>
-                    Jorge A. Mendoza II
+                    Jorge Mendoza II
                     <span className={styles.headerSubtitle}>
                       Front End Developer
                     </span>
@@ -108,13 +100,19 @@ export default function Home({
                     development career.
                   </p>
                 </div>
+
+                <a
+                  href="#project-showcase"
+                  className={`${SpaceMono.className} ${styles.headerProjectLink}`}
+                >
+                  Check out my projects!
+                </a>
               </div>
             </div>
           </div>
         </section>
 
         <div className={styles.about}>
-          {/* lighter container,  */}
           <section
             id="about-me"
             className={styles.sectionContainer}

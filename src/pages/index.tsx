@@ -50,65 +50,61 @@ export default function Home({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <section id="home-header" className={styles.homeHeader}>
-          <div className={styles.sectionContainer} data-bar="left">
-            <div className={styles.homeHeaderContainer}>
-              <div className={styles.headerContent}>
-                <div
-                  className={`${SourceSansPro.className} ${styles.headerTitle}`}
-                >
-                  <p className={styles.headerIntro}>Hey 🙋🏽‍♂️, my name is</p>
-                  <h1 className={styles.headerTitleText}>
-                    Jorge Mendoza II
-                    <span className={styles.headerSubtitle}>
-                      Front End Developer
+        <section
+          id="home-header"
+          className={`${styles.sectionContainer} ${styles.homeHeader}`}
+        >
+          <div className={styles.headerContent}>
+            <div className={`${SourceSansPro.className} ${styles.headerTitle}`}>
+              <p className={styles.headerIntro}>Hey 🙋🏽‍♂️, my name is</p>
+              <h1 className={styles.headerTitleText}>
+                Jorge Mendoza II
+                <span className={styles.headerSubtitle}>
+                  Front End Developer
+                </span>
+              </h1>
+            </div>
+            <div className={styles.headerInformation}>
+              <div className={styles.info}>
+                <div>
+                  <p className={styles.iconInfo}>
+                    <span>
+                      <Image
+                        src="/icons/location-icon.svg"
+                        alt="location icon"
+                        width={30}
+                        height={30}
+                      />
                     </span>
-                  </h1>
-                </div>
-                <div className={styles.headerInformation}>
-                  <div className={styles.info}>
-                    <div>
-                      <p className={styles.iconInfo}>
-                        <span>
-                          <Image
-                            src="/icons/location-icon.svg"
-                            alt="location icon"
-                            width={30}
-                            height={30}
-                          />
-                        </span>
-                        Dallas, TX
-                      </p>
-                      <p className={styles.iconInfo}>
-                        <span>
-                          <Image
-                            src="/icons/school-icon.svg"
-                            alt="school icon"
-                            width={30}
-                            height={30}
-                          />
-                        </span>
-                        BA in Information Technology
-                      </p>
-                    </div>
-                  </div>
-
-                  <p className={styles.headerDescription}>
-                    A Front-End Developer from Dallas, TX. I am currently
-                    working with the Dallas Independent School District as a
-                    campus-based technician, looking to launch my web
-                    development career.
+                    Dallas, TX
+                  </p>
+                  <p className={styles.iconInfo}>
+                    <span>
+                      <Image
+                        src="/icons/school-icon.svg"
+                        alt="school icon"
+                        width={30}
+                        height={30}
+                      />
+                    </span>
+                    BA in Information Technology
                   </p>
                 </div>
-
-                <a
-                  href="#project-showcase"
-                  className={`${SpaceMono.className} ${styles.headerProjectLink}`}
-                >
-                  Check out my projects!
-                </a>
               </div>
+
+              <p className={styles.headerDescription}>
+                A Front-End Developer from Dallas, TX. I am currently working
+                with the Dallas Independent School District as a campus-based
+                technician, looking to launch my web development career.
+              </p>
             </div>
+
+            <a
+              href="#project-showcase"
+              className={`${SpaceMono.className} ${styles.headerProjectLink}`}
+            >
+              Check out my projects!
+            </a>
           </div>
         </section>
 

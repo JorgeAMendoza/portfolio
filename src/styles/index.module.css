@@ -5,7 +5,7 @@
 }
 
 .sectionContainer {
-  padding: 1.2rem 0;
+  padding-top: 1.2rem;
   position: relative;
   composes: container from '../styles/utils.module.css';
 }
@@ -15,8 +15,16 @@
 .homeHeader {
   color: var(--light-text);
   border-bottom: 1px solid var(--primary);
-  height: 100vh;
-  height: 100svh;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.headerContent {
+  /* padding-top: 7.2rem; */
 }
 
 .headerImage {
@@ -76,14 +84,8 @@
   transition: opacity 0.25s ease;
 }
 
-.headerContent {
-  margin-top: 7.2rem;
-  grid-area: info;
-}
-
 .headerInformation {
   margin-top: 2.5rem;
-  grid-area: info;
 }
 
 .headerInformation > *:not(:last-child) {
@@ -302,12 +304,11 @@
 }
 
 @media screen and (min-width: 1024px) {
-  .homeHeaderContainer {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: 'image info';
-    gap: clamp(1.5rem, 6vmax, 10rem);
-    padding-bottom: 3rem;
+  .headerContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
   }
 
   .sectionContainer {

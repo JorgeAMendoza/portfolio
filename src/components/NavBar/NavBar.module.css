@@ -4,7 +4,7 @@
   align-items: center;
   padding: 1.6rem 0;
   background-color: var(--background);
-  position: relative;
+  position: fixed;
   width: 100%;
   z-index: 2;
 }

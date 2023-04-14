@@ -120,6 +120,15 @@ export default function Home({
               </h2>
             </div>
 
+            <div className={styles.aboutImage}>
+              <Image
+                src="/placeholder.jpg"
+                width={500}
+                height={500}
+                alt="image of jorge mendoza"
+              />
+            </div>
+
             <div className={styles.aboutContent}>
               <div className={styles.aboutText}>
                 <h3 className={SourceSansPro.className}>My Story</h3>
@@ -131,18 +140,19 @@ export default function Home({
                   advances in the web-development environment.
                 </p>
                 <p>
-                  I have used React, TypeScript, Styled-Components, and other
-                  tools to create user-interfaces that are responsive,
+                  I have used <em>React, TypeScript, Styled-Components</em> and
+                  other tools to create user-interfaces that are responsive,
                   performant, and accessible. From creating password generators
                   to full-stack applications with authentication, I have a set
-                  of skills that allow me me to tackle multiple issues dealing
+                  of skills that allow me to tackle multiple issues dealing
                   with creating user interfaces.
                 </p>
                 <p>
                   I am currently open to job opportunities where I can
-                  contribute, learn, and grow as a front-end developer and
-                  person. If you believe that I am a developer that will mesh
-                  will with your team and goals, please feel free to contact me.
+                  <em> contribute, learn, and grow</em> as a software developer
+                  and person. If you believe that I am a developer that will
+                  mesh will with your team and goals, please feel free to
+                  contact me.
                 </p>
               </div>
               <div>

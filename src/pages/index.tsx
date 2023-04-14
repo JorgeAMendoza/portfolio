@@ -50,64 +50,64 @@ export default function Home({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <section
-          id="home-header"
-          className={`${styles.sectionContainer} ${styles.homeHeader}`}
-        >
-          <div className={styles.headerContent}>
-            <div className={`${SourceSansPro.className} ${styles.headerTitle}`}>
-              <p className={styles.headerIntro}>Hey 🙋🏽‍♂️, my name is</p>
-              <h1 className={styles.headerTitleText}>
-                Jorge Mendoza II
-                <span className={styles.headerSubtitle}>
-                  Front End Developer
-                </span>
-              </h1>
-            </div>
-            <div className={styles.headerInformation}>
-              <div className={styles.info}>
-                <div>
-                  <p className={styles.iconInfo}>
-                    <span>
-                      <Image
-                        src="/icons/location-icon.svg"
-                        alt="location icon"
-                        width={30}
-                        height={30}
-                      />
-                    </span>
-                    Dallas, TX
-                  </p>
-                  <p className={styles.iconInfo}>
-                    <span>
-                      <Image
-                        src="/icons/school-icon.svg"
-                        alt="school icon"
-                        width={30}
-                        height={30}
-                      />
-                    </span>
-                    BA in Information Technology
-                  </p>
+        <div className={styles.homeHeader}>
+          <section id="home-header" className={styles.sectionContainer}>
+            <div className={styles.headerContent}>
+              <div
+                className={`${SourceSansPro.className} ${styles.headerTitle}`}
+              >
+                <p className={styles.headerIntro}>Hey 🙋🏽‍♂️, my name is</p>
+                <h1 className={styles.headerTitleText}>
+                  Jorge Mendoza II
+                  <span className={styles.headerSubtitle}>
+                    Front End Developer
+                  </span>
+                </h1>
+              </div>
+              <div className={styles.headerInformation}>
+                <div className={styles.info}>
+                  <div>
+                    <p className={styles.iconInfo}>
+                      <span>
+                        <Image
+                          src="/icons/location-icon.svg"
+                          alt="location icon"
+                          width={30}
+                          height={30}
+                        />
+                      </span>
+                      Dallas, TX
+                    </p>
+                    <p className={styles.iconInfo}>
+                      <span>
+                        <Image
+                          src="/icons/school-icon.svg"
+                          alt="school icon"
+                          width={30}
+                          height={30}
+                        />
+                      </span>
+                      BA in Information Technology
+                    </p>
+                  </div>
                 </div>
+
+                <p className={styles.headerDescription}>
+                  A Front-End Developer from Dallas, TX. I am currently working
+                  with the Dallas Independent School District as a campus-based
+                  technician, looking to launch my web development career.
+                </p>
               </div>
 
-              <p className={styles.headerDescription}>
-                A Front-End Developer from Dallas, TX. I am currently working
-                with the Dallas Independent School District as a campus-based
-                technician, looking to launch my web development career.
-              </p>
+              <a
+                href="#project-showcase"
+                className={`${SpaceMono.className} ${styles.headerProjectLink}`}
+              >
+                Check out my projects!
+              </a>
             </div>
-
-            <a
-              href="#project-showcase"
-              className={`${SpaceMono.className} ${styles.headerProjectLink}`}
-            >
-              Check out my projects!
-            </a>
-          </div>
-        </section>
-
+          </section>
+        </div>
         <div className={styles.about}>
           <section
             id="about-me"
@@ -261,7 +261,6 @@ export default function Home({
             </div>
           </section>
         </div>
-
         <div className={styles.showcase}>
           <section id="project-showcase" className={styles.sectionContainer}>
             <div className={styles.titleContainer}>
@@ -279,7 +278,6 @@ export default function Home({
             </div>
           </section>
         </div>
-
         <div className={styles.projectsSection}>
           <section id="other-projects" className={styles.sectionContainer}>
             <div className={styles.titleContainer}>
@@ -297,7 +295,6 @@ export default function Home({
             </div>
           </section>
         </div>
-
         <div className={styles.footerSection}>
           <footer id="contact-me" className={styles.sectionContainer}>
             <div className={styles.footerContent}>

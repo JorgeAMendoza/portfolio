@@ -26,80 +26,75 @@ const NavBar = () => {
           <Image
             src="/logo.svg"
             alt="jorge mendoza logo"
-            width={148}
+            width={187}
             height={40}
           />
         </Link>
         {/* mobile nav */}
-        <div className={styles.mobileNav}>
-          <button
-            className={styles.mobileNavButton}
-            aria-label="open the navigation menu"
-            aria-controls="mobile-nav"
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
-            <Image
-              src="/icons/hamburger-menu.svg"
-              alt="menu icon"
-              width={25}
-              height={25}
-            />
-          </button>
-          <nav
-            id="mobile-nav"
-            className={`${styles.mobileNavMenu} ${clsx(
-              menuOpen && styles.showMenu
-            )}`}
-            aria-hidden={!menuOpen}
-          >
-            <ul className={styles.mobileNavList}>
-              <li className={styles.mobileNavItem}>
-                <div className={styles.mobileNavItemContainer}>
-                  <a href="#about-me" onClick={() => setMenuOpen(false)}>
-                    About
-                  </a>
-                </div>
-              </li>
-              <li className={styles.mobileNavItem}>
-                <div className={styles.mobileNavItemContainer}>
-                  <a
-                    href="#project-showcase"
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    Showcase
-                  </a>
-                </div>
-              </li>
-              <li className={styles.mobileNavItem}>
-                <div className={styles.mobileNavItemContainer}>
-                  <a href="#other-projects" onClick={() => setMenuOpen(false)}>
-                    Projects
-                  </a>
-                </div>
-              </li>
-              <li className={styles.mobileNavItem}>
-                <div className={styles.mobileNavItemContainer}>
-                  <a href="#contact-me" onClick={() => setMenuOpen(false)}>
-                    Contact
-                  </a>
-                </div>
-              </li>
-              <li className={styles.mobileNavItem}>
-                <div className={styles.mobileNavItemContainer}>
-                  <a
-                    href="/resume.pdf"
-                    target="__blank"
-                    rel="nonreferrer"
-                    className={SpaceMono.className}
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    Resume
-                  </a>
-                </div>
-              </li>
-            </ul>
-          </nav>
-        </div>
+        <button
+          className={styles.mobileNavButton}
+          aria-label="open the navigation menu"
+          aria-controls="mobile-nav"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <Image
+            src="/icons/hamburger-menu.svg"
+            alt="menu icon"
+            width={30}
+            height={30}
+          />
+        </button>
+        <nav
+          id="mobile-nav"
+          className={`${styles.mobileNavMenu} ${clsx(
+            menuOpen && styles.showMenu
+          )}`}
+          aria-hidden={!menuOpen}
+        >
+          <ul className={styles.mobileNavList}>
+            <li className={styles.mobileNavItem}>
+              <div className={styles.mobileNavItemContainer}>
+                <a href="#about-me" onClick={() => setMenuOpen(false)}>
+                  About
+                </a>
+              </div>
+            </li>
+            <li className={styles.mobileNavItem}>
+              <div className={styles.mobileNavItemContainer}>
+                <a href="#project-showcase" onClick={() => setMenuOpen(false)}>
+                  Showcase
+                </a>
+              </div>
+            </li>
+            <li className={styles.mobileNavItem}>
+              <div className={styles.mobileNavItemContainer}>
+                <a href="#other-projects" onClick={() => setMenuOpen(false)}>
+                  Projects
+                </a>
+              </div>
+            </li>
+            <li className={styles.mobileNavItem}>
+              <div className={styles.mobileNavItemContainer}>
+                <a href="#contact-me" onClick={() => setMenuOpen(false)}>
+                  Contact
+                </a>
+              </div>
+            </li>
+            <li className={styles.mobileNavItem}>
+              <div className={styles.mobileNavItemContainer}>
+                <a
+                  href="/resume.pdf"
+                  target="__blank"
+                  rel="nonreferrer"
+                  className={SpaceMono.className}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Resume
+                </a>
+              </div>
+            </li>
+          </ul>
+        </nav>
         {/* desktop nav */}
         <nav className={styles.navDesktop}>
           <ul className={styles.navDesktopMenu}>

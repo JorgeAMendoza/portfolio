@@ -1,5 +1,5 @@
 .container {
-  width: min(88%, 144rem);
+  width: min(88%, 120rem);
   margin: 0 auto;
 }
 
@@ -10,11 +10,12 @@
 }
 
 .sectionTitle {
-  --titleUnderline: #fff;
   font-size: clamp(2.4rem, 5vw, 3.2rem);
   position: relative;
   text-align: center;
   width: fit-content;
+  font-weight: 600;
+  color: var(--light-text);
 }
 
 .sectionTitle::before {
@@ -26,6 +27,6 @@
   width: 85%;
   height: 5px;
   transform: translateX(8%);
-  background-color: var(--titleUnderline);
+  background-color: var(--primary);
   border-radius: 10px;
 }

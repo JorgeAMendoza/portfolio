@@ -1,11 +1,11 @@
 /* Utils */
 .titleContainer {
   composes: sectionTitleContainer from '../styles/utils.module.css';
-  margin-bottom: 2.5rem;
+  margin-bottom: 4.5rem;
 }
 
 .sectionContainer {
-  padding-top: 1.2rem;
+  padding-top: 3rem;
   position: relative;
   composes: container from '../styles/utils.module.css';
 }
@@ -25,25 +25,6 @@
 
 .homeHeader .sectionContainer {
   width: min(88%, 95rem);
-}
-
-.headerContent {
-}
-
-.headerImage {
-  position: relative;
-  isolation: isolate;
-  z-index: 0;
-  grid-area: image;
-}
-
-.headerImage img {
-  border-radius: 5px;
-  object-fit: cover;
-  width: 88%;
-  height: calc(29vw + 10rem);
-  max-height: 45rem;
-  position: relative;
 }
 
 .headerImage::before {
@@ -163,8 +144,70 @@
   composes: sectionTitle from '../styles/utils.module.css';
 }
 
-.aboutText {
+.aboutImage {
+  border-radius: 5px;
+  position: relative;
+  isolation: isolate;
+  width: min(90%, 40rem);
+  margin: 0 auto;
+  grid-area: image;
+}
+
+.aboutImage img {
+  border-radius: 5px;
+  z-index: 1;
+  height: 100%;
+  margin-bottom: 5rem;
+  grid-area: image;
+}
+
+.aboutImage::before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  transform: translate(2rem, 2rem);
+  background-color: #141414;
+  position: absolute;
+  border-radius: 5px;
+  border: 1px solid var(--primary);
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: transform 1s ease;
+}
+
+.aboutImage:hover::before,
+.aboutImage:focus-visible::after {
+  transform: translate(1rem, 1rem);
+  transition: transform 0.3s ease;
+}
+
+.aboutImage::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--primary);
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  border-radius: 5px;
+  z-index: 2;
+  transition: opacity 1s ease;
+}
+
+.aboutImage:hover::after,
+.aboutImage:focus-visible::after {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.aboutContent > *:not(:last-child) {
   margin-bottom: 2rem;
+}
+
+.aboutText em {
+  color: var(--primary);
 }
 
 .aboutText p {
@@ -346,7 +389,22 @@
   .aboutContent {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
-    gap: 2.5rem;
+    grid-template-areas:
+      'text image'
+      'skills image';
+  }
+
+  .aboutImage {
+    align-self: start;
+    margin-top: 5rem;
+  }
+
+  .aboutImage img {
+    margin: 0;
+  }
+
+  .aboutText p {
+    line-height: 1.7;
   }
 
   .skillsList {

@@ -150,13 +150,15 @@
   isolation: isolate;
   width: min(90%, 40rem);
   margin: 0 auto;
-  margin-bottom: 5rem;
+  grid-area: image;
 }
 
 .aboutImage img {
   border-radius: 5px;
   z-index: 1;
   height: 100%;
+  margin-bottom: 5rem;
+  grid-area: image;
 }
 
 .aboutImage::before {
@@ -387,7 +389,22 @@
   .aboutContent {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
-    gap: 2.5rem;
+    grid-template-areas:
+      'text image'
+      'skills image';
+  }
+
+  .aboutImage {
+    align-self: start;
+    margin-top: 5rem;
+  }
+
+  .aboutImage img {
+    margin: 0;
+  }
+
+  .aboutText p {
+    line-height: 1.7;
   }
 
   .skillsList {

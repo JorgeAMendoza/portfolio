@@ -120,16 +120,15 @@ export default function Home({
               </h2>
             </div>
 
-            <div className={styles.aboutImage}>
-              <Image
-                src="/placeholder.jpg"
-                width={500}
-                height={500}
-                alt="image of jorge mendoza"
-              />
-            </div>
-
             <div className={styles.aboutContent}>
+              <div className={styles.aboutImage}>
+                <Image
+                  src="/placeholder.jpg"
+                  width={500}
+                  height={500}
+                  alt="image of jorge mendoza"
+                />
+              </div>
               <div className={styles.aboutText}>
                 <h3 className={SourceSansPro.className}>My Story</h3>
                 <p>
@@ -144,8 +143,8 @@ export default function Home({
                   other tools to create user-interfaces that are responsive,
                   performant, and accessible. From creating password generators
                   to full-stack applications with authentication, I have a set
-                  of skills that allow me to tackle multiple issues dealing
-                  with creating user interfaces.
+                  of skills that allow me to tackle multiple issues dealing with
+                  creating user interfaces.
                 </p>
                 <p>
                   I am currently open to job opportunities where I can

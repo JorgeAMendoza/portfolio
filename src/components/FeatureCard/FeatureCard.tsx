@@ -35,8 +35,9 @@ const FeatureCard = ({ project }: FeatureCardProps) => {
               href={project.repoLink}
               target="_blank"
               aria-label={`link to project repository for ${project.name}`}
+              className={SpaceMono.className}
             >
-              View Project
+              View Project &#62;
             </a>
           </p>
         </footer>

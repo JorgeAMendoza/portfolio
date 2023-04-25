@@ -3,6 +3,11 @@
   margin: 0 auto;
 }
 
+.miniContainer {
+  width: min(100%, 90rem);
+  margin: 0 auto;
+}
+
 .sectionTitleContainer {
   display: flex;
   justify-content: center;

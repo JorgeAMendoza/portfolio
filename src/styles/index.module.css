@@ -254,6 +254,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
+  composes: miniContainer from '../styles/utils.module.css';
 }
 
 /* other projects */
@@ -342,6 +343,11 @@
 
   .headerDescription {
     width: 80%;
+  }
+
+  /* showcase */
+  .showcaseProjects {
+    grid-auto-rows: min-content;
   }
 
   /* footer */

@@ -14,13 +14,15 @@ interface FeatureCardProps {
 const FeatureCard = ({ project }: FeatureCardProps) => {
   return (
     <figure className={styles.card}>
-      <Image
-        src={project.image}
-        alt="gif displaying project in action"
-        width={200}
-        height={200}
-        className={styles.cardImage}
-      />
+      <div className={styles.cardImage}>
+        <Image
+          src="/project-images/ent-app/showcase.gif"
+          alt="gif displaying project in action"
+          width={627}
+          height={359}
+        />
+      </div>
+
       <div className={styles.cardContent}>
         <h3 className={styles.cardTitle}>{project.name}</h3>
         <p className={styles.cardDescription}>{project.description}</p>

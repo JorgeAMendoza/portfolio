@@ -82,7 +82,8 @@
     background-color: var(--primary);
     top: 0;
     left: 0;
-    opacity: 0.4;
+    opacity: 0.3;
+    transition: opacity 0.25s ease-in-out;
   }
 
   .cardContent {
@@ -108,6 +109,10 @@
 
   .cardFooter {
     padding-top: 2rem;
+  }
+
+  .card:hover .cardImage::after {
+    opacity: 0;
   }
 }
 

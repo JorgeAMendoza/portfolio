@@ -14,13 +14,15 @@ interface FeatureCardProps {
 const FeatureCard = ({ project }: FeatureCardProps) => {
   return (
     <figure className={styles.card}>
-      <Image
-        src={project.image}
-        alt="gif displaying project in action"
-        width={200}
-        height={200}
-        className={styles.cardImage}
-      />
+      <div className={styles.cardImage}>
+        <Image
+          src={project.image}
+          alt="gif displaying project in action"
+          width={627}
+          height={359}
+        />
+      </div>
+
       <div className={styles.cardContent}>
         <h3 className={styles.cardTitle}>{project.name}</h3>
         <p className={styles.cardDescription}>{project.description}</p>
@@ -35,8 +37,9 @@ const FeatureCard = ({ project }: FeatureCardProps) => {
               href={project.repoLink}
               target="_blank"
               aria-label={`link to project repository for ${project.name}`}
+              className={SpaceMono.className}
             >
-              View Project
+              View Project &#62;
             </a>
           </p>
         </footer>

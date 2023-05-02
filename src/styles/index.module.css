@@ -241,7 +241,7 @@
 
 /* showcase */
 .showcase {
-  background-color: var(--primary);
+  background-color: transparent;
   color: var(--light-text);
 }
 
@@ -252,15 +252,15 @@
 
 .showcaseProjects {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(29rem, 1fr));
+  grid-template-columns: 1fr;
   gap: 1rem;
+  composes: miniContainer from '../styles/utils.module.css';
 }
 
 /* other projects */
 
 .projectsSection {
   background-color: transparent;
-  color: var(--primary);
 }
 
 .projectsTitle {
@@ -343,6 +343,11 @@
 
   .headerDescription {
     width: 80%;
+  }
+
+  /* showcase */
+  .showcaseProjects {
+    gap: 2rem;
   }
 
   /* footer */

@@ -1,34 +1,31 @@
 .card {
   position: relative;
-  overflow: hidden;
+  isolation: isolate;
 }
 
 .cardImage {
-  object-fit: cover;
-  width: 100%;
-  aspect-ratio: 1/1;
-  height: 100%;
-}
-
-.cardContent {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  z-index: -1;
+}
+
+.cardImage img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.cardContent {
+  z-index: 2;
   background-color: rgba(0, 0, 0, 0.85);
-  text-align: center;
-  padding: 0.6em 1em;
+  padding: 1.5em;
   font-size: clamp(1.4rem, 2vw, 1.6rem);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  transform: translateX(100%);
-  transition: transform 0.2s linear, opacity 0.2s linear;
-  opacity: 0;
+}
+
+.cardContent > *:not(:last-child) {
+  margin-bottom: 0.8rem;
 }
 
 .card:hover .cardContent,
@@ -39,7 +36,8 @@
 }
 
 .cardTitle {
-  font-size: clamp(2rem, 3vw, 2.4rem);
+  color: var(--primary);
+  font-size: clamp(2rem, 3vw + 1rem, 2.8rem);
   font-weight: 400;
 }
 
@@ -51,17 +49,72 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  justify-content: center;
 }
 
 .cardFooter {
   padding-top: 5rem;
-  font-weight: 600;
 }
 
-/* extras */
-@media (prefers-reduced-motion) {
-  .cardContent {
-    transition: none;
+@media screen and (min-width: 768px) {
+  .card {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    align-items: center;
+    position: relative;
   }
+  .cardImage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    grid-area: 1 / 1 / -1 / 8;
+    z-index: 0;
+  }
+
+  .cardImage img {
+    height: 35.9rem;
+  }
+
+  .cardImage::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary);
+    top: 0;
+    left: 0;
+    opacity: 0.3;
+    transition: opacity 0.25s ease-in-out;
+  }
+
+  .cardContent {
+    z-index: 2;
+    width: 100%;
+    grid-area: 1 / 5 / -1 / 13;
+    background-color: #000000;
+    padding: 0;
+    border-radius: 5px;
+  }
+
+  .cardContent {
+    padding: 1em;
+  }
+
+  .card:nth-of-type(2) .cardImage {
+    grid-column: 6/13;
+  }
+
+  .card:nth-of-type(2) .cardContent {
+    grid-column: 1/9;
+  }
+
+  .cardFooter {
+    padding-top: 2rem;
+  }
+
+  .card:hover .cardImage::after {
+    opacity: 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
 }

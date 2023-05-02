@@ -347,7 +347,7 @@
 
   /* showcase */
   .showcaseProjects {
-    grid-auto-rows: min-content;
+    gap: 2rem;
   }
 
   /* footer */

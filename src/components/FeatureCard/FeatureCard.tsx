@@ -16,7 +16,7 @@ const FeatureCard = ({ project }: FeatureCardProps) => {
     <figure className={styles.card}>
       <div className={styles.cardImage}>
         <Image
-          src="/project-images/ent-app/showcase.gif"
+          src={project.image}
           alt="gif displaying project in action"
           width={627}
           height={359}

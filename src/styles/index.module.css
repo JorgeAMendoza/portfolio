@@ -270,9 +270,9 @@
 
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(29rem, 1fr));
-  grid-auto-rows: minmax(29rem, 1fr);
-  gap: 1.5rem;
+  /* grid-template-columns: repeat(auto-fill, minmax(29rem, 1fr)); */
+  /* grid-auto-rows: minmax(29rem, 1fr); */
+  gap: 3.5rem;
 }
 
 /* footer */

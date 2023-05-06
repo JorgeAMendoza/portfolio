@@ -287,7 +287,7 @@ export default function Home({
             </div>
           </section>
         </div>
-        {/* <div className={styles.projectsSection}>
+        <div className={styles.projectsSection}>
           <section id="other-projects" className={styles.sectionContainer}>
             <div className={styles.titleContainer}>
               <h2
@@ -303,7 +303,7 @@ export default function Home({
               ))}
             </div>
           </section>
-        </div> */}
+        </div>
         <div className={styles.footerSection}>
           <footer id="contact-me" className={styles.sectionContainer}>
             <div className={styles.footerContent}>

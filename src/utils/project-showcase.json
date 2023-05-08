@@ -1,31 +1,32 @@
 [
   {
     "name": "Fullstack Entertainment App",
-    "description": "Fullstack entertainment app with authentication that allows users to view content and save it for later",
+    "description": "A fullstack application that allows users to login, view various movies and tv shows, and add them to a bookmarked list to watch later. Users are verified using JWT tokens that are passed through the GraphQL server. Client-side routing is handled with the react-router library",
     "image": "/project-images/ent-app/showcase.gif",
     "repoLink": "https://github.com/JorgeAMendoza/entertainment-web-app",
-    "demoLink": "",
+    "demoLink": "https://entertainment-web-app-ivory.vercel.app/",
     "tools": [
-      "graphql",
+      "graph-ql",
       "react",
       "typescript",
       "mongodb",
-      "nodejs",
+      "node-js",
       "styled-components",
-      "cypress"
+      "cypress",
+      "react-router"
     ]
   },
   {
     "name": "Markdown Editor",
-    "description": "Markdown editor that allows users to create markdown files and see edited markdown in real-time",
+    "description": "A single-page web application where users can edit and create markdown files.Users can edit the markdown text and preview the rendered markdown in real-time on the same page. Markdown text is stored using the LocalStorage API and application state is handled by the Redux/Toolkit library.",
     "image": "/project-images/markdown-app/showcase.gif",
     "repoLink": "https://github.com/JorgeAMendoza/in-browser-markdown-editor",
     "demoLink": "https://in-browser-markdown-editor-three.vercel.app/",
-    "tools": ["react", "typescript", "redux", "cypress"]
+    "tools": ["react", "typescript", "redux", "cypress", "styled-components"]
   },
   {
     "name": "Weather Application",
-    "description": "Weather application where users can search for a city and get the current weather and the five-day forecast",
+    "description": "A single-page weather application where users can search for a city and get the current weather and the five-day forecast. The application uses the OpenWeatherMap API to fetch weather data and the fetching state is handled by the react-query library.",
     "image": "/project-images/weather-app/showcase.gif",
     "repoLink": "https://github.com/JorgeAMendoza/react-weather-app",
     "demoLink": "https://react-weather-app-tau-two.vercel.app/",

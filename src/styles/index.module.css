@@ -124,6 +124,7 @@
   padding: 0.7em;
   display: block;
   margin-top: 3.2rem;
+  width: -moz-fit-content;
   width: fit-content;
 }
 
@@ -270,9 +271,7 @@
 
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(29rem, 1fr));
-  grid-auto-rows: minmax(29rem, 1fr);
-  gap: 1.5rem;
+  gap: 3.5rem;
 }
 
 /* footer */
@@ -350,6 +349,11 @@
     gap: 2rem;
   }
 
+  .projects {
+    grid-template-columns: repeat(auto-fill, minmax(29rem, 1fr));
+    grid-auto-rows: minmax(20rem, 1fr);
+  }
+
   /* footer */
   .footerContent {
     display: grid;
@@ -397,6 +401,10 @@
     grid-template-areas:
       'text image'
       'skills image';
+  }
+
+  .projects {
+    grid-auto-rows: minmax(26rem, 1fr);
   }
 
   .aboutImage {

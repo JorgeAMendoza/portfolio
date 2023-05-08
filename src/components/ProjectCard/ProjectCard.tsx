@@ -26,8 +26,8 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               <Image
                 src="/icons/github-icon.svg"
                 alt="github icon"
-                width={30}
-                height={30}
+                width={25}
+                height={25}
               />
             </a>
           </span>
@@ -40,8 +40,8 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               <Image
                 src="/icons/link-icon.svg"
                 alt="link icon"
-                width={30}
-                height={30}
+                width={25}
+                height={25}
               />
             </a>
           </span>

@@ -1,28 +1,28 @@
 [
   {
     "name": "Planet Facts",
-    "description": "Website that displays various facts about the planets in our solor system",
+    "description": "Website that displays various facts about the planets in our solor system, built with Next JS and Typescript. Static pages are generated with 'getStaticProps' and a mobile friendly design is implemented.",
     "repoLink": "https://github.com/JorgeAMendoza/planet-facts",
     "demoLink": "https://planet-facts-delta.vercel.app/planets/mercury",
     "tools": ["next-js", "react", "typescript", "css-modules", "cypress"]
   },
   {
     "name": "Memory Game",
-    "description": "Memory game that can be played with multiple players and different modes",
+    "description": "Single page web app built with React that includes the ability to play with multiple players and modes. Redux is used to keep track of game state and player scores.",
     "repoLink": "https://github.com/JorgeAMendoza/memory-game",
     "demoLink": "https://memory-game-three-lyart.vercel.app/",
     "tools": ["react", "typescript", "redux", "styled-components", "cypress"]
   },
   {
     "name": "Password Generator",
-    "description": "Generate passwords, with thea ability to adjust password length and the type of characters used in the password",
+    "description": "Generate passwords with the ability adjust attributes such as length, numbers, symbols, and capitalization. Password meter indicates strength and users can copy the generated password to their clipboard.",
     "repoLink": "https://github.com/JorgeAMendoza/password-gen-app",
     "demoLink": "https://password-gen-app-three.vercel.app/",
     "tools": ["react", "typescript", "css-modules", "cypress"]
   },
   {
     "name": "Github User Search App",
-    "description": "Using the GitHub API, a user can be searched and their github profile information can be displayed, light/dark theme implemented",
+    "description": "Using the GitHub API, users can search for the profiles of other GitHub users and see information such as their name, star count, and repository count. A light/dark theme is implemented",
     "repoLink": "https://github.com/JorgeAMendoza/github-user-search-app",
     "demoLink": "https://github-user-search-app-umber.vercel.app/",
     "tools": ["react", "typescript", "axios", "styled-components", "cypress"]
@@ -30,16 +30,16 @@
 
   {
     "name": "Tic-Tac-Toe",
-    "description": "Tic-Tac-Toe game with score keeping and ability to play against \"CPU\" player",
+    "description": "A simple tic-tac-toe game with the ability to play against a \"CPU\" player. Users can keep track of their wins and losses and reset the game if needed",
     "repoLink": "https://github.com/JorgeAMendoza/tic-tac-toe",
     "demoLink": "https://tic-tac-toe-dusky-beta.vercel.app/",
     "tools": ["react", "typescript", "styled-components", "cypress", "jest"]
   },
   {
-    "name": "To-do list",
-    "description": "Simple to-do application where users can create, delete, and update tasks. All tasks are stored in local storage",
-    "repoLink": "https://github.com/JorgeAMendoza/react-to-do",
-    "demoLink": "https://react-to-do-gules.vercel.app/",
-    "tools": ["react", "typescript", "styled-components"]
+    "name": "Dictionary App",
+    "description": "Single-page application where users can search for words and recieve definitions, examples of definitions, and lists of synonyms and antonyms. Built using the Free Dictionary API",
+    "repoLink": "https://github.com/JorgeAMendoza/dictionary-app",
+    "demoLink": "https://dictionary-gml37y3ju-jorgeamendoza.vercel.app/",
+    "tools": ["react", "typescript", "styled-components", "cypress"]
   }
 ]

@@ -276,12 +276,20 @@
 
 /* footer */
 .footerSection {
-  background-color: var(--primary);
+  background-color: transparent;
   color: var(--light-text);
 }
 
 .footerContent > * {
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.footerContent p {
+  font-weight: 300;
+}
+
+.footerContent p strong {
+  color: var(--primary);
 }
 
 .footerTitle {
@@ -289,30 +297,60 @@
 }
 
 .footerTitle h2 {
-  font-weight: 400;
-  font-size: clamp(2.4rem, 3.5vw, 2.6rem);
+  font-weight: 600;
+  font-size: clamp(2.4rem, 2.2vw + 1rem, 3.2rem);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
-.footerTitle p {
-  font-weight: 300;
-  font-size: clamp(1.6rem, 3vw, 1.8rem);
+.footerTitle h2::after {
+  content: '';
+  left: 0;
+  height: 0.3rem;
+  width: 100%;
+  background-color: var(--primary);
+  border-radius: 5px;
 }
+
+.footerEmail {
+  display: flex;
+  justify-content: center;
+}
+
+.footerEmailLink {
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+  background-color: transparent;
+  margin: 0 auto;
+  display: inline-block;
+  padding: 1em 1.5em;
+}
+
 .footerSocialList {
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  justify-content: center;
+  gap: 2rem;
 }
 
 .footerSocialItem {
   display: inline-flex;
   align-items: center;
   gap: 1rem;
+  color: var(--light-text);
+}
+
+.footerSocialItem:hover {
+  color: var(--primary);
 }
 
 .footerName {
   text-align: center;
   position: relative;
   margin-top: 4.5rem;
+  padding-bottom: 1rem;
 }
 
 .footerName::after {

@@ -305,18 +305,21 @@ export default function Home({
           </section>
         </div>
         <div className={styles.footerSection}>
-          <footer id="contact-me" className={styles.sectionContainer}>
-            <div className={styles.footerContent}>
+          <section id="contact-me" className={styles.sectionContainer}>
+            <div className={styles.contactContent}>
               <div>
                 <div
-                  className={`${styles.footerTitle} ${SourceSansPro.className}`}
+                  className={`${styles.titleContainer} ${SourceSansPro.className}`}
                 >
-                  {' '}
-                  <h2>Let&#39;s Collaborate</h2>
+                  <h2 className={styles.contactTitle}>Let&#39;s Collaborate</h2>
                 </div>
 
                 <p>
-                  I am currently looking to launch my career into the web development environment, my inbox is always open! If you have any questions or just want to say hello, please feel free to contact me with the email link below. Make sure to check out my social media profiles as well! {' '}
+                  I am currently looking to launch my career into the web
+                  development environment, my inbox is always open! If you have
+                  any questions or just want to say hello, please feel free to
+                  contact me with the email link below. Make sure to check out
+                  my social media profiles as well!{' '}
                   <strong>Happy coding!</strong>
                 </p>
               </div>
@@ -326,7 +329,7 @@ export default function Home({
                   href="mailto:jorgemendozadevii@gmail.com"
                   target="_blank"
                   rel="nonreferrer"
-                  className={`${SpaceMono.className} ${styles.footerEmailLink}`}
+                  className={`${SpaceMono.className} ${styles.contactEmailLink}`}
                 >
                   say hello
                 </a>
@@ -386,12 +389,12 @@ export default function Home({
                 </ul>
               </div>
             </div>
-
-            <div className={styles.footerName}>
-              <p>Designed and built by Jorge A. Mendoza II</p>
-            </div>
-          </footer>
+          </section>
         </div>
+
+        <footer className={styles.footerName}>
+          <p>Designed and built by Jorge A. Mendoza II</p>
+        </footer>
       </main>
     </Layout>
   );

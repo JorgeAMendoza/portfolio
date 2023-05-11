@@ -14,7 +14,6 @@
 
 .homeHeader {
   color: var(--light-text);
-  border-bottom: 1px solid var(--primary);
   min-height: 100vh;
   min-height: 100svh;
   display: flex;
@@ -132,7 +131,6 @@
 .about {
   background-color: transparent;
   color: var(--light-text);
-  border-bottom: 1px solid var(--primary);
 }
 
 .about h3 {
@@ -265,7 +263,6 @@
 }
 
 .projectsTitle {
-  --titleUnderline: #d9d9d9;
   composes: sectionTitle from '../styles/utils.module.css';
 }
 
@@ -274,26 +271,28 @@
   gap: 3.5rem;
 }
 
-/* footer */
-.footerSection {
+/* Contact */
+.ContactSection {
   background-color: transparent;
-  color: var(--light-text);
 }
 
-.footerContent > * {
+.contactContent > * {
   margin-bottom: 2.5rem;
 }
 
-.footerContent p {
+.contactContent p {
   font-weight: 300;
+  color: var(--light-text);
+  width: min(100%, 60rem);
+  margin: 0 auto;
 }
 
-.footerContent p strong {
+.contactContent p strong {
   color: var(--primary);
 }
 
-.footerTitle {
-  margin-bottom: 1rem;
+.contactTitle {
+  composes: sectionTitle from '../styles/utils.module.css';
 }
 
 .footerTitle h2 {
@@ -305,27 +304,13 @@
   gap: 1rem;
 }
 
-.footerTitle h2::after {
-  content: '';
-  left: 0;
-  height: 0.3rem;
-  width: 100%;
-  background-color: var(--primary);
-  border-radius: 5px;
-}
-
 .footerEmail {
   display: flex;
   justify-content: center;
 }
 
-.footerEmailLink {
-  color: var(--primary);
-  border: 1px solid var(--primary);
-  border-radius: 5px;
-  background-color: transparent;
-  margin: 0 auto;
-  display: inline-block;
+.contactEmailLink {
+  composes: primaryButton from '../styles/utils/button.module.css';
   padding: 1em 1.5em;
 }
 
@@ -390,13 +375,6 @@
   .projects {
     grid-template-columns: repeat(auto-fill, minmax(29rem, 1fr));
     grid-auto-rows: minmax(20rem, 1fr);
-  }
-
-  /* footer */
-  .footerContent {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
   }
 }
 

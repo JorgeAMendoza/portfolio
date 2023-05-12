@@ -7,6 +7,9 @@ import { GetStaticProps } from 'next';
 import { getProjectInfo, getShowcaseInfo } from '@/lib/get-project-info';
 import { Source_Sans_Pro, Space_Mono } from 'next/font/google';
 import styles from '../styles/index.module.css';
+import TwitterIcon from '@/components/Icons/Twitter';
+import GitHubIcon from '@/components/Icons/GitHub';
+import LinkedinIcon from '@/components/Icons/Linkedin';
 
 const SourceSansPro = Source_Sans_Pro({
   subsets: ['latin'],
@@ -345,12 +348,7 @@ export default function Home({
                       className={styles.footerSocialItem}
                       aria-label="visit my github profile"
                     >
-                      <Image
-                        src="/icons/github-icon.svg"
-                        alt="github icon"
-                        width={30}
-                        height={30}
-                      />{' '}
+                      <GitHubIcon />
                     </a>
                   </li>
                   <li>
@@ -361,12 +359,7 @@ export default function Home({
                       className={styles.footerSocialItem}
                       aria-label="check out my twitter profile"
                     >
-                      <Image
-                        src="/icons/twitter-icon.svg"
-                        alt="email icon"
-                        width={30}
-                        height={30}
-                      />{' '}
+                      <TwitterIcon />
                     </a>
                   </li>
 
@@ -378,12 +371,7 @@ export default function Home({
                       className={styles.footerSocialItem}
                       aria-label="visit my linkedin profile"
                     >
-                      <Image
-                        src="/icons/linkedin-icon.svg"
-                        alt="linkedin icon"
-                        width={30}
-                        height={30}
-                      />{' '}
+                      <LinkedinIcon />
                     </a>
                   </li>
                 </ul>

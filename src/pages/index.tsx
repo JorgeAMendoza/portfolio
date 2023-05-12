@@ -7,6 +7,10 @@ import { GetStaticProps } from 'next';
 import { getProjectInfo, getShowcaseInfo } from '@/lib/get-project-info';
 import { Source_Sans_Pro, Space_Mono } from 'next/font/google';
 import styles from '../styles/index.module.css';
+import TwitterIcon from '@/components/Icons/Twitter';
+import GitHubIcon from '@/components/Icons/GitHub';
+import LinkedinIcon from '@/components/Icons/Linkedin';
+import DogIcon from '@/components/Icons/Dog';
 
 const SourceSansPro = Source_Sans_Pro({
   subsets: ['latin'],
@@ -305,98 +309,90 @@ export default function Home({
           </section>
         </div>
         <div className={styles.footerSection}>
-          <footer id="contact-me" className={styles.sectionContainer}>
-            <div className={styles.footerContent}>
+          <section id="contact-me" className={styles.sectionContainer}>
+            <div className={styles.contactContent}>
               <div>
                 <div
-                  className={`${styles.footerTitle} ${SourceSansPro.className}`}
+                  className={`${styles.titleContainer} ${SourceSansPro.className}`}
                 >
-                  <p>Interested?</p>
-                  <h2>Let&#39;s Collaborate</h2>
+                  <h2 className={styles.contactTitle}>Let&#39;s Collaborate</h2>
                 </div>
 
                 <p>
-                  Want to get in touch? Please feel free to contact me with any
-                  of the links below and be sure to check out my resume.{' '}
+                  I am currently looking to launch my career into the web
+                  development environment, my inbox is always open! If you have
+                  any questions or just want to say hello, please feel free to
+                  contact me with the email link below. Make sure to check out
+                  my social media profiles as well!{' '}
                   <strong>Happy coding!</strong>
                 </p>
               </div>
 
+              <div className={styles.contactEmail}>
+                <a
+                  href="mailto:jorgemendozadevii@gmail.com"
+                  target="_blank"
+                  rel="nonreferrer"
+                  className={`${SpaceMono.className} ${styles.contactEmailLink}`}
+                >
+                  say hello
+                </a>
+              </div>
+
               <div>
-                <ul className={styles.footerSocialList}>
+                <ul className={styles.contactSocialList}>
                   <li>
                     <a
                       href="https://github.com/JorgeAMendoza"
                       target="_blank"
                       rel="noreferrer"
-                      className={styles.footerSocialItem}
+                      aria-label="visit my github profile"
                     >
-                      <Image
-                        src="/icons/github-icon.svg"
-                        alt="github icon"
-                        width={30}
-                        height={30}
-                      />{' '}
-                      Github Profile
+                      <GitHubIcon />
                     </a>
                   </li>
                   <li>
                     <a
-                      href="mailto: jorgemendozadevii@gmail.com"
+                      href="https://twitter.com/JorgeMIIDev"
                       target="_blank"
                       rel="noreferrer"
-                      className={styles.footerSocialItem}
+                      aria-label="check out my twitter profile"
                     >
-                      <Image
-                        src="/icons/email-icon.svg"
-                        alt="email icon"
-                        width={30}
-                        height={30}
-                      />{' '}
-                      Send Email
+                      <TwitterIcon />
                     </a>
                   </li>
-                  <li>
-                    <a
-                      href="/resume.pdf"
-                      target="_blank"
-                      rel="noreferrer"
-                      className={styles.footerSocialItem}
-                    >
-                      <Image
-                        src="/icons/resume-icon.svg"
-                        alt="resume icon"
-                        width={30}
-                        height={30}
-                      />{' '}
-                      View my resume
-                    </a>
-                  </li>
+
                   <li>
                     <a
                       href="https://www.linkedin.com/in/jorge-mendoza-a06b45264/"
                       target="_blank"
                       rel="noreferrer"
-                      className={styles.footerSocialItem}
+                      aria-label="visit my linkedin profile"
                     >
-                      <Image
-                        src="/icons/linkedin-icon.svg"
-                        alt="linkedin icon"
-                        width={30}
-                        height={30}
-                      />{' '}
-                      Linkedin
+                      <LinkedinIcon />
                     </a>
                   </li>
                 </ul>
               </div>
             </div>
-
-            <div className={styles.footerName}>
-              <p>Designed and built by Jorge A. Mendoza II</p>
-            </div>
-          </footer>
+          </section>
         </div>
+
+        <footer className={styles.footer}>
+          <div className={styles.footerName}>
+            <p>Designed and built by Jorge A. Mendoza II</p>
+            <p className={styles.footerIcon}>
+              <a
+                href="https://www.lapoflove.com/pet-memorial/24847"
+                aria-label="A memorial for the best dog a man can ask for"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <DogIcon />
+              </a>
+            </p>
+          </div>
+        </footer>
       </main>
     </Layout>
   );

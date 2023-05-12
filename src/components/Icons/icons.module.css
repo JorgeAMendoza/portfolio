@@ -1,0 +1,11 @@
+.icon {
+  width: 3rem;
+  height: 3rem;
+  transition: var(--transition);
+  color: var(--light-text);
+}
+
+.icon:hover,
+.icon:focus-visible {
+  color: var(--primary);
+}

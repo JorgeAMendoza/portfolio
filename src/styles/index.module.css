@@ -14,7 +14,6 @@
 
 .homeHeader {
   color: var(--light-text);
-  border-bottom: 1px solid var(--primary);
   min-height: 100vh;
   min-height: 100svh;
   display: flex;
@@ -132,7 +131,6 @@
 .about {
   background-color: transparent;
   color: var(--light-text);
-  border-bottom: 1px solid var(--primary);
 }
 
 .about h3 {
@@ -265,7 +263,6 @@
 }
 
 .projectsTitle {
-  --titleUnderline: #d9d9d9;
   composes: sectionTitle from '../styles/utils.module.css';
 }
 
@@ -274,45 +271,58 @@
   gap: 3.5rem;
 }
 
-/* footer */
-.footerSection {
-  background-color: var(--primary);
-  color: var(--light-text);
+/* Contact */
+.ContactSection {
+  background-color: transparent;
 }
 
-.footerContent > * {
-  margin-bottom: 2rem;
+.contactContent > * {
+  margin-bottom: 2.5rem;
 }
 
-.footerTitle {
-  margin-bottom: 1rem;
-}
-
-.footerTitle h2 {
-  font-weight: 400;
-  font-size: clamp(2.4rem, 3.5vw, 2.6rem);
-}
-
-.footerTitle p {
+.contactContent p {
   font-weight: 300;
-  font-size: clamp(1.6rem, 3vw, 1.8rem);
-}
-.footerSocialList {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  color: var(--light-text);
+  width: min(100%, 60rem);
+  margin: 0 auto;
 }
 
-.footerSocialItem {
-  display: inline-flex;
-  align-items: center;
-  gap: 1rem;
+.contactContent p strong {
+  color: var(--primary);
+}
+
+.contactTitle {
+  composes: sectionTitle from '../styles/utils.module.css';
+}
+
+.contactEmail {
+  display: flex;
+  justify-content: center;
+}
+
+.contactEmailLink {
+  composes: primaryButton from '../styles/utils/button.module.css';
+  padding: 1em 1.5em;
+}
+
+.contactSocialList {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+/* footer */
+
+.footer {
+  composes: container from '../styles/utils.module.css';
+  padding: 1em 0;
 }
 
 .footerName {
   text-align: center;
   position: relative;
-  margin-top: 4.5rem;
+  padding-bottom: 1rem;
+  color: var(--light-text);
 }
 
 .footerName::after {
@@ -321,9 +331,15 @@
   height: 1px;
   background-color: var(--secondary);
   position: absolute;
-  top: -1rem;
+  top: -2rem;
   right: 0;
   left: 0;
+}
+
+.footerIcon {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
 }
 
 @media screen and (min-width: 768px) {
@@ -352,13 +368,6 @@
   .projects {
     grid-template-columns: repeat(auto-fill, minmax(29rem, 1fr));
     grid-auto-rows: minmax(20rem, 1fr);
-  }
-
-  /* footer */
-  .footerContent {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
   }
 }
 

@@ -295,16 +295,7 @@
   composes: sectionTitle from '../styles/utils.module.css';
 }
 
-.footerTitle h2 {
-  font-weight: 600;
-  font-size: clamp(2.4rem, 2.2vw + 1rem, 3.2rem);
-  white-space: nowrap;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.footerEmail {
+.contactEmail {
   display: flex;
   justify-content: center;
 }
@@ -314,28 +305,24 @@
   padding: 1em 1.5em;
 }
 
-.footerSocialList {
+.contactSocialList {
   display: flex;
   justify-content: center;
   gap: 2rem;
 }
 
-.footerSocialItem {
-  display: inline-flex;
-  align-items: center;
-  gap: 1rem;
-  color: var(--light-text);
-}
+/* footer */
 
-.footerSocialItem:hover {
-  color: var(--primary);
+.footer {
+  composes: container from '../styles/utils.module.css';
+  padding: 1em 0;
 }
 
 .footerName {
   text-align: center;
   position: relative;
-  margin-top: 4.5rem;
   padding-bottom: 1rem;
+  color: var(--light-text);
 }
 
 .footerName::after {
@@ -344,9 +331,15 @@
   height: 1px;
   background-color: var(--secondary);
   position: absolute;
-  top: -1rem;
+  top: -2rem;
   right: 0;
   left: 0;
+}
+
+.footerIcon {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
 }
 
 @media screen and (min-width: 768px) {

@@ -10,6 +10,7 @@ import styles from '../styles/index.module.css';
 import TwitterIcon from '@/components/Icons/Twitter';
 import GitHubIcon from '@/components/Icons/GitHub';
 import LinkedinIcon from '@/components/Icons/Linkedin';
+import DogIcon from '@/components/Icons/Dog';
 
 const SourceSansPro = Source_Sans_Pro({
   subsets: ['latin'],
@@ -327,7 +328,7 @@ export default function Home({
                 </p>
               </div>
 
-              <div className={styles.footerEmail}>
+              <div className={styles.contactEmail}>
                 <a
                   href="mailto:jorgemendozadevii@gmail.com"
                   target="_blank"
@@ -339,13 +340,12 @@ export default function Home({
               </div>
 
               <div>
-                <ul className={styles.footerSocialList}>
+                <ul className={styles.contactSocialList}>
                   <li>
                     <a
                       href="https://github.com/JorgeAMendoza"
                       target="_blank"
                       rel="noreferrer"
-                      className={styles.footerSocialItem}
                       aria-label="visit my github profile"
                     >
                       <GitHubIcon />
@@ -356,7 +356,6 @@ export default function Home({
                       href="https://twitter.com/JorgeMIIDev"
                       target="_blank"
                       rel="noreferrer"
-                      className={styles.footerSocialItem}
                       aria-label="check out my twitter profile"
                     >
                       <TwitterIcon />
@@ -368,7 +367,6 @@ export default function Home({
                       href="https://www.linkedin.com/in/jorge-mendoza-a06b45264/"
                       target="_blank"
                       rel="noreferrer"
-                      className={styles.footerSocialItem}
                       aria-label="visit my linkedin profile"
                     >
                       <LinkedinIcon />
@@ -380,8 +378,20 @@ export default function Home({
           </section>
         </div>
 
-        <footer className={styles.footerName}>
-          <p>Designed and built by Jorge A. Mendoza II</p>
+        <footer className={styles.footer}>
+          <div className={styles.footerName}>
+            <p>Designed and built by Jorge A. Mendoza II</p>
+            <p className={styles.footerIcon}>
+              <a
+                href="https://www.lapoflove.com/pet-memorial/24847"
+                aria-label="A memorial for the best dog a man can ask for"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <DogIcon />
+              </a>
+            </p>
+          </div>
         </footer>
       </main>
     </Layout>

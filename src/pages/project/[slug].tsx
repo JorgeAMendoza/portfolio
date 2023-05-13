@@ -5,6 +5,7 @@ import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import matter from 'gray-matter';
 import { InferGetStaticPropsType } from 'next';
+import Layout from '@/components/Layout/Layout';
 
 interface ShowcasePageProps {
   source: MDXRemoteSerializeResult<
@@ -21,7 +22,20 @@ const ShowcasePage = ({
   source,
   frontMatter,
 }: ShowcasePageProps): InferGetStaticPropsType<typeof getStaticProps> => {
-  return <div>{<MDXRemote {...source} />}</div>;
+  return (
+    <Layout>
+      <main>
+        <section>
+          <h1>{frontMatter.title}</h1>
+          <ul>
+            {frontMatter.tools.map((tool) => (
+              <li key={tool}>{tool}</li>
+            ))}
+          </ul>
+        </section>
+      </main>
+    </Layout>
+  );
 };
 
 export const getStaticPaths: GetStaticPaths = () => {

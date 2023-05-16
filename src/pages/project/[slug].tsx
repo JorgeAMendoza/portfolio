@@ -7,6 +7,7 @@ import { serialize } from 'next-mdx-remote/serialize';
 import path from 'path';
 import LinkIcon from '@/components/Icons/Link';
 import GitHubIcon from '@/components/Icons/GitHub';
+import Image from 'next/image';
 
 interface ShowcasePageProps {
   source: MDXRemoteSerializeResult<
@@ -18,6 +19,7 @@ interface ShowcasePageProps {
     tools: string[];
     repoLink: string;
     demoLink: string;
+    projectImage: string;
   };
 }
 
@@ -48,11 +50,21 @@ const ShowcasePage = ({
               <LinkIcon />
             </a>
           </div>
-          <ul>
-            {frontMatter.tools.map((tool) => (
-              <li key={tool}>{tool}</li>
-            ))}
-          </ul>
+
+          <div>
+            <p>Stack</p>
+            <ul>
+              {frontMatter.tools.map((tool) => (
+                <li key={tool}>{tool}</li>
+              ))}
+            </ul>
+          </div>
+
+          <Image
+            src={frontMatter.projectImage}
+            fill={true}
+            alt={`gif of ${frontMatter.title} being used`}
+          />
         </section>
       </main>
     </Layout>

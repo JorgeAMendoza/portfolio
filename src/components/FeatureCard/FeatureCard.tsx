@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import styles from './FeatureCard.module.css';
 import { Space_Mono } from 'next/font/google';
+import Link from 'next/link';
 
 const SpaceMono = Space_Mono({
   subsets: ['latin'],
@@ -28,19 +29,19 @@ const FeatureCard = ({ project }: FeatureCardProps) => {
         <p className={styles.cardDescription}>{project.description}</p>
         <ul className={`${SpaceMono.className} ${styles.cardTools}`}>
           {project.tools.map((tool) => (
-            <p key={tool}>{tool}</p>
+            <li key={tool}>{tool}</li>
           ))}
         </ul>
         <footer className={styles.cardFooter}>
           <p>
-            <a
-              href={project.repoLink}
+            <Link
+              href={project.projectPage}
               target="_blank"
-              aria-label={`link to project repository for ${project.name}`}
+              aria-label={`link to project page for ${project.name}`}
               className={SpaceMono.className}
             >
               View Project &#62;
-            </a>
+            </Link>
           </p>
         </footer>
       </div>

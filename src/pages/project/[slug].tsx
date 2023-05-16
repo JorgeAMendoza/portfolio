@@ -1,11 +1,12 @@
-import path from 'path';
-import fs from 'fs';
-import { serialize } from 'next-mdx-remote/serialize';
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
-import { GetStaticProps, GetStaticPaths } from 'next';
-import matter from 'gray-matter';
-import { InferGetStaticPropsType } from 'next';
 import Layout from '@/components/Layout/Layout';
+import fs from 'fs';
+import matter from 'gray-matter';
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { serialize } from 'next-mdx-remote/serialize';
+import path from 'path';
+import LinkIcon from '@/components/Icons/Link';
+import GitHubIcon from '@/components/Icons/GitHub';
 
 interface ShowcasePageProps {
   source: MDXRemoteSerializeResult<
@@ -15,6 +16,8 @@ interface ShowcasePageProps {
   frontMatter: {
     title: string;
     tools: string[];
+    repoLink: string;
+    demoLink: string;
   };
 }
 
@@ -27,6 +30,24 @@ const ShowcasePage = ({
       <main>
         <section>
           <h1>{frontMatter.title}</h1>
+          <div>
+            <a
+              href={frontMatter.repoLink}
+              aria-label={`github repository for ${frontMatter.title}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <GitHubIcon />
+            </a>
+            <a
+              href={frontMatter.demoLink}
+              aria-label={`demo link for ${frontMatter.title}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <LinkIcon />
+            </a>
+          </div>
           <ul>
             {frontMatter.tools.map((tool) => (
               <li key={tool}>{tool}</li>

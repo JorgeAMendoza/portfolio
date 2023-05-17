@@ -2,12 +2,25 @@ import Layout from '@/components/Layout/Layout';
 import fs from 'fs';
 import matter from 'gray-matter';
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import path from 'path';
 import LinkIcon from '@/components/Icons/Link';
 import GitHubIcon from '@/components/Icons/GitHub';
 import Image from 'next/image';
+import style from '../../styles/project-page.module.css';
+import { Space_Mono, Source_Sans_Pro } from 'next/font/google';
+import Head from 'next/head';
+
+const SpaceMono = Space_Mono({
+  subsets: ['latin'],
+  weight: ['400'],
+});
+
+const SourceSansPro = Source_Sans_Pro({
+  subsets: ['latin'],
+  weight: ['400', '600'],
+});
 
 interface ShowcasePageProps {
   source: MDXRemoteSerializeResult<
@@ -20,6 +33,7 @@ interface ShowcasePageProps {
     repoLink: string;
     demoLink: string;
     projectImage: string;
+    projectGif: string;
   };
 }
 
@@ -29,10 +43,15 @@ const ShowcasePage = ({
 }: ShowcasePageProps): InferGetStaticPropsType<typeof getStaticProps> => {
   return (
     <Layout>
-      <main>
-        <section>
-          <h1>{frontMatter.title}</h1>
-          <div>
+      <Head>
+        <title>{frontMatter.title}</title>
+      </Head>
+      <main className={style.projectPage}>
+        <section className={style.projectHead}>
+          <h1 className={`${SourceSansPro.className} ${style.projectTitle}`}>
+            {frontMatter.title}
+          </h1>
+          <div className={style.projectLinks}>
             <a
               href={frontMatter.repoLink}
               aria-label={`github repository for ${frontMatter.title}`}
@@ -51,20 +70,32 @@ const ShowcasePage = ({
             </a>
           </div>
 
-          <div>
-            <p>Stack</p>
-            <ul>
+          <div className={style.projectTools}>
+            <p className={SourceSansPro.className}>Stack</p>
+            <ul className={`${SpaceMono.className}`}>
               {frontMatter.tools.map((tool) => (
                 <li key={tool}>{tool}</li>
               ))}
             </ul>
           </div>
 
-          <Image
-            src={frontMatter.projectImage}
-            fill={true}
-            alt={`gif of ${frontMatter.title} being used`}
-          />
+          <div className={style.projectImageContainer}>
+            <Image
+              src={frontMatter.projectImage}
+              width={330}
+              height={250}
+              alt={`image of ${frontMatter.title}`}
+              className={style.projectImage}
+            />
+
+            <Image
+              src={frontMatter.projectGif}
+              width={1000}
+              height={1000}
+              alt={`gif of ${frontMatter.title} being used`}
+              className={style.projectGif}
+            />
+          </div>
         </section>
       </main>
     </Layout>

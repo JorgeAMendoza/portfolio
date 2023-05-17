@@ -48,26 +48,28 @@ const ShowcasePage = ({
       </Head>
       <main className={style.projectPage}>
         <section className={style.projectHead}>
-          <h1 className={`${SourceSansPro.className} ${style.projectTitle}`}>
-            {frontMatter.title}
-          </h1>
-          <div className={style.projectLinks}>
-            <a
-              href={frontMatter.repoLink}
-              aria-label={`github repository for ${frontMatter.title}`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <GitHubIcon />
-            </a>
-            <a
-              href={frontMatter.demoLink}
-              aria-label={`demo link for ${frontMatter.title}`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <LinkIcon />
-            </a>
+          <div className={style.projectTitleInfo}>
+            <h1 className={`${SourceSansPro.className} ${style.projectTitle}`}>
+              {frontMatter.title}
+            </h1>
+            <div className={style.projectLinks}>
+              <a
+                href={frontMatter.repoLink}
+                aria-label={`github repository for ${frontMatter.title}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <GitHubIcon />
+              </a>
+              <a
+                href={frontMatter.demoLink}
+                aria-label={`demo link for ${frontMatter.title}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <LinkIcon />
+              </a>
+            </div>
           </div>
 
           <div className={style.projectTools}>
@@ -82,16 +84,16 @@ const ShowcasePage = ({
           <div className={style.projectImageContainer}>
             <Image
               src={frontMatter.projectImage}
-              width={330}
-              height={250}
+              width={400}
+              height={325}
               alt={`image of ${frontMatter.title}`}
               className={style.projectImage}
             />
 
             <Image
               src={frontMatter.projectGif}
-              width={1000}
-              height={1000}
+              width={900}
+              height={500}
               alt={`gif of ${frontMatter.title} being used`}
               className={style.projectGif}
             />

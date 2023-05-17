@@ -1,0 +1,69 @@
+.projectPage {
+  composes: container from '../styles/utils.module.css';
+  margin-top: 1rem;
+}
+
+.projectHead {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.projectTitle {
+  color: var(--primary);
+  font-size: clamp(4rem, 2.5vw + 1rem, 4.8rem);
+  font-weight: 600;
+}
+
+.projectLinks {
+  display: flex;
+  gap: 2rem;
+}
+
+.projectTools {
+  order: 1;
+  margin-top: 1.5rem;
+}
+
+.projectTools p {
+  color: var(--light-text);
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.projectTools ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.projectTools ul li {
+  color: var(--primary);
+}
+
+.projectImageContainer {
+  position: relative;
+  border: 1px solid var(--primary);
+}
+
+.projectImageContainer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30vh;
+  z-index: -1;
+  border: 1px solid var(--primary);
+  transform: translate(1.5rem, 1.5rem);
+}
+
+.projectImage {
+  width: 100%;
+  object-fit: cover;
+  height: 30vh;
+}
+
+.projectGif {
+  display: None;
+}

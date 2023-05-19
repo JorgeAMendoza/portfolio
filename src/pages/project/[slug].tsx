@@ -115,7 +115,7 @@ export const getStaticPaths: GetStaticPaths = () => {
     return data;
   });
   return {
-    paths: slugs.map((s) => ({ params: { slug: s.slug } })), // { params: { slug: 'my-first-post' } }
+    paths: slugs.map((s) => ({ params: { slug: s.slug } })),
     fallback: false,
   };
 };

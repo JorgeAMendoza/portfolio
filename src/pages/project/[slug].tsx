@@ -2,7 +2,7 @@ import Layout from '@/components/Layout/Layout';
 import fs from 'fs';
 import matter from 'gray-matter';
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
-import { MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { MDXRemoteSerializeResult, MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import path from 'path';
 import LinkIcon from '@/components/Icons/Link';
@@ -88,6 +88,7 @@ const ShowcasePage = ({
               height={325}
               alt={`image of ${frontMatter.title}`}
               className={style.projectImage}
+              priority={true}
             />
 
             <Image
@@ -96,8 +97,13 @@ const ShowcasePage = ({
               height={500}
               alt={`gif of ${frontMatter.title} being used`}
               className={style.projectGif}
+              priority={true}
             />
           </div>
+        </section>
+
+        <section style={{ color: 'wheat' }}>
+          <MDXRemote {...source} />
         </section>
       </main>
     </Layout>

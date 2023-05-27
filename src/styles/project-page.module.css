@@ -27,11 +27,6 @@
   gap: 1rem;
 }
 
-.projectTools {
-  order: 1;
-  margin-top: 1.5rem;
-}
-
 .projectTools p {
   color: var(--light-text);
   font-size: clamp(2rem, 2.5vw + 1rem, 2.4rem);
@@ -75,6 +70,75 @@
 .projectGif {
   display: none;
   object-fit: cover;
+}
+
+/* Project Text */
+.projectContent {
+  color: var(--light-text);
+  padding-bottom: 2.5rem;
+}
+
+.projectContent a:hover {
+  text-decoration: underline;
+}
+
+.projectContent h2,
+.projectContent h3,
+.projectContent h4,
+.projectContent h5,
+.projectContent h6 {
+  color: var(--primary);
+}
+
+.projectContent h2:first-of-type {
+  margin-block-start: 4.5rem;
+}
+
+.projectContent > * {
+  margin-block-start: 2rem;
+}
+
+.projectContent h2 + * {
+  margin-block-start: 0;
+}
+
+.projectContent h3 + *,
+.projectContent h4 + *,
+.projectContent h5 + *,
+.projectContent h6 + * {
+  margin-block-start: 0.5rem;
+}
+
+.projectContent h4 {
+  font-weight: 400;
+}
+
+.projectContent code,
+.projectContent pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-size: 1.4rem;
+}
+
+.projectContent pre {
+  background-color: var(--secondary);
+  padding: 1.5em;
+  border-radius: 5px;
+}
+
+.projectContent ul {
+  list-style: disc;
+  padding-left: 3rem;
+}
+
+.projectContent ol {
+  list-style: decimal;
+  padding-left: 3rem;
+}
+
+.projectContent ul ul,
+.projectContent ol ol {
+  margin-block-start: 1rem;
 }
 
 /* tablet styles */

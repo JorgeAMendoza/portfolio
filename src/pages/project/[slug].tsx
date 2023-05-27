@@ -73,7 +73,7 @@ const ShowcasePage = ({
           </div>
 
           <div className={style.projectTools}>
-            <p className={SourceSansPro.className}>Stack</p>
+            <p className={SourceSansPro.className}>Tools Used</p>
             <ul className={`${SpaceMono.className}`}>
               {frontMatter.tools.map((tool) => (
                 <li key={tool}>{tool}</li>
@@ -102,8 +102,17 @@ const ShowcasePage = ({
           </div>
         </section>
 
-        <section style={{ color: 'wheat' }}>
-          <MDXRemote {...source} />
+        <section className={style.projectContent}>
+          <MDXRemote
+            {...source}
+            components={{
+              a: (props) => (
+                <a {...props} target="_blank" rel="noreferrer">
+                  {}
+                </a>
+              ),
+            }}
+          />
         </section>
       </main>
     </Layout>

@@ -22,8 +22,8 @@ tools:
 
 - [Introduction](#introduction)
 - [Techstack Used](#techstack-used)
-  - [Frontend/Client](#frontend/client)
-  - [Backend/Server](#backendserver)
+  - [Client](#frontend/client)
+  - [Server](#backendserver)
   - [Docker](#docker)
 
 ## Introduction
@@ -38,7 +38,7 @@ The requirement of the project is to create an entertainment app where a user ca
 
 ## Techstack Used
 
-This section contains information about the technology used for both the front-end and backend.[ESlint](https://eslint.org/) is used to lint the application, with one general ESLint file created which to apply rules which target both the front and backend.
+This section contains information about the technology used for both the front-end and backend. [ESlint](https://eslint.org/) is used to lint the application, with one general ESLint file created which to apply rules which target both the front and backend.
 
 ### Frontend/Client
 
@@ -192,9 +192,9 @@ The code block above displays a `movies` resolver which checks to see if a logge
 
 The code block above displays the code of the mutation `bookmarkContent` which marks a movie/show as bookmarked under the target user in the schema. If an unauthenticated user is attempting to fire this mutation, then an error is thrown, else the mutation executes the following:
 
--  If the target content is marked as a content type _show_, then:
-   - Call the user service which inserts the show into the user's bookmarked show property
-   - This function will throw an error if a show that is already bookmarked is being inserted again.
+- If the target content is marked as a content type _show_, then:
+  - Call the user service which inserts the show into the user's bookmarked show property
+  - This function will throw an error if a show that is already bookmarked is being inserted again.
 
 If the content being bookmarked is a movie, then the steps for bookmarking a show are repeated, but for the bookmarked movie property under the target user.
 

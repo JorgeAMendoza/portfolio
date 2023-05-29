@@ -78,6 +78,14 @@
   padding-bottom: 2.5rem;
 }
 
+.projectContent [id]::before {
+  content: '';
+  display: block;
+  height: 75px;
+  margin-top: -75px;
+  visibility: hidden;
+}
+
 .projectContent a:hover {
   text-decoration: underline;
 }
@@ -137,7 +145,7 @@
 }
 
 .projectContent ol li {
-  padding-left: .8rem;
+  padding-left: 0.8rem;
 }
 
 .projectContent ul ul,

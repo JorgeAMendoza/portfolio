@@ -36,7 +36,6 @@ const FeatureCard = ({ project }: FeatureCardProps) => {
           <p>
             <Link
               href={project.projectPage}
-              target="_blank"
               aria-label={`link to project page for ${project.name}`}
               className={SpaceMono.className}
             >

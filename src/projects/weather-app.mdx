@@ -8,6 +8,20 @@ projectImage: '/project-images/weather-app/project-image.png'
 tools: ['react', 'typescript', 'react-query', 'styled-components', 'cypress']
 ---
 
+## Table of Contents
+- [Introduction](#introduction)
+- [Previous Attempt](#previous-attempt)
+- [Techstack Used](#techstack-used)
+- [Improving upon the application](#improving-upon-the-application)
+  - [Fetching Weather Data](#fetching-weather-data)
+  - [Improvement](#improvement)
+    - [Query State Management](#query-state-management)
+    - [Vercel Serverless Function](#vercel-serverless-function)
+    - [Typescript](#typescript)
+    - [Derived State](#derived-state)
+    - [Cypress Testing](#cypress-testing)
+    - [Styled Components](#styled-components)
+
 ## Introduction
 
 The goal of the project is to create a functioning, web-based weather application that allows users to search for the current weather and the five-day forecast of a specific city around the world.
@@ -18,7 +32,7 @@ Three goals I aimed to achieve with this project include:
 2. Thoroughly test the application to ensure no errors are deployed.
 3. Make the application accessible as possible, ensuring that those with disablities can easily search for the weather as well.
 
-### Previous Attempt
+## Previous Attempt
 
 The application was previously built using basic react with no TypeScript. After improving my skills and working on multiple projects, I decided to revisit the project and improve upon it with the new skills and tools I have learned up to this point. You can find the original version of the project under the branch titled ["app-version-1"](https://github.com/JorgeAMendoza/react-weather-app/tree/app-version-1)
 
@@ -42,17 +56,17 @@ The following are the main tools used to create the application:
 
 Other libraries used include [axios](https://www.npmjs.com/package/axios) which is a HTTP client for the browser and node.js, and [react-hook-form](https://react-hook-form.com/get-started) which is state-management tool for building and managing form state.
 
-## Development & Improvement
+## Improving upon the application
 
-The project originally started when I was taking an online course provided by [The Odin Project](https://www.theodinproject.com/lessons/node-path-javascript-weather-app), where I was tasked to create a weather application using an API. At the time I was just getting into React, so I decided it would be a great opportunity to build a functional React application for the first time.
+The project originally started when I was taking an online course provided by [The Odin Project](https://www.theodinproject.com/lessons/node-path-javascript-weather-app), where I was tasked to create a weather application using an API. At the time I was just getting into React, so I decided it would be a great opportunity to build a functional React application for the first time
 
 The original version of the application was bootstrapped with [create-react-app](https://create-react-app.dev/) with styled-components used to style the application as well. This was also my first time using styled components to style a project like this.
 
-A year later, when I revisited the project, I found that there were multiple improvements that could be made. One of the biggest changes was switching over to Vite from Create-React-App. This was done since I found Vite to be much faster than Create-Reat-App and easier to configure as well.
+A year later, when I revisited the project, I found that there are multiple improvements that can be made within the project. One of the biggest changes was switching over to Vite from Create-React-App. This was done since I found Vite much easier and efficient to use and easier to configure.
 
-This section will review the development process and the various changes made to the original version of the application.
+This section will review some of the main changes I made to the application and why they were made.
 
-### Application Issues
+### Fetching Weather Data
 
 I orginally structured the application so that one API call would be made and the results would be passed down to the various components that needed to display data. I attempted to create a presentional/container component structure. So `App.js` would be in charge of holidng multiple instances of state and calling a function that retrives weather data and set the values of multiple states. This data would then be passed down to components to be displayed.
 
@@ -65,7 +79,62 @@ Some issues I have wite this approach include:
 
 Original `App.tsx` logic for retrieving and setting weather data:
 
-{/* code block for app.tsx fetch logic here */}
+```typescript
+function App() {
+  const [searchQuery, setSearchQuery] = useState('Dallas, TX');
+  const [unit, setUnit] = useState('F');
+  const [searchLocation, setSearchLocation] = useState({});
+  const [currentWeather, setCurrentWeather] = useState({});
+  const [forecastWeather, setForecastWeather] = useState([]);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    getWeatherData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const getWeatherData = async () => {
+    try {
+      const location = validateSearch(searchQuery);
+      if (typeof location === 'string') {
+        throw new Error('Invalid Search, Try Again');
+      }
+
+      const [cityName, cityState] = location;
+      const { lat, lon, country, name, state } = await geoLocationCall(
+        cityName,
+        cityState
+      );
+
+      const [current, forecast] = await weatherDataCall(lat, lon, unit);
+      setSearchLocation(Object.assign({}, { country, name, state }));
+      setCurrentWeather(current);
+      setForecastWeather(forecast);
+
+      setShowModal(false);
+    } catch (e) {
+      console.log(e);
+      setErrorMessage(e.message);
+      setShowModal(true);
+    }
+  };
+
+  const changeUnit = () => {
+    if (unit === 'F') setUnit('C');
+    else setUnit('F');
+
+    const newCurrentTemps = currentWeatherConvert(currentWeather, unit);
+    const newForecastTemps = forecastWeather.map((forecast) => {
+      const newTemps = forecastWeatherConvert(forecast, unit);
+      return Object.assign(forecast, newTemps);
+    });
+
+    setCurrentWeather(Object.assign(currentWeather, newCurrentTemps));
+    setForecastWeather(newForecastTemps);
+  };
+}
+```
 
 ### Improvements
 
@@ -126,7 +195,6 @@ export default async function fetchWeather(request, response) {
   const { data: weatherResponse } = await axios.get(oneWeather);
 
   ...
-
 }
 ```
 
@@ -229,9 +297,6 @@ const weatherData: undefined | WeatherData = useMemo(() => {
           </Styled.ForecastContainer>
         </section>
       ) : null}
-      ...
-}
-
 ```
 
 In the code block above, the `useMemo` hook is used call a function that creates the weather object. The `convertUnits` function is used to convert the units of the weather data based on the unit state, and this `weatherData` object is then passed to the components that require its information.
@@ -287,6 +352,8 @@ describe('initial page load', () => {
 });
 ```
 
+`cy.intercept` is the method that ensures that the request is intercepted and the fixture is returned. The fixture is located in the `cypress/fixtures` folder.
+
 #### Styled Components
 
 Like in the original version of the application, Styled Components is used here as well. Instead of creating multiple styled components and importing them into the component, an object containing all the styled components is default exported and imported into the component. This avoids importing multiple components into the object which allows for cleaner code.
@@ -318,11 +385,11 @@ import Styled from './CurrentWeather.styled';
       </Styled.Icon>
 
       ...
- )
+)
 ```
 
 The code block above shows that the `CurrentWeather.styled.tsx` component exports one object, and the `CurrentWeather` component uses the name `Styled` to access the styled components.
 
 ## Conclusion
 
-It was refreshing to go back to the original version, examine what should be improved, and implement those changes. There are still other improvements that could be made to this application, but in its current state, it is something I can be proud of. If you find any issues with the application, please feel free to open an issue or submit a pull request at the GitHub link up top.
+It was refreshing to go back to the original version, examine what should be improved, and implement those changes. There are still other improvements that could be made to this application, but in its current state it is something I can be proud of. If you find any issues with the application, please visit the GitHub repo page and create an issue.

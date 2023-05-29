@@ -136,8 +136,14 @@
   padding-left: 3rem;
 }
 
+.projectContent ol li {
+  padding-left: .8rem;
+}
+
 .projectContent ul ul,
-.projectContent ol ol {
+.projectContent ol ol,
+.projectContent ul ol,
+.projectContent ol ul {
   margin-block-start: 1rem;
 }
 

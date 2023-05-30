@@ -5,6 +5,19 @@ repoLink: 'https://github.com/JorgeAMendoza/entertainment-web-app'
 demoLink: 'https://entertainment-web-app-ivory.vercel.app'
 projectGif: '/project-images/ent-app/showcase.gif'
 projectImage: '/project-images/ent-app/project-image.png'
+tableOfConents:
+  [
+    { sectionID: 'Introduction' },
+    {
+      sectionID: 'Techstack Used',
+      subSections: ['Frontend', 'Backend', 'Docker'],
+    },
+    {
+      sectionID: 'Development',
+      subSections: ['Frontend', 'Backend', 'Testing'],
+    },
+    { sectionID: 'Conclusion' },
+  ]
 tools:
   [
     'graph-ql',
@@ -17,31 +30,6 @@ tools:
     'react-router',
   ]
 ---
-
-## Table of Contents
-
-- [Introduction](#introduction)
-- [Techstack Used](#techstack-used)
-  - [Client](#frontend/client)
-  - [Server](#backendserver)
-  - [Docker](#docker)
-- [Development](#development)
-  - [Frontend](#frontend)
-    - [Searching For Content](#searching-for-content)
-    - [React Router](#react-router)
-    - [Log in/Sign up](#log-in/sign-up)
-    - [GraphQL/Apollo Client](#graphql/apollo-client)
-  - [Backend](#backend)
-    - [Server Configuration/Constants](#server-configuration/constants)
-    - [Creating the server](#creating-the-server)
-    - [Intializing the Server](#intializing-the-server)
-    - [MongoDB](#mongodb)
-    - [GraphQL Resolvers](#graphql-resolvers)
-      - [Query](#query)
-      - [Mutation](#mutation)
-  - [Testing](#testing)
-    - [Frontend Testing](#frontend-testing)
-    - [Backend Testing](#backend-testing)
 
 ## Introduction
 
@@ -57,7 +45,7 @@ The requirement of the project is to create an entertainment app where a user ca
 
 This section contains information about the technology used for both the front-end and backend. [ESlint](https://eslint.org/) is used to lint the application, with one general ESLint file created which to apply rules which target both the front and backend.
 
-### Frontend/Client
+### Frontend
 
 The frontend is bootstrapped with [Vite](https://vitejs.dev/guide/) using the React/Typescript template.
 
@@ -70,7 +58,7 @@ The frontend is bootstrapped with [Vite](https://vitejs.dev/guide/) using the Re
 
 Other packages installed include [yup](https://www.npmjs.com/package/yup) and [validator](https://www.npmjs.com/package/validator) to assist Formik with form validation for the login and sign up pages.
 
-### Backend/Server
+### Backend
 
 - [Apollo Server](https://www.apollographql.com/docs/apollo-server), GraphQL server for creating queries and mutations
 - [MongoDB](https://www.mongodb.com/), database for storing user information and bookmarked content
@@ -94,11 +82,11 @@ Before starting this project, I had just learned about Docker basics and its ben
 
 This section will cover the development progress as I created the application, along with the issues I encountered and my solutions to them.
 
-#### Frontend
+### Frontend
 
 I had experience building one-page applications before, but had never built an applicaiton needing to navigate to different routes. With the use of the _react-router_ library and its documentation, I was able to get a functioning routing system for the application. Since I was also using _apollo-client_, I dont believe I used the full capabilities of react-router, but in the future I want to return to the application and use react-router and apollo-client in a more efficient manner.
 
-##### Searching For Content
+#### Searching For Content
 
 How content is searched can depend on the page the user is on. On the Movies/Shows/Bookmark page, when a user searches for content the server is not being called, rather the cached data from the initial query hook is used.
 
@@ -266,7 +254,7 @@ const router = createBrowserRouter([
 ]);
 ```
 
-##### Log in/Sign up
+#### Log in/Sign up
 
 Users can navigate to the login page and sign up page, and once verified, the user is directed to the homepage. A JSON WebToken is created in saved in [local storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), which is inserted into every query to the backend for continous authentication.
 
@@ -710,7 +698,5 @@ The main goal was to write test that could be run seperate from the client.
 ## Conclusion
 
 There is alot more to say about the developemnt process of this application, regarding the testing issues, refactoring multiple queries into one, etc. One thing I want to research more is the context of GraphQL, in the FrontEndMasters course the instructor placed some Database methods into the context itself, I didnt do that here since I didn't fully understand why it was being done, but if it is a technique that will improve the application then it will be implemented in the future.
-
-As I learn more about accessiblity, I wish to improve that aspect of the application as well.
 
 As I learn more about accessiblity, I wish to improve that aspect of the application as well.

@@ -5,10 +5,27 @@ repoLink: 'https://github.com/JorgeAMendoza/react-weather-app'
 demoLink: 'https://react-weather-app-tau-two.vercel.app/'
 projectGif: '/project-images/weather-app/showcase.gif'
 projectImage: '/project-images/weather-app/project-image.png'
+tableOfContens:
+  [
+    { sectionID: 'Introduction' },
+    { sectionID: 'Previous Attempt' },
+    { sectionID: 'techstack-used' },
+    {
+      sectionID: 'Development and Improvement',
+      subSections:
+        [
+          'Fetching Weather Data',
+          'Query State Management',
+          'Vercel Serverless Function',
+        ],
+    },
+    { sectionID: 'Conclusion' },
+  ]
 tools: ['react', 'typescript', 'react-query', 'styled-components', 'cypress']
 ---
 
 ## Table of Contents
+
 - [Introduction](#introduction)
 - [Previous Attempt](#previous-attempt)
 - [Techstack Used](#techstack-used)
@@ -21,6 +38,7 @@ tools: ['react', 'typescript', 'react-query', 'styled-components', 'cypress']
     - [Derived State](#derived-state)
     - [Cypress Testing](#cypress-testing)
     - [Styled Components](#styled-components)
+- [Conclusion](#conclusion)
 
 ## Introduction
 
@@ -56,7 +74,7 @@ The following are the main tools used to create the application:
 
 Other libraries used include [axios](https://www.npmjs.com/package/axios) which is a HTTP client for the browser and node.js, and [react-hook-form](https://react-hook-form.com/get-started) which is state-management tool for building and managing form state.
 
-## Improving upon the application
+## Development and Improvement
 
 The project originally started when I was taking an online course provided by [The Odin Project](https://www.theodinproject.com/lessons/node-path-javascript-weather-app), where I was tasked to create a weather application using an API. At the time I was just getting into React, so I decided it would be a great opportunity to build a functional React application for the first time
 
@@ -136,11 +154,7 @@ function App() {
 }
 ```
 
-### Improvements
-
-After delving deeper in React and learning various patterns and tools, some of the improvements that were made include the following.
-
-#### Query State Management
+### Query State Management
 
 Using tanstack query, the `useQuery` hook can handle the state of the request made based on the props and configuration passed in. If a user searches for invalid data, instead of removing the last successful search, the hook ensures that the previous search data stays on page. When a user enters a query that was already made, instead of making the request to the api, cached results of the request are displayed.
 
@@ -170,7 +184,7 @@ Some aspects of the hook above include:
 - If the query fails, the previous data will be used instead.
 - Using a try/catch block in the query function, an error message is set on an error.
 
-#### Vercel Serverless Function
+### Vercel Serverless Function
 
 Instead of directly sending request to the Open Weather API, a Vercel Serverless function is used which acts as a proxy for the request and returns the results from the API to the browser. The API key will now live on the serverless function and not on the client, which ensures that the API key is not exposed to the public.
 
@@ -198,7 +212,7 @@ export default async function fetchWeather(request, response) {
 }
 ```
 
-#### Typescript
+### Typescript
 
 Using Typescript, the results of the query function, its properties, and error can be typed to avoid mistakenly grabbing values that do not exist or avoid grabbing a potentially undefined object. The API response is typed as well to ensure that the data is extracted correctly.
 
@@ -247,7 +261,7 @@ export interface DailyWeather {
 }
 ```
 
-#### Derived State
+### Derived State
 
 Instead of extracting the forecast and current weather data from the query response and setting that to another state, a fucntion is created that initializes an object which contains both current and forecast weather data. This is then passed to the `CurrentWeather` and `Forecast` components.
 
@@ -303,7 +317,7 @@ In the code block above, the `useMemo` hook is used call a function that creates
 
 `useMemo` is used to avoid uncessarily executing the function when it is not required. In the original version of the application, any state change made caused the function run, even if the state change did not affect the function. Though the original implemetation did not cause major performance issues, it is still a good practice to avoid uncessary function calls.
 
-#### Cypress Testing
+### Cypress Testing
 
 End-to-end test were created using the Cypress testing library. When a test makes an API request, instead of directly contacting the API (variable response time and data), the request is intercepted and a fixture is returned which contains "fake" weather data to insert. I wanted to these test focus on the client user-intercation rather than the API response itself.
 
@@ -354,7 +368,7 @@ describe('initial page load', () => {
 
 `cy.intercept` is the method that ensures that the request is intercepted and the fixture is returned. The fixture is located in the `cypress/fixtures` folder.
 
-#### Styled Components
+### Styled Components
 
 Like in the original version of the application, Styled Components is used here as well. Instead of creating multiple styled components and importing them into the component, an object containing all the styled components is default exported and imported into the component. This avoids importing multiple components into the object which allows for cleaner code.
 

@@ -11,6 +11,7 @@ import Image from 'next/image';
 import style from '../../styles/project-page.module.css';
 import { Space_Mono, Source_Sans_Pro } from 'next/font/google';
 import Head from 'next/head';
+import rehypeSlug from 'rehype-slug';
 
 const SpaceMono = Space_Mono({
   subsets: ['latin'],
@@ -143,7 +144,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     params.slug + '.mdx'
   );
   const project = fs.readFileSync(projectDirectory, 'utf8');
-  const mdxSource = await serialize(project, { parseFrontmatter: true });
+  const mdxSource = await serialize(project, {
+    parseFrontmatter: true,
+    mdxOptions: { rehypePlugins: [rehypeSlug] },
+  });
 
   return {
     props: {

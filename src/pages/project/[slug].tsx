@@ -13,6 +13,7 @@ import { Space_Mono, Source_Sans_Pro } from 'next/font/google';
 import Head from 'next/head';
 import rehypeSlug from 'rehype-slug';
 import TableItem from '@/components/TableItem/TableItem';
+import { useState } from 'react';
 
 const SpaceMono = Space_Mono({
   subsets: ['latin'],
@@ -47,20 +48,39 @@ const ShowcasePage = ({
   source,
   frontMatter,
 }: ShowcasePageProps): InferGetStaticPropsType<typeof getStaticProps> => {
+  const [tableOpen, setTableOpen] = useState(false);
   return (
     <Layout>
       {/* put table of contents here so it can be seen first by accessibility */}
-      <nav>
-        <ul>
-          {frontMatter.tableOfContents.map((section) => (
-            <TableItem
-              key={section.sectionID}
-              mainSection={section.sectionID}
-              subSections={section.subSections}
-            />
-          ))}
-        </ul>
-      </nav>
+      {/* so we need the nav menu and the button, these two should be stuck together i think */}
+      <div className={style.menuContainer}>
+        <nav
+          className={style.tableOfContents}
+          aria-hidden={tableOpen ? 'false' : 'true'}
+        >
+          <ul>
+            {frontMatter.tableOfContents.map((section) => (
+              <TableItem
+                key={section.sectionID}
+                mainSection={section.sectionID}
+                subSections={section.subSections}
+              />
+            ))}
+          </ul>
+        </nav>
+        <button
+          aria-label="click to open the table of contents for project"
+          className={style.menuButton}
+        >
+          <Image
+            src="/icons/hamburger-menu-dark.svg"
+            width={30}
+            height={30}
+            alt=""
+          />{' '}
+        </button>
+      </div>
+
       <Head>
         <title>{frontMatter.title}</title>
       </Head>

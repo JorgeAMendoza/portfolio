@@ -3,6 +3,35 @@
   margin-top: 1rem;
 }
 
+.menuContainer {
+  position: fixed;
+  bottom: 3rem;
+  right: 3rem;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+}
+
+.menuButton {
+  width: 5rem;
+  height: 5rem;
+  background-color: var(--primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.tableOfContents {
+  background-color: var(--background);
+  position: relative;
+  left: 5rem;
+}
+
+.tableOfContents[aria-hidden='true'] {
+  display: none;
+}
+
 .projectHead {
   display: flex;
   flex-direction: column;

@@ -12,6 +12,7 @@ import style from '../../styles/project-page.module.css';
 import { Space_Mono, Source_Sans_Pro } from 'next/font/google';
 import Head from 'next/head';
 import rehypeSlug from 'rehype-slug';
+import TableItem from '@/components/TableItem/TableItem';
 
 const SpaceMono = Space_Mono({
   subsets: ['latin'],
@@ -35,6 +36,10 @@ interface ShowcasePageProps {
     demoLink: string;
     projectImage: string;
     projectGif: string;
+    tableOfContents: {
+      sectionID: string;
+      subSections?: string[];
+    }[];
   };
 }
 
@@ -44,6 +49,18 @@ const ShowcasePage = ({
 }: ShowcasePageProps): InferGetStaticPropsType<typeof getStaticProps> => {
   return (
     <Layout>
+      {/* put table of contents here so it can be seen first by accessibility */}
+      <nav>
+        <ul>
+          {frontMatter.tableOfContents.map((section) => (
+            <TableItem
+              key={section.sectionID}
+              mainSection={section.sectionID}
+              subSections={section.subSections}
+            />
+          ))}
+        </ul>
+      </nav>
       <Head>
         <title>{frontMatter.title}</title>
       </Head>

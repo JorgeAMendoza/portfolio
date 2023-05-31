@@ -51,13 +51,17 @@ const ShowcasePage = ({
   const [tableOpen, setTableOpen] = useState(false);
   return (
     <Layout>
-      {/* put table of contents here so it can be seen first by accessibility */}
-      {/* so we need the nav menu and the button, these two should be stuck together i think */}
       <div className={style.menuContainer}>
         <nav
           className={style.tableOfContents}
           aria-hidden={tableOpen ? 'false' : 'true'}
         >
+          <button
+            aria-label="close the table of contents menu"
+            onClick={() => setTableOpen(!tableOpen)}
+          >
+            <Image src="/icons/close-menu.svg" width={30} height={30} alt="" />
+          </button>
           <ul>
             {frontMatter.tableOfContents.map((section) => (
               <TableItem
@@ -71,6 +75,7 @@ const ShowcasePage = ({
         <button
           aria-label="click to open the table of contents for project"
           className={style.menuButton}
+          onClick={() => setTableOpen(!tableOpen)}
         >
           <Image
             src="/icons/hamburger-menu-dark.svg"

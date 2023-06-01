@@ -5,11 +5,17 @@
 
 .menuContainer {
   position: fixed;
-  bottom: 3rem;
-  right: 3rem;
+  right: 5vw;
+  bottom: 2.5rem;
   z-index: 2;
   display: flex;
   align-items: flex-end;
+}
+
+@media screen and (min-width: 1400px) {
+  .menuContainer {
+    right: calc(50vw - 60rem);
+  }
 }
 
 .menuButton {
@@ -26,6 +32,8 @@
   background-color: var(--background);
   position: relative;
   left: 5rem;
+  border-radius: 10px;
+  border: 1px solid var(--primary);
 }
 
 .tableOfContents[aria-hidden='true'] {

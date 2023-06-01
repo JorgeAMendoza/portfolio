@@ -51,45 +51,50 @@ const ShowcasePage = ({
   const [tableOpen, setTableOpen] = useState(false);
   return (
     <Layout>
-      <div className={style.menuContainer}>
-        <nav
-          className={style.tableOfContents}
-          aria-hidden={tableOpen ? 'false' : 'true'}
-        >
-          <button
-            aria-label="close the table of contents menu"
-            onClick={() => setTableOpen(!tableOpen)}
-          >
-            <Image src="/icons/close-menu.svg" width={30} height={30} alt="" />
-          </button>
-          <ul>
-            {frontMatter.tableOfContents.map((section) => (
-              <TableItem
-                key={section.sectionID}
-                mainSection={section.sectionID}
-                subSections={section.subSections}
-              />
-            ))}
-          </ul>
-        </nav>
-        <button
-          aria-label="click to open the table of contents for project"
-          className={style.menuButton}
-          onClick={() => setTableOpen(!tableOpen)}
-        >
-          <Image
-            src="/icons/hamburger-menu-dark.svg"
-            width={30}
-            height={30}
-            alt=""
-          />{' '}
-        </button>
-      </div>
-
       <Head>
         <title>{frontMatter.title}</title>
       </Head>
+
       <main className={style.projectPage}>
+        <div className={style.menuContainer}>
+          <nav
+            className={style.tableOfContents}
+            aria-hidden={tableOpen ? 'false' : 'true'}
+          >
+            <button
+              aria-label="close the table of contents menu"
+              onClick={() => setTableOpen(!tableOpen)}
+            >
+              <Image
+                src="/icons/close-menu.svg"
+                width={30}
+                height={30}
+                alt=""
+              />
+            </button>
+            <ul>
+              {frontMatter.tableOfContents.map((section) => (
+                <TableItem
+                  key={section.sectionID}
+                  mainSection={section.sectionID}
+                  subSections={section.subSections}
+                />
+              ))}
+            </ul>
+          </nav>
+          <button
+            aria-label="click to open the table of contents for project"
+            className={style.menuButton}
+            onClick={() => setTableOpen(!tableOpen)}
+          >
+            <Image
+              src="/icons/hamburger-menu-dark.svg"
+              width={30}
+              height={30}
+              alt=""
+            />{' '}
+          </button>
+        </div>
         <section className={style.projectHead}>
           <div className={style.projectTitleInfo}>
             <h1 className={`${SourceSansPro.className} ${style.projectTitle}`}>

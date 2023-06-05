@@ -1,6 +1,12 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import style from './table-item.module.css';
+import { Source_Sans_Pro } from 'next/font/google';
+
+const SourceSansPro = Source_Sans_Pro({
+  subsets: ['latin'],
+  weight: ['400', '600'],
+});
 
 interface TableSubMenuProps {
   subSections?: string[];
@@ -10,7 +16,7 @@ interface TableSubMenuProps {
 const TableItem = ({ subSections, mainSection }: TableSubMenuProps) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <li>
+    <li className={style.tableItem}>
       {subSections ? (
         <>
           <button
@@ -19,10 +25,14 @@ const TableItem = ({ subSections, mainSection }: TableSubMenuProps) => {
             } sub-menu for ${mainSection}`}
             aria-controls={`${mainSection.toLowerCase().replace(/\s/gi, '-')}`}
             onClick={() => setIsOpen(!isOpen)}
+            data-flip={isOpen}
           >
             <Image src="/icons/triangle.svg" width={10} height={10} alt="" />
           </button>
-          <a href={`#${mainSection.toLowerCase().replace(/\s/gi, '-')}`}>
+          <a
+            className={SourceSansPro.className}
+            href={`#${mainSection.toLowerCase().replace(/\s/gi, '-')}`}
+          >
             {mainSection}
           </a>
 
@@ -34,7 +44,10 @@ const TableItem = ({ subSections, mainSection }: TableSubMenuProps) => {
           >
             {subSections.map((subSection) => (
               <li key={subSection}>
-                <a href={`#${subSection.toLowerCase().replace(/\s/gi, '-')}`}>
+                <a
+                  className={SourceSansPro.className}
+                  href={`#${subSection.toLowerCase().replace(/\s/gi, '-')}`}
+                >
                   {subSection}
                 </a>
               </li>
@@ -42,7 +55,10 @@ const TableItem = ({ subSections, mainSection }: TableSubMenuProps) => {
           </ul>
         </>
       ) : (
-        <a href={`#${mainSection.toLowerCase().replace(/\s/gi, '-')}`}>
+        <a
+          className={SourceSansPro.className}
+          href={`#${mainSection.toLowerCase().replace(/\s/gi, '-')}`}
+        >
           {mainSection}
         </a>
       )}

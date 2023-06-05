@@ -1,3 +1,44 @@
 .tableSubMenu[aria-hidden='true'] {
   display: none;
 }
+
+.tableItem {
+  position: relative;
+  padding: 0.6em;
+  padding-left: 1.2em;
+  padding-right: 2.5em;
+}
+
+.tableItem:not(:last-of-type) {
+  border-bottom: 1px solid var(--light-text);
+}
+
+.tableItem button {
+  position: absolute;
+  background-color: transparent;
+  left: 0;
+  top: 1.8rem;
+  transform: translateX(50%) rotate(90deg);
+  transition: var(--transition);
+}
+
+.tableItem button[data-flip='true'] {
+  transform: translateX(50%) rotate(180deg);
+}
+
+.tableItem a {
+  color: var(--light-text);
+  font-weight: bold;
+}
+
+/* .tableOfContents li {
+  padding: 0.5em;
+}
+
+.tableOfContents li:not(:last-of-type) {
+  border-bottom: 1px solid var(--light-text);
+}
+
+.tableOfContents li a {
+  color: var(--light-text);
+} */

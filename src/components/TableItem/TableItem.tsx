@@ -37,22 +37,25 @@ const TableItem = ({ subSections, mainSection }: TableSubMenuProps) => {
           </a>
 
           {/* grid class to do height animation here */}
-          <ul
-            id={`${mainSection.toLowerCase().replace(/\s/gi, '-')}-submenu`}
-            aria-hidden={isOpen ? 'false' : 'true'}
-            className={style.tableSubMenu}
-          >
-            {subSections.map((subSection) => (
-              <li key={subSection}>
-                <a
-                  className={SourceSansPro.className}
-                  href={`#${subSection.toLowerCase().replace(/\s/gi, '-')}`}
-                >
-                  {subSection}
-                </a>
-              </li>
-            ))}
-          </ul>
+          {/* the animation probably needs to be its own div,  */}
+          <div className={style.tableSubMenuContainer} data-show={isOpen}>
+            <ul
+              id={`${mainSection.toLowerCase().replace(/\s/gi, '-')}-submenu`}
+              aria-hidden={isOpen ? 'false' : 'true'}
+              className={style.tableSubMenu}
+            >
+              {subSections.map((subSection) => (
+                <li key={subSection}>
+                  <a
+                    className={SourceSansPro.className}
+                    href={`#${subSection.toLowerCase().replace(/\s/gi, '-')}`}
+                  >
+                    {subSection}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </>
       ) : (
         <a

@@ -1,12 +1,29 @@
-.tableSubMenu[aria-hidden='true'] {
-  display: none;
+.tableSubMenuContainer {
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: var(--transition);
+}
+
+.tableSubMenuContainer[data-show='false'] {
+  grid-template-rows: 0fr;
+}
+
+.tableSubMenu {
+  overflow: hidden;
+  grid-template-rows: 1fr;
+  background-color: var(--secondary);
+  overflow: hidden;
 }
 
 .tableItem {
   position: relative;
-  padding: 0.6em;
-  padding-left: 1.2em;
-  padding-right: 2.5em;
+  min-height: 4.2rem;
+}
+
+.tableItem a {
+  padding-left: 2.5rem;
+  margin-top: 1rem;
+  display: inline-block;
 }
 
 .tableItem:not(:last-of-type) {
@@ -30,15 +47,3 @@
   color: var(--light-text);
   font-weight: bold;
 }
-
-/* .tableOfContents li {
-  padding: 0.5em;
-}
-
-.tableOfContents li:not(:last-of-type) {
-  border-bottom: 1px solid var(--light-text);
-}
-
-.tableOfContents li a {
-  color: var(--light-text);
-} */

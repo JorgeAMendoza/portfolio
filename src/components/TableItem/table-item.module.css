@@ -22,12 +22,15 @@
 
 .tableItem a {
   padding-left: 2.5rem;
-  margin-top: 1rem;
+  margin: 1rem 0 1rem 0;
   display: inline-block;
+  color: var(--light-text);
+  font-weight: bold;
+  text-transform: capitalize;
 }
 
 .tableItem:not(:last-of-type) {
-  border-bottom: 1px solid var(--light-text);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .tableItem button {
@@ -43,7 +46,11 @@
   transform: translateX(50%) rotate(180deg);
 }
 
-.tableItem a {
-  color: var(--light-text);
-  font-weight: bold;
+.tableItem ul li {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tableItem ul li a {
+  margin: 1rem 0 1rem 0;
+  padding-left: 3.5rem;
 }

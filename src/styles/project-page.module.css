@@ -30,8 +30,8 @@
 }
 
 .closeTableButton {
-  top: 0;
-  right: 0;
+  top: .7rem;
+  right: 1rem;
   position: absolute;
   background-color: transparent;
   z-index: 2;
@@ -44,10 +44,19 @@
   left: 5rem;
   border-radius: 10px;
   border: 1px solid var(--primary);
+  width: 20rem;
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: var(--transition);
+  overflow: hidden;
+}
+
+.tableOfContents > * {
+  overflow: hidden;
 }
 
 .tableOfContents[aria-hidden='true'] {
-  display: none;
+  grid-template-rows: 0fr;
 }
 
 .projectHead {

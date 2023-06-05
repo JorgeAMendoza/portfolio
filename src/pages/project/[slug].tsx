@@ -64,6 +64,7 @@ const ShowcasePage = ({
             <button
               aria-label="close the table of contents menu"
               onClick={() => setTableOpen(!tableOpen)}
+              className={style.closeTableButton}
             >
               <Image
                 src="/icons/close-menu.svg"

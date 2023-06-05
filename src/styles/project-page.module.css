@@ -3,6 +3,7 @@
   margin-top: 1rem;
 }
 
+/* table of contents menu */
 .menuContainer {
   position: fixed;
   right: 5vw;
@@ -26,6 +27,15 @@
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+}
+
+.closeTableButton {
+  top: 0;
+  right: 0;
+  position: absolute;
+  background-color: transparent;
+  z-index: 2;
+  width: 2rem;
 }
 
 .tableOfContents {

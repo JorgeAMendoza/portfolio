@@ -6,6 +6,7 @@
 
 .tableSubMenuContainer[data-show='false'] {
   grid-template-rows: 0fr;
+  visibility: hidden;
 }
 
 .tableSubMenu {

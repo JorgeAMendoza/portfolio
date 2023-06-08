@@ -3,16 +3,6 @@
   margin-top: 1rem;
 }
 
-/* table of contents menu */
-.menuContainer {
-  position: fixed;
-  right: 5vw;
-  bottom: 2.5rem;
-  z-index: 2;
-  display: flex;
-  align-items: flex-end;
-}
-
 .projectHead {
   display: flex;
   flex-direction: column;

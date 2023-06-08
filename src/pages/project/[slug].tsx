@@ -14,6 +14,7 @@ import Head from 'next/head';
 import rehypeSlug from 'rehype-slug';
 import TableItem from '@/components/TableItem/TableItem';
 import { useState } from 'react';
+import useClickOutside from '@/hooks/useClickOutside';
 
 const SpaceMono = Space_Mono({
   subsets: ['latin'],
@@ -49,6 +50,7 @@ const ShowcasePage = ({
   frontMatter,
 }: ShowcasePageProps): InferGetStaticPropsType<typeof getStaticProps> => {
   const [tableOpen, setTableOpen] = useState(false);
+  const ref = useClickOutside(setTableOpen);
   return (
     <Layout>
       <Head>
@@ -56,7 +58,7 @@ const ShowcasePage = ({
       </Head>
 
       <main className={style.projectPage}>
-        <div className={style.menuContainer}>
+        <div className={style.menuContainer} ref={ref}>
           <nav
             className={style.tableOfContents}
             aria-hidden={tableOpen ? 'false' : 'true'}

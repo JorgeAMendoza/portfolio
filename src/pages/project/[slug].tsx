@@ -1,20 +1,18 @@
+import GitHubIcon from '@/components/Icons/GitHub';
+import LinkIcon from '@/components/Icons/Link';
 import Layout from '@/components/Layout/Layout';
+import TableOfContents from '@/components/TableOfContents/TableOfContents';
 import fs from 'fs';
 import matter from 'gray-matter';
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
-import { MDXRemoteSerializeResult, MDXRemote } from 'next-mdx-remote';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
-import path from 'path';
-import LinkIcon from '@/components/Icons/Link';
-import GitHubIcon from '@/components/Icons/GitHub';
-import Image from 'next/image';
-import style from '../../styles/project-page.module.css';
-import { Space_Mono, Source_Sans_Pro } from 'next/font/google';
+import { Source_Sans_Pro, Space_Mono } from 'next/font/google';
 import Head from 'next/head';
+import Image from 'next/image';
+import path from 'path';
 import rehypeSlug from 'rehype-slug';
-import TableItem from '@/components/TableItem/TableItem';
-import { useState } from 'react';
-import useClickOutside from '@/hooks/useClickOutside';
+import style from '../../styles/project-page.module.css';
 
 const SpaceMono = Space_Mono({
   subsets: ['latin'],
@@ -49,8 +47,6 @@ const ShowcasePage = ({
   source,
   frontMatter,
 }: ShowcasePageProps): InferGetStaticPropsType<typeof getStaticProps> => {
-  const [tableOpen, setTableOpen] = useState(false);
-  const ref = useClickOutside(setTableOpen);
   return (
     <Layout>
       <Head>
@@ -58,46 +54,7 @@ const ShowcasePage = ({
       </Head>
 
       <main className={style.projectPage}>
-        <div className={style.menuContainer} ref={ref}>
-          <nav
-            className={style.tableOfContents}
-            aria-hidden={tableOpen ? 'false' : 'true'}
-          >
-            <button
-              aria-label="close the table of contents menu"
-              onClick={() => setTableOpen(!tableOpen)}
-              className={style.closeTableButton}
-            >
-              <Image
-                src="/icons/close-menu.svg"
-                width={30}
-                height={30}
-                alt=""
-              />
-            </button>
-            <ul>
-              {frontMatter.tableOfContents.map((section) => (
-                <TableItem
-                  key={section.sectionID}
-                  mainSection={section.sectionID}
-                  subSections={section.subSections}
-                />
-              ))}
-            </ul>
-          </nav>
-          <button
-            aria-label="click to open the table of contents for project"
-            className={style.menuButton}
-            onClick={() => setTableOpen(!tableOpen)}
-          >
-            <Image
-              src="/icons/hamburger-menu-dark.svg"
-              width={30}
-              height={30}
-              alt=""
-            />{' '}
-          </button>
-        </div>
+        <TableOfContents tableOfContents={frontMatter.tableOfContents} />
         <section className={style.projectHead}>
           <div className={style.projectTitleInfo}>
             <h1 className={`${SourceSansPro.className} ${style.projectTitle}`}>

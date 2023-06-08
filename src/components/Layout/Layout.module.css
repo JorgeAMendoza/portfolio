@@ -1,4 +1,7 @@
 .navContainer {
-  background-color: var(--primary);
-  color: var(--light-text);
+  position: sticky;
+  background-color: var(--background);
+  width: 100%;
+  z-index: 2;
+  top: 0;
 }

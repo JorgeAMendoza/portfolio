@@ -5,9 +5,17 @@
 }
 
 .sectionContainer {
-  padding-top: 3rem;
+  margin-top: 4rem;
   position: relative;
   composes: container from '../styles/utils.module.css';
+}
+
+.sectionContainer::before {
+  content: '';
+  display: block;
+  height: 65px;
+  margin-top: -65px;
+  visibility: hidden;
 }
 
 /* Header */
@@ -380,7 +388,7 @@
   }
 
   .sectionContainer {
-    padding: 6rem 0;
+    margin: 7rem auto;
   }
 
   .headerContent {

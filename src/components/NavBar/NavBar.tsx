@@ -1,10 +1,12 @@
 import Image from 'next/image';
 import styles from './navbar.module.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import clsx from 'clsx';
 import useIsMobile from '@/hooks/useMedia';
 import { Space_Mono } from 'next/font/google';
 import Link from 'next/link';
+import useClickOutside from '@/hooks/useClickOutside';
+import { useRouter } from 'next/router';
 
 const SpaceMono = Space_Mono({
   subsets: ['latin'],
@@ -13,7 +15,27 @@ const SpaceMono = Space_Mono({
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const ref = useClickOutside(setMenuOpen);
   const mobile = useIsMobile();
+  const router = useRouter();
+
+  const navLinks: [string, string, string, string] = useMemo(() => {
+    if (router.pathname === '/')
+      return [
+        '#about-me',
+        '#project-showcase',
+        '#other-projects',
+        '#contact-me',
+      ];
+    else {
+      return [
+        '/#about-me',
+        '/#project-showcase',
+        '/#other-projects',
+        '/#contact-me',
+      ];
+    }
+  }, [router.pathname]);
 
   useEffect(() => {
     if (!mobile) setMenuOpen(false);
@@ -21,7 +43,7 @@ const NavBar = () => {
 
   return (
     <div className={styles.navBar}>
-      <div className={styles.navBarContainer}>
+      <div className={styles.navBarContainer} ref={ref}>
         <Link href="/">
           <Image
             src="/logo.svg"
@@ -54,28 +76,28 @@ const NavBar = () => {
           <ul className={styles.mobileNavList}>
             <li className={styles.mobileNavItem}>
               <div className={styles.mobileNavItemContainer}>
-                <a href="#about-me" onClick={() => setMenuOpen(false)}>
+                <a href={navLinks[0]} onClick={() => setMenuOpen(false)}>
                   About
                 </a>
               </div>
             </li>
             <li className={styles.mobileNavItem}>
               <div className={styles.mobileNavItemContainer}>
-                <a href="#project-showcase" onClick={() => setMenuOpen(false)}>
+                <a href={navLinks[1]} onClick={() => setMenuOpen(false)}>
                   Showcase
                 </a>
               </div>
             </li>
             <li className={styles.mobileNavItem}>
               <div className={styles.mobileNavItemContainer}>
-                <a href="#other-projects" onClick={() => setMenuOpen(false)}>
+                <a href={navLinks[2]} onClick={() => setMenuOpen(false)}>
                   Projects
                 </a>
               </div>
             </li>
             <li className={styles.mobileNavItem}>
               <div className={styles.mobileNavItemContainer}>
-                <a href="#contact-me" onClick={() => setMenuOpen(false)}>
+                <a href={navLinks[3]} onClick={() => setMenuOpen(false)}>
                   Contact
                 </a>
               </div>
@@ -99,30 +121,27 @@ const NavBar = () => {
         <nav className={styles.navDesktop}>
           <ul className={styles.navDesktopMenu}>
             <li className={styles.navDesktopItem}>
-              <Link href="/#about-me" onClick={() => setMenuOpen(false)}>
+              <a href={navLinks[0]} onClick={() => setMenuOpen(false)}>
                 About
-              </Link>
+              </a>
+            </li>
+            <li className={styles.navDesktopItem}>
+              <a href={navLinks[1]} onClick={() => setMenuOpen(false)}>
+                Showcase
+              </a>
+            </li>
+            <li className={styles.navDesktopItem}>
+              <a href={navLinks[2]} onClick={() => setMenuOpen(false)}>
+                Projects
+              </a>
+            </li>
+            <li className={styles.navDesktopItem}>
+              <a href={navLinks[3]} onClick={() => setMenuOpen(false)}>
+                Contact
+              </a>
             </li>
             <li className={styles.navDesktopItem}>
               <Link
-                href="/#project-showcase"
-                onClick={() => setMenuOpen(false)}
-              >
-                Showcase
-              </Link>
-            </li>
-            <li className={styles.navDesktopItem}>
-              <Link href="/#other-projects" onClick={() => setMenuOpen(false)}>
-                Projects
-              </Link>
-            </li>
-            <li className={styles.navDesktopItem}>
-              <Link href="/#contact-me" onClick={() => setMenuOpen(false)}>
-                Contact
-              </Link>
-            </li>
-            <li className={styles.navDesktopItem}>
-              <a
                 href="/resume.pdf"
                 className={SpaceMono.className}
                 target="_blank"
@@ -130,7 +149,7 @@ const NavBar = () => {
                 onClick={() => setMenuOpen(false)}
               >
                 Resume
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>

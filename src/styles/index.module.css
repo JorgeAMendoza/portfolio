@@ -22,8 +22,8 @@
 
 .homeHeader {
   color: var(--light-text);
-  min-height: 100vh;
-  min-height: 100svh;
+  min-height: 92vh;
+  min-height: 92svh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,17 +80,18 @@
 }
 
 .headerInformation > *:not(:last-child) {
-  margin-block-end: 1rem;
+  margin-block-end: 1.5rem;
 }
 
 .headerTitle {
   grid-area: 'title';
+  margin-bottom: 2rem;
 }
 
 .headerTitleText {
-  font-size: clamp(4rem, 7vw + 1rem, 5.6rem);
+  font-size: clamp(4rem, 7vw + 1rem, 6.4rem);
   color: var(--primary);
-  line-height: clamp(3.8rem, 7vw, 7rem);
+  line-height: clamp(4.5rem, 7vw, 7rem);
 }
 
 .headerSubtitle {
@@ -111,12 +112,12 @@
 
 .iconInfo {
   display: flex;
-  gap: 0.8rem;
+  gap: 1rem;
   font-size: clamp(1.6rem, 3.5vw, 1.8rem);
 }
 
 .iconInfo:first-of-type {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.7rem;
 }
 
 .headerDescription {
@@ -125,14 +126,11 @@
 }
 
 .headerProjectLink {
-  color: var(--primary);
-  border: 1px solid var(--primary);
-  border-radius: 5px;
-  padding: 0.7em;
-  display: block;
-  margin-top: 3.2rem;
+  composes: primaryButton from '../styles/utils/button.module.css';
   width: -moz-fit-content;
   width: fit-content;
+  padding: 1em 1.5em;
+  margin-top: 3rem;
 }
 
 /* About Me Styling */

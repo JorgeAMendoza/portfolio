@@ -62,7 +62,7 @@ export default function Home({
               >
                 <p className={styles.headerIntro}>Hey 🙋🏽‍♂️, my name is</p>
                 <h1 className={styles.headerTitleText}>
-                  Jorge Mendoza II
+                  Jorge A. Mendoza II
                   <span className={styles.headerSubtitle}>
                     Front End Developer
                   </span>
@@ -97,9 +97,10 @@ export default function Home({
                 </div>
 
                 <p className={styles.headerDescription}>
-                  A Front-End Developer from Dallas, TX. I am currently working
-                  with the Dallas Independent School District as a campus-based
-                  technician, looking to launch my web development career.
+                  A Front-End Software Engineer from Dallas, TX who focuses on
+                  creating accessible and performent user experiences on the
+                  web. I am currently learning about full-stack development and
+                  looking to launch my web development career.
                 </p>
               </div>
 

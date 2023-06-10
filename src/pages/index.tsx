@@ -138,24 +138,24 @@ export default function Home({
                 <h3 className={SourceSansPro.className}>My Story</h3>
                 <p>
                   An aspiring Front-end Developer looking for opportunities to
-                  learn and grow. In my last year of college I took an
+                  learn and grow. In my senior year of college I took an
                   introduction to web-development course, and since then I have
-                  continued to improve as developer and learn more of the latest
-                  advances in the web-development environment.
+                  continued to learn about the latest advances in the
+                  web-development environment and improve as a developer.
                 </p>
                 <p>
                   I have used <em>React, TypeScript, Styled-Components</em> and
                   other tools to create user-interfaces that are responsive,
                   performant, and accessible. From creating password generators
                   to full-stack applications with authentication, I have a set
-                  of skills that allow me to tackle multiple issues dealing with
-                  creating user interfaces.
+                  of skills that allow me to plan, test, and create user
+                  interfaces.
                 </p>
                 <p>
                   I am currently open to job opportunities where I can
                   <em> contribute, learn, and grow</em> as a software developer
-                  and person. If you believe that I am a developer that will
-                  mesh will with your team and goals, please feel free to
+                  and as a person. If you believe that I am a developer that
+                  will mesh will with your team and goals, please feel free to
                   contact me.
                 </p>
               </div>

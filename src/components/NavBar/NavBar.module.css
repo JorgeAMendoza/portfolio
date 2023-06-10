@@ -21,13 +21,19 @@
   top: 4.3em;
   left: 0;
   width: 100%;
-  display: none;
   border-top: 1px solid var(--borderColor);
   box-shadow: 0 6px 50px -5px rgba(0, 0, 0, 0.5);
+  transform-origin: top center;
+  transform: rotateX(-90deg);
+  opacity: 0.3;
+  visibility: hidden;
+  transition: var(--transition);
 }
 
-.showMenu {
-  display: block;
+.mobileNavMenu.showMenu {
+  opacity: 1;
+  transform: rotateX(0);
+  visibility: visible;
 }
 
 .mobileNavList {

@@ -4,7 +4,7 @@
 }
 
 .miniContainer {
-  width: min(100%, 90rem);
+  width: min(100%, 100rem);
   margin: 0 auto;
 }
 

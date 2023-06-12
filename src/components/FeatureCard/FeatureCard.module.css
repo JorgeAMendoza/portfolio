@@ -19,7 +19,7 @@
 
 .cardContent {
   z-index: 2;
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(0, 0, 0, 0.93);
   padding: 1.5em;
   font-size: clamp(1.4rem, 2vw, 1.6rem);
 }

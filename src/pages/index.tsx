@@ -62,7 +62,7 @@ export default function Home({
               >
                 <p className={styles.headerIntro}>Hey 🙋🏽‍♂️, my name is</p>
                 <h1 className={styles.headerTitleText}>
-                  Jorge A. Mendoza II
+                  Jorge A. Mendoza
                   <span className={styles.headerSubtitle}>
                     Front End Developer
                   </span>

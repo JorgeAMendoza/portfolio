@@ -78,6 +78,20 @@
   padding-bottom: 2.5rem;
 }
 
+.projectContent p,
+.projectContent li,
+.projectContent p code,
+.projectContent li code {
+  font-size: clamp(1.6rem, 1vw + 1rem, 1.8rem);
+}
+
+.projectContent p code,
+.projectContent li code {
+  color: var(--primary);
+  background-color: var(--secondary);
+  padding: 0.2em;
+}
+
 .projectContent [id]::before {
   content: '';
   display: block;
@@ -90,6 +104,10 @@
   text-decoration: underline;
 }
 
+.projectContent > * {
+  margin-block-start: 2rem;
+}
+
 .projectContent h2,
 .projectContent h3,
 .projectContent h4,
@@ -98,16 +116,21 @@
   color: var(--primary);
 }
 
-.projectContent h2:first-of-type {
-  margin-block-start: 4.5rem;
+.projectContent h2 {
+  margin-block-start: 5rem;
+  font-size: 3.2rem;
 }
 
-.projectContent > * {
-  margin-block-start: 2rem;
+.projectContent h3 {
+  font-size: 2.4rem;
+}
+
+.projectContent h2:first-of-type {
+  margin-block-start: 8rem;
 }
 
 .projectContent h2 + * {
-  margin-block-start: 0;
+  margin-block-start: 0.2rem;
 }
 
 .projectContent h3 + *,
@@ -118,6 +141,12 @@
 }
 
 .projectContent h4 {
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+.projectContent h5 {
+  font-size: 1.8rem;
   font-weight: 400;
 }
 
@@ -153,6 +182,11 @@
 .projectContent ul ol,
 .projectContent ol ul {
   margin-block-start: 1rem;
+}
+
+.projectContent ul li,
+.projectContent ol li {
+  margin-block-start: 0.5rem;
 }
 
 /* tablet styles */

@@ -1,6 +1,7 @@
 .projectPage {
   composes: container from '../styles/utils.module.css';
   margin-top: 1rem;
+  padding-bottom: 2rem;
 }
 
 .projectHead {
@@ -70,6 +71,11 @@
 .projectGif {
   display: none;
   object-fit: cover;
+  object-position: left top;
+}
+
+.projectGif[src*='weather'] {
+  object-position: bottom;
 }
 
 /* Project Text */
@@ -216,4 +222,7 @@
     align-items: center;
     gap: 1.5rem;
   }
+}
+
+@media screen and (min-width: 1024px) {
 }

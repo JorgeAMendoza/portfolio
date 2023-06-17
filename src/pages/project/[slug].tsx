@@ -102,7 +102,7 @@ const ShowcasePage = ({
             <Image
               src={frontMatter.projectGif}
               width={900}
-              height={500}
+              height={650}
               alt={`gif of ${frontMatter.title} being used`}
               className={style.projectGif}
               priority={true}

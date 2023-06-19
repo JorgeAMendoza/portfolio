@@ -286,120 +286,130 @@ export default function Home({
           </section>
         </Section>
 
-        <section id="project-showcase" className={styles.sectionContainer}>
-          <div className={styles.titleContainer}>
-            <h2
-              className={`${SourceSansPro.className} ${styles.showcaseTitle}`}
-            >
-              Project Showcase
-            </h2>
-          </div>
-
-          <div className={styles.showcaseProjects}>
-            {showcaseInformation.map((showcase) => (
-              <FeatureCard key={showcase.id} project={showcase} />
-            ))}
-          </div>
-        </section>
-
-        <section id="other-projects" className={styles.sectionContainer}>
-          <div className={styles.titleContainer}>
-            <h2
-              className={`${SourceSansPro.className} ${styles.projectsTitle}`}
-            >
-              Other Projects
-            </h2>
-          </div>
-
-          <div className={styles.projects}>
-            {projectsInformation.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
-          </div>
-        </section>
-
-        <section id="contact-me" className={styles.sectionContainer}>
-          <div className={styles.contactContent}>
-            <div>
-              <div
-                className={`${styles.titleContainer} ${SourceSansPro.className}`}
+        <Section>
+          <section id="project-showcase" className={styles.sectionContainer}>
+            <div className={styles.titleContainer}>
+              <h2
+                className={`${SourceSansPro.className} ${styles.showcaseTitle}`}
               >
-                <h2 className={styles.contactTitle}>Let&#39;s Collaborate</h2>
+                Project Showcase
+              </h2>
+            </div>
+
+            <div className={styles.showcaseProjects}>
+              {showcaseInformation.map((showcase) => (
+                <FeatureCard key={showcase.id} project={showcase} />
+              ))}
+            </div>
+          </section>
+        </Section>
+
+        <Section>
+          <section id="other-projects" className={styles.sectionContainer}>
+            <div className={styles.titleContainer}>
+              <h2
+                className={`${SourceSansPro.className} ${styles.projectsTitle}`}
+              >
+                Other Projects
+              </h2>
+            </div>
+
+            <div className={styles.projects}>
+              {projectsInformation.map((project) => (
+                <ProjectCard key={project.id} project={project} />
+              ))}
+            </div>
+          </section>
+        </Section>
+
+        <Section>
+          <section id="contact-me" className={styles.sectionContainer}>
+            <div className={styles.contactContent}>
+              <div>
+                <div
+                  className={`${styles.titleContainer} ${SourceSansPro.className}`}
+                >
+                  <h2 className={styles.contactTitle}>Let&#39;s Collaborate</h2>
+                </div>
+
+                <p>
+                  I am currently looking to launch my career into the web
+                  development environment, my inbox is always open! If you have
+                  any questions or just want to say hello, please feel free to
+                  contact me with the email link below. Make sure to check out
+                  my social media profiles as well!{' '}
+                  <strong>Happy coding!</strong>
+                </p>
               </div>
 
-              <p>
-                I am currently looking to launch my career into the web
-                development environment, my inbox is always open! If you have
-                any questions or just want to say hello, please feel free to
-                contact me with the email link below. Make sure to check out my
-                social media profiles as well! <strong>Happy coding!</strong>
+              <div className={styles.contactEmail}>
+                <a
+                  href="mailto:jorgemendozadevii@gmail.com"
+                  target="_blank"
+                  rel="nonreferrer"
+                  className={`${SpaceMono.className} ${styles.contactEmailLink}`}
+                >
+                  say hello
+                </a>
+              </div>
+
+              <div>
+                <ul className={styles.contactSocialList}>
+                  <li>
+                    <a
+                      href="https://github.com/JorgeAMendoza"
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="visit my github profile"
+                    >
+                      <GitHubIcon />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://twitter.com/JorgeMIIDev"
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="check out my twitter profile"
+                    >
+                      <TwitterIcon />
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      href="https://www.linkedin.com/in/jorge-mendoza-a06b45264/"
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="visit my linkedin profile"
+                    >
+                      <LinkedinIcon />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </Section>
+
+        <Section>
+          {' '}
+          <footer className={styles.footer}>
+            <div className={styles.footerName}>
+              <p>Designed and built by Jorge A. Mendoza II</p>
+              <p className={styles.footerIcon}>
+                <a
+                  href="https://www.lapoflove.com/pet-memorial/24847"
+                  aria-label="A memorial for the best dog a man can ask for"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <DogIcon />
+                </a>
               </p>
             </div>
-
-            <div className={styles.contactEmail}>
-              <a
-                href="mailto:jorgemendozadevii@gmail.com"
-                target="_blank"
-                rel="nonreferrer"
-                className={`${SpaceMono.className} ${styles.contactEmailLink}`}
-              >
-                say hello
-              </a>
-            </div>
-
-            <div>
-              <ul className={styles.contactSocialList}>
-                <li>
-                  <a
-                    href="https://github.com/JorgeAMendoza"
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="visit my github profile"
-                  >
-                    <GitHubIcon />
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://twitter.com/JorgeMIIDev"
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="check out my twitter profile"
-                  >
-                    <TwitterIcon />
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="https://www.linkedin.com/in/jorge-mendoza-a06b45264/"
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="visit my linkedin profile"
-                  >
-                    <LinkedinIcon />
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <footer className={styles.footer}>
-          <div className={styles.footerName}>
-            <p>Designed and built by Jorge A. Mendoza II</p>
-            <p className={styles.footerIcon}>
-              <a
-                href="https://www.lapoflove.com/pet-memorial/24847"
-                aria-label="A memorial for the best dog a man can ask for"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <DogIcon />
-              </a>
-            </p>
-          </div>
-        </footer>
+          </footer>
+        </Section>
       </main>
     </Layout>
   );

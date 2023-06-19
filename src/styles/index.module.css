@@ -256,10 +256,6 @@
 
 /* other projects */
 
-.projectsSection {
-  background-color: transparent;
-}
-
 .projectsTitle {
   composes: sectionTitle from '../styles/utils.module.css';
 }

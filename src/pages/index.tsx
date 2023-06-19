@@ -113,271 +113,273 @@ export default function Home({
             </div>
           </section>
         </div>
-        <div className={styles.about}>
-          <section
-            id="about-me"
-            className={styles.sectionContainer}
-            data-bar="right"
-          >
-            <div className={styles.titleContainer}>
-              <h2 className={`${SourceSansPro.className} ${styles.aboutTitle}`}>
-                About Me
-              </h2>
-            </div>
 
-            <div className={styles.aboutContent}>
-              <div className={styles.aboutImage}>
-                <Image
-                  src="/placeholder.jpg"
-                  width={500}
-                  height={500}
-                  alt="image of jorge mendoza"
-                />
-              </div>
-              <div className={styles.aboutText}>
-                <h3 className={SourceSansPro.className}>My Story</h3>
-                <p>
-                  An aspiring Front-end Developer looking for opportunities to
-                  learn and grow. In my senior year of college I took an
-                  introduction to web-development course, and since then I have
-                  continued to learn about the latest advances in the
-                  web-development environment and improve as a developer.
-                </p>
-                <p>
-                  I have used <em>React, TypeScript, Styled-Components</em> and
-                  other tools to create user-interfaces that are responsive,
-                  performant, and accessible. From creating password generators
-                  to full-stack applications with authentication, I have a set
-                  of skills that allow me to plan, test, and create user
-                  interfaces.
-                </p>
-                <p>
-                  I am currently open to job opportunities where I can
-                  <em> contribute, learn, and grow</em> as a software developer
-                  and as a person. If you believe that I am a developer that
-                  will mesh will with your team and goals, please feel free to
-                  contact me.
-                </p>
-              </div>
-              <div>
-                <h3 className={SourceSansPro.className}>Skills & Tech</h3>
-                <ul className={`${SpaceMono.className} ${styles.skillsList}`}>
-                  <li className={styles.skillsTab}>
-                    HTML5
-                    <Image
-                      src="/icons/html5-icon.svg"
-                      alt="HTML5 icon"
-                      width={22}
-                      height={22}
-                    />
-                  </li>
-                  <li className={styles.skillsTab}>
-                    CSS
-                    <Image
-                      src="/icons/css-icon.svg"
-                      alt="CSS Icon"
-                      width={22}
-                      height={22}
-                    />
-                  </li>
-                  <li className={styles.skillsTab}>
-                    JavaScript
-                    <Image
-                      src="/icons/javascript-icon.svg"
-                      alt="javascript icon"
-                      width={22}
-                      height={22}
-                    />
-                  </li>
-                  <li className={styles.skillsTab}>
-                    TypeScript
-                    <Image
-                      src="/icons/typescript-icon.svg"
-                      alt="typescript icon"
-                      width={22}
-                      height={22}
-                    />
-                  </li>
-                  <li className={styles.skillsTab}>
-                    React
-                    <Image
-                      src="/icons/react-icon.svg"
-                      alt="react icon"
-                      width={22}
-                      height={22}
-                    />
-                  </li>
-                  <li className={styles.skillsTab}>
-                    Redux
-                    <Image
-                      src="/icons/redux-icon.svg"
-                      alt="redux icon"
-                      width={22}
-                      height={22}
-                    />
-                  </li>
-                  <li className={styles.skillsTab}>
-                    NextJS
-                    <Image
-                      src="/icons/nextjs-icon.svg"
-                      alt="next js icon"
-                      width={22}
-                      height={22}
-                    />
-                  </li>
-                  <li className={styles.skillsTab}>
-                    NodeJS
-                    <Image
-                      src="/icons/nodejs-icon.svg"
-                      alt="node js icon"
-                      width={22}
-                      height={22}
-                    />
-                  </li>
-                  <li className={styles.skillsTab}>
-                    GraphQL
-                    <Image
-                      src="/icons/graphql-icon.svg"
-                      alt="graphql icon"
-                      width={22}
-                      height={22}
-                    />
-                  </li>
-                  <li className={styles.skillsTab}>
-                    Docker
-                    <Image
-                      src="/icons/docker-icon.svg"
-                      alt="docker icon"
-                      width={22}
-                      height={22}
-                    />
-                  </li>
-                  <li className={styles.skillsTab}>
-                    MongoDB
-                    <Image
-                      src="/icons/mongodb-icon.svg"
-                      alt="mongodb icon"
-                      width={22}
-                      height={22}
-                    />
-                  </li>
-                  <li className={styles.skillsTab}>
-                    Git
-                    <Image
-                      src="/icons/git-icon.svg"
-                      alt="git icon"
-                      width={22}
-                      height={22}
-                    />
-                  </li>
-                </ul>
-              </div>
+        <section
+          id="about-me"
+          className={styles.sectionContainer}
+          data-bar="right"
+        >
+          <div className={styles.titleContainer}>
+            <h2 className={`${SourceSansPro.className} ${styles.aboutTitle}`}>
+              About Me
+            </h2>
+          </div>
+
+          <div className={styles.aboutContent}>
+            <div className={styles.aboutImage}>
+              <Image
+                src="/placeholder.jpg"
+                width={500}
+                height={500}
+                alt="image of jorge mendoza"
+              />
             </div>
-          </section>
-        </div>
-        <div className={styles.showcase}>
-          <section id="project-showcase" className={styles.sectionContainer}>
-            <div className={styles.titleContainer}>
-              <h2
-                className={`${SourceSansPro.className} ${styles.showcaseTitle}`}
+            <div className={styles.aboutText}>
+              <h3
+                className={`${SourceSansPro.className} ${styles.aboutSubTitle}`}
               >
-                Project Showcase
-              </h2>
+                My Story
+              </h3>
+              <p>
+                An aspiring Front-end Developer looking for opportunities to
+                learn and grow. In my senior year of college I took an
+                introduction to web-development course, and since then I have
+                continued to learn about the latest advances in the
+                web-development environment and improve as a developer.
+              </p>
+              <p>
+                I have used <em>React, TypeScript, Styled-Components</em> and
+                other tools to create user-interfaces that are responsive,
+                performant, and accessible. From creating password generators to
+                full-stack applications with authentication, I have a set of
+                skills that allow me to plan, test, and create user interfaces.
+              </p>
+              <p>
+                I am currently open to job opportunities where I can
+                <em> contribute, learn, and grow</em> as a software developer
+                and as a person. If you believe that I am a developer that will
+                mesh will with your team and goals, please feel free to contact
+                me.
+              </p>
             </div>
-
-            <div className={styles.showcaseProjects}>
-              {showcaseInformation.map((showcase) => (
-                <FeatureCard key={showcase.id} project={showcase} />
-              ))}
-            </div>
-          </section>
-        </div>
-        <div className={styles.projectsSection}>
-          <section id="other-projects" className={styles.sectionContainer}>
-            <div className={styles.titleContainer}>
-              <h2
-                className={`${SourceSansPro.className} ${styles.projectsTitle}`}
+            <div>
+              <h3
+                className={`${SourceSansPro.className} ${styles.aboutSubTitle}`}
               >
-                Other Projects
-              </h2>
+                Skills & Tech
+              </h3>
+              <ul className={`${SpaceMono.className} ${styles.skillsList}`}>
+                <li className={styles.skillsTab}>
+                  HTML5
+                  <Image
+                    src="/icons/html5-icon.svg"
+                    alt="HTML5 icon"
+                    width={22}
+                    height={22}
+                  />
+                </li>
+                <li className={styles.skillsTab}>
+                  CSS
+                  <Image
+                    src="/icons/css-icon.svg"
+                    alt="CSS Icon"
+                    width={22}
+                    height={22}
+                  />
+                </li>
+                <li className={styles.skillsTab}>
+                  JavaScript
+                  <Image
+                    src="/icons/javascript-icon.svg"
+                    alt="javascript icon"
+                    width={22}
+                    height={22}
+                  />
+                </li>
+                <li className={styles.skillsTab}>
+                  TypeScript
+                  <Image
+                    src="/icons/typescript-icon.svg"
+                    alt="typescript icon"
+                    width={22}
+                    height={22}
+                  />
+                </li>
+                <li className={styles.skillsTab}>
+                  React
+                  <Image
+                    src="/icons/react-icon.svg"
+                    alt="react icon"
+                    width={22}
+                    height={22}
+                  />
+                </li>
+                <li className={styles.skillsTab}>
+                  Redux
+                  <Image
+                    src="/icons/redux-icon.svg"
+                    alt="redux icon"
+                    width={22}
+                    height={22}
+                  />
+                </li>
+                <li className={styles.skillsTab}>
+                  NextJS
+                  <Image
+                    src="/icons/nextjs-icon.svg"
+                    alt="next js icon"
+                    width={22}
+                    height={22}
+                  />
+                </li>
+                <li className={styles.skillsTab}>
+                  NodeJS
+                  <Image
+                    src="/icons/nodejs-icon.svg"
+                    alt="node js icon"
+                    width={22}
+                    height={22}
+                  />
+                </li>
+                <li className={styles.skillsTab}>
+                  GraphQL
+                  <Image
+                    src="/icons/graphql-icon.svg"
+                    alt="graphql icon"
+                    width={22}
+                    height={22}
+                  />
+                </li>
+                <li className={styles.skillsTab}>
+                  Docker
+                  <Image
+                    src="/icons/docker-icon.svg"
+                    alt="docker icon"
+                    width={22}
+                    height={22}
+                  />
+                </li>
+                <li className={styles.skillsTab}>
+                  MongoDB
+                  <Image
+                    src="/icons/mongodb-icon.svg"
+                    alt="mongodb icon"
+                    width={22}
+                    height={22}
+                  />
+                </li>
+                <li className={styles.skillsTab}>
+                  Git
+                  <Image
+                    src="/icons/git-icon.svg"
+                    alt="git icon"
+                    width={22}
+                    height={22}
+                  />
+                </li>
+              </ul>
             </div>
+          </div>
+        </section>
 
-            <div className={styles.projects}>
-              {projectsInformation.map((project) => (
-                <ProjectCard key={project.id} project={project} />
-              ))}
-            </div>
-          </section>
-        </div>
-        <div className={styles.footerSection}>
-          <section id="contact-me" className={styles.sectionContainer}>
-            <div className={styles.contactContent}>
-              <div>
-                <div
-                  className={`${styles.titleContainer} ${SourceSansPro.className}`}
-                >
-                  <h2 className={styles.contactTitle}>Let&#39;s Collaborate</h2>
-                </div>
+        <section id="project-showcase" className={styles.sectionContainer}>
+          <div className={styles.titleContainer}>
+            <h2
+              className={`${SourceSansPro.className} ${styles.showcaseTitle}`}
+            >
+              Project Showcase
+            </h2>
+          </div>
 
-                <p>
-                  I am currently looking to launch my career into the web
-                  development environment, my inbox is always open! If you have
-                  any questions or just want to say hello, please feel free to
-                  contact me with the email link below. Make sure to check out
-                  my social media profiles as well!{' '}
-                  <strong>Happy coding!</strong>
-                </p>
+          <div className={styles.showcaseProjects}>
+            {showcaseInformation.map((showcase) => (
+              <FeatureCard key={showcase.id} project={showcase} />
+            ))}
+          </div>
+        </section>
+
+        <section id="other-projects" className={styles.sectionContainer}>
+          <div className={styles.titleContainer}>
+            <h2
+              className={`${SourceSansPro.className} ${styles.projectsTitle}`}
+            >
+              Other Projects
+            </h2>
+          </div>
+
+          <div className={styles.projects}>
+            {projectsInformation.map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
+          </div>
+        </section>
+
+        <section id="contact-me" className={styles.sectionContainer}>
+          <div className={styles.contactContent}>
+            <div>
+              <div
+                className={`${styles.titleContainer} ${SourceSansPro.className}`}
+              >
+                <h2 className={styles.contactTitle}>Let&#39;s Collaborate</h2>
               </div>
 
-              <div className={styles.contactEmail}>
-                <a
-                  href="mailto:jorgemendozadevii@gmail.com"
-                  target="_blank"
-                  rel="nonreferrer"
-                  className={`${SpaceMono.className} ${styles.contactEmailLink}`}
-                >
-                  say hello
-                </a>
-              </div>
-
-              <div>
-                <ul className={styles.contactSocialList}>
-                  <li>
-                    <a
-                      href="https://github.com/JorgeAMendoza"
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label="visit my github profile"
-                    >
-                      <GitHubIcon />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://twitter.com/JorgeMIIDev"
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label="check out my twitter profile"
-                    >
-                      <TwitterIcon />
-                    </a>
-                  </li>
-
-                  <li>
-                    <a
-                      href="https://www.linkedin.com/in/jorge-mendoza-a06b45264/"
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label="visit my linkedin profile"
-                    >
-                      <LinkedinIcon />
-                    </a>
-                  </li>
-                </ul>
-              </div>
+              <p>
+                I am currently looking to launch my career into the web
+                development environment, my inbox is always open! If you have
+                any questions or just want to say hello, please feel free to
+                contact me with the email link below. Make sure to check out my
+                social media profiles as well! <strong>Happy coding!</strong>
+              </p>
             </div>
-          </section>
-        </div>
+
+            <div className={styles.contactEmail}>
+              <a
+                href="mailto:jorgemendozadevii@gmail.com"
+                target="_blank"
+                rel="nonreferrer"
+                className={`${SpaceMono.className} ${styles.contactEmailLink}`}
+              >
+                say hello
+              </a>
+            </div>
+
+            <div>
+              <ul className={styles.contactSocialList}>
+                <li>
+                  <a
+                    href="https://github.com/JorgeAMendoza"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="visit my github profile"
+                  >
+                    <GitHubIcon />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://twitter.com/JorgeMIIDev"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="check out my twitter profile"
+                  >
+                    <TwitterIcon />
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="https://www.linkedin.com/in/jorge-mendoza-a06b45264/"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="visit my linkedin profile"
+                  >
+                    <LinkedinIcon />
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
 
         <footer className={styles.footer}>
           <div className={styles.footerName}>

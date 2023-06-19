@@ -11,6 +11,7 @@ import TwitterIcon from '@/components/Icons/Twitter';
 import GitHubIcon from '@/components/Icons/GitHub';
 import LinkedinIcon from '@/components/Icons/Linkedin';
 import DogIcon from '@/components/Icons/Dog';
+import Section from '@/components/Section/Section';
 
 const SourceSansPro = Source_Sans_Pro({
   subsets: ['latin'],
@@ -114,173 +115,176 @@ export default function Home({
           </section>
         </div>
 
-        <section
-          id="about-me"
-          className={styles.sectionContainer}
-          data-bar="right"
-        >
-          <div className={styles.titleContainer}>
-            <h2 className={`${SourceSansPro.className} ${styles.aboutTitle}`}>
-              About Me
-            </h2>
-          </div>
+        <Section>
+          <section
+            id="about-me"
+            className={styles.sectionContainer}
+            data-bar="right"
+          >
+            <div className={styles.titleContainer}>
+              <h2 className={`${SourceSansPro.className} ${styles.aboutTitle}`}>
+                About Me
+              </h2>
+            </div>
 
-          <div className={styles.aboutContent}>
-            <div className={styles.aboutImage}>
-              <Image
-                src="/placeholder.jpg"
-                width={500}
-                height={500}
-                alt="image of jorge mendoza"
-              />
+            <div className={styles.aboutContent}>
+              <div className={styles.aboutImage}>
+                <Image
+                  src="/placeholder.jpg"
+                  width={500}
+                  height={500}
+                  alt="image of jorge mendoza"
+                />
+              </div>
+              <div className={styles.aboutText}>
+                <h3
+                  className={`${SourceSansPro.className} ${styles.aboutSubTitle}`}
+                >
+                  My Story
+                </h3>
+                <p>
+                  An aspiring Front-end Developer looking for opportunities to
+                  learn and grow. In my senior year of college I took an
+                  introduction to web-development course, and since then I have
+                  continued to learn about the latest advances in the
+                  web-development environment and improve as a developer.
+                </p>
+                <p>
+                  I have used <em>React, TypeScript, Styled-Components</em> and
+                  other tools to create user-interfaces that are responsive,
+                  performant, and accessible. From creating password generators
+                  to full-stack applications with authentication, I have a set
+                  of skills that allow me to plan, test, and create user
+                  interfaces.
+                </p>
+                <p>
+                  I am currently open to job opportunities where I can
+                  <em> contribute, learn, and grow</em> as a software developer
+                  and as a person. If you believe that I am a developer that
+                  will mesh will with your team and goals, please feel free to
+                  contact me.
+                </p>
+              </div>
+              <div>
+                <h3
+                  className={`${SourceSansPro.className} ${styles.aboutSubTitle}`}
+                >
+                  Skills & Tech
+                </h3>
+                <ul className={`${SpaceMono.className} ${styles.skillsList}`}>
+                  <li className={styles.skillsTab}>
+                    HTML5
+                    <Image
+                      src="/icons/html5-icon.svg"
+                      alt="HTML5 icon"
+                      width={22}
+                      height={22}
+                    />
+                  </li>
+                  <li className={styles.skillsTab}>
+                    CSS
+                    <Image
+                      src="/icons/css-icon.svg"
+                      alt="CSS Icon"
+                      width={22}
+                      height={22}
+                    />
+                  </li>
+                  <li className={styles.skillsTab}>
+                    JavaScript
+                    <Image
+                      src="/icons/javascript-icon.svg"
+                      alt="javascript icon"
+                      width={22}
+                      height={22}
+                    />
+                  </li>
+                  <li className={styles.skillsTab}>
+                    TypeScript
+                    <Image
+                      src="/icons/typescript-icon.svg"
+                      alt="typescript icon"
+                      width={22}
+                      height={22}
+                    />
+                  </li>
+                  <li className={styles.skillsTab}>
+                    React
+                    <Image
+                      src="/icons/react-icon.svg"
+                      alt="react icon"
+                      width={22}
+                      height={22}
+                    />
+                  </li>
+                  <li className={styles.skillsTab}>
+                    Redux
+                    <Image
+                      src="/icons/redux-icon.svg"
+                      alt="redux icon"
+                      width={22}
+                      height={22}
+                    />
+                  </li>
+                  <li className={styles.skillsTab}>
+                    NextJS
+                    <Image
+                      src="/icons/nextjs-icon.svg"
+                      alt="next js icon"
+                      width={22}
+                      height={22}
+                    />
+                  </li>
+                  <li className={styles.skillsTab}>
+                    NodeJS
+                    <Image
+                      src="/icons/nodejs-icon.svg"
+                      alt="node js icon"
+                      width={22}
+                      height={22}
+                    />
+                  </li>
+                  <li className={styles.skillsTab}>
+                    GraphQL
+                    <Image
+                      src="/icons/graphql-icon.svg"
+                      alt="graphql icon"
+                      width={22}
+                      height={22}
+                    />
+                  </li>
+                  <li className={styles.skillsTab}>
+                    Docker
+                    <Image
+                      src="/icons/docker-icon.svg"
+                      alt="docker icon"
+                      width={22}
+                      height={22}
+                    />
+                  </li>
+                  <li className={styles.skillsTab}>
+                    MongoDB
+                    <Image
+                      src="/icons/mongodb-icon.svg"
+                      alt="mongodb icon"
+                      width={22}
+                      height={22}
+                    />
+                  </li>
+                  <li className={styles.skillsTab}>
+                    Git
+                    <Image
+                      src="/icons/git-icon.svg"
+                      alt="git icon"
+                      width={22}
+                      height={22}
+                    />
+                  </li>
+                </ul>
+              </div>
             </div>
-            <div className={styles.aboutText}>
-              <h3
-                className={`${SourceSansPro.className} ${styles.aboutSubTitle}`}
-              >
-                My Story
-              </h3>
-              <p>
-                An aspiring Front-end Developer looking for opportunities to
-                learn and grow. In my senior year of college I took an
-                introduction to web-development course, and since then I have
-                continued to learn about the latest advances in the
-                web-development environment and improve as a developer.
-              </p>
-              <p>
-                I have used <em>React, TypeScript, Styled-Components</em> and
-                other tools to create user-interfaces that are responsive,
-                performant, and accessible. From creating password generators to
-                full-stack applications with authentication, I have a set of
-                skills that allow me to plan, test, and create user interfaces.
-              </p>
-              <p>
-                I am currently open to job opportunities where I can
-                <em> contribute, learn, and grow</em> as a software developer
-                and as a person. If you believe that I am a developer that will
-                mesh will with your team and goals, please feel free to contact
-                me.
-              </p>
-            </div>
-            <div>
-              <h3
-                className={`${SourceSansPro.className} ${styles.aboutSubTitle}`}
-              >
-                Skills & Tech
-              </h3>
-              <ul className={`${SpaceMono.className} ${styles.skillsList}`}>
-                <li className={styles.skillsTab}>
-                  HTML5
-                  <Image
-                    src="/icons/html5-icon.svg"
-                    alt="HTML5 icon"
-                    width={22}
-                    height={22}
-                  />
-                </li>
-                <li className={styles.skillsTab}>
-                  CSS
-                  <Image
-                    src="/icons/css-icon.svg"
-                    alt="CSS Icon"
-                    width={22}
-                    height={22}
-                  />
-                </li>
-                <li className={styles.skillsTab}>
-                  JavaScript
-                  <Image
-                    src="/icons/javascript-icon.svg"
-                    alt="javascript icon"
-                    width={22}
-                    height={22}
-                  />
-                </li>
-                <li className={styles.skillsTab}>
-                  TypeScript
-                  <Image
-                    src="/icons/typescript-icon.svg"
-                    alt="typescript icon"
-                    width={22}
-                    height={22}
-                  />
-                </li>
-                <li className={styles.skillsTab}>
-                  React
-                  <Image
-                    src="/icons/react-icon.svg"
-                    alt="react icon"
-                    width={22}
-                    height={22}
-                  />
-                </li>
-                <li className={styles.skillsTab}>
-                  Redux
-                  <Image
-                    src="/icons/redux-icon.svg"
-                    alt="redux icon"
-                    width={22}
-                    height={22}
-                  />
-                </li>
-                <li className={styles.skillsTab}>
-                  NextJS
-                  <Image
-                    src="/icons/nextjs-icon.svg"
-                    alt="next js icon"
-                    width={22}
-                    height={22}
-                  />
-                </li>
-                <li className={styles.skillsTab}>
-                  NodeJS
-                  <Image
-                    src="/icons/nodejs-icon.svg"
-                    alt="node js icon"
-                    width={22}
-                    height={22}
-                  />
-                </li>
-                <li className={styles.skillsTab}>
-                  GraphQL
-                  <Image
-                    src="/icons/graphql-icon.svg"
-                    alt="graphql icon"
-                    width={22}
-                    height={22}
-                  />
-                </li>
-                <li className={styles.skillsTab}>
-                  Docker
-                  <Image
-                    src="/icons/docker-icon.svg"
-                    alt="docker icon"
-                    width={22}
-                    height={22}
-                  />
-                </li>
-                <li className={styles.skillsTab}>
-                  MongoDB
-                  <Image
-                    src="/icons/mongodb-icon.svg"
-                    alt="mongodb icon"
-                    width={22}
-                    height={22}
-                  />
-                </li>
-                <li className={styles.skillsTab}>
-                  Git
-                  <Image
-                    src="/icons/git-icon.svg"
-                    alt="git icon"
-                    width={22}
-                    height={22}
-                  />
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
+          </section>
+        </Section>
 
         <section id="project-showcase" className={styles.sectionContainer}>
           <div className={styles.titleContainer}>

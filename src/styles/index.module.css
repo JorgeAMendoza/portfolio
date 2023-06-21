@@ -243,7 +243,6 @@
 
 /* showcase */
 .showcaseTitle {
-  --titleUnderline: var(--secondary);
   composes: sectionTitle from '../styles/utils.module.css';
 }
 

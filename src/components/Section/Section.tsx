@@ -8,7 +8,10 @@ interface SectionProps {
 
 const Section = ({ children }: SectionProps) => {
   const [showContent, setShowContent] = useState(false);
-  const { ref, inView } = useInView({ threshold: 0.3 });
+  const { ref, inView } = useInView({
+    threshold: 0.35,
+    triggerOnce: true,
+  });
   useEffect(() => {
     if (inView) {
       setShowContent(true);

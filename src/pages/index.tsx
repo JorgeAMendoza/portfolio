@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Layout from '@/components/Layout/Layout';
 import Image from 'next/image';
 import FeatureCard from '@/components/FeatureCard/FeatureCard';
-import ProjectCard from '@/components/ProjectCard/ProjectCard';
+import OtherProjectCard from '@/components/OtherProjectCard/OtherProjectCard';
 import { GetStaticProps } from 'next';
 import { getProjectInfo, getShowcaseInfo } from '@/lib/get-project-info';
 import { Source_Sans_Pro, Space_Mono } from 'next/font/google';
@@ -116,11 +116,7 @@ export default function Home({
         </div>
 
         <Section>
-          <section
-            id="about-me"
-            className={styles.sectionContainer}
-            data-bar="right"
-          >
+          <section id="about-me" className={styles.sectionContainer}>
             <div className={styles.titleContainer}>
               <h2 className={`${SourceSansPro.className} ${styles.aboutTitle}`}>
                 About Me
@@ -316,7 +312,7 @@ export default function Home({
 
             <div className={styles.projects}>
               {projectsInformation.map((project) => (
-                <ProjectCard key={project.id} project={project} />
+                <OtherProjectCard key={project.id} project={project} />
               ))}
             </div>
           </section>

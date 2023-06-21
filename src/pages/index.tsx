@@ -2,7 +2,6 @@ import Head from 'next/head';
 import Layout from '@/components/Layout/Layout';
 import Image from 'next/image';
 import FeatureCard from '@/components/FeatureCard/FeatureCard';
-import OtherProjectCard from '@/components/OtherProjectCard/OtherProjectCard';
 import { GetStaticProps } from 'next';
 import { getProjectInfo, getShowcaseInfo } from '@/lib/get-project-info';
 import { Source_Sans_Pro, Space_Mono } from 'next/font/google';

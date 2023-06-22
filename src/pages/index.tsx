@@ -311,8 +311,8 @@ export default function Home({
             </div>
 
             <div className={styles.projects}>
-              {projectsInformation.map((project) => (
-                <ProjectCard key={project.id} project={project} />
+              {projectsInformation.map((project, i) => (
+                <ProjectCard key={project.id} index={i} project={project} />
               ))}
             </div>
           </section>

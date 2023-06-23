@@ -2,7 +2,6 @@ import Head from 'next/head';
 import Layout from '@/components/Layout/Layout';
 import Image from 'next/image';
 import FeatureCard from '@/components/FeatureCard/FeatureCard';
-import ProjectCard from '@/components/ProjectCard/ProjectCard';
 import { GetStaticProps } from 'next';
 import { getProjectInfo, getShowcaseInfo } from '@/lib/get-project-info';
 import { Source_Sans_Pro, Space_Mono } from 'next/font/google';
@@ -11,6 +10,8 @@ import TwitterIcon from '@/components/Icons/Twitter';
 import GitHubIcon from '@/components/Icons/GitHub';
 import LinkedinIcon from '@/components/Icons/Linkedin';
 import DogIcon from '@/components/Icons/Dog';
+import Section from '@/components/Section/Section';
+import ProjectCard from '@/components/ProjectCard/ProjectCard';
 
 const SourceSansPro = Source_Sans_Pro({
   subsets: ['latin'],
@@ -113,12 +114,9 @@ export default function Home({
             </div>
           </section>
         </div>
-        <div className={styles.about}>
-          <section
-            id="about-me"
-            className={styles.sectionContainer}
-            data-bar="right"
-          >
+
+        <Section threshold={0.35}>
+          <section id="about-me" className={styles.sectionContainer}>
             <div className={styles.titleContainer}>
               <h2 className={`${SourceSansPro.className} ${styles.aboutTitle}`}>
                 About Me
@@ -135,7 +133,11 @@ export default function Home({
                 />
               </div>
               <div className={styles.aboutText}>
-                <h3 className={SourceSansPro.className}>My Story</h3>
+                <h3
+                  className={`${SourceSansPro.className} ${styles.aboutSubTitle}`}
+                >
+                  My Story
+                </h3>
                 <p>
                   An aspiring Front-end Developer looking for opportunities to
                   learn and grow. In my senior year of college I took an
@@ -160,7 +162,11 @@ export default function Home({
                 </p>
               </div>
               <div>
-                <h3 className={SourceSansPro.className}>Skills & Tech</h3>
+                <h3
+                  className={`${SourceSansPro.className} ${styles.aboutSubTitle}`}
+                >
+                  Skills & Tech
+                </h3>
                 <ul className={`${SpaceMono.className} ${styles.skillsList}`}>
                   <li className={styles.skillsTab}>
                     HTML5
@@ -274,8 +280,9 @@ export default function Home({
               </div>
             </div>
           </section>
-        </div>
-        <div className={styles.showcase}>
+        </Section>
+
+        <Section threshold={0.3}>
           <section id="project-showcase" className={styles.sectionContainer}>
             <div className={styles.titleContainer}>
               <h2
@@ -291,8 +298,9 @@ export default function Home({
               ))}
             </div>
           </section>
-        </div>
-        <div className={styles.projectsSection}>
+        </Section>
+
+        <Section threshold={0.2}>
           <section id="other-projects" className={styles.sectionContainer}>
             <div className={styles.titleContainer}>
               <h2
@@ -303,13 +311,14 @@ export default function Home({
             </div>
 
             <div className={styles.projects}>
-              {projectsInformation.map((project) => (
-                <ProjectCard key={project.id} project={project} />
+              {projectsInformation.map((project, i) => (
+                <ProjectCard key={project.id} index={i} project={project} />
               ))}
             </div>
           </section>
-        </div>
-        <div className={styles.footerSection}>
+        </Section>
+
+        <Section threshold={0.35}>
           <section id="contact-me" className={styles.sectionContainer}>
             <div className={styles.contactContent}>
               <div>
@@ -321,9 +330,9 @@ export default function Home({
 
                 <p>
                   I am currently looking to launch my career into the web
-                  development environment, my inbox is always open! If you have
+                  development industry, my inbox is always open! If you have
                   any questions or just want to say hello, please feel free to
-                  contact me with the email link below. Make sure to check out
+                  contact me with the email link below. Please be sure to check out
                   my social media profiles as well!{' '}
                   <strong>Happy coding!</strong>
                 </p>
@@ -377,23 +386,26 @@ export default function Home({
               </div>
             </div>
           </section>
-        </div>
+        </Section>
 
-        <footer className={styles.footer}>
-          <div className={styles.footerName}>
-            <p>Designed and built by Jorge A. Mendoza II</p>
-            <p className={styles.footerIcon}>
-              <a
-                href="https://www.lapoflove.com/pet-memorial/24847"
-                aria-label="A memorial for the best dog a man can ask for"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <DogIcon />
-              </a>
-            </p>
-          </div>
-        </footer>
+        <Section threshold={0.35}>
+          {' '}
+          <footer className={styles.footer}>
+            <div className={styles.footerName}>
+              <p>Designed and built by Jorge A. Mendoza II</p>
+              <p className={styles.footerIcon}>
+                <a
+                  href="https://www.lapoflove.com/pet-memorial/24847"
+                  aria-label="A memorial for the best dog a man can ask for"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <DogIcon />
+                </a>
+              </p>
+            </div>
+          </footer>
+        </Section>
       </main>
     </Layout>
   );

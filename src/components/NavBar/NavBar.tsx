@@ -46,7 +46,7 @@ const NavBar = () => {
       <div className={styles.navBarContainer} ref={ref}>
         <Link href="/">
           <Image
-            src="/logo.svg"
+            src="/Logo.svg"
             alt="jorge mendoza logo"
             width={187}
             height={40}

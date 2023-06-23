@@ -2,6 +2,7 @@ import Image from 'next/image';
 import styles from './FeatureCard.module.css';
 import { Space_Mono } from 'next/font/google';
 import Link from 'next/link';
+import { useInView } from 'react-intersection-observer';
 
 const SpaceMono = Space_Mono({
   subsets: ['latin'],
@@ -13,8 +14,15 @@ interface FeatureCardProps {
 }
 
 const FeatureCard = ({ project }: FeatureCardProps) => {
+  const { ref, inView } = useInView({
+    threshold: 0.4,
+    triggerOnce: true,
+  });
   return (
-    <figure className={styles.card}>
+    <figure
+      className={`${styles.card} ${inView ? styles.cardShow : ''}`}
+      ref={ref}
+    >
       <div className={styles.cardImage}>
         <Image
           src={project.image}

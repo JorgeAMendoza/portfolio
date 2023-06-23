@@ -2,7 +2,7 @@
   {
     "name": "Fullstack Entertainment App",
     "description": "A fullstack application that allows users to login, view various movies and tv shows, and add them to a bookmarked list to watch later. Users are verified using JWT tokens that are passed through the GraphQL server. Client-side routing is handled with the react-router library",
-    "image": "/project-images/ent-app/showcase-home.gif",
+    "image": "/project-images/ent-app/showcase.gif",
     "projectPage": "/project/fullstack-entertainment",
     "tools": [
       "graph-ql",
@@ -18,14 +18,14 @@
   {
     "name": "Markdown Editor",
     "description": "A single-page web application where users can edit and create markdown files.Users can edit the markdown text and preview the rendered markdown in real-time on the same page. Markdown text is stored using the LocalStorage API and application state is handled by the Redux/Toolkit library.",
-    "image": "/project-images/markdown-app/showcase-home.gif",
+    "image": "/project-images/markdown-app/showcase.gif",
     "projectPage": "/project/markdown-editor",
     "tools": ["react", "typescript", "redux", "cypress", "styled-components"]
   },
   {
     "name": "Weather Application",
     "description": "A single-page weather application where users can search for a city and get the current weather and the five-day forecast. The application uses the OpenWeatherMap API to fetch weather data and the fetching state is handled by the react-query library.",
-    "image": "/project-images/weather-app/showcase-home.gif",
+    "image": "/project-images/weather-app/showcase.gif",
     "projectPage": "/project/weather-app",
     "tools": [
       "react",

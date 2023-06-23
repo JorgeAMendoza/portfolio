@@ -1,6 +1,12 @@
 .card {
   position: relative;
   isolation: isolate;
+  opacity: 0;
+  transition: var(--transition-slow);
+}
+
+.cardShow {
+  opacity: 1;
 }
 
 .cardImage {
@@ -114,7 +120,4 @@
   .card:hover .cardImage::after {
     opacity: 0;
   }
-}
-
-@media screen and (min-width: 1024px) {
 }

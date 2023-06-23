@@ -330,9 +330,9 @@ export default function Home({
 
                 <p>
                   I am currently looking to launch my career into the web
-                  development environment, my inbox is always open! If you have
+                  development industry, my inbox is always open! If you have
                   any questions or just want to say hello, please feel free to
-                  contact me with the email link below. Make sure to check out
+                  contact me with the email link below. Please be sure to check out
                   my social media profiles as well!{' '}
                   <strong>Happy coding!</strong>
                 </p>

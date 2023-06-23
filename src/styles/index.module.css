@@ -229,7 +229,7 @@
 .skillsTab {
   display: flex;
   align-items: center;
-  gap: 1.1rem;
+  gap: .5rem;
   color: var(--dark-text);
   font-weight: 400;
   font-size: clamp(1.6rem, 3.5vw, 1.8rem);

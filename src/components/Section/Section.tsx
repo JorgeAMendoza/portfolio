@@ -3,12 +3,14 @@ import styled from './section.module.css';
 
 interface SectionProps {
   children: React.ReactNode;
+  threshold: number;
 }
 
-const Section = ({ children }: SectionProps) => {
+const Section = ({ children, threshold }: SectionProps) => {
   const { ref, inView } = useInView({
-    threshold: 0.35,
+    threshold,
     triggerOnce: true,
+    root: null,
   });
 
   return (

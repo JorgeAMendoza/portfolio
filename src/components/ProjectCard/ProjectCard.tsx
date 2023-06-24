@@ -2,6 +2,8 @@ import Image from 'next/image';
 import styles from './project-card.module.css';
 import { Space_Mono } from 'next/font/google';
 import { useInView } from 'react-intersection-observer';
+import GitHubIcon from '../Icons/GitHub';
+import LinkIcon from '../Icons/Link';
 
 const SpaceMono = Space_Mono({
   subsets: ['latin'],
@@ -35,12 +37,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                 target="_blank"
                 aria-label={`link to github repository for ${project.name}`}
               >
-                <Image
-                  src="/icons/github-icon.svg"
-                  alt="github icon"
-                  width={25}
-                  height={25}
-                />
+                <GitHubIcon />
               </a>
             </span>
             <span>
@@ -49,12 +46,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                 target="_blank"
                 aria-label={`link to project preview for ${project.name}`}
               >
-                <Image
-                  src="/icons/link-icon.svg"
-                  alt="link icon"
-                  width={25}
-                  height={25}
-                />
+                <LinkIcon />
               </a>
             </span>
           </div>

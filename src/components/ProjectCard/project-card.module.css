@@ -68,6 +68,11 @@
   align-self: start;
 }
 
+.projectLinks svg {
+  width: 2.7rem;
+  height: 2.7rem;
+}
+
 .projectFooter {
   margin-top: auto;
 }

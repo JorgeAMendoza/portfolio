@@ -15,7 +15,7 @@ interface FeatureCardProps {
 
 const FeatureCard = ({ project }: FeatureCardProps) => {
   const { ref, inView } = useInView({
-    threshold: 0.4,
+    threshold: 0.6,
     triggerOnce: true,
   });
   return (

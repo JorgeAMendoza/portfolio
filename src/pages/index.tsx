@@ -105,12 +105,14 @@ export default function Home({
                 </p>
               </div>
 
-              <a
-                href="#project-showcase"
-                className={`${SpaceMono.className} ${styles.headerProjectLink}`}
-              >
-                Check out my projects!
-              </a>
+              <div className={styles.headerProjectLinkContainer}>
+                <a
+                  href="#project-showcase"
+                  className={`${SpaceMono.className} ${styles.headerProjectLink}`}
+                >
+                  Check out my projects!
+                </a>
+              </div>
             </div>
           </section>
         </div>
@@ -330,10 +332,10 @@ export default function Home({
 
                 <p>
                   I am currently looking to launch my career into the web
-                  development industry, my inbox is always open! If you have
-                  any questions or just want to say hello, please feel free to
-                  contact me with the email link below. Please be sure to check out
-                  my social media profiles as well!{' '}
+                  development industry, my inbox is always open! If you have any
+                  questions or just want to say hello, please feel free to
+                  contact me with the email link below. Please be sure to check
+                  out my social media profiles as well!{' '}
                   <strong>Happy coding!</strong>
                 </p>
               </div>

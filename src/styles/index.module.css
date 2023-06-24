@@ -100,14 +100,18 @@
   grid-area: text;
 }
 
+.headerProjectLinkContainer {
+  animation: slideFadeUp 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.75s
+    forwards;
+  opacity: 0;
+}
+
 .headerProjectLink {
   composes: primaryButton from '../styles/utils/button.module.css';
   width: -moz-fit-content;
   width: fit-content;
   padding: 1em 1.5em;
   margin-top: 3rem;
-  opacity: 0;
-  animation: slideFadeUp 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.5s forwards;
 }
 
 /* About Me Styling */

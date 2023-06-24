@@ -50,6 +50,7 @@ const NavBar = () => {
             alt="jorge mendoza logo"
             width={187}
             height={40}
+            priority={true}
           />
         </Link>
         {/* mobile nav */}

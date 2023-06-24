@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import styles from './project-card.module.css';
 import { Space_Mono } from 'next/font/google';
 import { useInView } from 'react-intersection-observer';

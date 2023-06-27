@@ -1,4 +1,10 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Jorge A. Mendoza Portfolio
+
+This is the first version of my professional career portfolio, I would like to give thanks to [Brittany Chiang](https://brittanychiang.com/) and [Ram Maheshwari](https://www.rammaheshwari.com/) for the inspiration and ideas their execellent portfolios gave me.
+
+I would also like to recommend the great reference guide provided by Josh Comeau in his online book [Building an Effective Dev Portfolio](https://www.joshwcomeau.com/effective-portfolio/).
+
+This project was boostrapped using [Next.js](https://nextjs.org/) with the Typescript template, and styled using CSS Modules.
 
 ## Getting Started
 

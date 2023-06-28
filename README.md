@@ -1,44 +1,29 @@
 # Jorge A. Mendoza Portfolio
 
+<div align="center"><img src="./portfolio.gif" width=700 alt="image of desktop preview of markdown editor"></div>
+
 This is the first version of my professional career portfolio, I would like to give thanks to [Brittany Chiang](https://brittanychiang.com/) and [Ram Maheshwari](https://www.rammaheshwari.com/) for the inspiration and ideas their execellent portfolios gave me.
 
-I would also like to recommend the great reference guide provided by Josh Comeau in his online book [Building an Effective Dev Portfolio](https://www.joshwcomeau.com/effective-portfolio/).
+I would also like to recommend the great reference guide provided by [Josh Comeau](https://www.joshwcomeau.com/) in his online book [Building an Effective Dev Portfolio](https://www.joshwcomeau.com/effective-portfolio/).
 
-This project was boostrapped using [Next.js](https://nextjs.org/) with the Typescript template, and styled using CSS Modules.
+Please feel free to fork my portfolio and use it as a template for your own! If you have any feedback on my portfolio, please let me know!
 
-## Getting Started
+## Technologies Used
 
-First, run the development server:
+This project was boostrapped using [Next.js](https://nextjs.org/) with the Typescript template. Initialized by using the `npx create-next-app@latest` command. The application is running on Next JS version 13, but is not using the [`/app`](https://nextjs.org/docs) directory feature.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+The project is formatted using `prettier` and is linted with [`ESLint`](https://eslint.org/) using react, prettier, nextjs, and typescript plugins.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The application is styled using [`CSS Modules`](https://github.com/css-modules/css-modules), which allows the CSS to be scoped to the component it is used in and avoid CSS class name collisions.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+The content seen in the _project_ pages is written in [`MDX`](https://mdxjs.com/), with meta information written in the `.mdx` file and extracted using the [`gray-matter`](https://github.com/jonschlinkert/gray-matter) package. All [project pages](./src/pages/project/%5Bslug%5D.tsx) are generated at bulid time using `getStaticProps`, the markdown is extracted from the `.mdx` file and rendered on the page using the [`next-mdx-remote`](https://github.com/hashicorp/next-mdx-remote) package.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Installation and Setup
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+To run the portfolio locally on your machine, please follow the steps below:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Clone the repository to your local machine using `git clone https://github.com/JorgeAMendoza/portfolio` and `cd` into the directory.
+2. Install the dependencies using `npm install` or `yarn install`.
+3. Run the development server using `npm run dev`.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+To run the _production build_, first run `npm run build` and then `npm run start`.

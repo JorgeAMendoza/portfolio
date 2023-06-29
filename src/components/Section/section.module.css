@@ -1,0 +1,8 @@
+.section {
+  opacity: 0;
+  transition: var(--transition-slow);
+}
+
+.showSection {
+  opacity: 1;
+}

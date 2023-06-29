@@ -1,0 +1,409 @@
+/* Utils */
+.titleContainer {
+  composes: sectionTitleContainer from '../styles/utils.module.css';
+  margin-bottom: 4.5rem;
+}
+
+.sectionContainer {
+  margin-top: 5rem;
+  position: relative;
+  composes: container from '../styles/utils.module.css';
+}
+
+.sectionContainer::before {
+  content: '';
+  display: block;
+  height: 65px;
+  margin-top: -65px;
+  visibility: hidden;
+}
+
+/* Header */
+
+@keyframes slideFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.homeHeader {
+  color: var(--light-text);
+  min-height: 92vh;
+  min-height: 92svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.homeHeader .sectionContainer {
+  width: min(88%, 95rem);
+}
+
+.headerInformation {
+  opacity: 0;
+  margin-top: 2.5rem;
+  animation: slideFadeUp 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.25s
+    forwards;
+}
+
+.headerInformation > *:not(:last-child) {
+  margin-block-end: 1.5rem;
+}
+
+.headerTitle {
+  grid-area: 'title';
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: slideFadeUp 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
+}
+
+.headerTitleText {
+  font-size: clamp(4rem, 7vw + 1rem, 6.4rem);
+  color: var(--primary);
+  line-height: clamp(4.5rem, 7vw, 7rem);
+}
+
+.headerSubtitle {
+  font-size: clamp(3.2rem, 5vw + 1rem, 4.8rem);
+  font-weight: 600;
+  display: block;
+  color: var(--light-text);
+}
+
+.headerIntro {
+  font-size: clamp(1.6rem, 2.5vw + 1rem, 2.4rem);
+  font-weight: 600;
+}
+
+.info {
+  grid-area: icon;
+}
+
+.iconInfo {
+  display: flex;
+  gap: 1rem;
+  font-size: clamp(1.6rem, 3.5vw, 1.8rem);
+}
+
+.iconInfo:first-of-type {
+  margin-bottom: 0.7rem;
+}
+
+.headerDescription {
+  font-size: clamp(1.6rem, 3.5vw, 1.8rem);
+  grid-area: text;
+}
+
+.headerProjectLinkContainer {
+  animation: slideFadeUp 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.75s
+    forwards;
+  opacity: 0;
+}
+
+.headerProjectLink {
+  composes: primaryButton from '../styles/utils/button.module.css';
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 1em 1.5em;
+  margin-top: 3rem;
+}
+
+/* About Me Styling */
+
+.aboutTitle {
+  composes: sectionTitle from '../styles/utils.module.css';
+}
+
+.aboutImage {
+  border-radius: 5px;
+  position: relative;
+  isolation: isolate;
+  width: min(90%, 40rem);
+  margin: 0 auto;
+  grid-area: image;
+}
+
+.aboutImage img {
+  border-radius: 5px;
+  z-index: 1;
+  height: 100%;
+  margin-bottom: 5rem;
+  grid-area: image;
+}
+
+.aboutImage::before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  transform: translate(2rem, 2rem);
+  background-color: #141414;
+  position: absolute;
+  border-radius: 5px;
+  border: 1px solid var(--primary);
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: transform 1s ease;
+}
+
+.aboutImage:hover::before,
+.aboutImage:focus-visible::after {
+  transform: translate(1rem, 1rem);
+  transition: transform 0.3s ease;
+}
+
+.aboutImage::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--primary);
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  border-radius: 5px;
+  z-index: 2;
+  transition: opacity 1s ease;
+}
+
+.aboutImage:hover::after,
+.aboutImage:focus-visible::after {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.aboutContent > *:not(:last-child) {
+  margin-bottom: 3rem;
+}
+
+.aboutSubTitle {
+  font-size: clamp(2rem, 4.5vw, 2.4rem);
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  color: var(--primary);
+}
+
+.aboutText em {
+  color: var(--primary);
+}
+
+.aboutText p {
+  font-size: clamp(1.6rem, 3.5vw, 1.8rem);
+}
+
+.aboutText p:not(:last-of-type) {
+  margin-bottom: 1rem;
+}
+
+.skillsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.skillsTab {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--dark-text);
+  font-weight: 400;
+  font-size: clamp(1.6rem, 3.5vw, 1.8rem);
+  transition: transform 0.2s ease-in;
+}
+
+.skillsTab:focus,
+.skillsTab:hover {
+  transform: translateY(-5%);
+}
+
+/* showcase */
+.showcaseTitle {
+  composes: sectionTitle from '../styles/utils.module.css';
+}
+
+.showcaseProjects {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  composes: miniContainer from '../styles/utils.module.css';
+}
+
+/* other projects */
+
+.projectsTitle {
+  composes: sectionTitle from '../styles/utils.module.css';
+}
+
+.projects {
+  display: grid;
+  gap: 3.5rem;
+}
+
+/* Contact */
+.contactContent > * {
+  margin-bottom: 2.5rem;
+}
+
+.contactContent p {
+  font-weight: 300;
+  color: var(--light-text);
+  width: min(100%, 60rem);
+  margin: 0 auto;
+}
+
+.contactContent p strong {
+  color: var(--primary);
+}
+
+.contactTitle {
+  composes: sectionTitle from '../styles/utils.module.css';
+}
+
+.contactEmail {
+  display: flex;
+  justify-content: center;
+}
+
+.contactEmailLink {
+  composes: primaryButton from '../styles/utils/button.module.css';
+  padding: 1em 1.5em;
+}
+
+.contactSocialList {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+/* footer */
+
+.footer {
+  composes: container from '../styles/utils.module.css';
+  padding: 1em 0;
+}
+
+.footerName {
+  text-align: center;
+  position: relative;
+  padding-bottom: 1rem;
+  color: var(--light-text);
+}
+
+.footerName::after {
+  content: '';
+  width: 100%;
+  height: 1px;
+  background-color: var(--secondary);
+  position: absolute;
+  top: -2rem;
+  right: 0;
+  left: 0;
+}
+
+.footerIcon {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  /* header */
+  .headerImage img {
+    width: 66%;
+  }
+
+  .headerImage::before {
+    width: 66%;
+  }
+
+  .headerImage::after {
+    width: 66%;
+  }
+
+  .headerDescription {
+    width: 80%;
+  }
+
+  /* showcase */
+  .showcaseProjects {
+    gap: 6rem;
+  }
+
+  .projects {
+    grid-template-columns: repeat(auto-fill, minmax(29rem, 1fr));
+    grid-auto-rows: minmax(20rem, 1fr);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .headerContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .sectionContainer {
+    margin: 7rem auto;
+  }
+
+  .headerContent {
+    margin: 0;
+  }
+
+  .headerImage,
+  .headerImage img {
+    margin: 0;
+  }
+
+  .headerInformation {
+    /* padding-left: 2rem; */
+    align-self: start;
+    justify-self: start;
+    margin: 0;
+  }
+
+  .headerInformation > *:not(:last-child) {
+    margin-block-end: 2rem;
+  }
+
+  /* About Section */
+  .aboutContent {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    grid-template-areas:
+      'text image'
+      'skills image';
+  }
+
+  .projects {
+    grid-auto-rows: minmax(26rem, 1fr);
+  }
+
+  .aboutImage {
+    align-self: start;
+    margin-top: 5rem;
+  }
+
+  .aboutImage img {
+    margin: 0;
+  }
+
+  .aboutText p {
+    line-height: 1.7;
+  }
+
+  .skillsList {
+    gap: 1.5rem;
+  }
+
+  .titleContainer {
+    margin-bottom: 3.5rem;
+  }
+}

@@ -1,0 +1,38 @@
+.container {
+  width: min(88%, 125rem);
+  margin: 0 auto;
+}
+
+.miniContainer {
+  width: min(100%, 100rem);
+  margin: 0 auto;
+}
+
+.sectionTitleContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sectionTitle {
+  font-size: clamp(2.4rem, 5vw, 3.2rem);
+  position: relative;
+  text-align: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-weight: 600;
+  color: var(--light-text);
+}
+
+.sectionTitle::before {
+  content: '';
+  position: absolute;
+  bottom: -1rem;
+  left: 0;
+  right: 0;
+  width: 85%;
+  height: 5px;
+  transform: translateX(8%);
+  background-color: var(--primary);
+  border-radius: 10px;
+}

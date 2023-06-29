@@ -12,6 +12,7 @@ import LinkedinIcon from '@/components/Icons/Linkedin';
 import DogIcon from '@/components/Icons/Dog';
 import Section from '@/components/Section/Section';
 import ProjectCard from '@/components/ProjectCard/ProjectCard';
+import personImage from '../../public/placeholder.jpg';
 
 const SourceSansPro = Source_Sans_Pro({
   subsets: ['latin'],
@@ -127,7 +128,7 @@ export default function Home({
             <div className={styles.aboutContent}>
               <div className={styles.aboutImage}>
                 <Image
-                  src="/placeholder.jpg"
+                  src={personImage}
                   width={500}
                   height={500}
                   alt="image of jorge mendoza"

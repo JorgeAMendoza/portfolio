@@ -101,6 +101,8 @@ const ShowcasePage = ({
               alt={`image of ${frontMatter.title}`}
               className={style.projectImage}
               priority={true}
+              placeholder="blur"
+              blurDataURL={frontMatter.projectImage}
             />
 
             <Image
@@ -110,6 +112,8 @@ const ShowcasePage = ({
               alt={`gif of ${frontMatter.title} being used`}
               className={style.projectGif}
               priority={true}
+              placeholder="blur"
+              blurDataURL={frontMatter.projectImage}
             />
           </div>
         </section>

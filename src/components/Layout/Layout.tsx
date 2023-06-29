@@ -1,8 +1,8 @@
+import { Open_Sans, Source_Sans_Pro } from 'next/font/google';
 import Head from 'next/head';
 import { ReactNode } from 'react';
 import NavBar from '../NavBar/NavBar';
-import { Open_Sans, Source_Sans_Pro } from 'next/font/google';
-import style from './layout.module.css';
+import style from './Layout.module.css';
 
 const openSans = Open_Sans({ subsets: ['latin'] });
 const sourceSansPro = Source_Sans_Pro({ subsets: ['latin'], weight: '600' });

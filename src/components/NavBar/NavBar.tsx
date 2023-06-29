@@ -1,12 +1,12 @@
-import Image from 'next/image';
-import styles from './navbar.module.css';
-import { useEffect, useMemo, useState } from 'react';
-import clsx from 'clsx';
-import useIsMobile from '@/hooks/useMedia';
-import { Space_Mono } from 'next/font/google';
-import Link from 'next/link';
 import useClickOutside from '@/hooks/useClickOutside';
+import useIsMobile from '@/hooks/useMedia';
+import clsx from 'clsx';
+import { Space_Mono } from 'next/font/google';
+import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useEffect, useMemo, useState } from 'react';
+import styles from './NavBar.module.css';
 
 const SpaceMono = Space_Mono({
   subsets: ['latin'],

@@ -51,6 +51,10 @@ const ShowcasePage = ({
     <Layout>
       <Head>
         <title>{frontMatter.title}</title>
+        <meta
+          name="description"
+          content={`Information for the ${frontMatter.title} project created by Jorge A. Mendoza`}
+        />
       </Head>
 
       <main className={style.projectPage}>

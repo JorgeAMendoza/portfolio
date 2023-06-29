@@ -46,12 +46,11 @@ export default function Home({
   return (
     <Layout>
       <Head>
-        <title>Jorge Mendoza</title>
+        <title>Jorge A. Mendoza</title>
         <meta
           name="description"
-          content="Portfolio website createdy by and for Jorge Mendoza"
+          content="Portfolio website created by and for Jorge A. Mendoza"
         />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>

@@ -50,6 +50,7 @@
   border: 1px solid var(--primary);
   width: -moz-fit-content;
   width: fit-content;
+  background-color: var(--secondary);
 }
 
 .projectImageContainer::after {

@@ -4,8 +4,6 @@ import style from './table-item.module.css';
 import { Source_Sans_Pro } from 'next/font/google';
 import triangleSVG from '../../../../public/icons/triangle.svg';
 
-console.log(triangleSVG);
-
 const SourceSansPro = Source_Sans_Pro({
   subsets: ['latin'],
   weight: ['400', '600'],

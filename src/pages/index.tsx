@@ -6,10 +6,12 @@ import { GetStaticProps } from 'next';
 import { getProjectInfo, getShowcaseInfo } from '@/lib/get-project-info';
 import { Source_Sans_Pro, Space_Mono } from 'next/font/google';
 import styles from '../styles/index.module.css';
-import TwitterIcon from '@/components/Icons/Twitter';
-import GitHubIcon from '@/components/Icons/GitHub';
-import LinkedinIcon from '@/components/Icons/Linkedin';
-import DogIcon from '@/components/Icons/Dog';
+import {
+  TwitterIcon,
+  GitHubIcon,
+  LinkedinIcon,
+  DogIcon,
+} from '@/components/Icons';
 import Section from '@/components/Section/Section';
 import ProjectCard from '@/components/ProjectCard/ProjectCard';
 import personImage from '../../public/placeholder.jpg';

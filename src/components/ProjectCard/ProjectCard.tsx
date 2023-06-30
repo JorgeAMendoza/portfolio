@@ -1,8 +1,7 @@
 import styles from './project-card.module.css';
 import { Space_Mono } from 'next/font/google';
 import { useInView } from 'react-intersection-observer';
-import GitHubIcon from '../Icons/GitHub';
-import LinkIcon from '../Icons/Link';
+import { GitHubIcon, LinkIcon } from '../Icons';
 
 const SpaceMono = Space_Mono({
   subsets: ['latin'],

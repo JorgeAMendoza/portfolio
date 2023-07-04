@@ -14,7 +14,7 @@ import {
 } from '@/components/Icons';
 import Section from '@/components/Section/Section';
 import ProjectCard from '@/components/ProjectCard/ProjectCard';
-import personImage from '../../public/placeholder.jpg';
+import personImage from '../../public/placeholder.jpeg';
 import schoolIcon from '../../public/icons/school-icon.svg';
 import locationIcon from '../../public/icons/location-icon.svg';
 

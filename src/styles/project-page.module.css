@@ -159,8 +159,7 @@
 
 .projectContent code,
 .projectContent pre {
-  white-space: pre-wrap;
-  word-wrap: break-word;
+  overflow-x: auto;
   font-size: 1.4rem;
 }
 
@@ -168,6 +167,18 @@
   background-color: var(--secondary);
   padding: 1.5em;
   border-radius: 5px;
+}
+
+.projectContent pre::-webkit-scrollbar-thumb {
+  border: none;
+  border-radius: 0%;
+  border: none;
+}
+
+.projectContent pre::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: var(--secondary);
 }
 
 .projectContent ul {

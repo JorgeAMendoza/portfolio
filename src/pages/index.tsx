@@ -6,12 +6,17 @@ import { GetStaticProps } from 'next';
 import { getProjectInfo, getShowcaseInfo } from '@/lib/get-project-info';
 import { Source_Sans_Pro, Space_Mono } from 'next/font/google';
 import styles from '../styles/index.module.css';
-import TwitterIcon from '@/components/Icons/Twitter';
-import GitHubIcon from '@/components/Icons/GitHub';
-import LinkedinIcon from '@/components/Icons/Linkedin';
-import DogIcon from '@/components/Icons/Dog';
+import {
+  TwitterIcon,
+  GitHubIcon,
+  LinkedinIcon,
+  DogIcon,
+} from '@/components/Icons';
 import Section from '@/components/Section/Section';
 import ProjectCard from '@/components/ProjectCard/ProjectCard';
+import personImage from '../../public/placeholder.jpg';
+import schoolIcon from '../../public/icons/school-icon.svg';
+import locationIcon from '../../public/icons/location-icon.svg';
 
 const SourceSansPro = Source_Sans_Pro({
   subsets: ['latin'],
@@ -74,7 +79,7 @@ export default function Home({
                     <p className={styles.iconInfo}>
                       <span>
                         <Image
-                          src="/icons/location-icon.svg"
+                          src={locationIcon}
                           alt="location icon"
                           width={30}
                           height={30}
@@ -85,7 +90,7 @@ export default function Home({
                     <p className={styles.iconInfo}>
                       <span>
                         <Image
-                          src="/icons/school-icon.svg"
+                          src={schoolIcon}
                           alt="school icon"
                           width={30}
                           height={30}
@@ -127,10 +132,11 @@ export default function Home({
             <div className={styles.aboutContent}>
               <div className={styles.aboutImage}>
                 <Image
-                  src="/placeholder.jpg"
+                  src={personImage}
                   width={500}
                   height={500}
                   alt="image of jorge mendoza"
+                  placeholder="blur"
                 />
               </div>
               <div className={styles.aboutText}>

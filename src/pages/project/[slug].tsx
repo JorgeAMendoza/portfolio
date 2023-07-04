@@ -13,6 +13,7 @@ import Image from 'next/image';
 import path from 'path';
 import rehypeSlug from 'rehype-slug';
 import style from '../../styles/project-page.module.css';
+import { shimmer, toBase64 } from '@/lib/shimmer';
 
 const SpaceMono = Space_Mono({
   subsets: ['latin'],
@@ -101,6 +102,10 @@ const ShowcasePage = ({
               alt={`image of ${frontMatter.title}`}
               className={style.projectImage}
               priority={true}
+              placeholder="blur"
+              blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                shimmer(400, 325)
+              )}`}
             />
 
             <Image
@@ -110,6 +115,10 @@ const ShowcasePage = ({
               alt={`gif of ${frontMatter.title} being used`}
               className={style.projectGif}
               priority={true}
+              placeholder="blur"
+              blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                shimmer(900, 650)
+              )}`}
             />
           </div>
         </section>

@@ -3,6 +3,7 @@ import styles from './FeatureCard.module.css';
 import { Space_Mono } from 'next/font/google';
 import Link from 'next/link';
 import { useInView } from 'react-intersection-observer';
+import { shimmer, toBase64 } from '@/lib/shimmer';
 
 const SpaceMono = Space_Mono({
   subsets: ['latin'],
@@ -29,6 +30,10 @@ const FeatureCard = ({ project }: FeatureCardProps) => {
           alt="gif displaying project in action"
           width={627}
           height={359}
+          placeholder="blur"
+          blurDataURL={`data:image/svg+xml;base64,${toBase64(
+            shimmer(627, 359)
+          )}`}
         />
       </div>
 

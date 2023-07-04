@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import style from './table-item.module.css';
 import { Source_Sans_Pro } from 'next/font/google';
+import triangleSVG from '../../../../public/icons/triangle.svg';
 
 const SourceSansPro = Source_Sans_Pro({
   subsets: ['latin'],
@@ -27,7 +28,7 @@ const TableItem = ({ subSections, mainSection }: TableSubMenuProps) => {
             onClick={() => setIsOpen(!isOpen)}
             data-flip={isOpen}
           >
-            <Image src="/icons/triangle.svg" width={10} height={10} alt="" />
+            <Image src={triangleSVG} width={10} height={10} alt="" />
           </button>
           <a
             className={SourceSansPro.className}

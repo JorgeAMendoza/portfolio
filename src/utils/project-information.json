@@ -52,7 +52,7 @@
     "name": "BMI Calculator",
     "description": "A web page where users can get their BMI score and receive more information about the BMI Score. Built with React and tested with Cypress",
     "repoLink": "https://github.com/JorgeAMendoza/bmi-calculator",
-    "demoLink": "https://bmi-calculator-umber.vercel.app/",
+    "demoLink": "https://bmi-calculator-nu-peach.vercel.app/",
     "tools": ["react", "typescript", "styled-components", "cypress"]
   }
 ]

@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import TableItem from './TableItem/TableItem';
 import style from './table-of-contents.module.css';
+import hamburgerMenuSVG from '../../../public/icons/hamburger-menu-dark.svg';
 
 interface TableItemProps {
   tableOfContents: {
@@ -42,12 +43,7 @@ const TableOfContents = ({ tableOfContents }: TableItemProps) => {
         className={style.menuButton}
         onClick={() => setTableOpen(!tableOpen)}
       >
-        <Image
-          src="/icons/hamburger-menu-dark.svg"
-          width={30}
-          height={30}
-          alt=""
-        />{' '}
+        <Image src={hamburgerMenuSVG} width={30} height={30} alt="" />{' '}
       </button>
     </div>
   );

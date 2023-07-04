@@ -14,7 +14,7 @@ import {
 } from '@/components/Icons';
 import Section from '@/components/Section/Section';
 import ProjectCard from '@/components/ProjectCard/ProjectCard';
-import personImage from '../../public/placeholder.jpeg';
+import jorgeImage from '../../public/jorge.jpg';
 import schoolIcon from '../../public/icons/school-icon.svg';
 import locationIcon from '../../public/icons/location-icon.svg';
 
@@ -132,7 +132,7 @@ export default function Home({
             <div className={styles.aboutContent}>
               <div className={styles.aboutImage}>
                 <Image
-                  src={personImage}
+                  src={jorgeImage}
                   width={500}
                   height={500}
                   alt="image of jorge mendoza"

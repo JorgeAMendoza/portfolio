@@ -103,7 +103,7 @@ export default function Home({
 
                 <p className={styles.headerDescription}>
                   A Front-End Software Engineer from Dallas, TX who focuses on
-                  creating accessible and performent user experiences on the
+                  creating accessible and performant user experiences on the
                   web. I am currently learning about full-stack development and
                   looking to launch my web development career.
                 </p>

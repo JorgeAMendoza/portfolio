@@ -14,7 +14,7 @@ import {
 } from '@/components/Icons';
 import Section from '@/components/Section/Section';
 import ProjectCard from '@/components/ProjectCard/ProjectCard';
-import jorgeImage from '../../public/jorge.webp';
+import jorgeImage from '../../public/jorge-image.webp';
 import schoolIcon from '../../public/icons/school-icon.svg';
 import locationIcon from '../../public/icons/location-icon.svg';
 

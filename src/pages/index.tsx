@@ -164,7 +164,7 @@ export default function Home({
                   I am currently open to job opportunities where I can
                   <em> contribute, learn, and grow</em> as a software developer
                   and as a person. If you believe that I am a developer that
-                  will mesh will with your team and goals, please feel free to
+                  will mesh well with your team and goals, please feel free to
                   contact me.
                 </p>
               </div>

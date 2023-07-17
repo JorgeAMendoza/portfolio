@@ -24,11 +24,18 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
       className={`${styles.projectCardContainer} ${
         inView ? styles.projectCardContainerShow : ''
       }`}
+      aria-labelledby="projectName"
     >
       <div className={styles.projectCard}>
         <div className={styles.projectTitle}>
           <h3>
-            <a href={project.demoLink} target="_blank" rel="noreferrer">
+            <a
+              href={project.demoLink}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`link to the live demo of the ${project.name} project`}
+              id="projectName"
+            >
               {project.name}
             </a>
           </h3>

@@ -299,11 +299,11 @@ export default function Home({
               </h2>
             </div>
 
-            <div className={styles.showcaseProjects}>
+            <ul className={styles.showcaseProjects}>
               {showcaseInformation.map((showcase) => (
                 <FeatureCard key={showcase.id} project={showcase} />
               ))}
-            </div>
+            </ul>
           </section>
         </Section>
 

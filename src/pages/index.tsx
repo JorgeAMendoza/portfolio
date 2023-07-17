@@ -317,11 +317,11 @@ export default function Home({
               </h2>
             </div>
 
-            <div className={styles.projects}>
+            <ul className={styles.projects}>
               {projectsInformation.map((project, i) => (
                 <ProjectCard key={project.id} index={i} project={project} />
               ))}
-            </div>
+            </ul>
           </section>
         </Section>
 

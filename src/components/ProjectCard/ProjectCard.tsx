@@ -19,7 +19,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
     triggerOnce: true,
   });
   return (
-    <figure
+    <li
       ref={ref}
       className={`${styles.projectCardContainer} ${
         inView ? styles.projectCardContainerShow : ''
@@ -27,7 +27,16 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
     >
       <div className={styles.projectCard}>
         <div className={styles.projectTitle}>
-          <h3>{project.name}</h3>
+          <h3>
+            <a
+              href={project.demoLink}
+              target="_blank"
+              aria-label={`link to project preview for ${project.name}`}
+              rel="noreferrer"
+            >
+              {project.name}
+            </a>
+          </h3>
           <div className={styles.projectLinks}>
             <span>
               <a
@@ -36,15 +45,6 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                 aria-label={`link to github repository for ${project.name}`}
               >
                 <GitHubIcon />
-              </a>
-            </span>
-            <span>
-              <a
-                href={project.demoLink}
-                target="_blank"
-                aria-label={`link to project preview for ${project.name}`}
-              >
-                <LinkIcon />
               </a>
             </span>
           </div>
@@ -62,7 +62,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
           </ul>
         </footer>
       </div>
-    </figure>
+    </li>
   );
 };
 

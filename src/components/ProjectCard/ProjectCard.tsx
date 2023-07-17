@@ -1,7 +1,7 @@
 import styles from './project-card.module.css';
 import { Space_Mono } from 'next/font/google';
 import { useInView } from 'react-intersection-observer';
-import { GitHubIcon, LinkIcon } from '../Icons';
+import { GitHubIcon } from '../Icons';
 
 const SpaceMono = Space_Mono({
   subsets: ['latin'],
@@ -28,12 +28,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
       <div className={styles.projectCard}>
         <div className={styles.projectTitle}>
           <h3>
-            <a
-              href={project.demoLink}
-              target="_blank"
-              aria-label={`link to project preview for ${project.name}`}
-              rel="noreferrer"
-            >
+            <a href={project.demoLink} target="_blank" rel="noreferrer">
               {project.name}
             </a>
           </h3>

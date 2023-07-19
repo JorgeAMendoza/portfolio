@@ -85,6 +85,11 @@
   padding-bottom: 2.5rem;
 }
 
+.projectContent a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .projectContent p,
 .projectContent li,
 .projectContent p code,

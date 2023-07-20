@@ -43,7 +43,7 @@ The requirement of the project is to create an entertainment app where a user ca
 
 ## Techstack Used
 
-This section contains information about the technology used for both the front-end and backend. [ESlint](https://eslint.org/) is used to lint the application, with one general ESLint file created which to apply rules which target both the front and backend.
+This section contains information about the technology used for both the front-end and backend. [ESlint](https://eslint.org/) is used to lint the application, with one general ESLint file created to apply linting rules that target both the front and backend.
 
 ### Frontend
 
@@ -76,7 +76,7 @@ I chose GraphQL as the server because it was easier to structure and grab data f
 
 Before starting this project, I had just learned about Docker basics and its benefits to frontend/backend development. Two Docker Compose files were created that initalize a database in a virtual environment that can be accessed by the application. One for the developer environment, the other for the test environment(does not initialize data on build, and allows for the use of a reset query for the entire database). A JavaScript file in the root directory was created which is used by docker to intialize the database in the docker container.
 
-`docker-compose-test.yml` was created to create and run a test database and server for the application. The `docker-compose.production.yml` file was created to create and run a production database and server for the application, which is used to test production locally.
+The [`docker-compose-test.yml`](https://github.com/JorgeAMendoza/entertainment-web-app/blob/main/docker-compose.test.yml) was created to create and run a test database and server for the application. The `docker-compose.production.yml` file was created to create and run a production database and server for the application, which is used to test production locally.
 
 ## Development
 
@@ -90,7 +90,7 @@ I had experience building one-page applications before, but had never built an a
 
 How content is searched can depend on the page the user is on. On the Movies/Shows/Bookmark page, when a user searches for content, cached data will be served instead of making a call to the server (if there is no cached data then server is called).
 
-In the [`Movie.tsx`](https://github.com/JorgeAMendoza/entertainment-web-app/blob/main/client/src/routes/Movies.tsx) component/page, a memoized value of searched content is created when the user changes the value of the search text, if there is search text, we pass that data to the [`SearchResults.tsx`](https://github.com/JorgeAMendoza/entertainment-web-app/blob/main/client/src/components/SearchResults/SearchResults.tsx) component to display the filtered data.
+In the [`Movie.tsx`](https://github.com/JorgeAMendoza/entertainment-web-app/blob/main/client/src/routes/Movies.tsx) route, a memoized value of searched content is created when the user changes the value of the search text, if there is search text, we pass that data to the [`SearchResults.tsx`](https://github.com/JorgeAMendoza/entertainment-web-app/blob/main/client/src/components/SearchResults/SearchResults.tsx) component to display the filtered data.
 
 The homepage handles searching differently, due to the query structure on the GraphQL server, there is a query hook that returns content based on the title text a user has passed in.
 
@@ -98,39 +98,39 @@ In the [`Homepage.tsx`](https://github.com/JorgeAMendoza/entertainment-web-app/b
 
 #### React Router
 
-To allow seamless page navigation, verion six of the the _react-router_ library was implemented. If any error occurs users will receive an error page and be navigated back to the login page. _React.Suspense_ was implemented to lazy load pages that may not be selected. For example, the `Movies.tsx` will not be imported on initial page load, but when a user navigates to "movies", then they are shown a loading component until the page component is imported. The implementation of the router can be found in the [`main.tsx`](https://github.com/JorgeAMendoza/entertainment-web-app/blob/main/client/src/main.tsx) component.
+To allow seamless page navigation, verion six of the the _react-router_ library was implemented. If any error occurs, users will receive an error page and be navigated back to the login page. _React.Suspense_ was implemented to lazy load pages that may not be selected. For example, the `Movies.tsx` will not be imported on initial page load, but when a user navigates to "movies", then they are shown a loading component until the page component is imported. The implementation of the router can be found in the [`main.tsx`](https://github.com/JorgeAMendoza/entertainment-web-app/blob/main/client/src/main.tsx) component.
 
 #### Log in/Sign up
 
 Users can navigate to the login page and sign up page, and once verified, the user is directed to the homepage. A JSON WebToken is created in saved in [local storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), which is inserted into every query to the backend for continous authentication.
 
-When a user leaves the applicaiton and returns, if the token in the local storage is still valid, they are navigated direclty to the homepage, else the application navigates back to the login page. The **Dashboard** route calls a GraphQL query to verify the token, which is handled in the [`Dashboard.tsx`](https://github.com/JorgeAMendoza/entertainment-web-app/blob/main/client/src/routes/Dashboard/Dashboard.tsx) component.
+When a user leaves the application and returns, if the token in the local storage is still valid, they are navigated direclty to the homepage, else the application navigates back to the login page. The **Dashboard** route calls a GraphQL query to verify the token, which is handled in the [`Dashboard.tsx`](https://github.com/JorgeAMendoza/entertainment-web-app/blob/main/client/src/routes/Dashboard/Dashboard.tsx) component.
 
 _Formik_ is used to manage the form state, however, in the future I want to switch over to [react-hook-form](https://react-hook-form.com/) since I find building forms with that library works better than Formik.
 
 #### GraphQL/Apollo Client
 
-The _Apollo Client_ library is used to handle state management for GraphQL queries and mutations. Similar to the backend, the _codegen_ library is used to read a GraphQL schema file and generate the necesssary types and hooks based on the schema. The generated hooks can be found in the [`graphql.tsx`](https://github.com/JorgeAMendoza/entertainment-web-app/blob/main/client/src/generated/graphql.tsx) file, with examples of the hook used in the [`Movie.tsx`](https://github.com/JorgeAMendoza/entertainment-web-app/blob/main/client/src/routes/Movies.tsx) component and the [`SmallContent.tsx`](https://github.com/JorgeAMendoza/entertainment-web-app/blob/main/client/src/components/SmallContent/SmallContent.tsx#L38) component.
+The _Apollo Client_ library is used to handle state management for GraphQL queries and mutations. Similar to the backend, the _codegen_ library is used to read a GraphQL schema file and generate the necesssary types and hooks based on the schema. The generated hooks can be found in the [`graphql.tsx`](https://github.com/JorgeAMendoza/entertainment-web-app/blob/main/client/src/generated/graphql.tsx) file, with examples of the hook used in the [`Movie.tsx`](https://github.com/JorgeAMendoza/entertainment-web-app/blob/main/client/src/routes/Movies.tsx) component and the [`SmallContent.tsx`](https://github.com/JorgeAMendoza/entertainment-web-app/blob/main/client/src/components/SmallContent/SmallContent.tsx#L38) component. These generated hooks give us necessary type-safety to work with the API. To be honest, I don't believe I would have been able to create this system without the use of TypeScript and the codegen library.
 
 ### Backend
 
-This was my first time creating my own backend service, however, thanks to [Fullstack TypeScript](https://frontendmasters.com/courses/fullstack-typescript/) course provided by [FrontEndMasters](https://frontendmasters.com/), I was able to find a good starting point to begin the process. I had knowledge of both TypeScript and GraphQL, but didnt't have the experience putting it all togther. This course really helped me start this project and help make it what it is today.
+This was my first time creating my own backend service, thanks to [Fullstack TypeScript](https://frontendmasters.com/courses/fullstack-typescript/) course provided by [FrontEndMasters](https://frontendmasters.com/), I was able to find a good starting point to begin the process. I had knowledge of both TypeScript and GraphQL, but didnt't have the experience putting it all togther. This course really helped me start this project and help make it what it is today.
 
 #### Server Configuration/Constants
 
-For production and development purposes, the file [`constants.ts`](https://github.com/JorgeAMendoza/entertainment-web-app/blob/main/server/src/utils/constants.ts) containing various constant variables was created that can be accessed throught the application that provide the following information:
+For production and development purposes, the file [`constants.ts`](https://github.com/JorgeAMendoza/entertainment-web-app/blob/main/server/src/utils/constants.ts) contains various constant variables that can be accessed throught the application that provide the following information:
 
 - Path for client code
 - Path to static folder
 - Path to the GraphQL Schema
 - Port for the GraphQL server
-- The MongoDB URL to use.
+- The MongoDB URL to use
 
 #### Creating the server
 
 In the file [`apollo-server.ts`](https://github.com/JorgeAMendoza/entertainment-web-app/blob/main/server/src/apollo/apollo-sever.ts), the GraphQL server is created along with express, and acts as as a middlware for the application. The GraphQL Schema file is located in the root directory and contains query and mutation information for the server. The path to the schema is provided to the apollo server thanks to the constant variable created in the `constants.ts` file. A file named `resolvers.ts` contains an object with the resolver information which is imported into this file and injected into the apollo server arguments using the `addResolversToSchema` method.
 
-The apollo server creates a context which extracts a possible JWT token, decodes the token, and returns the decoded data as `currentUser` in every resolver. It checks for a authorization header, and if there is a valid head, it attempts to decode a token, else it skips this step. If it doesnt find a token then `currentUser` is null the GraphQL query or mutation will throw an error as seen below:
+The apollo server creates a context which extracts a possible JWT token, decodes the token, and returns the decoded data as `currentUser` in every resolver. It checks for a authorization header, and if there is a valid head, it attempts to decode a token, else it skips this step. If it doesnt find a token, then `currentUser` is null the GraphQL query or mutation will throw an error. Some endpoints do not require authentication, so it was necessary to not throw an error on every empty JWT token.
 
 GraphQL resolvers and the handling of errors can be found in the [`resolvers`](https://github.com/JorgeAMendoza/entertainment-web-app/tree/main/server/src/apollo/resolvers) directory in the GitHub respository.
 
@@ -138,7 +138,7 @@ The only plugin provided is the [`ApolloServerPluginDrainHttpServer`](https://ww
 
 #### Intializing the Server
 
-The `main` function found in [`index.ts`](https://github.com/JorgeAMendoza/entertainment-web-app/blob/main/server/src/index.ts)function intializes the server by executing the following:
+The `main` function found in [`index.ts`](https://github.com/JorgeAMendoza/entertainment-web-app/blob/main/server/src/index.ts) intializes the server by executing the following:
 
 1. create a path to the static folder whcih will contain images used by the application.
 2. Use the `createApolloServer` function with an HTTP server passsed in along with the express application created above the main function.
@@ -157,6 +157,7 @@ The movie and show schemas contain the title, rating, links to images, etc. Type
 Models were created to interact with the database instead of having the queries/mutations interact with the database directly.
 
 The file [`movie-service.ts`](https://github.com/JorgeAMendoza/entertainment-web-app/blob/main/server/src/database/services/movie-service.ts) contains various functions that interface with the database. For example, the `getAllMovies` function uses the schema method `find` to grab all movies from the database. The `insertMovie` function creates a new movie object using the `NewMovie` type, and saves it to the database. The `deleteMovieById` function grabs a movie by its id, and deletes it from the database.
+
 
 The directory [`services`](https://github.com/JorgeAMendoza/entertainment-web-app/tree/main/server/src/database/services) contains the services for the user, movie, and show schemas.
 

@@ -24,7 +24,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
       className={`${styles.projectCardContainer} ${
         inView ? styles.projectCardContainerShow : ''
       }`}
-      aria-labelledby="projectName"
+      aria-labelledby={`project${project.name}`}
     >
       <div className={styles.projectCard}>
         <div className={styles.projectTitle}>
@@ -34,7 +34,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               target="_blank"
               rel="noreferrer"
               aria-label={`link to the live demo of the ${project.name} project`}
-              id="projectName"
+              id={`project${project.name}`}
             >
               {project.name}
             </a>

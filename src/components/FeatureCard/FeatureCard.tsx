@@ -23,7 +23,7 @@ const FeatureCard = ({ project }: FeatureCardProps) => {
     <li
       className={`${styles.card} ${inView ? styles.cardShow : ''}`}
       ref={ref}
-      aria-labelledby="projectName"
+      aria-labelledby={`project${project.name}`}
     >
       <div className={styles.cardImage}>
         <Image
@@ -39,10 +39,10 @@ const FeatureCard = ({ project }: FeatureCardProps) => {
       </div>
 
       <div className={styles.cardContent}>
-        <h3 className={styles.cardTitle}>{project.name}</h3>
-        <p className={styles.cardDescription} id="projectName">
-          {project.description}
-        </p>
+        <h3 className={styles.cardTitle} id={`project${project.name}`}>
+          {project.name}
+        </h3>
+        <p className={styles.cardDescription}>{project.description}</p>
         <ul className={`${SpaceMono.className} ${styles.cardTools}`}>
           {project.tools.map((tool) => (
             <li key={tool}>{tool}</li>

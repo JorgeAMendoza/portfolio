@@ -65,7 +65,7 @@ export default function Home({
               <div
                 className={`${SourceSansPro.className} ${styles.headerTitle}`}
               >
-                <p className={styles.headerIntro}>Hey 🙋🏽‍♂️, my name is</p>
+                <p className={styles.headerIntro}>Welcome! 🙋🏽‍♂️ My name is...</p>
                 <h1 className={styles.headerTitleText}>
                   Jorge A. Mendoza
                   <span className={styles.headerSubtitle}>
@@ -102,10 +102,11 @@ export default function Home({
                 </div>
 
                 <p className={styles.headerDescription}>
-                  A Front-End Software Engineer from Dallas, TX who focuses on
-                  creating accessible and performant user experiences on the
-                  web. I am currently learning about full-stack development and
-                  looking to launch my web development career.
+                  A Front-End Software Engineer who focuses on creating
+                  accessible and performant user experiences on the web. With a
+                  fine eye for detail and a passion for learning, I am always
+                  searching for ways to improve the quality of the web for all
+                  users.
                 </p>
               </div>
 
@@ -155,17 +156,17 @@ export default function Home({
                 <p>
                   I have used <em>React, TypeScript, Styled-Components</em> and
                   other tools to create user-interfaces that are responsive,
-                  performant, and accessible. From creating password generators
-                  to full-stack applications with authentication, I have a set
-                  of skills that allow me to plan, test, and create user
-                  interfaces.
+                  performant, and accessible. From developing password
+                  generators to full-stack applications with authentication and
+                  integration testing, I have a set of skills that allow me to
+                  plan, test, and create user interfaces.
                 </p>
                 <p>
                   I am currently open to job opportunities where I can
                   <em> contribute, learn, and grow</em> as a software developer
                   and as a person. If you believe that I am a developer that
                   will mesh well with your team and goals, please feel free to
-                  contact me.
+                  contact me!
                 </p>
               </div>
               <div>
@@ -299,11 +300,11 @@ export default function Home({
               </h2>
             </div>
 
-            <div className={styles.showcaseProjects}>
+            <ul className={styles.showcaseProjects}>
               {showcaseInformation.map((showcase) => (
                 <FeatureCard key={showcase.id} project={showcase} />
               ))}
-            </div>
+            </ul>
           </section>
         </Section>
 
@@ -317,11 +318,11 @@ export default function Home({
               </h2>
             </div>
 
-            <div className={styles.projects}>
+            <ul className={styles.projects}>
               {projectsInformation.map((project, i) => (
                 <ProjectCard key={project.id} index={i} project={project} />
               ))}
-            </div>
+            </ul>
           </section>
         </Section>
 
@@ -336,12 +337,12 @@ export default function Home({
                 </div>
 
                 <p>
-                  I am currently looking to launch my career into the web
-                  development industry, my inbox is always open! If you have any
-                  questions or just want to say hello, please feel free to
-                  contact me with the email link below. Please be sure to check
-                  out my social media profiles as well!{' '}
-                  <strong>Happy coding!</strong>
+                  I am currently looking for opportunies to{' '}
+                  <em>learn and grow</em> in the web development industry, my
+                  inbox is always open! If you have any questions or just want
+                  to say hello, please feel free to contact me with the email
+                  link below. Please be sure to check out my social media
+                  profiles as well! <strong>Happy coding!</strong>
                 </p>
               </div>
 
@@ -352,7 +353,7 @@ export default function Home({
                   rel="nonreferrer"
                   className={`${SpaceMono.className} ${styles.contactEmailLink}`}
                 >
-                  say hello
+                  lets chat!
                 </a>
               </div>
 

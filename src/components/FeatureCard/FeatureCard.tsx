@@ -20,14 +20,15 @@ const FeatureCard = ({ project }: FeatureCardProps) => {
     triggerOnce: true,
   });
   return (
-    <figure
+    <li
       className={`${styles.card} ${inView ? styles.cardShow : ''}`}
       ref={ref}
+      aria-labelledby={`project${project.name}`}
     >
       <div className={styles.cardImage}>
         <Image
           src={project.image}
-          alt="gif displaying project in action"
+          alt={`gif displaying the ${project.name} project`}
           width={627}
           height={359}
           placeholder="blur"
@@ -38,14 +39,16 @@ const FeatureCard = ({ project }: FeatureCardProps) => {
       </div>
 
       <div className={styles.cardContent}>
-        <h3 className={styles.cardTitle}>{project.name}</h3>
+        <h3 className={styles.cardTitle} id={`project${project.name}`}>
+          {project.name}
+        </h3>
         <p className={styles.cardDescription}>{project.description}</p>
         <ul className={`${SpaceMono.className} ${styles.cardTools}`}>
           {project.tools.map((tool) => (
             <li key={tool}>{tool}</li>
           ))}
         </ul>
-        <footer className={styles.cardFooter}>
+        <div className={styles.cardFooter}>
           <p>
             <Link
               href={project.projectPage}
@@ -55,9 +58,9 @@ const FeatureCard = ({ project }: FeatureCardProps) => {
               View Project &#62;
             </Link>
           </p>
-        </footer>
+        </div>
       </div>
-    </figure>
+    </li>
   );
 };
 

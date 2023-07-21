@@ -96,11 +96,11 @@ const ShowcasePage = ({
 
           <div className={style.projectImageContainer}>
             <Image
-              src={frontMatter.projectImage}
+              src={frontMatter.projectGif}
               width={400}
               height={325}
               alt={`image of ${frontMatter.title}`}
-              className={style.projectImage}
+              className={style.projectGifMobile}
               priority={true}
               placeholder="blur"
               blurDataURL={`data:image/svg+xml;base64,${toBase64(

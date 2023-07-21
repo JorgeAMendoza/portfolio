@@ -158,26 +158,6 @@
   transition: transform 0.3s ease;
 }
 
-.aboutImage::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: var(--primary);
-  width: 100%;
-  height: 100%;
-  opacity: 0.2;
-  border-radius: 5px;
-  z-index: 2;
-  transition: opacity 1s ease;
-}
-
-.aboutImage:hover::after,
-.aboutImage:focus-visible::after {
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
 .aboutContent > *:not(:last-child) {
   margin-bottom: 3rem;
 }
@@ -404,6 +384,6 @@
   }
 
   .titleContainer {
-    margin-bottom: 3.5rem;
+    margin-bottom: 5rem;
   }
 }

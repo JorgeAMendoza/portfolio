@@ -1,7 +1,7 @@
 import styles from './project-card.module.css';
 import { Space_Mono } from 'next/font/google';
 import { useInView } from 'react-intersection-observer';
-import { GitHubIcon, LinkIcon } from '../Icons';
+import { GitHubIcon } from '../Icons';
 
 const SpaceMono = Space_Mono({
   subsets: ['latin'],
@@ -19,15 +19,26 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
     triggerOnce: true,
   });
   return (
-    <figure
+    <li
       ref={ref}
       className={`${styles.projectCardContainer} ${
         inView ? styles.projectCardContainerShow : ''
       }`}
+      aria-labelledby={`project${project.name}`}
     >
       <div className={styles.projectCard}>
         <div className={styles.projectTitle}>
-          <h3>{project.name}</h3>
+          <h3>
+            <a
+              href={project.demoLink}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`link to the live demo of the ${project.name} project`}
+              id={`project${project.name}`}
+            >
+              {project.name}
+            </a>
+          </h3>
           <div className={styles.projectLinks}>
             <span>
               <a
@@ -36,15 +47,6 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                 aria-label={`link to github repository for ${project.name}`}
               >
                 <GitHubIcon />
-              </a>
-            </span>
-            <span>
-              <a
-                href={project.demoLink}
-                target="_blank"
-                aria-label={`link to project preview for ${project.name}`}
-              >
-                <LinkIcon />
               </a>
             </span>
           </div>
@@ -62,7 +64,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
           </ul>
         </footer>
       </div>
-    </figure>
+    </li>
   );
 };
 

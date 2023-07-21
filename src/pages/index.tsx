@@ -65,7 +65,7 @@ export default function Home({
               <div
                 className={`${SourceSansPro.className} ${styles.headerTitle}`}
               >
-                <p className={styles.headerIntro}>Hey 🙋🏽‍♂️, my name is</p>
+                <p className={styles.headerIntro}>Welcome! 🙋🏽‍♂️ My name is...</p>
                 <h1 className={styles.headerTitleText}>
                   Jorge A. Mendoza
                   <span className={styles.headerSubtitle}>

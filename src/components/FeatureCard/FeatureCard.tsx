@@ -23,7 +23,7 @@ const FeatureCard = ({ project }: FeatureCardProps) => {
     <li
       className={`${styles.card} ${inView ? styles.cardShow : ''}`}
       ref={ref}
-      aria-labelledby={`project${project.name}`}
+      aria-labelledby={`${project.id}-name`}
     >
       <div className={styles.cardImage}>
         <Image
@@ -39,7 +39,7 @@ const FeatureCard = ({ project }: FeatureCardProps) => {
       </div>
 
       <div className={styles.cardContent}>
-        <h3 className={styles.cardTitle} id={`project${project.name}`}>
+        <h3 className={styles.cardTitle} id={`${project.id}-name`}>
           {project.name}
         </h3>
         <p className={styles.cardDescription}>{project.description}</p>

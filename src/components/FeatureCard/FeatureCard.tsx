@@ -19,7 +19,6 @@ const FeatureCard = ({ project }: FeatureCardProps) => {
     threshold: 0.6,
     triggerOnce: true,
   });
-  console.log(console.log(project));
   return (
     <li
       className={`${styles.card} ${inView ? styles.cardShow : ''}`}

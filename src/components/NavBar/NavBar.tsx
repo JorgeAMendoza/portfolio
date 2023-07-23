@@ -107,7 +107,7 @@ const NavBar = () => {
               <div className={styles.mobileNavItemContainer}>
                 <a
                   href="/resume.pdf"
-                  target="__blank"
+                  target="_blank"
                   rel="nonreferrer"
                   className={SpaceMono.className}
                   onClick={() => setMenuOpen(false)}

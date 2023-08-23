@@ -134,8 +134,8 @@ export default function Home({
               <div className={styles.aboutImage}>
                 <Image
                   src={jorgeImage}
-                  width={500}
-                  height={500}
+                  width={400}
+                  height={530}
                   alt="image of jorge mendoza"
                   placeholder="blur"
                 />

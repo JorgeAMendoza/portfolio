@@ -24,6 +24,21 @@
     "tools": ["react", "typescript", "css-modules", "cypress"]
   },
   {
+    "id": "multi-step-form",
+    "name": "Multi-Step Form",
+    "description": "A simple React component that built with the Redux and React-hook-form libraries to create a mult-step form where that allows users to switch between each step while retaining the state of the previous and next step.",
+    "repoLink": "https://github.com/JorgeAMendoza/multi-step-form",
+    "demoLink": "https://multi-step-form-jade-delta.vercel.app/",
+    "tools": [
+      "react",
+      "typescript",
+      "redux",
+      "react-hook-form",
+      "styled-components",
+      "cypress"
+    ]
+  },
+  {
     "id": "memory-game",
     "name": "Memory Game",
     "description": "Single-page React application where users can play a memory game that includes the ability to play with multiple players and modes. Redux is used to keep track of game state and player scores.",
@@ -31,7 +46,7 @@
     "demoLink": "https://memory-game-three-lyart.vercel.app/",
     "tools": ["react", "typescript", "redux", "styled-components", "cypress"]
   },
-  { 
+  {
     "id": "github-search",
     "name": "Github User Search App",
     "description": "Using the GitHub API, users can search for the profiles of other GitHub users and see information such as their name, star count, and repository count. A light/dark theme is implemented.",

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import TableItem from './TableItem/TableItem';
 import style from './table-of-contents.module.css';
 import hamburgerMenuSVG from '../../../public/icons/hamburger-menu-dark.svg';
+import closeMenuSVG from '../../../public/icons/close-menu.svg';
 
 interface TableItemProps {
   tableOfContents: {
@@ -26,7 +27,7 @@ const TableOfContents = ({ tableOfContents }: TableItemProps) => {
           onClick={() => setTableOpen(!tableOpen)}
           className={style.closeTableButton}
         >
-          <Image src="/icons/close-menu.svg" width={30} height={30} alt="" />
+          <Image src={closeMenuSVG} width={30} height={30} alt="" />
         </button>
         <ul>
           {tableOfContents.map((section) => (

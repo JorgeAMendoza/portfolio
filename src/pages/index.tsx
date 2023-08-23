@@ -147,19 +147,19 @@ export default function Home({
                   My Story
                 </h3>
                 <p>
-                  An aspiring Front-end Developer looking for opportunities to
-                  learn and grow. In my senior year of college I took an
-                  introduction to web-development course, and since then I have
-                  continued to learn about the latest advances in the
-                  web-development environment and improve as a developer.
+                  A Front-end Developer looking for opportunities to learn and
+                  grow. In my senior year of college I took an introduction to
+                  web-development course, and since then I have continued to
+                  learn about the latest advances in the web-development
+                  environment and improve my skills as a developer.
                 </p>
                 <p>
                   I have used <em>React, TypeScript, Styled-Components</em> and
-                  other tools to create user-interfaces that are responsive,
-                  performant, and accessible. From developing password
-                  generators to full-stack applications with authentication and
-                  integration testing, I have a set of skills that allow me to
-                  plan, test, and create user interfaces.
+                  other tools to create user-interfaces that are{' '}
+                  <em>responsive, performant, and accessible</em>. From
+                  developing password generators to full-stack applications with
+                  authentication and integration testing, I have a set of skills
+                  that allow me to plan, test, and create user interfaces.
                 </p>
                 <p>
                   I am currently open to job opportunities where I can

@@ -59,6 +59,7 @@ const NavBar = () => {
           aria-label="open the navigation menu"
           aria-controls="mobile-nav"
           onClick={() => setMenuOpen(!menuOpen)}
+          type='button'
         >
           <Image
             src="/icons/hamburger-menu.svg"
@@ -73,6 +74,7 @@ const NavBar = () => {
             menuOpen && styles.showMenu
           )}`}
           aria-hidden={!menuOpen}
+          aria-label="Portfolio Navigation"
         >
           <ul className={styles.mobileNavList}>
             <li className={styles.mobileNavItem}>
@@ -119,7 +121,7 @@ const NavBar = () => {
           </ul>
         </nav>
         {/* desktop nav */}
-        <nav className={styles.navDesktop}>
+        <nav className={styles.navDesktop} aria-label="Portfolio Navigation" id="desktop-nav">
           <ul className={styles.navDesktopMenu}>
             <li className={styles.navDesktopItem}>
               <a href={navLinks[0]} onClick={() => setMenuOpen(false)}>

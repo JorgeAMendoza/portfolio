@@ -357,7 +357,7 @@ export default function Home({
                 </a>
               </div>
 
-              <div>
+              <nav aria-label="social media navigation">
                 <ul className={styles.contactSocialList}>
                   <li>
                     <a
@@ -391,7 +391,7 @@ export default function Home({
                     </a>
                   </li>
                 </ul>
-              </div>
+              </nav>
             </div>
           </section>
         </Section>

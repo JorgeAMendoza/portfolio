@@ -21,6 +21,7 @@ const TableOfContents = ({ tableOfContents }: TableItemProps) => {
       <nav
         className={style.tableOfContents}
         aria-hidden={tableOpen ? 'false' : 'true'}
+        aria-label='table of contents for project'
       >
         <button
           aria-label="close the table of contents menu"

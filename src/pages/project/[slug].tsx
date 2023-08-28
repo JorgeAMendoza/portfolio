@@ -1,5 +1,3 @@
-import GitHubIcon from '@/components/Icons/GitHub';
-import LinkIcon from '@/components/Icons/Link';
 import Layout from '@/components/Layout/Layout';
 import TableOfContents from '@/components/TableOfContents/TableOfContents';
 import fs from 'fs';
@@ -61,32 +59,25 @@ const ShowcasePage = ({
       <main className={style.projectPage}>
         <TableOfContents tableOfContents={frontMatter.tableOfContents} />
         <section className={style.projectHead}>
-          <div className={style.projectTitleInfo}>
+          <div>
             <h1 className={`${SourceSansPro.className} ${style.projectTitle}`}>
               {frontMatter.title}
             </h1>
-            <div className={style.projectLinks}>
-              <a
-                href={frontMatter.repoLink}
-                aria-label={`github repository for ${frontMatter.title}`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <GitHubIcon />
+            <nav
+              className={`${SourceSansPro.className} ${style.projectLinks}`}
+              aria-label="project links"
+            >
+              <a href={frontMatter.repoLink} target="_blank" rel="noreferrer">
+                GitHub
               </a>
-              <a
-                href={frontMatter.demoLink}
-                aria-label={`demo link for ${frontMatter.title}`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <LinkIcon />
+              <a href={frontMatter.demoLink} target="_blank" rel="noreferrer">
+                Live Demo
               </a>
-            </div>
+            </nav>
           </div>
 
           <div className={style.projectTools}>
-            <p className={SourceSansPro.className}>Tools Used</p>
+            <p className={SourceSansPro.className}>Tools</p>
             <ul className={`${SpaceMono.className}`}>
               {frontMatter.tools.map((tool) => (
                 <li key={tool}>{tool}</li>

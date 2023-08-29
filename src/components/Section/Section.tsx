@@ -3,7 +3,7 @@ import styled from './section.module.css';
 
 interface SectionProps {
   children: React.ReactNode;
-  threshold: number;
+  threshold: number[];
 }
 
 const Section = ({ children, threshold }: SectionProps) => {

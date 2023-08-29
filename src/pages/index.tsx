@@ -122,7 +122,7 @@ export default function Home({
           </section>
         </div>
 
-        <Section threshold={0.35}>
+        <Section threshold={[0.4, 0.25]}>
           <section id="about-me" className={styles.sectionContainer}>
             <div className={styles.titleContainer}>
               <h2 className={`${SourceSansPro.className} ${styles.aboutTitle}`}>
@@ -290,7 +290,7 @@ export default function Home({
           </section>
         </Section>
 
-        <Section threshold={0.3}>
+        <Section threshold={[0.27]}>
           <section id="project-showcase" className={styles.sectionContainer}>
             <div className={styles.titleContainer}>
               <h2
@@ -308,7 +308,7 @@ export default function Home({
           </section>
         </Section>
 
-        <Section threshold={0.2}>
+        <Section threshold={[0.25, 0.13]}>
           <section id="other-projects" className={styles.sectionContainer}>
             <div className={styles.titleContainer}>
               <h2
@@ -326,7 +326,7 @@ export default function Home({
           </section>
         </Section>
 
-        <Section threshold={0.35}>
+        <Section threshold={[0.35]}>
           <section id="contact-me" className={styles.sectionContainer}>
             <div className={styles.contactContent}>
               <div>
@@ -396,7 +396,7 @@ export default function Home({
           </section>
         </Section>
 
-        <Section threshold={0.35}>
+        <Section threshold={[0.35]}>
           {' '}
           <footer className={styles.footer}>
             <div className={styles.footerName}>

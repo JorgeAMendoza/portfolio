@@ -1,13 +1,8 @@
-import { useState } from 'react';
+import { sourceSansPro } from '@/utils/fonts';
 import Image from 'next/image';
-import style from './table-item.module.css';
-import { Source_Sans_Pro } from 'next/font/google';
+import { useState } from 'react';
 import triangleSVG from '../../../../public/icons/triangle.svg';
-
-const SourceSansPro = Source_Sans_Pro({
-  subsets: ['latin'],
-  weight: ['400', '600'],
-});
+import style from './table-item.module.css';
 
 interface TableSubMenuProps {
   subSections?: string[];
@@ -27,18 +22,17 @@ const TableItem = ({ subSections, mainSection }: TableSubMenuProps) => {
             aria-controls={`${mainSection.toLowerCase().replace(/\s/gi, '-')}`}
             onClick={() => setIsOpen(!isOpen)}
             data-flip={isOpen}
+            type="button"
           >
             <Image src={triangleSVG} width={10} height={10} alt="" />
           </button>
           <a
-            className={SourceSansPro.className}
+            className={sourceSansPro.className}
             href={`#${mainSection.toLowerCase().replace(/\s/gi, '-')}`}
           >
             {mainSection}
           </a>
 
-          {/* grid class to do height animation here */}
-          {/* the animation probably needs to be its own div,  */}
           <div className={style.tableSubMenuContainer} data-show={isOpen}>
             <ul
               id={`${mainSection.toLowerCase().replace(/\s/gi, '-')}-submenu`}
@@ -48,7 +42,7 @@ const TableItem = ({ subSections, mainSection }: TableSubMenuProps) => {
               {subSections.map((subSection) => (
                 <li key={subSection}>
                   <a
-                    className={SourceSansPro.className}
+                    className={sourceSansPro.className}
                     href={`#${subSection.toLowerCase().replace(/\s/gi, '-')}`}
                   >
                     {subSection}
@@ -60,7 +54,7 @@ const TableItem = ({ subSections, mainSection }: TableSubMenuProps) => {
         </>
       ) : (
         <a
-          className={SourceSansPro.className}
+          className={sourceSansPro.className}
           href={`#${mainSection.toLowerCase().replace(/\s/gi, '-')}`}
         >
           {mainSection}

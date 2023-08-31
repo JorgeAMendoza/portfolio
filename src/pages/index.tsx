@@ -1,32 +1,22 @@
-import Head from 'next/head';
-import Layout from '@/components/Layout/Layout';
-import Image from 'next/image';
 import FeatureCard from '@/components/FeatureCard/FeatureCard';
-import { GetStaticProps } from 'next';
-import { getProjectInfo, getShowcaseInfo } from '@/lib/get-project-info';
-import { Source_Sans_Pro, Space_Mono } from 'next/font/google';
-import styles from '../styles/index.module.css';
 import {
-  TwitterIcon,
+  DogIcon,
   GitHubIcon,
   LinkedinIcon,
-  DogIcon,
+  TwitterIcon,
 } from '@/components/Icons';
-import Section from '@/components/Section/Section';
+import Layout from '@/components/Layout/Layout';
 import ProjectCard from '@/components/ProjectCard/ProjectCard';
-import jorgeImage from '../../public/jorge-image.webp';
-import schoolIcon from '../../public/icons/school-icon.svg';
+import Section from '@/components/Section/Section';
+import { getProjectInfo, getShowcaseInfo } from '@/lib/get-project-info';
+import { sourceSansPro, spaceMono } from '@/utils/fonts';
+import { GetStaticProps } from 'next';
+import Head from 'next/head';
+import Image from 'next/image';
 import locationIcon from '../../public/icons/location-icon.svg';
-
-const SourceSansPro = Source_Sans_Pro({
-  subsets: ['latin'],
-  weight: ['600', '400', '300'],
-});
-
-const SpaceMono = Space_Mono({
-  subsets: ['latin'],
-  weight: ['400'],
-});
+import schoolIcon from '../../public/icons/school-icon.svg';
+import jorgeImage from '../../public/jorge-image.webp';
+import styles from '../styles/index.module.css';
 
 interface HomeProps {
   showcaseInformation: ShowcaseProjectInfo[];
@@ -63,7 +53,7 @@ export default function Home({
           <section id="home-header" className={styles.sectionContainer}>
             <div className={styles.headerContent}>
               <div
-                className={`${SourceSansPro.className} ${styles.headerTitle}`}
+                className={`${sourceSansPro.className} ${styles.headerTitle}`}
               >
                 <p className={styles.headerIntro}>Welcome! 🙋🏽‍♂️ My name is...</p>
                 <h1 className={styles.headerTitleText}>
@@ -113,7 +103,7 @@ export default function Home({
               <div className={styles.headerProjectLinkContainer}>
                 <a
                   href="#project-showcase"
-                  className={`${SpaceMono.className} ${styles.headerProjectLink}`}
+                  className={`${spaceMono.className} ${styles.headerProjectLink}`}
                 >
                   Check out my projects!
                 </a>
@@ -125,7 +115,7 @@ export default function Home({
         <Section threshold={[0.4, 0.25]}>
           <section id="about-me" className={styles.sectionContainer}>
             <div className={styles.titleContainer}>
-              <h2 className={`${SourceSansPro.className} ${styles.aboutTitle}`}>
+              <h2 className={`${sourceSansPro.className} ${styles.aboutTitle}`}>
                 About Me
               </h2>
             </div>
@@ -142,7 +132,7 @@ export default function Home({
               </div>
               <div className={styles.aboutText}>
                 <h3
-                  className={`${SourceSansPro.className} ${styles.aboutSubTitle}`}
+                  className={`${sourceSansPro.className} ${styles.aboutSubTitle}`}
                 >
                   My Story
                 </h3>
@@ -171,11 +161,11 @@ export default function Home({
               </div>
               <div>
                 <h3
-                  className={`${SourceSansPro.className} ${styles.aboutSubTitle}`}
+                  className={`${sourceSansPro.className} ${styles.aboutSubTitle}`}
                 >
                   Skills & Tech
                 </h3>
-                <ul className={`${SpaceMono.className} ${styles.skillsList}`}>
+                <ul className={`${spaceMono.className} ${styles.skillsList}`}>
                   <li className={styles.skillsTab}>
                     HTML5
                     <Image
@@ -294,7 +284,7 @@ export default function Home({
           <section id="project-showcase" className={styles.sectionContainer}>
             <div className={styles.titleContainer}>
               <h2
-                className={`${SourceSansPro.className} ${styles.showcaseTitle}`}
+                className={`${sourceSansPro.className} ${styles.showcaseTitle}`}
               >
                 Project Showcase
               </h2>
@@ -312,7 +302,7 @@ export default function Home({
           <section id="other-projects" className={styles.sectionContainer}>
             <div className={styles.titleContainer}>
               <h2
-                className={`${SourceSansPro.className} ${styles.projectsTitle}`}
+                className={`${sourceSansPro.className} ${styles.projectsTitle}`}
               >
                 Other Projects
               </h2>
@@ -331,7 +321,7 @@ export default function Home({
             <div className={styles.contactContent}>
               <div>
                 <div
-                  className={`${styles.titleContainer} ${SourceSansPro.className}`}
+                  className={`${styles.titleContainer} ${sourceSansPro.className}`}
                 >
                   <h2 className={styles.contactTitle}>Let&#39;s Collaborate</h2>
                 </div>
@@ -351,7 +341,7 @@ export default function Home({
                   href="mailto:jorgemendozadevii@gmail.com"
                   target="_blank"
                   rel="nonreferrer"
-                  className={`${SpaceMono.className} ${styles.contactEmailLink}`}
+                  className={`${spaceMono.className} ${styles.contactEmailLink}`}
                 >
                   lets chat!
                 </a>

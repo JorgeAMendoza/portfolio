@@ -1,14 +1,9 @@
+import { shimmer, toBase64 } from '@/lib/shimmer';
 import Image from 'next/image';
-import styles from './FeatureCard.module.css';
-import { Space_Mono } from 'next/font/google';
 import Link from 'next/link';
 import { useInView } from 'react-intersection-observer';
-import { shimmer, toBase64 } from '@/lib/shimmer';
-
-const SpaceMono = Space_Mono({
-  subsets: ['latin'],
-  weight: ['400'],
-});
+import styles from './FeatureCard.module.css';
+import { spaceMono } from '@/utils/fonts';
 
 interface FeatureCardProps {
   project: ShowcaseProjectInfo;
@@ -43,7 +38,7 @@ const FeatureCard = ({ project }: FeatureCardProps) => {
           {project.name}
         </h3>
         <p className={styles.cardDescription}>{project.description}</p>
-        <ul className={`${SpaceMono.className} ${styles.cardTools}`}>
+        <ul className={`${spaceMono.className} ${styles.cardTools}`}>
           {project.tools.map((tool) => (
             <li key={tool}>{tool}</li>
           ))}
@@ -53,7 +48,7 @@ const FeatureCard = ({ project }: FeatureCardProps) => {
             <Link
               href={project.projectPage}
               aria-label={`link to project page for ${project.name}`}
-              className={SpaceMono.className}
+              className={spaceMono.className}
             >
               View Project &#62;
             </Link>

@@ -1,12 +1,7 @@
-import styles from './project-card.module.css';
-import { Space_Mono } from 'next/font/google';
+import { spaceMono } from '@/utils/fonts';
 import { useInView } from 'react-intersection-observer';
 import { GitHubIcon } from '../Icons';
-
-const SpaceMono = Space_Mono({
-  subsets: ['latin'],
-  weight: ['400'],
-});
+import styles from './project-card.module.css';
 
 interface ProjectCardProps {
   project: ProjectInfo;
@@ -57,7 +52,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         </div>
 
         <footer className={styles.projectFooter}>
-          <ul className={`${styles.projectTools} ${SpaceMono.className}`}>
+          <ul className={`${styles.projectTools} ${spaceMono.className}`}>
             {project.tools.map((tool) => (
               <li key={tool}>{tool}</li>
             ))}

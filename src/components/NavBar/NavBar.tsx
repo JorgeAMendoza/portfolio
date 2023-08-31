@@ -1,17 +1,12 @@
 import useClickOutside from '@/hooks/useClickOutside';
 import useIsMobile from '@/hooks/useMedia';
+import { spaceMono } from '@/utils/fonts';
 import clsx from 'clsx';
-import { Space_Mono } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useMemo, useState } from 'react';
 import styles from './NavBar.module.css';
-
-const SpaceMono = Space_Mono({
-  subsets: ['latin'],
-  weight: ['400'],
-});
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -111,7 +106,7 @@ const NavBar = () => {
                   href="/resume.pdf"
                   target="_blank"
                   rel="nonreferrer"
-                  className={SpaceMono.className}
+                  className={spaceMono.className}
                   onClick={() => setMenuOpen(false)}
                 >
                   Resume
@@ -146,7 +141,7 @@ const NavBar = () => {
             <li className={styles.navDesktopItem}>
               <Link
                 href="/resume.pdf"
-                className={SpaceMono.className}
+                className={spaceMono.className}
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => setMenuOpen(false)}

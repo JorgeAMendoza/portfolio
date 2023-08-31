@@ -1,27 +1,17 @@
 import Layout from '@/components/Layout/Layout';
 import TableOfContents from '@/components/TableOfContents/TableOfContents';
+import { shimmer, toBase64 } from '@/lib/shimmer';
+import { sourceSansPro, spaceMono } from '@/utils/fonts';
 import fs from 'fs';
 import matter from 'gray-matter';
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
-import { Source_Sans_Pro, Space_Mono } from 'next/font/google';
 import Head from 'next/head';
 import Image from 'next/image';
 import path from 'path';
 import rehypeSlug from 'rehype-slug';
 import style from '../../styles/project-page.module.css';
-import { shimmer, toBase64 } from '@/lib/shimmer';
-
-const SpaceMono = Space_Mono({
-  subsets: ['latin'],
-  weight: ['400'],
-});
-
-const SourceSansPro = Source_Sans_Pro({
-  subsets: ['latin'],
-  weight: ['400', '600'],
-});
 
 interface ShowcasePageProps {
   source: MDXRemoteSerializeResult<
@@ -60,11 +50,11 @@ const ShowcasePage = ({
         <TableOfContents tableOfContents={frontMatter.tableOfContents} />
         <section className={style.projectHead}>
           <div>
-            <h1 className={`${SourceSansPro.className} ${style.projectTitle}`}>
+            <h1 className={`${sourceSansPro.className} ${style.projectTitle}`}>
               {frontMatter.title}
             </h1>
             <nav
-              className={`${SourceSansPro.className} ${style.projectLinks}`}
+              className={`${sourceSansPro.className} ${style.projectLinks}`}
               aria-label="project links"
             >
               <a href={frontMatter.repoLink} target="_blank" rel="noreferrer">
@@ -77,8 +67,8 @@ const ShowcasePage = ({
           </div>
 
           <div className={style.projectTools}>
-            <p className={SourceSansPro.className}>Tools</p>
-            <ul className={`${SpaceMono.className}`}>
+            <p className={sourceSansPro.className}>Tools</p>
+            <ul className={`${spaceMono.className}`}>
               {frontMatter.tools.map((tool) => (
                 <li key={tool}>{tool}</li>
               ))}

@@ -1,5 +1,3 @@
-import { shimmer, toBase64 } from '@/lib/shimmer';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useInView } from 'react-intersection-observer';
 import styles from './FeatureCard.module.css';
@@ -20,17 +18,12 @@ const FeatureCard = ({ project }: FeatureCardProps) => {
       ref={ref}
       aria-labelledby={`${project.id}-name`}
     >
-      <div className={styles.cardImage}>
-        <Image
-          src={project.image}
-          alt={`gif displaying the ${project.name} project`}
-          width={627}
-          height={359}
-          placeholder="blur"
-          blurDataURL={`data:image/svg+xml;base64,${toBase64(
-            shimmer(627, 359)
-          )}`}
-        />
+      <div className={styles.cardVideo}>
+        <video loop autoPlay muted poster={project.video.poster} preload="">
+          <source src={project.video.webm} type="video/webm" />
+          <source src={project.video.mp4} type="video/mp4" />
+          <p>Video is not supported on your browser.</p>
+        </video>
       </div>
 
       <div className={styles.cardContent}>

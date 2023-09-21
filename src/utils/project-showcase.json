@@ -6,7 +6,7 @@
     "video": {
       "mp4": "/project-images/ent-app/ent-app.mp4",
       "webm": "/project-images/ent-app/ent-app.webm",
-      "poster": "/project-images/ent-app/poster.png"
+      "poster": "/project-images/ent-app/poster.webp"
     },
     "projectPage": "/project/fullstack-entertainment",
     "tools": [
@@ -27,7 +27,7 @@
     "video": {
       "mp4": "/project-images/markdown-app/markdown.mp4",
       "webm": "/project-images/markdown-app/markdown.webm",
-      "poster": "/project-images/markdown-app/poster.png"
+      "poster": "/project-images/markdown-app/poster.webp"
     },
     "projectPage": "/project/markdown-editor",
     "tools": ["react", "typescript", "redux", "cypress", "styled-components"]
@@ -39,7 +39,7 @@
     "video": {
       "mp4": "/project-images/weather-app/weather.mp4",
       "webm": "/project-images/weather-app/weather.webm",
-      "poster": "/project-images/weather-app/poster.png"
+      "poster": "/project-images/weather-app/poster.webp"
     },
     "projectPage": "/project/weather-app",
     "tools": [

@@ -1,6 +1,5 @@
 import Layout from '@/components/Layout/Layout';
 import TableOfContents from '@/components/TableOfContents/TableOfContents';
-import { shimmer, toBase64 } from '@/lib/shimmer';
 import { sourceSansPro, spaceMono } from '@/utils/fonts';
 import fs from 'fs';
 import matter from 'gray-matter';
@@ -8,7 +7,6 @@ import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import Head from 'next/head';
-import Image from 'next/image';
 import path from 'path';
 import rehypeSlug from 'rehype-slug';
 import style from '../../styles/project-page.module.css';
@@ -23,8 +21,11 @@ interface ShowcasePageProps {
     tools: string[];
     repoLink: string;
     demoLink: string;
-    projectImage: string;
-    projectGif: string;
+    video: {
+      webm: string;
+      mp4: string;
+      poster: string;
+    };
     tableOfContents: {
       sectionID: string;
       subSections?: string[];
@@ -42,7 +43,7 @@ const ShowcasePage = ({
         <title>{frontMatter.title}</title>
         <meta
           name="description"
-          content={`Information for the ${frontMatter.title} project created by Jorge A. Mendoza`}
+          content={`Project details for the ${frontMatter.title} application created by Jorge A. Mendoza`}
         />
       </Head>
 
@@ -75,32 +76,18 @@ const ShowcasePage = ({
             </ul>
           </div>
 
-          <div className={style.projectImageContainer}>
-            <Image
-              src={frontMatter.projectGif}
-              width={400}
-              height={325}
-              alt={`image of ${frontMatter.title}`}
-              className={style.projectGifMobile}
-              priority={true}
-              placeholder="blur"
-              blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                shimmer(400, 325)
-              )}`}
-            />
-
-            <Image
-              src={frontMatter.projectGif}
-              width={900}
-              height={650}
-              alt={`gif of ${frontMatter.title} being used`}
-              className={style.projectGif}
-              priority={true}
-              placeholder="blur"
-              blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                shimmer(900, 650)
-              )}`}
-            />
+          <div className={style.projectVideoContainer}>
+            <video
+              loop
+              autoPlay
+              muted
+              poster={frontMatter.video.poster}
+              preload=""
+            >
+              <source src={frontMatter.video.webm} type="video/webm" />
+              <source src={frontMatter.video.mp4} type="video/mp4" />
+              <p>Video is not supported on your browser</p>
+            </video>
           </div>
         </section>
 

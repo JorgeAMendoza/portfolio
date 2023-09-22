@@ -51,15 +51,14 @@
   font-size: clamp(1.6rem, 3.5vw + 1rem, 1.8rem);
 }
 
-.projectImageContainer {
+.projectVideoContainer {
   position: relative;
   border: 1px solid var(--primary);
-  width: -moz-fit-content;
-  width: fit-content;
+  width: min(100%, 85rem);
   background-color: var(--secondary);
 }
 
-.projectImageContainer::after {
+.projectVideoContainer::after {
   content: '';
   position: absolute;
   top: 0;
@@ -71,18 +70,9 @@
   transform: translate(1.5rem, 1.5rem);
 }
 
-.projectGifMobile {
-  object-fit: cover;
-}
-
-.projectGif {
-  display: none;
-  object-fit: cover;
-  object-position: left top;
-}
-
-.projectGif[src*='weather'] {
-  object-position: bottom;
+.projectVideoContainer video {
+  width: 100%;
+  padding: 0.05rem;
 }
 
 /* Project Text */
@@ -222,13 +212,6 @@
 @media screen and (min-width: 768px) {
   .projectHead {
     gap: 1.5rem;
-  }
-  .projectGifMobile {
-    display: none;
-  }
-
-  .projectGif {
-    display: block;
   }
 
   .projectTools {

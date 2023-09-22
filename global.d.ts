@@ -4,7 +4,11 @@ interface ShowcaseProjectInfo {
   description: string;
   projectPage: string;
   tools: string[];
-  image: string;
+  video: {
+    mp4: string;
+    webm: string;
+    poster: string;
+  };
 }
 
 // type ProjectInfo = Omit<ShowcaseProjectInfo, 'image'>;

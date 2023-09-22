@@ -9,7 +9,7 @@
   opacity: 1;
 }
 
-.cardImage {
+.cardVideo {
   position: absolute;
   top: 0;
   left: 0;
@@ -18,9 +18,8 @@
   z-index: -1;
 }
 
-.cardImage img {
-  height: 100%;
-  object-fit: cover;
+.cardVideo video {
+  display: none;
 }
 
 .cardContent {
@@ -68,7 +67,7 @@
     align-items: center;
     position: relative;
   }
-  .cardImage {
+  .cardVideo {
     position: relative;
     width: 100%;
     height: 100%;
@@ -76,8 +75,12 @@
     z-index: 0;
   }
 
-  .cardImage img {
-    height: 35.9rem;
+  .cardVideo video {
+    width: 62.7rem;
+    display: block;
+    height: 37rem;
+    object-fit: cover;
+    object-position: top left;
   }
 
   .cardContent {
@@ -93,7 +96,7 @@
     padding: 1em;
   }
 
-  .card:nth-of-type(2) .cardImage {
+  .card:nth-of-type(2) .cardVideo {
     grid-column: 6/13;
   }
 

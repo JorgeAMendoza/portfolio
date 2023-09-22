@@ -43,7 +43,7 @@ const ShowcasePage = ({
         <title>{frontMatter.title}</title>
         <meta
           name="description"
-          content={`Information for the ${frontMatter.title} project created by Jorge A. Mendoza`}
+          content={`Project details for the ${frontMatter.title} application created by Jorge A. Mendoza`}
         />
       </Head>
 

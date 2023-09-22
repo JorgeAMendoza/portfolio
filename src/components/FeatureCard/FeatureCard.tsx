@@ -19,7 +19,7 @@ const FeatureCard = ({ project }: FeatureCardProps) => {
       aria-labelledby={`${project.id}-name`}
     >
       <div className={styles.cardVideo}>
-        <video loop autoPlay muted poster={project.video.poster} preload="auto">
+        <video loop autoPlay muted poster={project.video.poster}>
           <source src={project.video.webm} type="video/webm" />
           <source src={project.video.mp4} type="video/mp4" />
           <p>Video is not supported on your browser.</p>

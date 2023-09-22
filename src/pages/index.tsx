@@ -41,11 +41,40 @@ export default function Home({
   return (
     <Layout>
       <Head>
-        <title>Jorge A. Mendoza</title>
+        <title>Jorge A. Mendoza - Frontend Developer</title>
         <meta
           name="description"
-          content="Portfolio website created by and for Jorge A. Mendoza"
+          content="Portfolio website for Jorge A. Mendoza, a front-end software engineer passionate about creating accessible and performant user experiences on the web using tools such as TypeScript, Next JS, React, and Styled-components."
         />
+        <meta
+          property="og:title"
+          content="Jorge A. Mendoza - Frontend Developer"
+        />
+        <meta
+          property="og:description"
+          content="Portfolio website for Jorge A. Mendoza, a front-end software engineer passionate about creating accessible and performant user experiences on the web using tools such as TypeScript, Next JS, React, and Styled-components."
+        />
+        <meta
+          property="og:image"
+          content="https://www.jorgemendozadev.com/jorge-image.webp"
+        />
+        <meta property="og:url" content="https://jorgemendozadev.com" />
+
+        {/* Twitter Card Information */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Jorge A. Mendoza - Frontend Developer"
+        />
+        <meta
+          name="twitter:description"
+          content="Portfolio website for Jorge A. Mendoza, a front-end software engineer passionate about creating accessible and performant user experiences on the web using tools such as TypeScript, Next JS, React, and Styled-components."
+        />
+        <meta
+          name="twitter:image"
+          content="https://www.jorgemendozadev.com/jorge-image.webp"
+        />
+
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
@@ -137,11 +166,12 @@ export default function Home({
                   My Story
                 </h3>
                 <p>
-                  A Front-end Developer looking for opportunities to learn and
-                  grow. In my senior year of college I took an introduction to
-                  web-development course, and since then I have continued to
-                  learn about the latest advances in the web-development
-                  environment and improve my skills as a developer.
+                  A <em>Front-end Developer</em> looking for opportunities to
+                  learn and grow. In my senior year of college I took an
+                  introduction to web-development course, and since then I have
+                  continued to learn about the latest advances in the
+                  web-development environment and improve my skills as a
+                  developer.
                 </p>
                 <p>
                   I have used <em>React, TypeScript, Styled-Components</em> and
@@ -394,7 +424,7 @@ export default function Home({
               <p className={styles.footerIcon}>
                 <a
                   href="https://www.lapoflove.com/pet-memorial/24847"
-                  aria-label="A memorial for the best dog a man can ask for"
+                  aria-label="A memorial for one of the greatest friends a boy can ask for"
                   target="_blank"
                   rel="noreferrer"
                 >

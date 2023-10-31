@@ -21,7 +21,6 @@ const TableOfContents = ({ tableOfContents }: TableItemProps) => {
       <nav
         className={style.tableOfContents}
         aria-hidden={tableOpen ? 'false' : 'true'}
-        aria-label='table of contents for project'
       >
         <button
           aria-label="close the table of contents menu"
@@ -30,7 +29,7 @@ const TableOfContents = ({ tableOfContents }: TableItemProps) => {
         >
           <Image src={closeMenuSVG} width={30} height={30} alt="" />
         </button>
-        <ul>
+        <ul aria-label="table of contents for project">
           {tableOfContents.map((section) => (
             <TableItem
               key={section.sectionID}

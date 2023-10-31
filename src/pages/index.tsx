@@ -79,7 +79,11 @@ export default function Home({
       </Head>
       <main>
         <div className={styles.homeHeader}>
-          <section id="home-header" className={styles.sectionContainer}>
+          <section
+            id="home-header"
+            className={styles.sectionContainer}
+            aria-label="hero section of the portfolio"
+          >
             <div className={styles.headerContent}>
               <div
                 className={`${sourceSansPro.className} ${styles.headerTitle}`}
@@ -142,7 +146,11 @@ export default function Home({
         </div>
 
         <Section threshold={[0.4, 0.25]}>
-          <section id="about-me" className={styles.sectionContainer}>
+          <section
+            id="about-me"
+            className={styles.sectionContainer}
+            aria-label="personal information and skills for Jorge A. Mendoza"
+          >
             <div className={styles.titleContainer}>
               <h2 className={`${sourceSansPro.className} ${styles.aboutTitle}`}>
                 About Me
@@ -195,7 +203,10 @@ export default function Home({
                 >
                   Skills & Tech
                 </h3>
-                <ul className={`${spaceMono.className} ${styles.skillsList}`}>
+                <ul
+                  className={`${spaceMono.className} ${styles.skillsList}`}
+                  aria-label="list of skills that Jorge A. Mendoza provides"
+                >
                   <li className={styles.skillsTab}>
                     HTML5
                     <Image
@@ -311,7 +322,11 @@ export default function Home({
         </Section>
 
         <Section threshold={[0.27]}>
-          <section id="project-showcase" className={styles.sectionContainer}>
+          <section
+            id="project-showcase"
+            className={styles.sectionContainer}
+            aria-label="Showcase projects that have been created by Jorge A. Mendoza"
+          >
             <div className={styles.titleContainer}>
               <h2
                 className={`${sourceSansPro.className} ${styles.showcaseTitle}`}
@@ -329,7 +344,7 @@ export default function Home({
         </Section>
 
         <Section threshold={[0.25, 0.13]}>
-          <section id="other-projects" className={styles.sectionContainer}>
+          <section id="other-projects" className={styles.sectionContainer} aria-label='Other projects created by Jorge A. Mendoza'>
             <div className={styles.titleContainer}>
               <h2
                 className={`${sourceSansPro.className} ${styles.projectsTitle}`}
@@ -347,7 +362,7 @@ export default function Home({
         </Section>
 
         <Section threshold={[0.35]}>
-          <section id="contact-me" className={styles.sectionContainer}>
+          <section id="contact-me" className={styles.sectionContainer} aria-label='Information about getting in Contact with Jorge A. Mendoza'>
             <div className={styles.contactContent}>
               <div>
                 <div

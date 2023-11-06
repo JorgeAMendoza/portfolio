@@ -17,9 +17,9 @@ const TableItem = ({ subSections, mainSection }: TableSubMenuProps) => {
         <>
           <button
             aria-label={`click to ${
-              isOpen ? 'open' : 'close'
+              !isOpen ? 'open' : 'close'
             } sub-menu for ${mainSection}`}
-            aria-controls={`${mainSection.toLowerCase().replace(/\s/gi, '-')}`}
+            aria-controls={`${mainSection.toLowerCase().replace(/\s/gi, '-')}-submenu`}
             onClick={() => setIsOpen(!isOpen)}
             data-flip={isOpen}
             type="button"

@@ -26,10 +26,12 @@ const TableOfContents = ({ tableOfContents }: TableItemProps) => {
           aria-label="close the table of contents menu"
           onClick={() => setTableOpen(!tableOpen)}
           className={style.closeTableButton}
+          aria-controls="contentTable"
+          aria-expanded={tableOpen ? 'true' : 'false'}
         >
           <Image src={closeMenuSVG} width={30} height={30} alt="" />
         </button>
-        <ul aria-label="table of contents for project">
+        <ul id="contentTable" aria-label="table of contents for project">
           {tableOfContents.map((section) => (
             <TableItem
               key={section.sectionID}
@@ -43,6 +45,9 @@ const TableOfContents = ({ tableOfContents }: TableItemProps) => {
         aria-label="click to open the table of contents for project"
         className={style.menuButton}
         onClick={() => setTableOpen(!tableOpen)}
+        aria-hidden={tableOpen ? 'true' : 'false'}
+        aria-controls="contentTable"
+        aria-expanded={tableOpen ? 'true' : 'false'}
       >
         <Image src={hamburgerMenuSVG} width={30} height={30} alt="" />{' '}
       </button>

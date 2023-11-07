@@ -1,13 +1,12 @@
 import { useEffect, useRef } from 'react';
 
-const useClickOutside = (dispatch: React.Dispatch<boolean>) => {
+const useClickOutside = (func: () => void) => {
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const handleClick = (event: MouseEvent) => {
       if (ref.current && !ref.current.contains(event.target as HTMLElement)) {
-        dispatch(false);
-        document.body.classList.remove('lock');
+        func();
       }
     };
     document.addEventListener('click', handleClick, true);
@@ -15,7 +14,7 @@ const useClickOutside = (dispatch: React.Dispatch<boolean>) => {
     return () => {
       document.removeEventListener('click', handleClick, true);
     };
-  }, [dispatch]);
+  }, [func]);
 
   return ref;
 };

@@ -10,7 +10,10 @@ import styles from './NavBar.module.css';
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const ref = useClickOutside(setMenuOpen);
+  const ref = useClickOutside(() => {
+    setMenuOpen(false);
+    document.body.classList.remove('lock');
+  });
   const mobile = useIsMobile();
   const router = useRouter();
 

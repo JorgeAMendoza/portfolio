@@ -83,7 +83,8 @@
   left: 0;
 }
 
-.mobileNavButton {
+.mobileNavButton,
+.mobileNavButtonClose {
   background: transparent;
 }
 
@@ -131,7 +132,8 @@
     display: block;
   }
 
-  .mobileNavButton {
+  .mobileNavButton,
+  .mobileNavButtonClose {
     display: none;
   }
 }

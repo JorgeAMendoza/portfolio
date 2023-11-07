@@ -7,6 +7,7 @@ const useClickOutside = (dispatch: React.Dispatch<boolean>) => {
     const handleClick = (event: MouseEvent) => {
       if (ref.current && !ref.current.contains(event.target as HTMLElement)) {
         dispatch(false);
+        document.body.classList.remove('lock');
       }
     };
     document.addEventListener('click', handleClick, true);

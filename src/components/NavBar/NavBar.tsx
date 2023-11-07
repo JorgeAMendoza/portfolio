@@ -49,20 +49,42 @@ const NavBar = () => {
           />
         </Link>
         {/* mobile nav */}
-        <button
-          className={styles.mobileNavButton}
-          aria-label="open the navigation menu"
-          aria-controls="mobile-nav"
-          onClick={() => setMenuOpen(!menuOpen)}
-          type='button'
-        >
-          <Image
-            src="/icons/hamburger-menu.svg"
-            alt="menu icon"
-            width={30}
-            height={30}
-          />
-        </button>
+        {!menuOpen ? (
+          <button
+            className={styles.mobileNavButton}
+            aria-label="open the navigation menu"
+            aria-controls="mobile-nav"
+            onClick={() => {
+              setMenuOpen(true);
+              document.body.classList.add('lock');
+            }}
+            type="button"
+          >
+            <Image
+              src="/icons/hamburger-menu.svg"
+              alt=""
+              width={30}
+              height={30}
+            />
+          </button>
+        ) : (
+          <button
+            className={styles.mobileNavButtonClose}
+            aria-label="close the nav navigation menu"
+            aria-controls="mobile-nav"
+            onClick={() => {
+              setMenuOpen(false);
+              document.body.classList.remove('lock');
+            }}
+          >
+            <Image
+              src="/icons/close-menu-nav.svg"
+              alt=""
+              width={30}
+              height={30}
+            />
+          </button>
+        )}
         <nav
           id="mobile-nav"
           className={`${styles.mobileNavMenu} ${clsx(
@@ -116,7 +138,11 @@ const NavBar = () => {
           </ul>
         </nav>
         {/* desktop nav */}
-        <nav className={styles.navDesktop} aria-label="Portfolio Navigation" id="desktop-nav">
+        <nav
+          className={styles.navDesktop}
+          aria-label="Portfolio Navigation"
+          id="desktop-nav"
+        >
           <ul className={styles.navDesktopMenu}>
             <li className={styles.navDesktopItem}>
               <a href={navLinks[0]} onClick={() => setMenuOpen(false)}>

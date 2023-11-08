@@ -1,19 +1,14 @@
-import useClickOutside from '@/hooks/useClickOutside';
 import useIsMobile from '@/hooks/useMedia';
 import { spaceMono } from '@/utils/fonts';
-import clsx from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useMemo, useState } from 'react';
+import MobileNavBar from './MobileNavBar/MobileNavBar';
 import styles from './NavBar.module.css';
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const ref = useClickOutside(() => {
-    setMenuOpen(false);
-    document.body.classList.remove('lock');
-  });
   const mobile = useIsMobile();
   const router = useRouter();
 
@@ -41,7 +36,7 @@ const NavBar = () => {
 
   return (
     <div className={styles.navBar}>
-      <div className={styles.navBarContainer} ref={ref}>
+      <div className={styles.navBarContainer}>
         <Link href="/">
           <Image
             src="/Logo.svg"
@@ -51,95 +46,10 @@ const NavBar = () => {
             priority={true}
           />
         </Link>
+
         {/* mobile nav */}
-        {!menuOpen ? (
-          <button
-            className={styles.mobileNavButton}
-            aria-label="open the navigation menu"
-            aria-controls="mobile-nav"
-            onClick={() => {
-              setMenuOpen(true);
-              document.body.classList.add('lock');
-            }}
-            type="button"
-          >
-            <Image
-              src="/icons/hamburger-menu.svg"
-              alt=""
-              width={30}
-              height={30}
-            />
-          </button>
-        ) : (
-          <button
-            className={styles.mobileNavButtonClose}
-            aria-label="close the nav navigation menu"
-            aria-controls="mobile-nav"
-            onClick={() => {
-              setMenuOpen(false);
-              document.body.classList.remove('lock');
-            }}
-          >
-            <Image
-              src="/icons/close-menu-nav.svg"
-              alt=""
-              width={30}
-              height={30}
-            />
-          </button>
-        )}
-        <nav
-          id="mobile-nav"
-          className={`${styles.mobileNavMenu} ${clsx(
-            menuOpen && styles.showMenu
-          )}`}
-          aria-hidden={!menuOpen}
-          aria-label="Portfolio Navigation"
-        >
-          <ul className={styles.mobileNavList}>
-            <li className={styles.mobileNavItem}>
-              <div className={styles.mobileNavItemContainer}>
-                <a href={navLinks[0]} onClick={() => setMenuOpen(false)}>
-                  About
-                </a>
-              </div>
-            </li>
-            <li className={styles.mobileNavItem}>
-              <div className={styles.mobileNavItemContainer}>
-                <a href={navLinks[1]} onClick={() => setMenuOpen(false)}>
-                  Showcase
-                </a>
-              </div>
-            </li>
-            <li className={styles.mobileNavItem}>
-              <div className={styles.mobileNavItemContainer}>
-                <a href={navLinks[2]} onClick={() => setMenuOpen(false)}>
-                  Projects
-                </a>
-              </div>
-            </li>
-            <li className={styles.mobileNavItem}>
-              <div className={styles.mobileNavItemContainer}>
-                <a href={navLinks[3]} onClick={() => setMenuOpen(false)}>
-                  Contact
-                </a>
-              </div>
-            </li>
-            <li className={styles.mobileNavItem}>
-              <div className={styles.mobileNavItemContainer}>
-                <a
-                  href="/resume.pdf"
-                  target="_blank"
-                  rel="nonreferrer"
-                  className={spaceMono.className}
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Resume
-                </a>
-              </div>
-            </li>
-          </ul>
-        </nav>
+        {mobile ? <MobileNavBar /> : null}
+
         {/* desktop nav */}
         <nav
           className={styles.navDesktop}

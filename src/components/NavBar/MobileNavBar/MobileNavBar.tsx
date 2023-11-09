@@ -2,30 +2,22 @@ import useClickOutside from '@/hooks/useClickOutside';
 import { spaceMono } from '@/utils/fonts';
 import clsx from 'clsx';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
 import { useState } from 'react';
 import styles from './mobile-nav.module.css';
 
-const MobileNavBar = () => {
+interface MobileNavBarProps {
+  navLinks: [string, string, string, string];
+}
+
+const MobileNavBar = ({ navLinks }: MobileNavBarProps) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const ref = useClickOutside(() => {
     setMenuOpen(false);
     document.body.classList.remove('lock');
   });
-  const router = useRouter();
-
-  const navLinks =
-    router.pathname === '/'
-      ? ['#about-me', '#project-showcase', '#other-projects', '#contact-me']
-      : [
-          '/#about-me',
-          '/#project-showcase',
-          '/#other-projects',
-          '/#contact-me',
-        ];
 
   if (!menuOpen) document.body.classList.remove('lock');
-  
+
   return (
     <>
       {!menuOpen ? (

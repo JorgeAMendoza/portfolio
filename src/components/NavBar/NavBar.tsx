@@ -1,14 +1,13 @@
 import useIsMobile from '@/hooks/useMedia';
-import { spaceMono } from '@/utils/fonts';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo } from 'react';
+import DesktopNavBar from './DesktopNavBar/DesktopNavBar';
 import MobileNavBar from './MobileNavBar/MobileNavBar';
 import styles from './NavBar.module.css';
 
 const NavBar = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
   const mobile = useIsMobile();
   const router = useRouter();
 
@@ -30,10 +29,6 @@ const NavBar = () => {
     }
   }, [router.pathname]);
 
-  useEffect(() => {
-    if (!mobile) setMenuOpen(false);
-  }, [mobile]);
-
   return (
     <div className={styles.navBar}>
       <div className={styles.navBarContainer}>
@@ -48,48 +43,10 @@ const NavBar = () => {
         </Link>
 
         {/* mobile nav */}
-        {mobile ? <MobileNavBar /> : null}
+        {mobile ? <MobileNavBar navLinks={navLinks} /> : null}
 
         {/* desktop nav */}
-        <nav
-          className={styles.navDesktop}
-          aria-label="Portfolio Navigation"
-          id="desktop-nav"
-        >
-          <ul className={styles.navDesktopMenu}>
-            <li className={styles.navDesktopItem}>
-              <a href={navLinks[0]} onClick={() => setMenuOpen(false)}>
-                About
-              </a>
-            </li>
-            <li className={styles.navDesktopItem}>
-              <a href={navLinks[1]} onClick={() => setMenuOpen(false)}>
-                Showcase
-              </a>
-            </li>
-            <li className={styles.navDesktopItem}>
-              <a href={navLinks[2]} onClick={() => setMenuOpen(false)}>
-                Projects
-              </a>
-            </li>
-            <li className={styles.navDesktopItem}>
-              <a href={navLinks[3]} onClick={() => setMenuOpen(false)}>
-                Contact
-              </a>
-            </li>
-            <li className={styles.navDesktopItem}>
-              <Link
-                href="/resume.pdf"
-                className={spaceMono.className}
-                target="_blank"
-                rel="noreferrer"
-                onClick={() => setMenuOpen(false)}
-              >
-                Resume
-              </Link>
-            </li>
-          </ul>
-        </nav>
+        {!mobile ? <DesktopNavBar navLinks={navLinks} /> : null}
       </div>
     </div>
   );

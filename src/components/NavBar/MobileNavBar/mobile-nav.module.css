@@ -2,7 +2,7 @@
   --borderColor: rgba(228, 228, 228, 0.3);
   background-color: var(--background);
   position: absolute;
-  top: 4.3em;
+  top: 70px;
   left: 0;
   width: 100%;
   border-top: 1px solid var(--borderColor);
@@ -18,6 +18,15 @@
   opacity: 1;
   transform: rotateX(0);
   visibility: visible;
+}
+
+.mobileNavMenu.showMenu::after {
+  position: fixed;
+  content: '';
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  background-color: transparent;
 }
 
 .mobileNavList {

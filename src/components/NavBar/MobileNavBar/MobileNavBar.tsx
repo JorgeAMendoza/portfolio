@@ -2,7 +2,7 @@ import useClickOutside from '@/hooks/useClickOutside';
 import { spaceMono } from '@/utils/fonts';
 import clsx from 'clsx';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import styles from './mobile-nav.module.css';
 
 interface MobileNavBarProps {
@@ -11,15 +11,33 @@ interface MobileNavBarProps {
 
 const MobileNavBar = ({ navLinks }: MobileNavBarProps) => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const nav = useRef<HTMLDivElement | null>(null);
   const ref = useClickOutside(() => {
     setMenuOpen(false);
     document.body.classList.remove('lock');
   });
 
+  useEffect(() => {
+    const navContainer = nav.current;
+    const handleKey = (e: KeyboardEvent) => {
+      if (!menuOpen) return;
+      switch (e.key) {
+        case 'Escape': {
+          setMenuOpen(false);
+          break;
+        }
+      }
+    };
+
+    navContainer?.addEventListener('keydown', handleKey);
+
+    return () => navContainer?.removeEventListener('keydown', handleKey);
+  }, [menuOpen]);
+
   if (!menuOpen) document.body.classList.remove('lock');
 
   return (
-    <>
+    <div ref={nav}>
       {!menuOpen ? (
         <button
           className={styles.mobileNavButton}
@@ -58,6 +76,7 @@ const MobileNavBar = ({ navLinks }: MobileNavBarProps) => {
           />
         </button>
       ) : null}
+
       <nav
         id="mobile-nav"
         className={`${styles.mobileNavMenu} ${clsx(
@@ -65,9 +84,8 @@ const MobileNavBar = ({ navLinks }: MobileNavBarProps) => {
         )}`}
         aria-hidden={!menuOpen}
         aria-label="Portfolio Navigation"
-        ref={ref}
       >
-        <ul className={styles.mobileNavList}>
+        <ul className={styles.mobileNavList} ref={ref}>
           <li className={styles.mobileNavItem}>
             <div className={styles.mobileNavItemContainer}>
               <a href={navLinks[0]} onClick={() => setMenuOpen(false)}>
@@ -111,7 +129,7 @@ const MobileNavBar = ({ navLinks }: MobileNavBarProps) => {
           </li>
         </ul>
       </nav>
-    </>
+    </div>
   );
 };
 

@@ -1,12 +1,17 @@
 import styles from './desktop-nav.module.css';
 import Link from 'next/link';
 import { spaceMono } from '@/utils/fonts';
+import { useEffect } from 'react';
 
 interface DesktopNavBarProps {
   navLinks: [string, string, string, string];
 }
 
 const DesktopNavBar = ({ navLinks }: DesktopNavBarProps) => {
+  useEffect(() => {
+    document.body.classList.remove('lock');
+  }, []);
+  
   return (
     <>
       <nav

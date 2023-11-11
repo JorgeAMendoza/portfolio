@@ -26,6 +26,25 @@ const MobileNavBar = ({ navLinks }: MobileNavBarProps) => {
           setMenuOpen(false);
           break;
         }
+        case 'Tab': {
+          const closeButton = document.querySelector(
+            '#closeNav'
+          ) as HTMLElement;
+          const navLinks = document.querySelectorAll(
+            '#navLinks a'
+          ) as NodeListOf<HTMLElement>;
+          if (e.shiftKey && document.activeElement === closeButton) {
+            e.preventDefault();
+            navLinks[navLinks.length - 1].focus();
+          } else if (
+            !e.shiftKey &&
+            document.activeElement === navLinks[navLinks.length - 1]
+          ) {
+            e.preventDefault();
+            closeButton?.focus();
+          }
+          break;
+        }
       }
     };
 
@@ -59,6 +78,7 @@ const MobileNavBar = ({ navLinks }: MobileNavBarProps) => {
       ) : null}
       {menuOpen ? (
         <button
+          id="closeNav"
           className={styles.mobileNavButtonClose}
           aria-label="close the nav navigation menu"
           aria-controls="mobile-nav"
@@ -85,7 +105,7 @@ const MobileNavBar = ({ navLinks }: MobileNavBarProps) => {
         aria-hidden={!menuOpen}
         aria-label="Portfolio Navigation"
       >
-        <ul className={styles.mobileNavList} ref={ref}>
+        <ul className={styles.mobileNavList} ref={ref} id="navLinks">
           <li className={styles.mobileNavItem}>
             <div className={styles.mobileNavItemContainer}>
               <a href={navLinks[0]} onClick={() => setMenuOpen(false)}>

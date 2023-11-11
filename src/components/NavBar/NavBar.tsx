@@ -29,8 +29,6 @@ const NavBar = () => {
     }
   }, [router.pathname]);
 
-  if (!mobile) document.body.classList.remove('lock');
-
   return (
     <div className={styles.navBar}>
       <div className={styles.navBarContainer}>

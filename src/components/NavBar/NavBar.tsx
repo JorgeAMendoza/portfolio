@@ -1,16 +1,13 @@
-import useClickOutside from '@/hooks/useClickOutside';
 import useIsMobile from '@/hooks/useMedia';
-import { spaceMono } from '@/utils/fonts';
-import clsx from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo } from 'react';
+import DesktopNavBar from './DesktopNavBar/DesktopNavBar';
+import MobileNavBar from './MobileNavBar/MobileNavBar';
 import styles from './NavBar.module.css';
 
 const NavBar = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const ref = useClickOutside(setMenuOpen);
   const mobile = useIsMobile();
   const router = useRouter();
 
@@ -32,13 +29,9 @@ const NavBar = () => {
     }
   }, [router.pathname]);
 
-  useEffect(() => {
-    if (!mobile) setMenuOpen(false);
-  }, [mobile]);
-
   return (
     <div className={styles.navBar}>
-      <div className={styles.navBarContainer} ref={ref}>
+      <div className={styles.navBarContainer}>
         <Link href="/">
           <Image
             src="/Logo.svg"
@@ -48,109 +41,12 @@ const NavBar = () => {
             priority={true}
           />
         </Link>
+
         {/* mobile nav */}
-        <button
-          className={styles.mobileNavButton}
-          aria-label="open the navigation menu"
-          aria-controls="mobile-nav"
-          onClick={() => setMenuOpen(!menuOpen)}
-          type='button'
-        >
-          <Image
-            src="/icons/hamburger-menu.svg"
-            alt="menu icon"
-            width={30}
-            height={30}
-          />
-        </button>
-        <nav
-          id="mobile-nav"
-          className={`${styles.mobileNavMenu} ${clsx(
-            menuOpen && styles.showMenu
-          )}`}
-          aria-hidden={!menuOpen}
-          aria-label="Portfolio Navigation"
-        >
-          <ul className={styles.mobileNavList}>
-            <li className={styles.mobileNavItem}>
-              <div className={styles.mobileNavItemContainer}>
-                <a href={navLinks[0]} onClick={() => setMenuOpen(false)}>
-                  About
-                </a>
-              </div>
-            </li>
-            <li className={styles.mobileNavItem}>
-              <div className={styles.mobileNavItemContainer}>
-                <a href={navLinks[1]} onClick={() => setMenuOpen(false)}>
-                  Showcase
-                </a>
-              </div>
-            </li>
-            <li className={styles.mobileNavItem}>
-              <div className={styles.mobileNavItemContainer}>
-                <a href={navLinks[2]} onClick={() => setMenuOpen(false)}>
-                  Projects
-                </a>
-              </div>
-            </li>
-            <li className={styles.mobileNavItem}>
-              <div className={styles.mobileNavItemContainer}>
-                <a href={navLinks[3]} onClick={() => setMenuOpen(false)}>
-                  Contact
-                </a>
-              </div>
-            </li>
-            <li className={styles.mobileNavItem}>
-              <div className={styles.mobileNavItemContainer}>
-                <a
-                  href="/resume.pdf"
-                  target="_blank"
-                  rel="nonreferrer"
-                  className={spaceMono.className}
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Resume
-                </a>
-              </div>
-            </li>
-          </ul>
-        </nav>
+        {mobile ? <MobileNavBar navLinks={navLinks} /> : null}
+
         {/* desktop nav */}
-        <nav className={styles.navDesktop} aria-label="Portfolio Navigation" id="desktop-nav">
-          <ul className={styles.navDesktopMenu}>
-            <li className={styles.navDesktopItem}>
-              <a href={navLinks[0]} onClick={() => setMenuOpen(false)}>
-                About
-              </a>
-            </li>
-            <li className={styles.navDesktopItem}>
-              <a href={navLinks[1]} onClick={() => setMenuOpen(false)}>
-                Showcase
-              </a>
-            </li>
-            <li className={styles.navDesktopItem}>
-              <a href={navLinks[2]} onClick={() => setMenuOpen(false)}>
-                Projects
-              </a>
-            </li>
-            <li className={styles.navDesktopItem}>
-              <a href={navLinks[3]} onClick={() => setMenuOpen(false)}>
-                Contact
-              </a>
-            </li>
-            <li className={styles.navDesktopItem}>
-              <Link
-                href="/resume.pdf"
-                className={spaceMono.className}
-                target="_blank"
-                rel="noreferrer"
-                onClick={() => setMenuOpen(false)}
-              >
-                Resume
-              </Link>
-            </li>
-          </ul>
-        </nav>
+        {!mobile ? <DesktopNavBar navLinks={navLinks} /> : null}
       </div>
     </div>
   );

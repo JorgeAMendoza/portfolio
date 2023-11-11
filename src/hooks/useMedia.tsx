@@ -8,6 +8,7 @@ const useIsMobile = () => {
       window.innerWidth < 768 ? setIsMobile(true) : setIsMobile(false);
     }
     window.addEventListener('resize', detectWindowSize);
+    if (window.innerWidth < 768) setIsMobile(true);
     return () => {
       window.removeEventListener('resize', detectWindowSize);
     };

@@ -48,6 +48,10 @@ body {
   position: relative;
 }
 
+body.lock {
+  overflow: hidden;
+}
+
 p {
   line-height: 1.6;
 }

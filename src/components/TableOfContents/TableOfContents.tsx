@@ -15,7 +15,7 @@ interface TableItemProps {
 
 const TableOfContents = ({ tableOfContents }: TableItemProps) => {
   const [tableOpen, setTableOpen] = useState(false);
-  const ref = useClickOutside(setTableOpen);
+  const ref = useClickOutside<HTMLDivElement>(() => setTableOpen(false));
   return (
     <div className={style.tableContainer} ref={ref}>
       <nav

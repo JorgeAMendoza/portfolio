@@ -1,12 +1,14 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, MutableRefObject } from 'react';
 
-const useClickOutside = (dispatch: React.Dispatch<boolean>) => {
-  const ref = useRef<HTMLDivElement | null>(null);
+const useClickOutside = <T extends HTMLElement>(
+  func: () => void
+): MutableRefObject<T | null> => {
+  const ref = useRef<T | null>(null);
 
   useEffect(() => {
     const handleClick = (event: MouseEvent) => {
       if (ref.current && !ref.current.contains(event.target as HTMLElement)) {
-        dispatch(false);
+        func();
       }
     };
     document.addEventListener('click', handleClick, true);
@@ -14,7 +16,7 @@ const useClickOutside = (dispatch: React.Dispatch<boolean>) => {
     return () => {
       document.removeEventListener('click', handleClick, true);
     };
-  }, [dispatch]);
+  }, [func]);
 
   return ref;
 };

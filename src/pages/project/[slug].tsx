@@ -40,7 +40,7 @@ const ShowcasePage = ({
   return (
     <Layout>
       <Head>
-        <title>{frontMatter.title}</title>
+        <title>{frontMatter.title} | Jorge A. Mendoza</title>
         <meta
           name="description"
           content={`Project details for the ${frontMatter.title} application created by Jorge A. Mendoza`}
@@ -49,14 +49,17 @@ const ShowcasePage = ({
 
       <main className={style.projectPage}>
         <TableOfContents tableOfContents={frontMatter.tableOfContents} />
-        <section className={style.projectHead}>
+        <section
+          className={style.projectHead}
+          aria-label={`General information about the ${frontMatter.title} project`}
+        >
           <div>
             <h1 className={`${sourceSansPro.className} ${style.projectTitle}`}>
               {frontMatter.title}
             </h1>
             <nav
               className={`${sourceSansPro.className} ${style.projectLinks}`}
-              aria-label="project links"
+              aria-label="links to project repository and live demo"
             >
               <a href={frontMatter.repoLink} target="_blank" rel="noreferrer">
                 GitHub
@@ -69,7 +72,10 @@ const ShowcasePage = ({
 
           <div className={style.projectTools}>
             <p className={sourceSansPro.className}>Tools</p>
-            <ul className={`${spaceMono.className}`}>
+            <ul
+              className={`${spaceMono.className}`}
+              aria-label="tools used in this project"
+            >
               {frontMatter.tools.map((tool) => (
                 <li key={tool}>{tool}</li>
               ))}
@@ -83,6 +89,7 @@ const ShowcasePage = ({
               muted
               poster={frontMatter.video.poster}
               preload=""
+              aria-label={`video of the ${frontMatter.title} application in use`}
             >
               <source src={frontMatter.video.webm} type="video/webm" />
               <source src={frontMatter.video.mp4} type="video/mp4" />
@@ -91,7 +98,10 @@ const ShowcasePage = ({
           </div>
         </section>
 
-        <section className={style.projectContent}>
+        <section
+          className={style.projectContent}
+          aria-label={`detailed explanation of the ${frontMatter.title} development`}
+        >
           <MDXRemote
             {...source}
             components={{

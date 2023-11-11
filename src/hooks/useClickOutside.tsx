@@ -1,7 +1,9 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, MutableRefObject } from 'react';
 
-const useClickOutside = (func: () => void) => {
-  const ref = useRef<HTMLDivElement | null>(null);
+const useClickOutside = <T extends HTMLElement>(
+  func: () => void
+): MutableRefObject<T | null> => {
+  const ref = useRef<T | null>(null);
 
   useEffect(() => {
     const handleClick = (event: MouseEvent) => {

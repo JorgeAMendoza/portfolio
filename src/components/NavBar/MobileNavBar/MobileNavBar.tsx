@@ -12,7 +12,7 @@ interface MobileNavBarProps {
 const MobileNavBar = ({ navLinks }: MobileNavBarProps) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const nav = useRef<HTMLDivElement | null>(null);
-  const ref = useClickOutside(() => {
+  const ref = useClickOutside<HTMLUListElement>(() => {
     setMenuOpen(false);
     document.body.classList.remove('lock');
   });

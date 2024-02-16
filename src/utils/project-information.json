@@ -1,5 +1,20 @@
 [
   {
+    "id": "vite-react",
+    "name": "Vite + React + Typescript Template",
+    "description": "A modified version of the `react-ts` Vite template that contains various configurations that I use daily while developing React Applications. Designed for my own personal taste, but can be used as a base to begin building production-ready applications.",
+    "repoLink": "https://github.com/JorgeAMendoza/vite-react",
+    "tools": [
+      "react",
+      "typescript",
+      "cypress",
+      "vitest",
+      "css-modules",
+      "post-css",
+      "eslint"
+    ]
+  },
+  {
     "id": "planet-facts",
     "name": "Planet Facts",
     "description": "Website that displays various facts about the planets in our solor system, built with Next JS and Typescript. Static pages are generated with 'getStaticProps' and a mobile friendly design is implemented.",
@@ -37,14 +52,6 @@
       "styled-components",
       "cypress"
     ]
-  },
-  {
-    "id": "memory-game",
-    "name": "Memory Game",
-    "description": "Single-page React application where users can play a memory game that includes the ability to play with multiple players and modes. Redux is used to keep track of game state and player scores.",
-    "repoLink": "https://github.com/JorgeAMendoza/memory-game",
-    "demoLink": "https://memory-game-three-lyart.vercel.app/",
-    "tools": ["react", "typescript", "redux", "styled-components", "cypress"]
   },
   {
     "id": "github-search",

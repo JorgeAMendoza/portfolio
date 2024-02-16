@@ -33,21 +33,23 @@
     "tools": ["react", "typescript", "redux", "cypress", "styled-components"]
   },
   {
-    "id": "weather-app",
-    "name": "Weather App",
-    "description": "A single-page weather application where users can search for a city and get the current weather and the five-day forecast. The application uses the OpenWeatherMap API to fetch weather data and the fetching state is handled by the react-query library.",
+    "id": "prolog-app",
+    "name": "Prolog Application",
+    "description": "A Next JS application that simulates the behavior of services such as Sentry or Rollbar. Users can view and filter through various issues on deployed applications. Part of a 'React Job Simulator' course where various issues/tasks resolved through the Kanban method of software development.",
     "video": {
-      "mp4": "/project-images/weather-app/weather.mp4",
-      "webm": "/project-images/weather-app/weather.webm",
-      "poster": "/project-images/weather-app/poster.webp"
+      "mp4": "/project-images/prolog/prolog.mp4",
+      "webm": "/project-images/prolog/prolog.webm",
+      "poster": "/project-images/prolog/poster.webp"
     },
-    "projectPage": "/project/weather-app",
+    "projectPage": "/project/prolog-app",
     "tools": [
+      "nextJS",
       "react",
       "typescript",
       "react-query",
-      "styled-components",
-      "cypress"
+      "SCSS",
+      "cypress",
+      "storybook"
     ]
   }
 ]

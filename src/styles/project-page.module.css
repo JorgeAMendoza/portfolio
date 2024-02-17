@@ -82,6 +82,11 @@
   width: min(100%, 85rem);
 }
 
+.projectContent img {
+  margin-inline: auto;
+  margin-block: 4.5rem;
+}
+
 .projectContent a {
   text-decoration: underline;
   text-underline-offset: 3px;

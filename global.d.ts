@@ -17,7 +17,7 @@ interface ProjectInfo {
   id: string;
   name: string;
   description: string;
-  demoLink: string;
+  demoLink?: string;
   repoLink: string;
   tools: string[];
 }

@@ -174,7 +174,7 @@ export default function Home({
                 </h3>
                 <p>
                   A <em>Front-end Developer</em> looking for a new role and
-                  opportunities. In my senior year of college I took an
+                  opportunities. In my senior year of college I took an{' '}
                   <em>introduction to web-development course</em>, and
                   post-graduation, have continued to improve my skills in
                   front-end/UI engineering by learning about the latest

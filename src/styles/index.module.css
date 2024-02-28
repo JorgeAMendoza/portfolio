@@ -181,6 +181,11 @@
   margin-bottom: 1rem;
 }
 
+.aboutText p a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 .skillsList {
   display: flex;
   flex-wrap: wrap;

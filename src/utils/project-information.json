@@ -1,8 +1,23 @@
 [
   {
+    "id": "vite-react",
+    "name": "Vite + React + Typescript Template",
+    "description": "A modified version of the `react-ts` Vite template that contains various configurations that I use daily while developing React Applications. Designed for my preferences and can be used as a base to begin building production-ready React applications.",
+    "repoLink": "https://github.com/JorgeAMendoza/vite-react",
+    "tools": [
+      "react",
+      "typescript",
+      "cypress",
+      "vitest",
+      "css-modules",
+      "post-css",
+      "eslint"
+    ]
+  },
+  {
     "id": "planet-facts",
     "name": "Planet Facts",
-    "description": "Website that displays various facts about the planets in our solor system, built with Next JS and Typescript. Static pages are generated with 'getStaticProps' and a mobile friendly design is implemented.",
+    "description": "Website that displays various facts about the planets in our solor system, built with Next JS and Typescript. Static pages are generated with 'getStaticProps' and a responsive design based on the provided Figma file was implemented.",
     "repoLink": "https://github.com/JorgeAMendoza/planet-facts",
     "demoLink": "https://planet-facts-delta.vercel.app/planets/mercury",
     "tools": ["next-js", "react", "typescript", "css-modules", "cypress"]
@@ -10,23 +25,30 @@
   {
     "id": "dictionary-app",
     "name": "Dictionary App",
-    "description": "Single-page React application where users can search for words and recieve definitions, examples of definitions, and lists of synonyms and antonyms. Built using the Free Dictionary API",
+    "description": "Single-page React application where users can search for words and recieve definitions, examples of definitions, audio examples, and lists of synonyms and antonyms. Built using the Free Dictionary API",
     "repoLink": "https://github.com/JorgeAMendoza/dictionary-app",
     "demoLink": "https://dictionary-gml37y3ju-jorgeamendoza.vercel.app/",
-    "tools": ["react", "typescript", "styled-components", "cypress"]
+    "tools": [
+      "react",
+      "typescript",
+      "styled-components",
+      "cypress",
+      "vite",
+      "swr"
+    ]
   },
   {
     "id": "password-generator",
     "name": "Password Generator",
-    "description": "A web application that generates passwords with the ability to adjust attributes such as length, numbers, symbols, and capitalization. A password meter indicates strength and users can copy the generated password to their clipboard.",
+    "description": "A single-page web application that generates passwords with the ability to adjust attributes such as length, numbers, symbols, and capitalization. A meter indicates password strength and users can copy the generated password to their clipboard.",
     "repoLink": "https://github.com/JorgeAMendoza/password-gen-app",
     "demoLink": "https://password-gen-app-three.vercel.app/",
-    "tools": ["react", "typescript", "css-modules", "cypress"]
+    "tools": ["react", "typescript", "css-modules", "cypress", "vite"]
   },
   {
     "id": "multi-step-form",
     "name": "Multi-Step Form",
-    "description": "A simple React component that built with the Redux and React-hook-form libraries to create a mult-step form where that allows users to switch between each step while retaining the state of the previous and next step.",
+    "description": "A simple React component that built with the Redux and React-hook-form library to create a mult-step form where that allows users to switch between each step while retaining the state of the previous and next step.",
     "repoLink": "https://github.com/JorgeAMendoza/multi-step-form",
     "demoLink": "https://multi-step-form-jade-delta.vercel.app/",
     "tools": [
@@ -35,16 +57,9 @@
       "redux",
       "react-hook-form",
       "styled-components",
-      "cypress"
+      "cypress",
+      "vite"
     ]
-  },
-  {
-    "id": "memory-game",
-    "name": "Memory Game",
-    "description": "Single-page React application where users can play a memory game that includes the ability to play with multiple players and modes. Redux is used to keep track of game state and player scores.",
-    "repoLink": "https://github.com/JorgeAMendoza/memory-game",
-    "demoLink": "https://memory-game-three-lyart.vercel.app/",
-    "tools": ["react", "typescript", "redux", "styled-components", "cypress"]
   },
   {
     "id": "github-search",
@@ -52,7 +67,14 @@
     "description": "Using the GitHub API, users can search for the profiles of other GitHub users and see information such as their name, star count, and repository count. A light/dark theme is implemented.",
     "repoLink": "https://github.com/JorgeAMendoza/github-user-search-app",
     "demoLink": "https://github-user-search-app-umber.vercel.app/",
-    "tools": ["react", "typescript", "axios", "styled-components", "cypress"]
+    "tools": [
+      "react",
+      "typescript",
+      "axios",
+      "styled-components",
+      "cypress",
+      "vite"
+    ]
   },
   {
     "id": "tic-tac-toe",
@@ -65,7 +87,7 @@
   {
     "id": "news-homepage",
     "name": "Simple News Homepage",
-    "description": "A news homepage page created with Next JS that was created to practice NextJS development and refresh my SCSS skills. Heavy focus on accessibility and responsive design.",
+    "description": "A news homepage page created with Next JS which was used to practice NextJS development and refresh my SCSS skills. Heavy focus on accessibility and responsive design.",
     "repoLink": "https://github.com/JorgeAMendoza/news-homepage",
     "demoLink": "https://news-homepage-olive.vercel.app/",
     "tools": ["next-js", "react", "scss", "typescript"]
@@ -73,7 +95,7 @@
   {
     "id": "bmi-calculator",
     "name": "BMI Calculator",
-    "description": "A web page where users can get their BMI score and receive more information about the BMI Score. Built with React and tested with Cypress",
+    "description": "A web page where users can get their BMI score and receive information about the meaning of the score. Built with React and tested with Cypress",
     "repoLink": "https://github.com/JorgeAMendoza/bmi-calculator",
     "demoLink": "https://bmi-calculator-nu-peach.vercel.app/",
     "tools": ["react", "typescript", "styled-components", "cypress"]

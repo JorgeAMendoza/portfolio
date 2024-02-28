@@ -36,6 +36,8 @@ tools:
 
 Project requirements and design provided thanks to [FrontEndMentors](https://www.frontendmentor.io/challenges/inbrowser-markdown-editor-r16TrrQX9).
 
+Before jumping into frameworks, I wanted to take the time to understand the fundamentals of web development. So a year in, I was capable of building simple applications with HTML, CSS, and JavaScript. At that point I figured it was time to start learning React and developing applications with the framework. This led me to take on this FrontendMentor challenge which I figured would provide a good challenge for me newly learned React skills.
+
 The requirement of the project is to create a single-page markdown editor application that is capable of the following:
 
 - Preview markdown syntax as HTML while editing
@@ -45,7 +47,7 @@ The requirement of the project is to create a single-page markdown editor applic
 
 ## Techstack Used
 
-This Project was bootstrapped with [Vite](https://vitejs.dev/guide/) using the the React/Typescript template. The project is linted with [Eslint](https://eslint.org/docs/latest/user-guide/getting-started) using react, prettier, cypress, and the [jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y) rules.
+This Project was bootstrapped with [Vite](https://vitejs.dev/guide/) using the the React/Typescript template. The project is linted with [ESLint](https://eslint.org/docs/latest/user-guide/getting-started) using react, prettier, cypress, and the [jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y) plugins. The main techstack used include:
 
 - [React](https://reactjs.org/docs/getting-started.html), a JavaScript library for building user interfaces
 - [Cypress](https://docs.cypress.io/guides/overview/why-cypress), a JavaScript testing library for creating end-to-end and unit tests
@@ -61,72 +63,142 @@ This section discusses the development process of the application, and the chall
 
 ### Rendering Markdown
 
-The first goal I wanted to complete was converting/parsing string and rendering it into markdown on the page. It would take an extenstive amount of time to create my own implementation, so it was decided early in development to implement a package that would handle this.
+The first task I wanted to complete was converting the user input string into markdown on the page. It would take an extenstive amount of time to create my own implementation, so it was decided early on in development to implement a library that would handle this.
 
-After researching, I came upon the _marked_ library which was easy to configure and provided fast results. It takes in a string, and returns valid markdown syntax back as HTML string.
+After some research, I came upon the `marked` library which was easy to configure and provided fast results. It takes in a string, and returns valid markdown syntax back as valid HTML string.
 
-One issue with the package is that it does not sanitize the output HTML, meaning that attackers can inject potentially harmful code/syntax into the application. To remedy this, the [DOMPurify](https://www.npmjs.com/package/dompurify) package was installed which sanitizes HTML string. The logic for rendering markdown is as follows:
-
-1. Have _marked_ create the HTML representation of the markdown
-2. Pass the results of _marked_ into _DOMPurify_ for sanitation
-3. Inject the HTML string onto the page with `dangerouslySetInnerHTML`
+One issue with the package is that it does not sanitize the output HTML, meaning that attackers can inject potentially harmful code/syntax into the application. To remedy this, the [DOMPurify](https://www.npmjs.com/package/dompurify) package was installed which sanitizes HTML string. The implementation of this library can be found in the Preview Markdown sub section.
 
 ### Redux
 
-Each markdown document is set to include the following information:
-
-1. The markdown content
-2. The document name
-3. New document status
-4. The _original_ name of the document
-
-#### Disorgnaized State
-
-When I initally planned the application and got the markdown render working, I came to the realization that I was creating many instances of state, and more importantly, was passing this state as props down through multiple components (_prop-drilling_). Some examples of this include:
+When I initally planned the application and got the markdown render working, I came to the realization that I was creating many instances of state, and more importantly, was passing this state as props down through multiple components. This method of passing props down through multiple components is known as [prop drilling](https://dev.to/codeofrelevancy/what-is-prop-drilling-in-react-3kol) Some examples of this include:
 
 - The left side-bar having to take in documents to display and switch over to another document.
 - The top-bar needing document information to save documents and delete documents
 
-Too much information was being passed down to each of these components, making it harder to understand what was going on and to read the application code.
+Each markdown document is set to include the following information
 
-After a bit of research, I came to the conclusion that a state management tool will be needed for this application. **Redux along with Redux Toolkit** was chosen to manage the state of the application. The main reason for this was that I wanted to practice using Redux, and Redux Toolkit makes it easier to implement Redux into an application.
+1. The markdown contnet
+2. The document name
+3. The document status
+4. The _original_ name of the document
+
+Too many props were being passed through, making the codebase hard to read and page renders inefficient.
+
+After a bit of research, I came to the conclusion that a state management tool will be needed for this application. **Redux along with Redux Toolkit** was chosen to manage the state of the application. Redux is the state management system itself, while Redux Toolkit contians method to work with the store in a simply way. This would be my first time using a state management tool, so before starting, I took the time to read through the documentation to get familiar with it.
 
 #### Implementing Redux
 
-As I implemented Redux into the applicaiton, I came to this conclusion: **the redux slice will hold information about the current document that is on the page**. This means that the left side-bar and top-bar components will no longer need to take in props, and instead can extract the document information from the redux store using the safely typed `useAppSelector` hook.
+As I planned out the state management structure, I came to the following conclusion: **the redux slice will hold information about the current document that is on the page**. This means that the left side-bar and top-bar components will no longer need to take in props, and instead can extract the document information from a central location, the Redux store.
 
-Another aspect of the application was to make it clear to the user when a major change to the application was occuring, these events include:
+One requirement of the of the application was to make it clear to the user when an "event" occured, these events include:
 
 - Deleting a document
 - Saving a document
 - Changing the document title
 - Overwriting a document
 
-If any of these events occured, a modal would appear giving the user the ability to confirm these actions, or cancel and leave the document in its current state.
+If any of these events occured, a modal would appear giving the user the ability to confirm the action, or cancel and leave the document in its current state. Again, instead of passing down props into the modal, the component itself can get the updated information from the store.
 
-The implemenetation of the Redux slice can be found in the [`document-reducer.ts`](https://github.com/JorgeAMendoza/in-browser-markdown-editor/blob/main/src/redux/document-reducer.ts) file. The reducer slice contains the following methods:
+The implemenetation of the Redux slice can be found in the [document-reducer.ts](https://github.com/JorgeAMendoza/in-browser-markdown-editor/blob/main/src/redux/document-reducer.ts) file. The reducer slice contains the following actions:
 
-- **Load a document**, the dispatch function can take in a document object and use it set the store to this document's information, displaying it on the page
-- **Update the markdown content**, when a user types into the markdown text area, the slice's **current markdown** property is updated.
-- **change the document title**, change the title in the redux store (local storage change done somewhere else)
-- **remove a document/set store to null**, a user can delete a document and potentially be left with no document to view, thus the store should have a "null" state to indicate there is no document on the page to edit.
-- **Hide/show a message to the user**, multiple boolean values were created that, if active, will display a certian modal (deleting, saving, overwriting, etc.), giving them the option to cancel/confirm the action. The show method for the modal ensures that every modal display boolean value is set to false, except the one that is passed into the payload. The hide action will set the payload's target to false, hiding the modal.
+- `setMarkdownInformation`, takes in an object containing the entire markdown document information and sets it in the store
+- `setMarkdownContent`, when a user types into the markdown text area, the slice's _documentMarkdown_ property is updated.
+- `setCurrentMarkdownTitle`, change the title in the redux store (local storage change done somewhere else)
+- `setNullDocument`, a user can delete a document and potentially be left with no document to view, thus the store should have a "null" state to indicate there is no document on the page to edit.
+- `show/hideModal`, since the store contains properties for modal informatino, `show` will take in arguments to render within the modal. `hide` removes all modal data. The existence of modal data will render the `Modal` component within the application.
 
 #### Redux Dispatch Functions
 
-Instead of calling the dispatch function in the components and passing down the payload information directly, functions that return another function that will call the store's dispatch with the arguments provided were created. I did this because it was easier to understand what dispatch was doing based on the name of the function, and it made the components more readable.
+Instead of calling the dispatch function in the components and passing down the payload information directly, functions that return another function that call the store's dispatch with the arguments provided were created. I did this because it was easier to understand what dispatch was doing based on the name of the function, and it made the components easier to read.
 
-Example of this can be found in the `document-reducer.ts` file in the [`initializeWelcomeMarkdown`](https://github.com/JorgeAMendoza/in-browser-markdown-editor/blob/main/src/redux/document-reducer.ts#L130-L149) function. The function returns another function that takes in a correctly typed dispatch function, an object containing the markdown file information is created and passed into the dispatch function which calls the store's `setMarkdownInformation` action with the payload.
+Still within `document-reducer.ts`, lets review the simple function below:
+
+```tsx
+export const updateCurrentDocumentTitle = (title: string) => {
+  return (dispatch: AppDispatch) => {
+    dispatch(setCurrentMarkdownTitle(title));
+  };
+};
+```
+
+The function `updateCurrentDocumentTitle` takes in a string and returns a function that calls the reducer dispatch function, in this case it calls the `setCurrentMarkdownTitle` action. How dispatch is called in the app will be explained later, but with this implementation, we have a function with a clear intent on what it does, and is responsible for a single update to the store. It may not seem like much, but to me this makes it easier to understand the intent of actions and organize our code-base as well.
+
+#### Initializing the Store
+
+With the reducer created and actions ready, all that is left is to initialize the store in the application. In the `redux-hooks.ts` file, two important hooks were created that allow components to interact with the store:
+
+- `useAppDispatch`, returns a type-friendly dispatch function to fire actions to the store.
+- `useAppSelector`, a hook that extracts the store properties and returns it to the component component.
+
+This implementation is the redux-toolkit recommended practice, `store.ts` contains the defined types of the store which are used for the hooks.
+
+When the reducer slice is initialized, the inital state is set to the following:
+
+```typescript
+const initialState: DocumentContext = {
+  document: {
+    originalDocumentTitle: 'welcome.md',
+    currentDocumentTitle: 'welcome.md',
+    documentMarkdown: welcomeMarkdownText,
+    isNewDocument: true,
+  },
+  modalAction: null,
+  modalInformation: null,
+  targetSwitch: null,
+};
+```
+
+Initially I used a `useEffect` hook in `App.tsx` to call the dispatch to render the `welcome.md` markdown. However, since every page load is meant to render the _welcome_ markdown anyway, it was best to just have it be the default state/data of the reducer.
+
+#### Redux Actions
+
+Originally, the application had functions within related components that used the `selector` and `dispatch` method to retrieve data and modify the store. However, this implementation was lacking in multiple ways:
+
+- Making component files larger and harder to read.
+- Making it harder to debug.
+
+I wasn't a fan of coming back to revisit a component and seeing complex logic within the component itself, there should be a better way for the component to call the needed action without over-bloating. The solution to this was a simple one, put the related functionaility into a React Hook.
+
+Within the [document-action.ts file](https://github.com/JorgeAMendoza/in-browser-markdown-editor/blob/main/src/hooks/document-actions.ts), the `useDocumentAction` hook contains multiple functions that modify the document store in various ways. This hook uses the `useAppSelector` and `useAppDispatch` hooks to retrieve the store information and dispatch method. This implementation makes it so that not every component needs to call the reducer hooks directly, instead, this hook acts as a proxy between the components and the actions needed to interact with the store.
+
+For example, see the snippet for the `newDoc` function:
+
+```typescript
+const newDoc = useCallback(() => {
+  if (!document) {
+    dispatch(setNewDocument());
+    return;
+  } else if (document.isNewDocument)
+    dispatch(
+      displayModal(
+        `do you want to discard the document ${document.currentDocumentTitle}? This cannot be reversed.`,
+        'Discard new document',
+        'discard'
+      )
+    );
+  else
+    dispatch(
+      displayModal(
+        `do you want to discard any changes made to ${
+          document?.currentDocumentTitle || ''
+        }? This cannot be reversed.`,
+        'Discard changes',
+        'discard'
+      )
+    );
+}, [document]);
+```
+
+The function is wrapped around the `useCallback` react hook, which ensures that the function is only recreated when `document` property is modified. When called, it sets a new document if the `document` is not set (meaning there is no document rendered on the page), else it will use a dispatch method to render a modal that asks the user if they want to discard a new or saved document.
+
+Other functions exist within this hook as well, all of them which were originally within components but moved here. Moving all these functions into the hook doesn't improve performance, but having just one location where they can exist makes it easier to organize and extract.
+
+This same implementation was used for actions that result from a user's choice on the modal. The same logic applies here as well, have one hook that contains the store actions, and return functions that modify the store. This file can be found within the `Modal` feature folder in the [modal-aciton.ts file](https://github.com/JorgeAMendoza/in-browser-markdown-editor/blob/main/src/features/Modal/hooks/modal-actions.ts).
 
 ### Application Logic and Structure
 
-With Redux now implemented, the next step was to use these actions together to create the application structure and logic flow.
-
-#### Initializing The Page
-
-When the page loads, the application should display a _welcome_ markdown document. This document is created by calling the dispatch function with the `initalizeWelcomeMarkdown` function which creates a document object with the welcome markdown content, and sets the title of the document. This function is called in the [`App.tsx`](https://github.com/JorgeAMendoza/in-browser-markdown-editor/blob/main/src/App.tsx#L38C2-L46) file, which is the main entry point of the application. This is done in a `useEffect` hook that is only called once, when the page loads. This hook also checks to user's theme preferences and sets the color theme accordingly.
-
-The `App.tsx` component can be seen below:
+This sub-section will delve into the logic of the actions created from the redux slice, along with their use within the application. Though I already explained their purpose, providing more context to their use will paint a clearer picture of what I was attempting.
 
 #### Saving a Document
 
@@ -135,85 +207,214 @@ When a user saves a document, the application must ensure the following:
 - The document title is valid
 - The document title does not already exist
 
-In the [`TopBar.tsx`](https://github.com/JorgeAMendoza/in-browser-markdown-editor/blob/main/src/components/TopBar/TopBar.tsx#L40-L110) component, the `saveDocument` function is responsible for the following: validating document titles, confirming that documents are new, and confirming if a document needs to be overwritten. Implementation of that function can be seen below:
+In `document-action.ts`, the [saveDoc function](https://github.com/JorgeAMendoza/in-browser-markdown-editor/blob/b7e49a1da28c14aa6d92a5170f0f68ff2a8b4bad/src/hooks/document-actions.ts#L76-L170) is responsible for validating document titles, checking the _new_ document status, and confirming if a document needs to be overwritten. When the _save_ button is clicked within the [TopBar.tsx component](https://github.com/JorgeAMendoza/in-browser-markdown-editor/blob/main/src/features/TopBar/components/TopBar/TopBar.tsx) the `saveDoc` function executes the following:
 
-1. Validating document titles, a regex is used to ensure that the document title is valid, if not, the `displayModal` helper function within the dispatch is called to display the error modal to the user.
-2. Confirming if a document is new, if a document is marked as new and the title does not exist in the local storage, the application can safely save the document without any issues. However, if a document in the storage matches the title of the current document, then the application will display the _overwrite_ modal to the user.
-3. Saving a document, if a document is not new and the title already exists and matches something in local storage the the application overwrites what is in the local storage, udpates the timestamp, and updates the redux store.
-4. Replacing a document, the store contains document which has the current title and the original title of the document when it was loaded in. If the current title does not match the original title, that means the user has changed the document title. So the application deletes the instance of the document with the original document name and saves another instance of the document with the new title.
+1. If there is no current document (users can go into the local storage and erase the data), then the function returns.
+2. The current document title is verified using a regex, if invalid, then the `displayModal` function is called with the "title" argument, which is passed into the dispatch function to display the _invalid title_ modal to the user. The function then returns.
+3. Next the function checks if there are any documents in the local storge, if none exist, then it is safe to assume that there is no document with the same title as the current one, so the markdown information is stringified and set as the local storage data, a date property is also inserted into the object to keep track of when the document was last saved (more on this later).
 
-If there is nothing in local storage then the application can safely assume that there are no documents, and can save the document without any issues.
+   - After this, the dispatch function is passed the result of `saveDocumentInformation` which will update the redux store with the current document information, which sets the original title to the current title, and sets the `newDocument` property to false. Finally, the `window` object fires a storage event, which will ensure that the left-side bar will populate the document list with the latest saved document infomration.
 
-If the document needs to be overwritten, the function which executes this can be found in [`App.tsx`](https://github.com/JorgeAMendoza/in-browser-markdown-editor/blob/main/src/App.tsx#L77-L103):
+4. If documents exist in local storage and the current document is new, then we need check if the current document title already exists in the local storage. If it does, then the `displayModal` function is called with the "overwrite" argument, which is passed into the dispatch function to display the _overwrite_ modal to the user.
 
-If the overwrite occurs with a new document, then the function will grab the current document title and markdown information, and update the local storage data with the new information and fire the dispatch to update the redux store. If not a new document, that means that the currnet document had its title changed, so the document with the original title is deleted from the local storage and the current document information is added to the local storage data.
+   - If the title does not exist, then the current document is added to the local storage data, and the dispatch function is passed the result of `saveDocumentInformation` which will update the redux store with the current document information. Like before, the `storage` event is fired to ensure that our document list is up to date with what we just inserted into local storage.
+
+5. If documents exists in local storage and the current document is not new, then we check to see if the current document title is the same as the original document title. If it is, then we can safely assume that the user is saving the document with the same title, so we can just overwrite the local storage data with the current document information and the dispatch function is passed the result of `saveDocumentInformation` which will update the redux store with the current document information. If the current document doesn't exist in local storage then just add it to the local storage data, else if the document exists that means the markdown document needs to be overwritten and the _ovewrite_ modal will be displayed.
+
+When the _overwrite_ modal appears, user's must confirm the action before it is executed.
 
 #### Deleting a Document
 
-The logic for deleting a document exists in `App.tsx`, but the function to display the modal to fire the action to delete the document lives in the [`TopBar.tsx`(https://github.com/JorgeAMendoza/in-browser-markdown-editor/blob/main/src/components/TopBar/TopBar.tsx#L162C14-L179)] component.
+When deleting the document, there are two main actions that occur:
 
-In the `DocOption` component (a styled-component wrapper), when a user clicks the delete button, the dispatch function is called with the result of `displayModal` passed the 'delete' argument to display the _delete_ modal.
+1. Rendering the modal to confirm the deletion
+2. The deletion itself.
 
-The user is shown the modal, and can cancel or confirm the action.
+Within `document-action.ts`, the following function is declared:
 
-The `App.tsx` component contains the [`confirmDelete`](https://github.com/JorgeAMendoza/in-browser-markdown-editor/blob/main/src/App.tsx#L48-L75) function which executes the following:
+```typescript
+const deleteDoc = useCallback(() => {
+  dispatch(
+    displayModal(
+      'Are you sure you want to delete the current document and its contents? This action cannot be reversed.',
+      'Delete Document',
+      'delete'
+    )
+  );
+}, []);
+```
 
-1. If there is no document present, just return to avoid errors.
-2. Grab all documents in local storage, and if there are no documents, then just delete the document from the redux store.
-3. If documents exists in local storage, delete the object with the title name, and set local storage to a new object which no longer has the current document information.
+In `TopBar.tsx`, the delete button will fire the function above, which in turn will render the modal. Once the modal renders and the user confirms the action, the following function will be called:
+
+```typescript
+const confirmDelete = useCallback(() => {
+  if (!document) return;
+
+  if (document.isNewDocument) {
+    dispatch(deleteDocument());
+    return;
+  }
+
+  const savedDocuments = localStorage.getItem('savedMarkdown');
+  if (!savedDocuments) {
+    dispatch(removeModal());
+    dispatch(deleteDocument());
+    return;
+  }
+  const savedDocumentsObject = JSON.parse(savedDocuments) as SavedDocument;
+  delete savedDocumentsObject[document.originalDocumentTitle];
+  localStorage.setItem('savedMarkdown', JSON.stringify(savedDocumentsObject));
+
+  dispatch(removeModal());
+  dispatch(deleteDocument());
+  window.dispatchEvent(new Event('storage'));
+}, [document]);
+```
+
+In the `confirmDelete` function above, the following occurs:
+
+1. If there is no document present, return to avoid errors.
+2. Grab all documents in local storage, and if there are no documents, then delete the document from the redux store.
+3. If documents exist in local storage, delete the object with the title name, and set local storage to a new object which no longer has the current document information.
 4. Finally, the dispatch to remove the modal is fired, the document is removed from the Redux store, and the `window` object fires a storage event which ensures the document list reflects this change.
 
 #### Creating a new Document
 
-The `Menu.tsx` component contains the function to display the modal to create a new document, depending on if the current document is _new_ or not, a variant of this modal will be shown. `App.tsx` contains the function to clear the modal and set a new document in the Redux store.
+The `Menu.tsx` component renders a button to create a new document, but since we don't want to immediately lose all saved work, the `newDoc` function from the `useDocumentAction` hook is used to render a modal that displays the two variants:
 
-`Menu.tsx` contains the [`newDocumentToggle`](https://github.com/JorgeAMendoza/in-browser-markdown-editor/blob/main/src/components/Menu/Menu.tsx#L18-L22) function that is fired when a user clicks the _new document_ button, the function executes the following:
+- A modal that asks the user if they want to discard a _new_ document.
+- A modal that asks the user if they want to discard a _saved_ document.
 
-1. If there is no document currently store, call the dispatch function with the argument of `setNewDocument` which will set a new document in the redux store.
-2. If there is a document, and the document is new, then call the dispatch function with the argument of `displayModal` which will display the _discard new_ modal to the user.
-3. If there is a document, and the document is not new, then call the dispatch function with the argument of `displayModal` which will display the _discard saved_ modal to the user.
+Either way, the following function from the `useModalAction` hook will execute when user confirms the action:
 
-The only difference between the two modals is that one indicates to the user that any un-saved changes will be lost, and the other indicates that the new document will be discarded.
+```typescript
+const confirmDiscard = useCallback(() => {
+  dispatch(setNewDocument());
+  dispatch(removeModal());
+}, []);
+```
 
-The `App.tsx` component contains the [`confirmDiscard`](https://github.com/JorgeAMendoza/in-browser-markdown-editor/blob/main/src/App.tsx#L72-L75) function, which sets the redux store to a new document, and sets a boolean to false to hide the menu.
+The `confirmDiscard` function will render the `newDocument` markdown text on the page, and hide the modal.
 
 #### Switching Documents
 
-Each `DocumentListItem.tsx` component contains the function [`switchDocument`](https://github.com/JorgeAMendoza/in-browser-markdown-editor/blob/main/src/components/DocumentList/DocumentListItem/DocumentListItem.tsx#L24-L47) which when fired, will set the target document in the redux store. The `DocumentList.tsx` component grabs all documents from local storage and maps over them to render each instance of `DocumentListItem.tsx`.
+[DocumentList.tsx](https://github.com/JorgeAMendoza/in-browser-markdown-editor/blob/main/src/features/Menu/components/DocumentList/DocumentList.tsx) renders a list of saved documents based on data from the local storage. Each document is represented by the [DocumentListItem.tsx](https://github.com/JorgeAMendoza/in-browser-markdown-editor/blob/main/src/features/Menu/components/DocumentList/DocumentListItem/DocumentListItem.tsx) component, which when clicked, fires the `switchDoc` function from the `useDocumentAction` hook. If there is no document on the page and the clicked doc is valid, then it is rendered on the page. Else, a modal that asks the user if they want to switch will be rendered. If the user confirms the action, the following function is called:
 
-The `switchDocument` function executes the following:
+```typescript
+const confirmSwitch = useCallback(() => {
+  const targetDocumentTitle = targetSwitch;
+  const savedMarkdown = localStorage.getItem('savedMarkdown');
+  if (!savedMarkdown || !targetDocumentTitle) return;
 
-1. Grabs all documents in local storage
-2. If no documents exists, return to avoid errors.
-3. If there is no document in the redux store and the target document does exist in local storage, call the dispatch function with `changeDocument` which takes in the target document title and the markdown to render.
-   - If a document currently exists in the store, the user will be notified that any unsaved changes will be lost on the switch by calling `DisplayModal` with the `switch` variant in the dispatch function.
+  const savedMarkdownObject = JSON.parse(savedMarkdown) as SavedDocument;
 
-`App.tsx` contains the [`confirmSwitch`](https://github.com/JorgeAMendoza/in-browser-markdown-editor/blob/main/src/App.tsx#L105-L127) function which confirms or discards the document switch.
+  if (!savedMarkdownObject[targetDocumentTitle]) {
+    dispatch(removeTargetDoc());
+    dispatch(removeModal());
+    return;
+  } else {
+    dispatch(
+      changeDocument(
+        targetDocumentTitle,
+        savedMarkdownObject[targetDocumentTitle].documentMarkdown
+      )
+    );
+  }
+  dispatch(removeTargetDoc());
+  dispatch(removeModal());
+}, [document]);
+```
 
-In the [`DocumentList`](https://github.com/JorgeAMendoza/in-browser-markdown-editor/blob/main/src/components/DocumentList/DocumentList.tsx) component, the `useEffect` hook is used to extract document information from local storage, parse it into a format that can be used by the state, and apply document list to the state. The `useEffect` hook also adds an event listener to the window object to listen for changes to local storage. If a change is detected, the `checkLocalStorage` function is called again to update the state with the new document list.
+The `confirmSwitch` function within the `useModalAction` hook executes the following:
+
+1. Grabs all documents in local storage and the current document title.
+2. If no documents exists in local storage, or there is no document to switch to, return.
+3. If the target document cannot be found in the local storage, ensuring to catch errors, then remove the target document and the modal.
+4. If all checks had passed at this point, then there is a document to switch to. The `changeDocument` method is passed into the dispatch, taking in the document title and markdown to render on the page.
+5. The modal and target document are removed.
 
 #### Editing Markdown.
 
-The [`MarkdownTextArea.tsx`](https://github.com/JorgeAMendoza/in-browser-markdown-editor/blob/main/src/components/DocumentEdit/MarkdownTextArea/MarkdownTextArea.tsx) component contains the `textarea` where users can edit markdown and fires the dispatch function to update the Redux store with the new markdown.
+The [MarkdownTextArea.tsx component](https://github.com/JorgeAMendoza/in-browser-markdown-editor/blob/main/src/features/DocumentEdit/components/MarkdownTextArea/MarkdownTextArea.tsx) contains the `textarea` where users can edit markdown. As users edit the text area, the `updateDoc` function from the `useDocumentAction` hook is called to update the markdown in the Redux store. Originally I planned to just have this state contained within component itself, however, multiple components around the application needed access to this information; so the state would need to exist within the redux store. `updateDoc` simply calls the `updateMarkdown` action from the reducer.
 
-One tricky part of editing the document was inserting a _tab_ character when the user presses the tab key. By default, when a user tabs in a text-area, the keyboard navigates to the next tab target. To insert a tab character, a [`keyDown`](https://github.com/JorgeAMendoza/in-browser-markdown-editor/blob/main/src/components/DocumentEdit/MarkdownTextArea/MarkdownTextArea.tsx#L28-L44) event was required which executed the following.
+One tricky part of editing the document was inserting a _tab_ character when the user presses the tab key. By default, when a user tabs in a text-area, the keyboard navigates to the next tab target. To insert a tab character, a `keyDown` event was implemented within the `textarea`, see below:
+
+```typescript
+<textarea
+  data-cy="markdownTextArea"
+  value={document?.documentMarkdown || ''}
+  onChange={(e) => updateDoc(e.target.value)}
+  onBlur={(e) => updateDoc(e.target.value)}
+  onKeyDown={(e) => {
+    const textArea = e.target;
+    if (!(textArea instanceof HTMLTextAreaElement)) return;
+    if (e.key == 'Tab') {
+      e.preventDefault();
+      const start = textArea.selectionStart;
+      const end = textArea.selectionEnd;
+
+      textArea.value =
+        textArea.value.substring(0, start) +
+        '   ' +
+        textArea.value.substring(end);
+
+      textArea.selectionStart = textArea.selectionEnd = start + 3;
+      updateDoc(textArea.value);
+    }
+  }}
+/>
+```
+
+The `onKeyDown` attribute placed within the `textarea` executes the following:
 
 1. Extract the text area from the event target and ensure that it is an HTMLTextAreaElement (Typescript check).
 2. If the key pressed is the tab key, prevent the default action of leaving the `textarea`.
 3. Grab the start and end of the selection in the text area, then insert three spaces at the start position, and concat the rest of the string after the end position.
 4. Set the selection start and end to the start position plus 3 (the length of the tab character) to position cursor in its new position.
-5. Dispatch the `updateMarkdown` action with the new markdown string.
+5. Call `updateDoc` to update the markdown in the store.
 
 #### Preview Markdown
 
-The [`PreviewTextArea.tsx`](https://github.com/JorgeAMendoza/in-browser-markdown-editor/blob/main/src/components/DocumentEdit/PreviewTextArea/PreviewTextArea.tsx) component extracts the document markdown from the Redux store and uses _marked_ to parse the markdown into HTML. The prop `fullPreview` will display the preview area as full screen if true, else it will share the screen with the markdown editor component. The `dangerouslySetInnerHTML` prop is used to render the HTML string returned from the `marked` function. The `DOMPurify` library is used to sanitize the HTML string to prevent XSS attacks. Since each store change renders the component, the variable `html` will be constantly updated with the new markdown.
+The [PreviewTextArea.tsx component](https://github.com/JorgeAMendoza/in-browser-markdown-editor/blob/main/src/features/DocumentEdit/components/PreviewTextArea/PreviewTextArea.tsx) extracts the document markdown from the Redux store and uses _marked_ library to parse the markdown into a valid HTML string. The component can be seen below:
+
+```typescript
+export const PreviewTextArea = ({
+  adjustPreview,
+  fullPreview,
+}: PreviewTextAreaProps) => {
+  const documentState = useAppSelector((state) => state);
+  const html = marked.parse(documentState.document?.documentMarkdown || '');
+
+  return (
+    <PreviewTextAreaStyled data-fullpreview={fullPreview}>
+      <div>
+        <h1>preview</h1>
+        <button onClick={adjustPreview} aria-label="toggle full screen preview">
+          <img src={showPreviewIcon} alt="" />
+        </button>
+      </div>
+      <PreviewText
+        data-cy="previewTextArea"
+        dangerouslySetInnerHTML={{
+          __html: DOMPurify.sanitize(html, { USE_PROFILES: { html: true } }),
+        }}
+      ></PreviewText>
+    </PreviewTextAreaStyled>
+  );
+};
+```
+
+The prop `fullPreview` will display the preview area as full screen if true, else it will share the screen with the `MarkdownTextArea.tsx` component. The `dangerouslySetInnerHTML` prop is used to render the HTML string returned from the `marked` function. The markdown is first passed through the `sanitize` method from the `DomPurify` method to sanitize the HTML string.
 
 ## Conclusion
 
-Overall this was a fun project to work on. I felt that I was able to get a good grasp on Redux fundamentals, discover a new way to render markdown on a web page, and work on a project that was more complex than previous projects I have worked on.
+Overall this was a fun project to work on. I felt that I was able to get a good grasp on Redux fundamentals, discover a new way to render markdown on a web page, and work on a project that was more complex than previous projects I had worked on.
 
 Some things I look to improve include:
 
-1. Simplying logic, I feel that I put too many important functions in `App.tsx`, using Redux should privide a better way to organize these fucntions.
-2. Implement unit test that would have helped me solve some of the bugs I encountered in specific components.
-3. Migrate from local storage to `IndexedDB` for offline storage, and eventually add support for authentication so users can save their documents to a database to be accessed anywhere.
+1. Implement unit test that would have helped me solve some of the bugs I encountered in specific components.
+2. Migrate from local storage to `IndexedDB` for offline storage, and eventually add support for authentication so users can save their documents to a database to be accessed anywhere.
+
+I would like to discuss the _render_ issues that some may notice. Most actions on the page (menu open, type, etc.) will cause almost the entire page to re-render. As of the current state of the application, since renders are short and efficient, this isn't much of a problem. I believe in the idea of not "over-optimizing"; React is meant to render the application and is built to be very good at that. Introducing multiple optimization techniques when the performance is fine does nothing more than over-complicate our components. Plus, these methods themselves come at a price. Until peformance becomes noticeable issue, it is best to leave it be.
+
+If you find problems or have suggestions, please feel free to open an issue or pull request! Thanks for reading! Please check out the GitHub page for this project for more details!

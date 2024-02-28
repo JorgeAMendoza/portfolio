@@ -40,7 +40,7 @@ const ShowcasePage = ({
   return (
     <Layout>
       <Head>
-        <title>{frontMatter.title} | Jorge A. Mendoza</title>
+        <title>{`${frontMatter.title} | Jorge A. Mendoza`}</title>
         <meta
           name="description"
           content={`Project details for the ${frontMatter.title} application created by Jorge A. Mendoza`}
@@ -64,9 +64,12 @@ const ShowcasePage = ({
               <a href={frontMatter.repoLink} target="_blank" rel="noreferrer">
                 GitHub
               </a>
-              <a href={frontMatter.demoLink} target="_blank" rel="noreferrer">
-                Live Demo
-              </a>
+
+              {frontMatter.demoLink ? (
+                <a href={frontMatter.demoLink} target="_blank" rel="noreferrer">
+                  Live Demo
+                </a>
+              ) : null}
             </nav>
           </div>
 

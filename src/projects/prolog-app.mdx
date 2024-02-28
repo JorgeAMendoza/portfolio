@@ -1,0 +1,364 @@
+---
+title: 'Prolog App'
+slug: 'prolog-app'
+repoLink: 'https://github.com/profydev/prolog-app-JorgeAMendoza'
+video:
+  {
+    poster: '/project-images/prolog/poster.webp',
+    webm: '/project-images/prolog/prolog.webm',
+    mp4: '/project-images/prolog/prolog.mp4',
+  }
+tableOfContents:
+  [
+    { sectionID: 'Introduction' },
+    {
+      sectionID: 'Techstack Used',
+      subSections: ['Next JS', 'Storybook', 'Cypress', 'Other Tools'],
+    },
+    {
+      sectionID: 'Development',
+      subSections:
+        [
+          'Page Info has the Wrong Color',
+          'Create Button',
+          'Add Filters to Issue List',
+        ],
+    },
+    { sectionID: 'Conclusion' },
+  ]
+tools:
+  [
+    'nextJS',
+    'react',
+    'typescript',
+    'react-query',
+    'SCSS',
+    'cypress',
+    'storybook',
+  ]
+---
+
+## Introduction
+
+Towards the end of 2023, I felt comfortable building complex single-page applications with React and just began getting acquainted with frameworks such as Next JS. However, I did not have much experience working with professional software development cycle project or team. After a bit of research, I found the [React Job Simulator course](https://profy.dev/), which promised to provide real-world React development experience while expanding my skillset along the way. I took the gamble on the course, and months later, my React skills feel more refined and my problem-solving skills when working on a project of a larger scale feel improved as well.
+
+The application being worked on is a [Sentry-like](https://sentry.io/welcome/) service where users can view and filter through issues on deployed projects. At the beginning of the course the application is functional, but is missing some useful features and contains various bugs. The goal at the end of course was to fix these issues and implement features in a timely manner through the [agile software development method of Kanban](https://www.atlassian.com/agile/kanban). Tasks of various difficulty were ready to be assigned to myself (the software-engineer) and increase in difficulty as they are completed. There was no recommended set of tasks to complete in a specific order; the idea is to determine what could be completed in a reasonable amount of time and how much time would more difficult tasks would take.
+
+This page will discuss the tooling of the application, the development process, and three tasks of various difficutly that I solved during my time with the course.
+
+## Techstack Used
+
+The section will dicuss the general tooling used for the application. The course was focused more on front-end development, so the backend was already deployed with documentation provided for API troubleshooting and information.
+
+### Next JS
+
+The application is built with [Next JS](https://nextjs.org/docs), a React framework for building a full-stack web applications. This application is developed with version `13` of the framework, but opts into the `/pages` directory feature. The framework gives us the the benefit static page genreation while developing with React.
+
+All pages can be found within the `/pages` directory, in this case, each page acts as a container for a `feature` component that will be discussed later. The project is configured with TypeScript, giving us statically safe-typing and allowing us to ensure that components properly recieve the defined args to avoid syntax errors.
+
+### Storybook
+
+Component driven development is a software development method that puts emphasis on creating loosely coupled and modular components. A tool that I believe works in conjunction with this development philosophy is [storybook](https://storybook.js.org/), a library for building UI component in isolation. I had never used `Storybook`, but I understood that it allowed us to easiy develop components without having to insert them into the application directly. It provides documentation for every component created, allows us to create different versions of the component, and customize the component options with options.
+
+You'll see in the _tasks_ section how storybook is used to create re-usable components that keep consistent style through the application.
+
+### Cypress
+
+[Cypress](https://www.cypress.io/) is a JavaScript testing framework for both end-to-end test and unit test. This application only opts into end-to-end test. Along with other scripts, an attempted merge into the repository `main` branch will run Cypress test to ensure that error-riddled pull-request do not enter our code-base. Certain tasks throughout the course would not be accepted until Cypress test for the implementation were created and the behavior was validated.
+
+### Other Tools
+
+Other tools used during the development of the applicaiton include:
+
+- [ESLint](https://eslint.org/), lint the codebase and catch various issues based on the `.eslintrc` file.
+- [Sass/SCSS](https://sass-lang.com/), language extension for writing CSS, this application implements SCSS modules.
+- [Stylelint](https://stylelint.io/), CSS linter to force conventions defined in the `.stylelintrc.js` config file.
+- [husky](https://typicode.github.io/husky/), run scripts on the codebase as the commit leaves the staging area.
+- [lint-staged](https://github.com/lint-staged/lint-staged#readme), used in conjunction with `Husky`, provides a more efficient config for linting code in a commit.
+- [Figma](https://www.figma.com/), a collaborative user interface tool to create the design of the application.
+
+## Development
+
+This section will discuss three tasks that were assigned during the course, each with a varying level of difficulty. Each tasks deal with various aspects of the application, ranging from simple bug fixes to critical feature implementation. There were about 20 tasks total in the course.
+
+### Page Info has the Wrong Color
+
+**Expected behavior**: The text color of `page` info on the bottom of the issue list on the `/issues` page should match the design.
+
+The current color on the `page` info blends into the light background, making it difficult to read for certain users and does not meet contrast standard set by [WCAG (SC 1.4.3)](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html)].
+
+#### Investigation
+
+This one was one of the first task completed, I had a general location on where the issue was, but I wanted to take my time to understand the project structure. Taking the time to get acclimated with the configuration and already existing features would make future tasks less time consuming and easier to understand.
+
+This project was strucutured with the [bulletproof-react](https://github.com/alan2207/bulletproof-react) method, which is a opionionated method to organize a production-ready React application. It provides best practices for the API layer, testing, performance, and more.
+
+After taking the time to feel comfortable with the development environment and locating the problematic file, it was time to implement a fix.
+
+#### Implementation
+
+The issue can be found in [line 63 of the `issue-list.module.scss file](https://github.com/profydev/prolog-app-JorgeAMendoza/blob/c0e6a5e3122275246928de32696d913e167ee658/features/issues/components/issue-list/issue-list.module.scss#L63-L66). The color did not match the value defined in Figma, all colors in this project are extracted from the [color.scss file](https://github.com/profydev/prolog-app-JorgeAMendoza/blob/main/styles/color.scss). After adjusting the variable name, I confirmed myself that the color was right and met the WCAG standard.
+
+#### Task Conclusion
+
+Overall this was a good task to get started with in the course. I was able to get acclimated with the project structure and feel comfortable navigating the code-base. The fix itself was simple, just change a color variable, but it was an important fix since it resolved a critical accessbility issue.
+
+### Create Button
+
+**Requirement**: Create a `Button` component that could be used throughout the application to provide consistent style and functionality. The component should render in small, medium, large, and extra large sizes and should have the following states/color:
+
+- primary
+- secondary
+- gray
+- empty
+- empty gray
+- error
+- disabled
+
+A version of the button that renders an icon must be created as well.
+
+#### Investigation
+
+When I first started the tasks I didn't believe it was going to give me too much trouble, all I had to do was just provide some props to a button and it will render based on those props! That idea was right, but the issues came from implementing this in `Storybook`. I had never worked with storybook before, so determining how to properly setup the component was a challenge. Luckily I had a reference to work with in the [Badge.tsx](https://github.com/profydev/prolog-app-JorgeAMendoza/blob/c0e6a5e3122275246928de32696d913e167ee658/features/ui/badge/badge.tsx) component, but I felt that implementation was lacking.
+
+I decided to take the time to read through the [documentation for Storybook](https://storybook.js.org/docs/get-started/whats-a-story), not just focusing on the `React` aspect of it, but general best practices as well. One of the most interesting topics I found was that the tool provided documentation for components created. After some reading, I decdided that instead of creating one component that has various options, it would be best to create different versions of the component which the documentation can display for developers.
+
+#### Implementation
+
+Let us discuss [the Button.tsx](https://github.com/profydev/prolog-app-JorgeAMendoza/blob/main/features/ui/button/button.tsx) component itself first. Just like `Badge.tsx`, multiple `enum` constants were created that defined the type name and value. These enums were set as:
+
+- `ButtonColor`
+- `ButtonSize`
+- `ButtonIcon`
+
+These `enum` sets would be used to define the props for the button component. However, these props themselves would not be enough to create a true _button_ component. The component should not just look like a button, it should provide the same behavior as an HTML `button` as well. The `Button.tsx` component has its props set to the defined `enums` and all the HTML attributes of the `button` element. See the line below:
+
+```tsx
+export function Button(
+  props: ButtonHTMLAttributes<HTMLButtonElement> & ButtonProps
+);
+```
+
+Using a intersction type `&`, we can say that our button takes in our `ButtonProps` **and** all HTML `button` attributes. To apply both our props the the attributes, the following JSX was implemented:
+
+```tsx
+const { color, size, icon, ...buttonProps } = props;
+const buttonColor = color === undefined ? ButtonColor.primary : color;
+const buttonSize = size === undefined ? ButtonSize.md : size;
+const buttonIcon = icon === undefined ? ButtonIcon.none : icon;
+
+return (
+  <button
+    className={classNames(
+      styles.button,
+      styles[buttonColor],
+      styles[buttonSize],
+      styles[buttonIcon]
+    )}
+    {...buttonProps}
+  />
+);
+```
+
+Variables are created to extract the props for the button, with the ternary operator used to provide a default value if the prop is not passed in. The props are then spread into the `button` element that is returned by the component. The `Button` component can now be used throughout the application and tested properly with `Storybook` as well.
+
+#### Storybook Use
+
+In the file [button.stories.tsx](https://github.com/profydev/prolog-app-JorgeAMendoza/blob/main/features/ui/button/button.stories.tsx), the configuration for the `Button` story can be found with the following snippet:
+
+```tsx
+const Template: StoryFn<typeof Button> = ({ size, color, icon, children }) => (
+  <div style={{ padding: 50 }}>
+    <Button color={color} size={size} icon={icon}>
+      {children}
+    </Button>
+  </div>
+);
+
+export const Primary = Template.bind({});
+Primary.args = {
+  size: ButtonSize.sm,
+  color: ButtonColor.primary,
+  children: 'Button CTA',
+};
+```
+
+`Template` defines a component to use as a container in `Storybook`, and the `Primary` component is a _story_ that will render the `Primary` state of the button with the args provided. The file contains more stories that represent the states and styles of the component.
+
+#### Application Use
+
+With the `Button` component completed, any instance of `button` in the application should be replaced by our custom `Button` component. See the [ContactModal.tsx component](https://github.com/profydev/prolog-app-JorgeAMendoza/blob/main/features/ui/contact-modal/ContactModal.tsx) snippet:
+
+```tsx
+<div id="modalButtons" className={style.buttons}>
+  <Button color={ButtonColor.gray} onClick={() => closeModal()}>
+    Cancel
+  </Button>
+  <Link href="mailto:profysupport@prolog-app.com?subject=Support%20Request%20:&body=message%20goes%20here">
+    Open Email App
+  </Link>
+</div>
+```
+
+The `Button` component is used, with the color defined and the `onClick` attribute set. This gives the developer a reusable component that provides consistent behavior and functionality. If more specific styling needs to be applied, the component could be wrapped within another component and targeted with SCSS modules (this is a behavior I want to try modifying in the future).
+
+#### Task Conclusion
+
+With the task completed, front-end developers working on this project now have access to a reusable `Button.tsx` component that can be implemented for any instance of `button`. Developers no longer have to worry about repeating styles or functionality, one component can take in various props and render for the use case. Having a component like this also ensures that developer implementations stay true to the design system.
+
+The configuration made for the `Button.tsx` component would continue to be used for other `Storybook` components that were made during the course. Though this task took longer than I expected, I was able to learn a great deal about component-driven testing, `Storybook`, and get a template to work with for future UI components.
+
+### Add Filters to Issue List
+
+**Requirement:** Users wish to see a filter added to the issue list which narrows down the criteria of issues into three categories:
+
+- State (resolved, unresolved)
+- Level (error, warning, info)
+- Name (project name)
+
+Filters should persist after a page refresh and a _no results_ page is rendered when the filters yield no results.
+
+#### Investigation
+
+This was the one of the most challenging tasks handed to me during the course, It wasn't just a simple "set a state and render data based on it", this implementation had to work with the already existing logic for fetching issues with the API.
+
+The [useGetIssues hook](https://github.com/profydev/prolog-app-JorgeAMendoza/blob/c0e6a5e3122275246928de32696d913e167ee658/features/issues/api/use-get-issues.tsx#L26) used to get the list of issues does not simply retrieve all issues. For optimization reason, it instead paginates the data and retrieves a set number of issues per page. Since it displays 10 issues per page, if there a total of 15 issues, page one will display 10, and page two will display the last 5. Simply iterating over the retrieved issues with the state info would not work since it will only filter for the current page, not truly retrieve a full list of filtered issues.
+
+This required some investigation into the API, luckliy for us, the API is well-documented using the [OpenAPI](https://www.openapis.org/) standard and the [Swagger UI tool](https://swagger.io/). Looking into the endpoint for `/issues` I realized that it was possible to pass in options for the issue retrieval, these options could be used to retrieve issues based on status, level, and project name.
+
+Knowing that the API is capable of retrieving filtered results, all that was left was to implement the UI to set some filter states, and pass that state into our `useGetIssues` hook so it can properly retrieve the filtered issues.
+
+Looking within the [issue-list.tsx component where the hook is used], the hook returns an object which contains the issue data. If we go look at the exact implementation of the hook, we can see that it uses [react-query](https://tanstack.com/query/latest/docs/framework/react/overview) to call the [getIssues async function](https://github.com/profydev/prolog-app-JorgeAMendoza/blob/main/api/issues.ts). With this general setup of the hook in mind, we can begin to piece together how to pass in our filter options into the request.
+
+#### Implementation.
+
+I'm going to separate the implemetnation into two parts, the first one discussing the query being made to get the filtered issues, and the other to explain the UI implemented to set the filter options.
+
+##### Query
+
+Before creating the UI component itself, I wanted to at least structure how data was going to be passed into hook. To start off, the `useGetIssues` hook should take in the page number and the filter options of `status`, `level`, and `project`. See the code snippet below:
+
+```tsx
+export function useGetIssues(
+  page: number,
+  status: Status,
+  level: Level,
+  search: string
+);
+```
+
+The args are defined with the proper data types to ensure the UI implementation passes in the right values. When working with react-query, the library uses a `key` to determine whether to retrieve from the cache or make a new request. When the hook is initialized, the [`getQueryKey` function](https://github.com/profydev/prolog-app-JorgeAMendoza/blob/c0e6a5e3122275246928de32696d913e167ee658/features/issues/api/use-get-issues.tsx#L10C1-L24) is used to generate that key, it simply adds the filter options to an array that is returned into the `useQuery` hook.
+
+Since we inserted the new args into our hook, we also needed to insert them into the `getIssues` function so it can be passed into the request itself. See the function below:
+
+```tsx
+export async function getIssues(
+  page: number,
+  status: Status,
+  level: Level,
+  project: string,
+  options?: { signal?: AbortSignal }
+) {
+  const params: Query = { page };
+  if (status) params.status = status;
+  if (level) params.level = level;
+  if (project) params.project = project;
+  const { data } = await axios.get<Page<Issue>>(ENDPOINT, {
+    params,
+    signal: options?.signal,
+  });
+  return data;
+}
+```
+
+Previously it sent the request based on page, now it will insert the filter state into the parmas object if it exists in the args and return the result of the query with that param object. With the hook ready to take in the filter states, the `/issue` page needed some updates to the page navigation.
+
+In the issue-list.tsx component, the [useNavigatePage function](https://github.com/profydev/prolog-app-JorgeAMendoza/blob/main/features/issues/components/issue-list/issue-list.tsx) is modified to take in the target page and filter states. So all page navigation now has the ability to have the filter states pushed to the URL. In the case where a user refreshes the page, the `useEffect` in the component checks the query object, extracts any valid properties, and sets their state in the context (discussed in the next section).
+
+##### UI Component
+
+As I began to plan out the UI implementation, I realized that a number of props were going to passed through various components. To me this didn't stick to DRY principles, and made the [issue-list.tsx component](https://github.com/profydev/prolog-app-JorgeAMendoza/blob/main/features/issues/components/issue-list/issue-list.tsx) harder to read. To better organize the feature, `React context` was used to store the filter value and actions, which allowed allowed children passed in through the provider to access the state easily.
+
+The full configuration of the context can be found in the [filter-context.tsx component](https://github.com/profydev/prolog-app-JorgeAMendoza/blob/main/features/issues/components/context/filter-context.tsx), but the main snippet can be seen below:
+
+```tsx
+export const FilterContextProvider = ({
+  children,
+}: FilterContextProviderProps) => {
+  const [status, setStatus] = useState<Status | null>(null);
+  const [level, setLevel] = useState<Level | null>(null);
+  const [projectName, setProjectName] = useState<string | null>(null);
+
+  return (
+    <FilterActionContext.Provider
+      value={{ setStatus, setLevel, setProjectName }}
+    >
+      <FilterContext.Provider value={{ status, level, projectName }}>
+        {children}
+      </FilterContext.Provider>
+    </FilterActionContext.Provider>
+  );
+};
+```
+
+Multiple states are defined to represent the filter values, the two `context` created are:
+
+- `FilterActionContext`, used to hold the dispatch functions.
+- `FilterContext`, used to hold the current filter values.
+
+By seperating our dispatch functions from the state value, we ensure that only the object containing the state values is recreated for the context on a re-render, just a general practice I picked up from [Steve Kinney's React Performance course on FrontendMasters](https://frontendmasters.com/courses/react-performance/).
+
+Instead of having to import the context and the `useContext` hook into every component that needs the filter values, the `useFilter` hook was created in the same file to extract the context values and return them from the hook. So now only one import and hook was needed to access the values. See the hook below:
+
+```tsx
+export const useFilter = () => {
+  const filter = useContext(FilterContext);
+  const filterActions = useContext(FilterActionContext);
+
+  return { ...filter, ...filterActions };
+};
+```
+
+With the context setup, I needed to wrap the set of components with the Provider. I decided to wrap it around the entire `/dashboard/issue/` page in the [issues.tsx component](https://github.com/profydev/prolog-app-JorgeAMendoza/blob/c0e6a5e3122275246928de32696d913e167ee658/pages/dashboard/issues.tsx#L1). Since each filter change would re-render the page anyway, we aren't unnecessarily re-rendering the entire page on a filter state change.
+
+The [Filter.tsx component](https://github.com/profydev/prolog-app-JorgeAMendoza/blob/main/features/issues/components/filter/filter.tsx) holds the `select` and `input` elements that will handle the filter state changes. Each of these form elements contain their own state to keep track of the intermediate status of the filter value. So while a user is toggling or typing into the input, the request is not fired until a definitive change is made, or the user hits the `Enter` key within the form.
+
+Let's review one of the `select` elements"
+
+```tsx
+<div className={styles.filterSelect}>
+  <Select
+    options={StatusOptions}
+    action={(option) => {
+      navigateToPage(1, option as Status, level, projectName);
+    }}
+    ariaText="Filter status by 'unresolved' or 'resolved'"
+    groupName="issueStatusFilter"
+    placeholder="State"
+    hasEmpty={true}
+    value={status}
+  />
+</div>
+```
+
+Note that like `Button.tsx`, a custom `select` component was created for the application. It takes in various options like the HTML `select` element, but since it required very custom styling, its built using a group of `radio` input elemenets. (could be its own section discussing this).
+
+Within the `Select.tsx` component, when a filter value is definitively chosen and the selected option differs from the previously selected value, the `action` function passed into the `Select` will fire. In the snippet above, `Select` hanldes the _Status_ options and takes in the list of status values. So when action is fired, the `option` arg refers to the selected _Status_ option, and fires the page navigation. All of the `navigateToPage` functions passed into the `Select` components will have the page arg set to one, with every other arg dependent on the `Select` component it was passed into.
+
+An improvement I could have made lies in [name state](https://github.com/profydev/prolog-app-JorgeAMendoza/blob/c0e6a5e3122275246928de32696d913e167ee658/features/issues/components/filter/filter.tsx#L31). Compared to `Select`, this state lies outside the component itself, and relies on the `useEffect` to update the state on a page refresh. This is a issue that has more to do with the implementation of the `Input` component rather than the filter itself.
+
+With this `Filter` component in place, the application now allows users to browse through project issues based on various categories. In the event that the filter request returns no results, the [NoIssues.tsx component](https://github.com/profydev/prolog-app-JorgeAMendoza/blob/main/features/issues/components/no-issues/NoIssues.tsx) renders a message stating no issues were found, and displays a button that resets the filter state and returns to the first page of the `/issues/dashboard` route.
+
+#### Task Conclusion
+
+This was the most difficult task to complete in the course, it required me to investage the full implemetation of the `/dashboard/issues` route and implement the filter feature with the already existing fetch logic. To efficiently faciliate the filter state between all components, React context was used to provide the state data into the children components, with the `useFilter` hook used to extract the data from the context in a more organized manner.
+
+When working on tasks, I try to implement as many best practices as possible while trying to complete the it in a reasonable time-frame. In my opinion I more time on this tasks that I expected, but I believe the experiece I gained will have a positive impact on future applications I work on, whehter it be personal or in the workforce.
+
+## Conclusion
+
+Before starting the _React Job Simulator Course_, I had experience with React but didn't know how to apply it in a professional setting. My month and a half with the course gave me valuable experience that improved my React skills, refined my software troubleshooting skills, and gave me a better understanding on how to properly plan out and implement software features in a project of larger scale.
+
+Though I've completed almost all the tasks that were provided, I plan to return to the application to make some changes I believe could improve the product. Thank you `Profy.dev` for creating the course and giving me valuable experience. I expect these skils to translate well into my first software engineering job!
+
+If you see any areas of improvements to the application that could be made, please feel free to open a pull request!

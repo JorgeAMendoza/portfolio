@@ -2,7 +2,7 @@
   {
     "id": "fullstack-ent",
     "name": "Fullstack Entertainment App",
-    "description": "A fullstack application that allows users to login, view various movies and tv shows, and add them to a bookmarked list to watch later. Users are verified using JWT tokens that are passed through the GraphQL server. Client-side routing is handled with the react-router library",
+    "description": "Developed a full-stack web application built with React, MongoDB, and GraphQL that features content browsing, content bookmarking, a responsive interface, and secure user authentication. Users are verified using JWT tokens that are passed through the GraphQL server. Client-side routing is handled with the react-router library.",
     "video": {
       "mp4": "/project-images/ent-app/ent-app.mp4",
       "webm": "/project-images/ent-app/ent-app.webm",
@@ -17,37 +17,47 @@
       "node-js",
       "styled-components",
       "cypress",
-      "react-router"
+      "react-router",
+      "vite"
     ]
   },
   {
     "id": "markdown-editor",
     "name": "Markdown Editor",
-    "description": "A single-page web application where users can edit and create markdown files.Users can edit the markdown text and preview the rendered markdown in real-time on the same page. Markdown text is stored using the LocalStorage API and application state is handled by the Redux/Toolkit library.",
+    "description": "Developed a Markdown editor that incorporates real-time rendering of markdown content while editing, enables saving of markdown data, and provides seamless switching between markdown documents. Markdown text is stored using the LocalStorage API and application state is handled by the Redux/Toolkit library.",
     "video": {
       "mp4": "/project-images/markdown-app/markdown.mp4",
       "webm": "/project-images/markdown-app/markdown.webm",
       "poster": "/project-images/markdown-app/poster.webp"
     },
     "projectPage": "/project/markdown-editor",
-    "tools": ["react", "typescript", "redux", "cypress", "styled-components"]
-  },
-  {
-    "id": "weather-app",
-    "name": "Weather App",
-    "description": "A single-page weather application where users can search for a city and get the current weather and the five-day forecast. The application uses the OpenWeatherMap API to fetch weather data and the fetching state is handled by the react-query library.",
-    "video": {
-      "mp4": "/project-images/weather-app/weather.mp4",
-      "webm": "/project-images/weather-app/weather.webm",
-      "poster": "/project-images/weather-app/poster.webp"
-    },
-    "projectPage": "/project/weather-app",
     "tools": [
       "react",
       "typescript",
-      "react-query",
+      "redux",
+      "cypress",
       "styled-components",
-      "cypress"
+      "vite"
+    ]
+  },
+  {
+    "id": "prolog-app",
+    "name": "Prolog Application",
+    "description": "As part of an online course, implemented various features and bug fixes for an online service built with Next JS that logged errors and monitored the status of deployed web applications. Created reusable UI components with Storybook and implemented new features whose functionality was verified with Cypress. ",
+    "video": {
+      "mp4": "/project-images/prolog/prolog.mp4",
+      "webm": "/project-images/prolog/prolog.webm",
+      "poster": "/project-images/prolog/poster.webp"
+    },
+    "projectPage": "/project/prolog-app",
+    "tools": [
+      "nextJS",
+      "react",
+      "typescript",
+      "react-query",
+      "SCSS",
+      "cypress",
+      "storybook"
     ]
   }
 ]

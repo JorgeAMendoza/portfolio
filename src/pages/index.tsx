@@ -88,7 +88,7 @@ export default function Home({
               <div
                 className={`${sourceSansPro.className} ${styles.headerTitle}`}
               >
-                <p className={styles.headerIntro}>Welcome! 🙋🏽‍♂️ My name is...</p>
+                <p className={styles.headerIntro}>Welcome! 🐕 My name is...</p>
                 <h1 className={styles.headerTitleText}>
                   Jorge A. Mendoza
                   <span className={styles.headerSubtitle}>
@@ -125,11 +125,10 @@ export default function Home({
                 </div>
 
                 <p className={styles.headerDescription}>
-                  A Front-End Software Engineer who focuses on creating
-                  accessible and performant user experiences on the web. With a
-                  fine eye for detail and a passion for learning, I am always
-                  searching for ways to improve the quality of the web for all
-                  users.
+                  A front-end software engineer focused on crafting accessible
+                  and performant experiences on the web. With a keen eye for
+                  detail and a passion for learning, I am always searching for
+                  ways to improve the quality of the web for everyone.
                 </p>
               </div>
 
@@ -174,12 +173,13 @@ export default function Home({
                   My Story
                 </h3>
                 <p>
-                  A <em>Front-end Developer</em> looking for opportunities to
-                  learn and grow. In my senior year of college I took an
-                  introduction to web-development course, and since then I have
-                  continued to learn about the latest advances in the
-                  web-development environment and improve my skills as a
-                  developer.
+                  A <em>Front-end Developer</em> looking for a new role and
+                  opportunities. In my senior year of college I took an
+                  <em>introduction to web-development course</em>, and
+                  post-graduation, have continued to improve my skills in
+                  front-end/UI engineering by learning about the latest
+                  advancements in web development, building applications, and
+                  reviewing best practices.
                 </p>
                 <p>
                   I have used <em>React, TypeScript, Styled-Components</em> and
@@ -187,14 +187,15 @@ export default function Home({
                   <em>responsive, performant, and accessible</em>. From
                   developing password generators to full-stack applications with
                   authentication and integration testing, I have a set of skills
-                  that allow me to plan, test, and create user interfaces.
+                  that allow me to plan, test, and efficiently create user
+                  interfaces.
                 </p>
                 <p>
                   I am currently open to job opportunities where I can
-                  <em> contribute, learn, and grow</em> as a software developer
-                  and as a person. If you believe that I am a developer that
-                  will mesh well with your team and goals, please feel free to
-                  contact me!
+                  <em> contribute, learn, and grow</em> as not just a software
+                  developer, but a person as well. If you believe that I am the
+                  developer that will mesh well with your team and goals, please
+                  feel free to <a href="#contact-me">get in touch!</a>
                 </p>
               </div>
               <div>
@@ -217,7 +218,7 @@ export default function Home({
                     />
                   </li>
                   <li className={styles.skillsTab}>
-                    CSS
+                    CSS3
                     <Image
                       src="/icons/css-icon.svg"
                       alt="CSS Icon"
@@ -344,7 +345,11 @@ export default function Home({
         </Section>
 
         <Section threshold={[0.25, 0.13]}>
-          <section id="other-projects" className={styles.sectionContainer} aria-label='Other projects created by Jorge A. Mendoza'>
+          <section
+            id="other-projects"
+            className={styles.sectionContainer}
+            aria-label="Other projects created by Jorge A. Mendoza"
+          >
             <div className={styles.titleContainer}>
               <h2
                 className={`${sourceSansPro.className} ${styles.projectsTitle}`}
@@ -362,7 +367,11 @@ export default function Home({
         </Section>
 
         <Section threshold={[0.35]}>
-          <section id="contact-me" className={styles.sectionContainer} aria-label='Information about getting in Contact with Jorge A. Mendoza'>
+          <section
+            id="contact-me"
+            className={styles.sectionContainer}
+            aria-label="Information about getting in Contact with Jorge A. Mendoza"
+          >
             <div className={styles.contactContent}>
               <div>
                 <div

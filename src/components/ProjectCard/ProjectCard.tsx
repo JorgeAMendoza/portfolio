@@ -24,15 +24,19 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
       <div className={styles.projectCard}>
         <div className={styles.projectTitle}>
           <h3>
-            <a
-              href={project.demoLink}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={`link to the live demo of the ${project.name} project`}
-              id={`${project.id}-name`}
-            >
-              {project.name}
-            </a>
+            {project.demoLink ? (
+              <a
+                href={project.demoLink}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`link to the live demo of the ${project.name} project`}
+                id={`${project.id}-name`}
+              >
+                {project.name}
+              </a>
+            ) : (
+              <>{project.name}</>
+            )}
           </h3>
           <div className={styles.projectLinks}>
             <span>

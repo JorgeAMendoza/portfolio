@@ -35,7 +35,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                 {project.name}
               </a>
             ) : (
-              <>{project.name}</>
+              <span id={`${project.id}-name`}>{project.name}</span>
             )}
           </h3>
           <div className={styles.projectLinks}>
